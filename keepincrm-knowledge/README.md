@@ -25,6 +25,7 @@
 | [13-settings.md](13-settings.md) | Налаштування системи |
 | [14-sources.md](14-sources.md) | Джерела лідів та відеоматеріали |
 | [15-changelog.md](15-changelog.md) | Офіційний changelog (Telegram-канал, 2021–2026) |
+| [16-technical-guide.md](16-technical-guide.md) | Технічний посібник для інтеграторів (Gemini Deep Research) |
 
 ---
 

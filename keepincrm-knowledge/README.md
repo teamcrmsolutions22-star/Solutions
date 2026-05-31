@@ -26,6 +26,8 @@
 | [14-sources.md](14-sources.md) | Джерела лідів та відеоматеріали |
 | [15-changelog.md](15-changelog.md) | Офіційний changelog (Telegram-канал, 2021–2026) |
 | [16-technical-guide.md](16-technical-guide.md) | Технічний посібник для інтеграторів (Gemini Deep Research) |
+| [17-technical-guide-chatgpt.md](17-technical-guide-chatgpt.md) | Технічний посібник для інтеграторів (ChatGPT Deep Research) |
+| [18-deepresearch-comparison.md](18-deepresearch-comparison.md) | Порівняння: Gemini vs ChatGPT Deep Research |
 
 ---
 

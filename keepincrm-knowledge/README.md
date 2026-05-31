@@ -24,6 +24,7 @@
 | [12-analytics.md](12-analytics.md) | Аналітика та звіти |
 | [13-settings.md](13-settings.md) | Налаштування системи |
 | [14-sources.md](14-sources.md) | Джерела лідів та відеоматеріали |
+| [15-changelog.md](15-changelog.md) | Офіційний changelog (Telegram-канал, 2021–2026) |
 
 ---
 
@@ -37,4 +38,4 @@
 
 ---
 
-*База знань оновлена: 2026-05-31*
+*База знань оновлена: 2026-05-31 (додано changelog з Telegram)*

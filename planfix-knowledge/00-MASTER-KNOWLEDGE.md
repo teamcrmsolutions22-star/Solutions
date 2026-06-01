@@ -22,6 +22,7 @@
 | [11-use-cases.md](11-use-cases.md) | Кейси по галузях, сценарій демо для клієнта |
 | [12-debug-errors.md](12-debug-errors.md) | Дебаг, типові помилки, підводні камені |
 | [13-quick-reference.md](13-quick-reference.md) | Quick Reference для інтегратора, невизначеності |
+| [14-chatgpt-deepresearch.md](14-chatgpt-deepresearch.md) | ChatGPT Deep Research: Objects, нові тарифи, AI-агенти, інфраструктура |
 
 ---
 
@@ -33,12 +34,15 @@
 - **Аудиторія:** SMB та Enterprise, міжнародна (підтримка багатьох мов)
 - **Домени:** planfix.com, planfix.ua, planfix.ru; академія: academy-ua.planfix.com
 
-### Тарифи
-| Тариф | Ціна | REST API |
-|-------|------|---------|
-| Free | $0 | ❌ заблоковано (помилка 21) |
-| Professional | від $35/міс | ✅ 20k–100k запитів/добу |
-| Enterprise | за запитом | ✅ до 100k + виділена черга |
+### Тарифи (актуальні назви, ChatGPT Deep Research 2026-06)
+| Тариф | Ціна (USD/рік) | REST API | Сховище |
+|-------|---------------|---------|---------|
+| Free | $0 | ❌ (помилка 21) | 1 ГБ / до 5 users / 500 задач |
+| Plan A | $8/user/міс | ✅ 20k/добу | 1 ГБ/user |
+| Plan B | $18/user/міс | ✅ 50k/добу | 2 ГБ/user |
+| Plan X | $28/user/міс | ✅ 100k/добу | 5 ГБ/user |
+
+Додатково: зовнішні користувачі $10/5 осіб, свій домен $290/міс, AI-кредити $5/1000
 
 ### API (критично для інтеграторів)
 - **Тип:** REST API v2.0 (OpenAPI 3.0, v1.5.7) + застарілий XML-RPC

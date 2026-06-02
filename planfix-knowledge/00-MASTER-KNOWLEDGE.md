@@ -23,6 +23,15 @@
 | [12-debug-errors.md](12-debug-errors.md) | Дебаг, типові помилки, підводні камені |
 | [13-quick-reference.md](13-quick-reference.md) | Quick Reference для інтегратора, невизначеності |
 | [14-chatgpt-deepresearch.md](14-chatgpt-deepresearch.md) | ChatGPT Deep Research: Objects, нові тарифи, AI-агенти, інфраструктура |
+| [15-objects-templates.md](15-objects-templates.md) | Objects vs Шаблони, 7 режимів виконавців, набори статусів, фільтри, Ганта |
+| [16-scenarios-buttons.md](16-scenarios-buttons.md) | Сценарії: всі тригери, умови, %%%змінні%%%, IF/ELSE, дії, кнопки, відлагодження |
+| [17-planners-filters.md](17-planners-filters.md) | Всі типи планувальників, 12 причин зникнення задач, Ганта, iCal/Google Calendar |
+| [18-custom-fields.md](18-custom-fields.md) | Всі 26 типів полів: деталі, обмеження, доступність по об'єктах |
+| [19-contacts-handbooks.md](19-contacts-handbooks.md) | Контакти (базовий/розширений доступ), довідники, швидкі відповіді |
+| [20-reports-analytics.md](20-reports-analytics.md) | Звіти (типи, агрегації, графіки, розклад), Аналітики (структура, доступ) |
+| [21-email-integration.md](21-email-integration.md) | 4 типи email-адрес, правила обробки, пріоритет підпису, трекінг |
+| [22-gotchas-tips.md](22-gotchas-tips.md) | Топ-10 підводних каменів, типові помилки, про-поради, обмеження продуктивності |
+| [source-files/](source-files/) | ~252 оригінальні транскрипти відео YouTube-каналу Planfix |
 
 ---
 

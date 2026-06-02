@@ -31,6 +31,8 @@
 | [20-reports-analytics.md](20-reports-analytics.md) | Звіти (типи, агрегації, графіки, розклад), Аналітики (структура, доступ) |
 | [21-email-integration.md](21-email-integration.md) | 4 типи email-адрес, правила обробки, пріоритет підпису, трекінг |
 | [22-gotchas-tips.md](22-gotchas-tips.md) | Топ-10 підводних каменів, типові помилки, про-поради, обмеження продуктивності |
+| [23-changelog-updates.md](23-changelog-updates.md) | Changelog оновлень жовтень 2024 — травень 2026 (з Telegram-каналу) |
+| [24-employees-structure.md](24-employees-structure.md) | Ролі в акаунті/задачах, структура компанії, групи, деактивація, мобільний |
 | [source-files/](source-files/) | ~252 оригінальні транскрипти відео YouTube-каналу Planfix |
 
 ---

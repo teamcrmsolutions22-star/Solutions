@@ -41,6 +41,8 @@
 | Отчёты, аналитики, графики, расписание | `planfix-knowledge/20-reports-analytics.md` |
 | Email-интеграция, правила обработки почты | `planfix-knowledge/21-email-integration.md` |
 | Подводные камни, типичные ошибки, про-советы | `planfix-knowledge/22-gotchas-tips.md` |
+| Changelog обновлений (октябрь 2024 — май 2026) | `planfix-knowledge/23-changelog-updates.md` |
+| Роли сотрудников, структура компании, группы | `planfix-knowledge/24-employees-structure.md` |
 | Общие ключевые факты, коды ошибок API | `planfix-knowledge/00-MASTER-KNOWLEDGE.md` |
 
 ### Карта тем → файлов: KEEPINCRM
@@ -147,6 +149,8 @@
 - `20-reports-analytics.md` — Отчёты (типы, агрегации, графики, расписание), Аналитики
 - `21-email-integration.md` — 4 типа email-адресов, правила обработки, приоритет подписи, трекинг
 - `22-gotchas-tips.md` — Топ-10 подводных камней, типичные ошибки, про-советы
+- `23-changelog-updates.md` — Changelog обновлений октябрь 2024 — май 2026 (из Telegram-канала)
+- `24-employees-structure.md` — Роли в аккаунте/задачах, структура компании, группы, деактивация, мобильный
 - `source-files/` — ~252 оригинальных транскрипта видео YouTube-канала Planfix
 
 ## Репозиторий

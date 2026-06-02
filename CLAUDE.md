@@ -7,9 +7,54 @@
 ---
 
 > 💡 **Подсказка:** В этом репозитории есть базы знаний по CRM-системам.
-> Чтобы я работал как эксперт по нужной CRM — напиши:
-> - По **KeepinCRM:** *"Прочитай keepincrm-knowledge/ и отвечай как база знаний"*
-> - По **Planfix:** *"Прочитай planfix-knowledge/ и отвечай как база знаний"*
+> Чтобы я работал как эксперт по нужной CRM — напиши название CRM и свой вопрос.
+> Например: *"Planfix: как настроить сценарий?"* или *"KeepinCRM: как работает API?"*
+
+---
+
+## Инструкция: КАК ЧИТАТЬ базы знаний (экономия токенов)
+
+**ВАЖНО:** Никогда не читай всю папку целиком. Определи тему вопроса и читай ТОЛЬКО нужные файлы из карты ниже.
+
+### Карта тем → файлов: PLANFIX
+
+| Тема вопроса | Читать файл(ы) |
+|-------------|---------------|
+| Тарифы, обзор платформы, сравнение | `planfix-knowledge/01-overview.md` |
+| Настройка без кода, воронки, права | `planfix-knowledge/02-no-code-setup.md` |
+| Objects, архитектура, модель данных | `planfix-knowledge/03-architecture-data-model.md` + `planfix-knowledge/15-objects-templates.md` |
+| REST API, эндпоинты, авторизация, rate limits | `planfix-knowledge/04-rest-api.md` |
+| Вебхуки входящие/исходящие | `planfix-knowledge/05-webhooks.md` |
+| AI-функции, Planfix AI, OpenAI | `planfix-knowledge/06-ai-features.md` |
+| Виджеты, iFrame, вычисляемые поля | `planfix-knowledge/07-widgets-customization.md` |
+| Автоматизация (общее), тригеры, планировщик | `planfix-knowledge/08-automation.md` |
+| Сценарии, кнопки, IF/ELSE, переменные, отладка | `planfix-knowledge/16-scenarios-buttons.md` |
+| Интеграции: мессенджеры, телефония, Zapier, 1С | `planfix-knowledge/09-integrations.md` |
+| Импорт, экспорт, миграция из Bitrix/amoCRM | `planfix-knowledge/10-import-export.md` |
+| Кейсы по отраслям, демо для клиента | `planfix-knowledge/11-use-cases.md` |
+| Ошибки, HTTP коды, дебаг, токены | `planfix-knowledge/12-debug-errors.md` |
+| Быстрый справочник для интегратора | `planfix-knowledge/13-quick-reference.md` |
+| Objects vs Шаблоны, статусы, Ганта, фильтры | `planfix-knowledge/15-objects-templates.md` |
+| Планировщики, виды задач, 12 причин исчезновения | `planfix-knowledge/17-planners-filters.md` |
+| Кастомные поля (все 26 типов) | `planfix-knowledge/18-custom-fields.md` |
+| Контакты, справочники, быстрые ответы | `planfix-knowledge/19-contacts-handbooks.md` |
+| Отчёты, аналитики, графики, расписание | `planfix-knowledge/20-reports-analytics.md` |
+| Email-интеграция, правила обработки почты | `planfix-knowledge/21-email-integration.md` |
+| Подводные камни, типичные ошибки, про-советы | `planfix-knowledge/22-gotchas-tips.md` |
+| Общие ключевые факты, коды ошибок API | `planfix-knowledge/00-MASTER-KNOWLEDGE.md` |
+
+### Карта тем → файлов: KEEPINCRM
+
+| Тема вопроса | Читать файл(ы) |
+|-------------|---------------|
+| Обзор, тарифы, возможности | `keepincrm-knowledge/00-MASTER-KNOWLEDGE.md` |
+| API, вебхуки, интеграции | Читай `keepincrm-knowledge/00-MASTER-KNOWLEDGE.md` → найди нужный раздел → при необходимости читай конкретный файл `01-14` |
+| Автоматизация, настройки | Аналогично через `00-MASTER-KNOWLEDGE.md` |
+| История обновлений | `keepincrm-knowledge/15-changelog.md` |
+| Технический гайд | `keepincrm-knowledge/16-technical-guide.md` или `17-technical-guide-chatgpt.md` |
+
+### Правило для неопределённых тем
+Если тема не ясна → сначала читай `00-MASTER-KNOWLEDGE.md` нужной CRM (там сводка + оглавление), затем дочитывай только нужный файл.
 
 ---
 
@@ -57,4 +102,4 @@
 ## Репозиторий
 
 `teamcrmsolutions22-star/Solutions`  
-Ветка для разработки: `claude/compassionate-carson-JIYea`
+Ветка для разработки: `claude/epic-hawking-fwgQt`

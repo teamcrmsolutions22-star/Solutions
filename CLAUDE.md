@@ -30,7 +30,7 @@ Blueprint, Canvas, Kiosk, Wizard, Cadence, CommandCenter, Gamescope, Sandbox, а
 KeepinCRM, Keepin, X-Auth-Token, counterparty, agreement, Ransack, KeepIn
 
 ### → читай `pipedrive-knowledge/01-overview-pricing.md`
-Pipedrive, pipeline, воронка продажів Pipedrive, тарифи Pipedrive, Essential, Advanced, Professional, Power, Enterprise, Kanban CRM, Activity-based selling, Leadbooster, конкурент HubSpot, порівняння CRM, впровадження Pipedrive
+Pipedrive, pipeline, воронка продажів Pipedrive, тарифи Pipedrive, Essential, Advanced, Professional, Power, Enterprise, Lite, Growth, Premium, Ultimate, Kanban CRM, Activity-based selling, Leadbooster, конкурент HubSpot, порівняння CRM, впровадження Pipedrive, Pulse, ціна Pipedrive, плани Pipedrive
 
 ### → читай `pipedrive-knowledge/02-admin-setup.md`
 Pipedrive налаштування, Pipedrive Deal, Stage, Activity, автоматизація Pipedrive, workflow automation Pipedrive, email sequences Pipedrive, права доступу Pipedrive, visibility groups, Insights dashboard, кастомні поля Pipedrive (адмін)
@@ -54,7 +54,7 @@ Pipedrive інтеграції, Gmail Pipedrive, Outlook Pipedrive, Smart Docs P
 міграція Pipedrive, імпорт Pipedrive, експорт Pipedrive, перенос даних Pipedrive
 
 ### → читай `pipedrive-knowledge/09-changelog-debug.md`
-Pipedrive оновлення, changelog Pipedrive, дебаг Pipedrive, помилки Pipedrive, 401 403 Pipedrive, webhooks deprecation
+Pipedrive оновлення, changelog Pipedrive, дебаг Pipedrive, помилки Pipedrive, 401 403 Pipedrive, webhooks deprecation, API v2 міграція, ребрендинг планів Pipedrive 2025
 
 ## Якщо тема не ясна
 Задай 1 уточнююче питання перед тим як читати файл.

@@ -1,6 +1,6 @@
 # Інструкція для Claude
 
-Ти — асистент CRM-консалтингової команди. Спеціалізація: Zoho CRM, KeepinCRM, Pipedrive, Perfectum CRM+ERP, Kommo, Odoo, NetHunt.
+Ти — асистент CRM-консалтингової команди. Спеціалізація: Zoho CRM, KeepinCRM, Pipedrive, Perfectum CRM+ERP, Kommo, Odoo, NetHunt, Uspacy.
 
 ## Правило роботи
 
@@ -85,6 +85,18 @@ Odoo закупівлі, Odoo Purchase, Odoo Project, Odoo проект, Odoo з
 
 ### → читай `knowledge-base/odoo-misc-videos.md`
 Odoo різне, Odoo загальне, Odoo налаштування системи, Odoo адміністрування
+
+### → читай `uspacy-knowledge/01-overview-pricing.md`
+Uspacy, успейсі, Uspacy CRM, Uspacy тариф, Uspacy ціна, Uspacy план, впровадження Uspacy, Uspacy огляд, Uspacy можливості
+
+### → читай `uspacy-knowledge/02-admin-setup.md`
+Uspacy налаштування, Uspacy воронка, Uspacy кастомні поля, Uspacy права доступу, Uspacy автоматизація, Uspacy адмін
+
+### → читай `uspacy-knowledge/03-integrations.md`
+Uspacy інтеграції, Uspacy підключити, Uspacy Zapier, Uspacy телефонія, Uspacy месенджери, Uspacy пошта
+
+### → читай `uspacy-knowledge/04-api-webhooks.md`
+Uspacy API, Uspacy webhook, Uspacy токен, Uspacy endpoint, Uspacy розробник, Uspacy інтеграція через код
 
 ### → читай `nethunt/overview.md`
 NetHunt, нетхант, NetHunt CRM, NetHunt Gmail, NetHunt Google Workspace, NetHunt тариф, NetHunt ціна, NetHunt налаштування, NetHunt воронка

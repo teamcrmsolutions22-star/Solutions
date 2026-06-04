@@ -1,6 +1,6 @@
 # Knowledge Base — CRM Consulting Team
 
-Built from: 470+ Zoho YouTube transcripts, Zoho CRM API v8 Deep Research, KeepinCRM Technical Reference, Ukrainian Zoho CRM Reference (14 blocks), Pipedrive Deep Research (Gemini, 14 blocks).
+Built from: 470+ Zoho YouTube transcripts, Zoho CRM API v8 Deep Research, KeepinCRM Technical Reference, Ukrainian Zoho CRM Reference (14 blocks), Perfectum CRM+ERP Analytical Report (14 blocks, 2026-05-31), Pipedrive Deep Research (Gemini, 14 blocks).
 
 ## Files
 
@@ -9,6 +9,7 @@ Built from: 470+ Zoho YouTube transcripts, Zoho CRM API v8 Deep Research, Keepin
 | `zoho-crm-knowledge-base.md` | Main Zoho CRM reference: Partner Program, ShowTime, Customer Cases, Analytics, SalesIQ, Integrations, Customization, Blueprint, CommandCenter, Zia/AI, Widgets/Deluge, Implementation Guide |
 | `zoho-crm-api-v8.md` | Zoho CRM API v8: OAuth, endpoints, COQL, rate limits, bulk API, webhooks, Deluge timeouts |
 | `keepincrm-reference.md` | KeepinCRM: auth, entities, Ransack filters, webhooks, migration order, code patterns |
+| `perfectum-reference.md` | Perfectum CRM+ERP: versions, pricing (cloud+box), REST API v2.5, webhooks, AI features, integrations (Nova Poshta, marketplaces, messengers, payments), automations, custom fields, import/export, debug, known unknowns |
 
 ## Pipedrive Knowledge Base (`../pipedrive-knowledge/`)
 

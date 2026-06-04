@@ -6,111 +6,111 @@
 
 Перед кожною відповіддю:
 1. Визнач тему питання за ключовими словами нижче
-2. Прочитай ТІЛЬКИ відповідний файл з `knowledge-base/`
+2. Прочитай ТІЛЬКИ відповідний файл згідно маршруту нижче
 3. Дай точну відповідь або задай уточнюючі питання
 
 ## Маршрутизація по ключових словах
 
-### → читай `knowledge-base/zoho-api.md`
+### → читай `zoho/api.md`
 API, OAuth, токен, token, endpoint, COQL, rate limit, bulk, webhook, Deluge, Widget, SDK, функція, function, JS, код, code, розробник, developer, інтеграція через код, виклик API, авторизація, регіон, data center
 
-### → читай `knowledge-base/zoho-integrations.md`
+### → читай `zoho/integrations.md`
 Books, Campaigns, Desk, Meeting, Survey, Sign, Flow, телефонія, PBX, SMS, PhoneBurner, ClickSend, HubSpot, інтеграція з, підключити, з'єднати, синхронізація, sync
 
-### → читай `knowledge-base/zoho-customization.md`
+### → читай `zoho/customization.md`
 Blueprint, Canvas, Kiosk, Wizard, Cadence, CommandCenter, Gamescope, Sandbox, автоматизація, процес, налаштувати процес, воронка, перехід, stage, кастомізація, кастомне поле, модуль, макет, layout, subform, сегментація, атрибуція
 
-### → читай `knowledge-base/zoho-sales.md`
+### → читай `zoho/sales.md`
 партнер, partner, продажі, продажник, кейс, клієнт, приклад впровадження, Zoho One, ціна, price, ShowTime, тренінг, навчання, selling, переваги, конкурент, презентація
 
-### → читай `knowledge-base/zoho-admin.md`
+### → читай `zoho/admin.md`
 налаштування, ролі, профілі, права доступу, імпорт, дублікати, дані, чистота даних, користувачі, впровадження, implementation, список, view, звіт, report, dashboard, аналітика
 
-### → читай `keepincrm-knowledge/00-MASTER-KNOWLEDGE.md`
+### → читай `keepincrm/00-MASTER-KNOWLEDGE.md`
 KeepinCRM, Keepin, X-Auth-Token, counterparty, agreement, Ransack, KeepIn, KeepIn API, KeepIn webhook, KeepIn автоматизація, KeepIn інтеграція, KeepIn тариф, KeepIn налаштування
 
-### → читай `knowledge-base/perfectum-reference.md`
+### → читай `perfectum/reference.md`
 Perfectum, перфектум, perfectum.ua, Perfectum AI, Perfectum ERP, Perfectum CRM, Perfectum Retail, Perfectum Project, P+, коробкова версія Perfectum, хмара Perfectum
 
-### → читай `knowledge-base/kommo-reference.md`
+### → читай `kommo/reference.md`
 Kommo, комо, amoCRM, amo CRM, amocrm, воронка Kommo, угода Kommo, лід Kommo, контакт Kommo, тарифи Kommo, ціна Kommo, впровадження Kommo, налаштування Kommo, автоматизація Kommo
 
-### → читай `knowledge-base/kommo-api-developer-reference.md`
+### → читай `kommo/api-developer-reference.md`
 Kommo API, Kommo OAuth, Kommo webhook, Kommo токен, Kommo endpoint, Kommo інтеграція через код, Kommo розробник, Kommo SDK, Kommo REST
 
-### → читай `knowledge-base/kommo-support-guide.md`
+### → читай `kommo/support-guide.md`
 Kommo підтримка, Kommo помилка, Kommo налагодження, Kommo дебаг, Kommo проблема, Kommo не працює, Kommo запитання
 
-### → читай `knowledge-base/kommo-blog-catalog.md`
+### → читай `kommo/blog-catalog.md`
 Kommo блог, Kommo кейс, Kommo порада, Kommo приклад, Kommo практика, Kommo сценарій продажів
 
-### → читай `knowledge-base/odoo-reference.md`
+### → читай `odoo/reference.md`
 Odoo, одоо, Odoo CRM, Odoo ERP, Odoo модуль, Odoo тариф, Odoo Community, Odoo Enterprise, Odoo SaaS, Odoo Studio, Odoo автоматизація, Odoo інтеграція, Odoo налаштування, Odoo впровадження, Odoo API, Odoo webhook
 
-### → читай `knowledge-base/odoo-crm-videos.md`
+### → читай `odoo/crm-videos.md`
 Odoo CRM відео, Odoo воронка, Odoo ліди, Odoo pipeline, Odoo угоди
 
-### → читай `knowledge-base/odoo-sales-videos.md`
+### → читай `odoo/sales-videos.md`
 Odoo продажі, Odoo Sales, Odoo прайс-лист, Odoo замовлення, Odoo квота
 
-### → читай `knowledge-base/odoo-inventory-videos.md`
+### → читай `odoo/inventory-videos.md`
 Odoo склад, Odoo Inventory, Odoo запаси, Odoo складський облік
 
-### → читай `knowledge-base/odoo-accounting-videos.md`
+### → читай `odoo/accounting-videos.md`
 Odoo бухгалтерія, Odoo Accounting, Odoo рахунок, Odoo фінанси, Odoo invoice
 
-### → читай `knowledge-base/odoo-hr-videos.md`
+### → читай `odoo/hr-videos.md`
 Odoo HR, Odoo персонал, Odoo співробітники, Odoo відпустка, Odoo рекрутинг
 
-### → читай `knowledge-base/odoo-marketing-voip-events-videos.md`
+### → читай `odoo/marketing-voip-events-videos.md`
 Odoo маркетинг, Odoo Email Marketing, Odoo VoIP, Odoo телефонія, Odoo Events, Odoo заходи
 
-### → читай `knowledge-base/odoo-studio-videos.md`
+### → читай `odoo/studio-videos.md`
 Odoo Studio, Odoo кастомізація, Odoo конструктор форм, Odoo кастомні поля, Odoo custom module
 
-### → читай `knowledge-base/odoo-ai-videos.md`
+### → читай `odoo/ai-videos.md`
 Odoo AI, Odoo штучний інтелект, Odoo автоматизація AI, Odoo Copilot
 
-### → читай `knowledge-base/odoo-ecommerce-website-pos-videos.md`
+### → читай `odoo/ecommerce-website-pos-videos.md`
 Odoo інтернет-магазин, Odoo eCommerce, Odoo Website, Odoo POS, Odoo Point of Sale
 
-### → читай `knowledge-base/odoo-helpdesk-quality-videos.md`
+### → читай `odoo/helpdesk-quality-videos.md`
 Odoo Helpdesk, Odoo підтримка, Odoo тікети, Odoo Quality, Odoo якість
 
-### → читай `knowledge-base/odoo-mrp-videos.md`
+### → читай `odoo/mrp-videos.md`
 Odoo виробництво, Odoo MRP, Odoo Manufacturing, Odoo маршрутний лист
 
-### → читай `knowledge-base/odoo-purchase-project-videos.md`
+### → читай `odoo/purchase-project-videos.md`
 Odoo закупівлі, Odoo Purchase, Odoo Project, Odoo проект, Odoo завдання
 
-### → читай `knowledge-base/odoo-misc-videos.md`
+### → читай `odoo/misc-videos.md`
 Odoo різне, Odoo загальне, Odoo налаштування системи, Odoo адміністрування
 
-### → читай `uspacy-knowledge/01-overview-pricing.md`
+### → читай `uspacy/01-overview-pricing.md`
 Uspacy, успейсі, Uspacy CRM, Uspacy тариф, Uspacy ціна, Uspacy план, впровадження Uspacy, Uspacy огляд, Uspacy можливості
 
-### → читай `uspacy-knowledge/02-admin-setup.md`
+### → читай `uspacy/02-admin-setup.md`
 Uspacy налаштування, Uspacy воронка, Uspacy кастомні поля, Uspacy права доступу, Uspacy автоматизація, Uspacy адмін
 
-### → читай `uspacy-knowledge/03-integrations.md`
+### → читай `uspacy/03-integrations.md`
 Uspacy інтеграції, Uspacy підключити, Uspacy Zapier, Uspacy телефонія, Uspacy месенджери, Uspacy пошта
 
-### → читай `uspacy-knowledge/04-api-webhooks.md`
+### → читай `uspacy/04-api-webhooks.md`
 Uspacy API, Uspacy webhook, Uspacy токен, Uspacy endpoint, Uspacy розробник, Uspacy інтеграція через код
 
-### → читай `keycrm-knowledge/01-overview-pricing.md`
+### → читай `keycrm/01-overview-pricing.md`
 KeyCRM, кейсрм, KeyCRM тариф, KeyCRM ціна, KeyCRM огляд, KeyCRM можливості, KeyCRM впровадження, KeyCRM позиціонування, Андрій Гадай
 
-### → читай `keycrm-knowledge/02-integrations.md`
+### → читай `keycrm/02-integrations.md`
 KeyCRM інтеграції, KeyCRM маркетплейс, KeyCRM Rozetka, KeyCRM Prom, KeyCRM Nova Poshta, KeyCRM LiqPay, KeyCRM телефонія, KeyCRM месенджери, KeyCRM Telegram, KeyCRM підключити
 
-### → читай `keycrm-knowledge/03-api.md`
+### → читай `keycrm/03-api.md`
 KeyCRM API, KeyCRM REST, KeyCRM токен, KeyCRM endpoint, KeyCRM розробник, KeyCRM інтеграція через код, KeyCRM Bearer, openapi.keycrm.app
 
-### → читай `keycrm-knowledge/04-webhooks.md`
+### → читай `keycrm/04-webhooks.md`
 KeyCRM webhook, KeyCRM вебхук, KeyCRM тригер, KeyCRM складський вебхук, KeyCRM автоматизація
 
-### → читай `keycrm-knowledge/05-youtube-catalog.md`
+### → читай `keycrm/05-youtube-catalog.md`
 KeyCRM відео, KeyCRM YouTube, KeyCRM кейс, KeyCRM відгук, KeyCRM воронка, KeyCRM аналітика, KeyCRM поради
 
 ### → читай `nethunt/overview.md`
@@ -134,43 +134,43 @@ NetHunt інтеграції, NetHunt підключити, NetHunt Zapier, NetH
 ### → читай `nethunt/youtube-insights.md`
 NetHunt відео, NetHunt кейс, NetHunt приклад, NetHunt поради, NetHunt демо
 
-### → читай `pipedrive-knowledge/01-overview-pricing.md`
+### → читай `pipedrive/01-overview-pricing.md`
 Pipedrive, pipeline, воронка продажів Pipedrive, тарифи Pipedrive, Essential, Advanced, Professional, Power, Enterprise, Lite, Growth, Premium, Ultimate, Kanban CRM, Activity-based selling, Leadbooster, конкурент HubSpot, порівняння CRM, впровадження Pipedrive, Pulse, ціна Pipedrive, плани Pipedrive
 
-### → читай `pipedrive-knowledge/02-admin-setup.md`
+### → читай `pipedrive/02-admin-setup.md`
 Pipedrive налаштування, Pipedrive Deal, Stage, Activity, автоматизація Pipedrive, workflow automation Pipedrive, email sequences Pipedrive, права доступу Pipedrive, visibility groups, Insights dashboard, кастомні поля Pipedrive (адмін)
 
-### → читай `pipedrive-knowledge/03-data-model.md`
+### → читай `pipedrive/03-data-model.md`
 Pipedrive модель даних, Person Organization Deal, кастомні поля Pipedrive API, dealFields, хеш-код поля Pipedrive, Monetary field, Option field Pipedrive
 
-### → читай `pipedrive-knowledge/04-api.md`
+### → читай `pipedrive/04-api.md`
 Pipedrive API, Pipedrive OAuth, api_token Pipedrive, rate limit Pipedrive, burst limit Pipedrive, 429 Pipedrive, ендпоінти Pipedrive, REST API Pipedrive, scopes Pipedrive, daily budget
 
-### → читай `pipedrive-knowledge/05-webhooks.md`
+### → читай `pipedrive/05-webhooks.md`
 Pipedrive webhook, вебхук Pipedrive, webhooks v2, retry Pipedrive, ban system Pipedrive, підписка на події Pipedrive
 
-### → читай `pipedrive-knowledge/06-ai-extensions.md`
+### → читай `pipedrive/06-ai-extensions.md`
 Pipedrive AI, AI Sales Assistant, Lead Scoring Pipedrive, iframe Pipedrive, Custom Panel Pipedrive, App Extensions SDK, custom UI Pipedrive, розробка Pipedrive, Marketplace Pipedrive
 
-### → читай `pipedrive-knowledge/07-integrations.md`
+### → читай `pipedrive/07-integrations.md`
 Pipedrive інтеграції, Gmail Pipedrive, Outlook Pipedrive, Smart Docs Pipedrive, Campaigns Pipedrive, Zapier Pipedrive, Make Pipedrive, телефонія Pipedrive
 
-### → читай `pipedrive-knowledge/08-migration-import.md`
+### → читай `pipedrive/08-migration-import.md`
 міграція Pipedrive, імпорт Pipedrive, експорт Pipedrive, перенос даних Pipedrive
 
-### → читай `pipedrive-knowledge/09-changelog-debug.md`
+### → читай `pipedrive/09-changelog-debug.md`
 Pipedrive оновлення, changelog Pipedrive, дебаг Pipedrive, помилки Pipedrive, 401 403 Pipedrive, webhooks deprecation, API v2 міграція, ребрендинг планів Pipedrive 2025
 
-### → читай `uspacy-knowledge/01-overview-pricing.md`
+### → читай `uspacy/01-overview-pricing.md`
 Uspacy, юспейсі, uspacy тариф, uspacy ціна, uspacy план, uspacy мобільний
 
-### → читай `uspacy-knowledge/02-admin-setup.md`
+### → читай `uspacy/02-admin-setup.md`
 Uspacy ролі, uspacy RBAC, uspacy права, uspacy Process Builder, uspacy автоматизація, uspacy воронка, uspacy кастомне поле, uspacy Smart Object, uspacy налаштування
 
-### → читай `uspacy-knowledge/03-integrations.md`
+### → читай `uspacy/03-integrations.md`
 Uspacy інтеграція, uspacy Zapier, uspacy Make, uspacy n8n, uspacy телефонія, uspacy Viber, uspacy Telegram, uspacy Prom, uspacy Rozetka, uspacy Nova Poshta, uspacy маркетплейс
 
-### → читай `uspacy-knowledge/04-api-webhooks.md`
+### → читай `uspacy/04-api-webhooks.md`
 Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy REST, uspacy мікросервіс, uspacy код, uspacy розробник
 
 ## Якщо тема не ясна
@@ -196,40 +196,40 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 
 | Тема вопроса | Читать файл(ы) |
 |-------------|---------------|
-| Тарифы, обзор платформы, сравнение | `planfix-knowledge/01-overview.md` |
-| Настройка без кода, воронки, права | `planfix-knowledge/02-no-code-setup.md` |
-| Objects, архитектура, модель данных | `planfix-knowledge/03-architecture-data-model.md` + `planfix-knowledge/15-objects-templates.md` |
-| REST API, эндпоинты, авторизация, rate limits | `planfix-knowledge/04-rest-api.md` |
-| Вебхуки входящие/исходящие | `planfix-knowledge/05-webhooks.md` |
-| AI-функции, Planfix AI, OpenAI | `planfix-knowledge/06-ai-features.md` |
-| Виджеты, iFrame, вычисляемые поля | `planfix-knowledge/07-widgets-customization.md` |
-| Автоматизация (общее), тригеры, планировщик | `planfix-knowledge/08-automation.md` |
-| Сценарии, кнопки, IF/ELSE, переменные, отладка | `planfix-knowledge/16-scenarios-buttons.md` |
-| Интеграции: мессенджеры, телефония, Zapier, 1С | `planfix-knowledge/09-integrations.md` |
-| Импорт, экспорт, миграция из Bitrix/amoCRM | `planfix-knowledge/10-import-export.md` |
-| Кейсы по отраслям, демо для клиента | `planfix-knowledge/11-use-cases.md` |
-| Ошибки, HTTP коды, дебаг, токены | `planfix-knowledge/12-debug-errors.md` |
-| Быстрый справочник для интегратора | `planfix-knowledge/13-quick-reference.md` |
-| Objects vs Шаблоны, статусы, Ганта, фильтры | `planfix-knowledge/15-objects-templates.md` |
-| Планировщики, виды задач, 12 причин исчезновения | `planfix-knowledge/17-planners-filters.md` |
-| Кастомные поля (все 26 типов) | `planfix-knowledge/18-custom-fields.md` |
-| Контакты, справочники, быстрые ответы | `planfix-knowledge/19-contacts-handbooks.md` |
-| Отчёты, аналитики, графики, расписание | `planfix-knowledge/20-reports-analytics.md` |
-| Email-интеграция, правила обработки почты | `planfix-knowledge/21-email-integration.md` |
-| Подводные камни, типичные ошибки, про-советы | `planfix-knowledge/22-gotchas-tips.md` |
-| Changelog обновлений (октябрь 2024 — май 2026) | `planfix-knowledge/23-changelog-updates.md` |
-| Роли сотрудников, структура компании, группы | `planfix-knowledge/24-employees-structure.md` |
-| Общие ключевые факты, коды ошибок API | `planfix-knowledge/00-MASTER-KNOWLEDGE.md` |
+| Тарифы, обзор платформы, сравнение | `planfix/01-overview.md` |
+| Настройка без кода, воронки, права | `planfix/02-no-code-setup.md` |
+| Objects, архитектура, модель данных | `planfix/03-architecture-data-model.md` + `planfix/15-objects-templates.md` |
+| REST API, эндпоинты, авторизация, rate limits | `planfix/04-rest-api.md` |
+| Вебхуки входящие/исходящие | `planfix/05-webhooks.md` |
+| AI-функции, Planfix AI, OpenAI | `planfix/06-ai-features.md` |
+| Виджеты, iFrame, вычисляемые поля | `planfix/07-widgets-customization.md` |
+| Автоматизация (общее), тригеры, планировщик | `planfix/08-automation.md` |
+| Сценарии, кнопки, IF/ELSE, переменные, отладка | `planfix/16-scenarios-buttons.md` |
+| Интеграции: мессенджеры, телефония, Zapier, 1С | `planfix/09-integrations.md` |
+| Импорт, экспорт, миграция из Bitrix/amoCRM | `planfix/10-import-export.md` |
+| Кейсы по отраслям, демо для клиента | `planfix/11-use-cases.md` |
+| Ошибки, HTTP коды, дебаг, токены | `planfix/12-debug-errors.md` |
+| Быстрый справочник для интегратора | `planfix/13-quick-reference.md` |
+| Objects vs Шаблоны, статусы, Ганта, фильтры | `planfix/15-objects-templates.md` |
+| Планировщики, виды задач, 12 причин исчезновения | `planfix/17-planners-filters.md` |
+| Кастомные поля (все 26 типов) | `planfix/18-custom-fields.md` |
+| Контакты, справочники, быстрые ответы | `planfix/19-contacts-handbooks.md` |
+| Отчёты, аналитики, графики, расписание | `planfix/20-reports-analytics.md` |
+| Email-интеграция, правила обработки почты | `planfix/21-email-integration.md` |
+| Подводные камни, типичные ошибки, про-советы | `planfix/22-gotchas-tips.md` |
+| Changelog обновлений (октябрь 2024 — май 2026) | `planfix/23-changelog-updates.md` |
+| Роли сотрудников, структура компании, группы | `planfix/24-employees-structure.md` |
+| Общие ключевые факты, коды ошибок API | `planfix/00-MASTER-KNOWLEDGE.md` |
 
 ### Карта тем → файлов: KEEPINCRM
 
 | Тема вопроса | Читать файл(ы) |
 |-------------|---------------|
-| Обзор, тарифы, возможности | `keepincrm-knowledge/00-MASTER-KNOWLEDGE.md` |
-| API, вебхуки, интеграции | Читай `keepincrm-knowledge/00-MASTER-KNOWLEDGE.md` → найди нужный раздел → при необходимости читай конкретный файл `01-14` |
+| Обзор, тарифы, возможности | `keepincrm/00-MASTER-KNOWLEDGE.md` |
+| API, вебхуки, интеграции | Читай `keepincrm/00-MASTER-KNOWLEDGE.md` → найди нужный раздел → при необходимости читай конкретный файл `01-14` |
 | Автоматизация, настройки | Аналогично через `00-MASTER-KNOWLEDGE.md` |
-| История обновлений | `keepincrm-knowledge/15-changelog.md` |
-| Технический гайд | `keepincrm-knowledge/16-technical-guide.md` или `17-technical-guide-chatgpt.md` |
+| История обновлений | `keepincrm/15-changelog.md` |
+| Технический гайд | `keepincrm/16-technical-guide.md` или `17-technical-guide-chatgpt.md` |
 
 ### Правило для неопределённых тем
 Если тема не ясна → сначала читай `00-MASTER-KNOWLEDGE.md` нужной CRM (там сводка + оглавление), затем дочитывай только нужный файл.
@@ -288,7 +288,7 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 
 ## Базы знаний по CRM
 
-### KeepinCRM → папка `keepincrm-knowledge/`
+### KeepinCRM → папка `keepincrm/`
 
 Содержит:
 - `00-MASTER-KNOWLEDGE.md` — полная сводная база по KeepinCRM
@@ -299,7 +299,7 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 - `18-deepresearch-comparison.md` — сравнение двух Deep Research отчётов
 - `source-files/` — 27 оригинальных транскриптов видео
 
-### Planfix → папка `planfix-knowledge/`
+### Planfix → папка `planfix/`
 
 Содержит:
 - `00-MASTER-KNOWLEDGE.md` — сводная база + ключевые факты + коды ошибок API

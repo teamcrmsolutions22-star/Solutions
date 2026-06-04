@@ -25,6 +25,9 @@ Blueprint, Canvas, Kiosk, Wizard, Cadence, CommandCenter, Gamescope, Sandbox, а
 ### → читай `zoho/sales.md`
 партнер, partner, продажі, продажник, кейс, клієнт, приклад впровадження, Zoho One, ціна, price, ShowTime, тренінг, навчання, selling, переваги, конкурент, презентація
 
+### → читай `zoho/crm-knowledge-base.md`
+Zoho партнерська програма, Zoho Partner Program, Zoho ShowTime, Zoho SalesIQ, Zoho Blueprint, Zoho CommandCenter, Zoho Zia, Zoho AI, Zoho Widgets, Zoho Deluge, Zoho впровадження, Zoho реалізація, Zoho CRM Plus, Zoho нерухомість, Zoho Real Estate, Zoho екосистема
+
 ### → читай `zoho/admin.md`
 налаштування, ролі, профілі, права доступу, імпорт, дублікати, дані, чистота даних, користувачі, впровадження, implementation, список, view, звіт, report, dashboard, аналітика
 

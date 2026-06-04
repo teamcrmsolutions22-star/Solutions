@@ -38,6 +38,12 @@ Kommo, комо, amoCRM, amo CRM, amocrm, воронка Kommo, угода Kommo
 ### → читай `knowledge-base/kommo-api-developer-reference.md`
 Kommo API, Kommo OAuth, Kommo webhook, Kommo токен, Kommo endpoint, Kommo інтеграція через код, Kommo розробник, Kommo SDK, Kommo REST
 
+### → читай `knowledge-base/kommo-support-guide.md`
+Kommo налаштування, Kommo onboarding, Kommo підтримка, Kommo AI Agent, Kommo Copilot налаштування, Kommo воронка, Kommo leads, Kommo контакти, Kommo завдання, Kommo канали, Kommo користувачі, Kommo права, Kommo billing, Kommo тариф змінити, Kommo Salesbot налаштування, Kommo broadcasting
+
+### → читай `knowledge-base/kommo-blog-catalog.md`
+Kommo blog, Kommo кейс, Kommo приклад, Kommo статті, Kommo контент, Kommo WhatsApp tips, Kommo chatbot guide, Kommo salesbot приклад
+
 ### → читай `knowledge-base/odoo-reference.md`
 Odoo, одоо, Odoo CRM, Odoo ERP, Odoo модуль, Odoo тариф, Odoo Community, Odoo Enterprise, Odoo SaaS, Odoo Studio, Odoo автоматизація, Odoo інтеграція, Odoo налаштування, Odoo впровадження, Odoo API, Odoo webhook
 

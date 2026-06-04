@@ -134,6 +134,18 @@ Pipedrive інтеграції, Gmail Pipedrive, Outlook Pipedrive, Smart Docs P
 ### → читай `pipedrive-knowledge/09-changelog-debug.md`
 Pipedrive оновлення, changelog Pipedrive, дебаг Pipedrive, помилки Pipedrive, 401 403 Pipedrive, webhooks deprecation, API v2 міграція, ребрендинг планів Pipedrive 2025
 
+### → читай `uspacy-knowledge/01-overview-pricing.md`
+Uspacy, юспейсі, uspacy тариф, uspacy ціна, uspacy план, uspacy мобільний
+
+### → читай `uspacy-knowledge/02-admin-setup.md`
+Uspacy ролі, uspacy RBAC, uspacy права, uspacy Process Builder, uspacy автоматизація, uspacy воронка, uspacy кастомне поле, uspacy Smart Object, uspacy налаштування
+
+### → читай `uspacy-knowledge/03-integrations.md`
+Uspacy інтеграція, uspacy Zapier, uspacy Make, uspacy n8n, uspacy телефонія, uspacy Viber, uspacy Telegram, uspacy Prom, uspacy Rozetka, uspacy Nova Poshta, uspacy маркетплейс
+
+### → читай `uspacy-knowledge/04-api-webhooks.md`
+Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy REST, uspacy мікросервіс, uspacy код, uspacy розробник
+
 ## Якщо тема не ясна
 Задай 1 уточнююче питання перед тим як читати файл.
 

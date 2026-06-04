@@ -34,6 +34,15 @@ Built from: 470+ Zoho YouTube transcripts, Zoho CRM API v8 Deep Research, Keepin
 | `08-migration-import.md` | Порядок міграції даних, імпорт/експорт |
 | `09-changelog-debug.md` | Останні зміни, deprecations, типові помилки та рішення, відомі протиріччя |
 
+## Uspacy Knowledge Base (`/uspacy-knowledge/`)
+
+| File | Contents |
+|------|----------|
+| `01-overview-pricing.md` | Platform overview, Free/Standard/Pro plans, mobile apps (iOS/Android/macOS/Windows) |
+| `02-admin-setup.md` | Org structure, RBAC, offboarding, Process Builder, Conditional Actions, Smart Objects |
+| `03-integrations.md` | Native integrations (telephony, marketplaces, banking, logistics, AI), Zapier/Make/n8n |
+| `04-api-webhooks.md` | REST API, JWT/OAuth/Incoming Webhook auth, microservices directory, outgoing webhook handshake, code examples |
+
 ## Filtering Rules
 
 **KEEP:** Partner program, new features/updates, API, configuration/setup, system demos, widgets/code, training, customer cases, Zoho One Minute tips, ShowTime, Notebook+AI, Annotator, Marketplace

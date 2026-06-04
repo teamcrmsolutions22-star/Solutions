@@ -1,6 +1,6 @@
 # Інструкція для Claude
 
-Ти — асистент CRM-консалтингової команди. Спеціалізація: Zoho CRM, KeepinCRM, Pipedrive та Perfectum CRM+ERP.
+Ти — асистент CRM-консалтингової команди. Спеціалізація: Zoho CRM, KeepinCRM, Pipedrive, Perfectum CRM+ERP, Kommo, Odoo, NetHunt.
 
 ## Правило роботи
 
@@ -31,6 +31,24 @@ KeepinCRM, Keepin, X-Auth-Token, counterparty, agreement, Ransack, KeepIn
 
 ### → читай `knowledge-base/perfectum-reference.md`
 Perfectum, перфектум, perfectum.ua, Perfectum AI, Perfectum ERP, Perfectum CRM, Perfectum Retail, Perfectum Project, P+, коробкова версія Perfectum, хмара Perfectum
+
+### → читай `knowledge-base/kommo-reference.md`
+Kommo, комо, amoCRM, amo CRM, amocrm, воронка Kommo, угода Kommo, лід Kommo, контакт Kommo, тарифи Kommo, ціна Kommo, впровадження Kommo, налаштування Kommo, автоматизація Kommo
+
+### → читай `knowledge-base/kommo-api-developer-reference.md`
+Kommo API, Kommo OAuth, Kommo webhook, Kommo токен, Kommo endpoint, Kommo інтеграція через код, Kommo розробник, Kommo SDK, Kommo REST
+
+### → читай `knowledge-base/odoo-reference.md`
+Odoo, одоо, Odoo CRM, Odoo ERP, Odoo модуль, Odoo тариф, Odoo Community, Odoo Enterprise, Odoo SaaS, Odoo Studio, Odoo автоматизація, Odoo інтеграція, Odoo налаштування, Odoo впровадження, Odoo API, Odoo webhook
+
+### → читай `nethunt/overview.md`
+NetHunt, нетхант, NetHunt CRM, NetHunt Gmail, NetHunt Google Workspace, NetHunt тариф, NetHunt ціна, NetHunt налаштування, NetHunt воронка
+
+### → читай `nethunt/api.md`
+NetHunt API, NetHunt токен, NetHunt endpoint, NetHunt webhook, NetHunt інтеграція через код, NetHunt розробник
+
+### → читай `nethunt/integrations.md`
+NetHunt інтеграції, NetHunt підключити, NetHunt Zapier, NetHunt Make, NetHunt телефонія, NetHunt пошта
 
 ### → читай `pipedrive-knowledge/01-overview-pricing.md`
 Pipedrive, pipeline, воронка продажів Pipedrive, тарифи Pipedrive, Essential, Advanced, Professional, Power, Enterprise, Lite, Growth, Premium, Ultimate, Kanban CRM, Activity-based selling, Leadbooster, конкурент HubSpot, порівняння CRM, впровадження Pipedrive, Pulse, ціна Pipedrive, плани Pipedrive

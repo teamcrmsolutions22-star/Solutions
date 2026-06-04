@@ -9,6 +9,8 @@
 2. Прочитай ТІЛЬКИ відповідний файл згідно маршруту нижче
 3. Дай точну відповідь або задай уточнюючі питання
 
+⛔ НІКОЛИ не читай папки `source-files/` — це сирі архіви транскриптів, не для відповідей.
+
 ## Маршрутизація по ключових словах
 
 ### → читай `zoho/api.md`
@@ -26,11 +28,65 @@ Blueprint, Canvas, Kiosk, Wizard, Cadence, CommandCenter, Gamescope, Sandbox, а
 ### → читай `zoho/admin.md`
 налаштування, ролі, профілі, права доступу, імпорт, дублікати, дані, чистота даних, користувачі, впровадження, implementation, список, view, звіт, report, dashboard, аналітика
 
-### → читай `keepincrm/00-MASTER-KNOWLEDGE.md`
-KeepinCRM, Keepin, X-Auth-Token, counterparty, agreement, Ransack, KeepIn, KeepIn API, KeepIn webhook, KeepIn автоматизація, KeepIn інтеграція, KeepIn тариф, KeepIn налаштування
+### → читай `keepincrm/01-overview.md`
+KeepinCRM огляд, KeepinCRM тариф, KeepinCRM ціна, KeepinCRM можливості, KeepinCRM дашборд, KeepinCRM порівняння, що таке KeepinCRM
 
-### → читай `perfectum/reference.md`
-Perfectum, перфектум, perfectum.ua, Perfectum AI, Perfectum ERP, Perfectum CRM, Perfectum Retail, Perfectum Project, P+, коробкова версія Perfectum, хмара Perfectum
+### → читай `keepincrm/02-leads-clients.md`
+KeepinCRM ліди, KeepinCRM клієнти, KeepinCRM контрагент, KeepinCRM counterparty, KeepinCRM конвертація ліда
+
+### → читай `keepincrm/03-deals-funnel.md`
+KeepinCRM угоди, KeepinCRM воронка, KeepinCRM pipeline, KeepinCRM замовлення, KeepinCRM статус
+
+### → читай `keepincrm/04-tasks.md`
+KeepinCRM завдання, KeepinCRM задачі, KeepinCRM нагадування, KeepinCRM планування
+
+### → читай `keepincrm/05-finance.md`
+KeepinCRM фінанси, KeepinCRM рахунок, KeepinCRM оплата, KeepinCRM PNL, KeepinCRM cashflow, KeepinCRM документи
+
+### → читай `keepincrm/06-products-warehouse.md`
+KeepinCRM товари, KeepinCRM склад, KeepinCRM залишки, KeepinCRM каталог, KeepinCRM ТТН
+
+### → читай `keepincrm/07-automation.md`
+KeepinCRM автоматизація, KeepinCRM тригер, KeepinCRM trigger, KeepinCRM правило, KeepinCRM Ransack
+
+### → читай `keepincrm/08-api.md`
+KeepinCRM API, KeepinCRM X-Auth-Token, KeepinCRM endpoint, KeepinCRM REST, KeepinCRM розробник, KeepinCRM інтеграція через код
+
+### → читай `keepincrm/09-webhooks.md`
+KeepinCRM webhook, KeepinCRM вебхук, KeepinCRM підписка на події
+
+### → читай `keepincrm/10-integrations.md`
+KeepinCRM інтеграції, KeepinCRM підключити, KeepinCRM Rozetka, KeepinCRM Prom, KeepinCRM Nova Poshta, KeepinCRM monobank
+
+### → читай `keepincrm/11-chats-messengers.md`
+KeepinCRM чати, KeepinCRM месенджери, KeepinCRM Instagram, KeepinCRM Telegram, KeepinCRM Viber, KeepinCRM WhatsApp
+
+### → читай `keepincrm/12-analytics.md`
+KeepinCRM аналітика, KeepinCRM звіти, KeepinCRM статистика, KeepinCRM дашборд аналітика
+
+### → читай `keepincrm/13-settings.md`
+KeepinCRM налаштування, KeepinCRM права доступу, KeepinCRM ролі, KeepinCRM користувачі
+
+### → читай `keepincrm/15-changelog.md`
+KeepinCRM оновлення, KeepinCRM changelog, KeepinCRM нові функції, KeepinCRM версія
+
+### → читай `keepincrm/16-technical-guide.md`
+KeepinCRM технічний гайд, KeepinCRM agreement, KeepinCRM міграція, KeepinCRM порядок імпорту
+
+### → читай `perfectum/01-overview-pricing.md`
+Perfectum, перфектум, perfectum.ua, Perfectum тариф, Perfectum ціна, Perfectum ERP, Perfectum CRM, Perfectum Retail, Perfectum Project, P+, коробкова версія Perfectum, хмара Perfectum, Perfectum огляд
+
+### → читай `perfectum/02-api.md`
+Perfectum API, Perfectum REST, Perfectum endpoint, Perfectum токен, Perfectum розробник, Perfectum інтеграція через код, Perfectum rate limit
+
+### → читай `perfectum/03-webhooks-automation.md`
+Perfectum webhook, Perfectum вебхук, Perfectum автоматизація, Perfectum тригер, Perfectum бізнес-процес, Perfectum BPMN, Perfectum Cron, Perfectum кастомні поля
+
+### → читай `perfectum/04-integrations.md`
+Perfectum інтеграції, Perfectum Nova Poshta, Perfectum Rozetka, Perfectum LiqPay, Perfectum месенджери, Perfectum телефонія, Perfectum AI, Perfectum Zoom, Perfectum підключити
+
+### → читай `perfectum/05-debug-import.md`
+Perfectum помилка, Perfectum дебаг, Perfectum 429, Perfectum імпорт, Perfectum міграція, Perfectum не працює, Perfectum журнал
 
 ### → читай `kommo/reference.md`
 Kommo, комо, amoCRM, amo CRM, amocrm, воронка Kommo, угода Kommo, лід Kommo, контакт Kommo, тарифи Kommo, ціна Kommo, впровадження Kommo, налаштування Kommo, автоматизація Kommo
@@ -85,6 +141,72 @@ Odoo закупівлі, Odoo Purchase, Odoo Project, Odoo проект, Odoo з
 
 ### → читай `odoo/misc-videos.md`
 Odoo різне, Odoo загальне, Odoo налаштування системи, Odoo адміністрування
+
+### → читай `planfix/01-overview.md`
+Planfix огляд, Planfix тарифи, Planfix ціна, Planfix порівняння, що таке Planfix, Planfix впровадження
+
+### → читай `planfix/02-no-code-setup.md`
+Planfix налаштування, Planfix воронка, Planfix права доступу, Planfix поля, Planfix кастомізація без коду
+
+### → читай `planfix/03-architecture-data-model.md`
+Planfix архітектура, Planfix модель даних, Planfix Objects, Planfix структура
+
+### → читай `planfix/04-rest-api.md`
+Planfix API, Planfix REST, Planfix токен, Planfix endpoint, Planfix авторизація, Planfix rate limit, Planfix розробник
+
+### → читай `planfix/05-webhooks.md`
+Planfix webhook, Planfix вебхук, Planfix тригер, Planfix incoming webhook
+
+### → читай `planfix/06-ai-features.md`
+Planfix AI, Planfix штучний інтелект, Planfix OpenAI, Planfix автопілот
+
+### → читай `planfix/07-widgets-customization.md`
+Planfix віджети, Planfix iFrame, Planfix вичислювані поля, Planfix маркетплейс
+
+### → читай `planfix/08-automation.md`
+Planfix автоматизація, Planfix тригери, Planfix дії, Planfix планувальник
+
+### → читай `planfix/09-integrations.md`
+Planfix інтеграції, Planfix месенджери, Planfix телефонія, Planfix Zapier, Planfix 1С, Planfix Google
+
+### → читай `planfix/10-import-export.md`
+Planfix імпорт, Planfix експорт, Planfix міграція, Planfix Bitrix, Planfix amoCRM
+
+### → читай `planfix/11-use-cases.md`
+Planfix кейси, Planfix галузі, Planfix приклади, Planfix демо клієнту
+
+### → читай `planfix/12-debug-errors.md`
+Planfix помилки, Planfix дебаг, Planfix HTTP коди, Planfix токен не працює
+
+### → читай `planfix/15-objects-templates.md`
+Planfix Objects, Planfix шаблони, Planfix статуси, Planfix Ганта, Planfix фільтри
+
+### → читай `planfix/16-scenarios-buttons.md`
+Planfix сценарії, Planfix кнопки, Planfix IF ELSE, Planfix змінні, Planfix scenario
+
+### → читай `planfix/17-planners-filters.md`
+Planfix планувальники, Planfix типи задач, Planfix зникнення задач, Planfix фільтри
+
+### → читай `planfix/18-custom-fields.md`
+Planfix кастомні поля, Planfix типи полів, Planfix 26 типів, Planfix custom fields
+
+### → читай `planfix/19-contacts-handbooks.md`
+Planfix контакти, Planfix довідники, Planfix швидкі відповіді, Planfix handbooks
+
+### → читай `planfix/20-reports-analytics.md`
+Planfix звіти, Planfix аналітика, Planfix графіки, Planfix Аналітики
+
+### → читай `planfix/21-email-integration.md`
+Planfix email, Planfix пошта, Planfix правила обробки пошти, Planfix підпис
+
+### → читай `planfix/22-gotchas-tips.md`
+Planfix підводні камені, Planfix типові помилки, Planfix поради, Planfix про-tips
+
+### → читай `planfix/23-changelog-updates.md`
+Planfix оновлення, Planfix changelog, Planfix нові функції
+
+### → читай `planfix/24-employees-structure.md`
+Planfix співробітники, Planfix структура компанії, Planfix ролі, Planfix групи, Planfix деактивація
 
 ### → читай `uspacy/01-overview-pricing.md`
 Uspacy, успейсі, Uspacy CRM, Uspacy тариф, Uspacy ціна, Uspacy план, впровадження Uspacy, Uspacy огляд, Uspacy можливості

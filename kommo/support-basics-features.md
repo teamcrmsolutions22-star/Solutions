@@ -460,3 +460,206 @@ Uses Natural Language Processing (NLP) to help the Salesbot understand questions
 
 ---
 
+
+---
+
+## Lead Management — Повна документація (YouTube)
+
+### Incoming Leads Stage (права, джерела, дії)
+
+**Що таке Incoming Leads stage:**
+- Перший stage будь-якого sales pipeline, куди автоматично потрапляють усі нові запити з підключених каналів.
+- Lead card створюється автоматично з усіма даними, що надходять разом із запитом.
+- Stage не є обов'язковим — його можна вмикати/вимикати.
+
+**Увімкнення / налаштування:**
+- Шлях: Leads → Lead Sources → Incoming Leads → toggle ON/OFF.
+- Вимкнення приховує stage з інтерфейсу, але ліди все одно надходять у pipeline.
+- Лише account administrator може вмикати Incoming Lead stage для конкретного pipeline.
+- Права інших користувачів: Settings → Users → галочка Incoming Leads.
+- Incoming Lead stage видна лише користувачам з правами хоча б на одне з: create leads / create contacts / create companies.
+
+**Підключення lead sources:**
+- Шлях: Pipeline setup → Add Source або Leads → Lead Sources → вибрати джерело.
+- Доступні джерела: SMS, WhatsApp, Instagram, Telegram, Viber, Facebook Messenger, Facebook Lead Gen Forms, Facebook Comments, Phone, Web Forms, Business Card Scanner, Email Parsing, Google Sheets.
+
+**Дії з вхідним запитом:**
+- **Accept** → створити новий лід.
+- **Link to existing lead** → прив'язати до наявного ліда.
+- **Delete** → відхилити (наприклад, спам).
+- Відповідати на повідомлення прямо з lead card.
+- Kommo автоматично прив'язує наступні повідомлення з того ж контакту до того ж ліда (навіть якщо канал змінився).
+
+**Причини відсутності лідів у Incoming Stage (діагностика):**
+1. Stage вимкнений (toggle OFF у налаштуваннях pipeline).
+2. Stage увімкнений, але не підключено жодного інтеграційного джерела.
+3. Є source-інтеграція, але немає трафіку.
+
+---
+
+### Lead Card Structure
+
+**Загальна структура:**
+- **Ліва панель:** поля ліда, дані контакту, деталі замовлення, статистика клієнта.
+- **Права панель (Feed):** повна хронологія взаємодії (чат, дзвінки, email, нотатки, задачі, зміни статусів).
+- Межу між панелями можна пересувати вручну.
+
+**Типи кастомних полів:** Short text, Numeric, Toggle switch, Select, Multi-select, Date та ін.
+
+**Групи полів:**
+- Можна створювати групи (Add Group) для організації полів.
+- Поля переміщуються drag-and-drop (три крапки зліва від поля).
+- Видалення поля видаляє його з УСІХ карток і всіх введених даних — **незворотньо**.
+
+**Обов'язкові поля (Mandatory fields):**
+- Можна зробити поле обов'язковим після певного stage pipeline.
+- Доступно лише на **Advanced plan**.
+
+**Теги:**
+- Можна додавати теги до lead / contact / company card.
+- Управління тегами: три крапки у верхньому правому куті → Manage Tags.
+
+**Секція Statistics у lead card:**
+- Дані: джерело, кількість днів активності, вхідні/вихідні дзвінки, email, виконані й прострочені задачі, нотатки, chats, tracking data.
+- При використанні Kommo Web Form + UTM tags + CRM plugin — статистичні поля заповнюються автоматично.
+
+---
+
+### Lead Card Customization (Card View)
+
+**Card View — що відображається на картці ліда в pipeline:**
+- Шлях: Leads → три крапки у верхньому правому куті → Card View.
+- Доступно тільки для account administrator або user з editing rights у leads section.
+- Максимум **7 полів** на картці в pipeline.
+- Поля обираються з категорій: lead / company / contact (включаючи кастомні поля).
+
+**Додаткові налаштування Card View:**
+- Застосувати до всіх pipelines або окремо для кожного.
+- Display contact avatar.
+- Display last message from contact.
+
+---
+
+### Left Menu Customization by Role
+
+**Шлях:** Settings → General Settings → секція "Customize the left menu bar based on user's role".
+
+**Базові можливості:**
+- Меню за замовчуванням: Dashboard, Leads, Chats, Calendar, Lists, Mail, Stats, Settings.
+- Можна вмикати/вимикати будь-які вкладки для глобального меню.
+- Для Leads — вибрати конкретні pipelines (галочки навпроти кожного).
+
+**Налаштування по ролях:**
+- Кнопка "+" → додати ролі → налаштувати окреме меню для кожної ролі.
+- Приклад: Marketing team — тільки Prospects + Clients pipeline; Sales team — тільки їх pipelines.
+- Зміни зберігаються через кнопку Save.
+
+---
+
+### Task Management (типи, створення, Calendar views, сповіщення)
+
+**Де можна створювати задачі:**
+- У lead card (вкладка Task у feed).
+- У contact card або company card (через три крапки → Open Details → Task).
+- У Calendar section (кнопка New Task).
+
+**Автоматичне створення задач через тригери:**
+- Шлях: Leads → Setup → Add Trigger → Add a task.
+- Тригери: When created in this stage / When an email is received / When a call is received / When a lead starts chatting for the first time that day.
+
+**Calendar section — режими перегляду:**
+- **To-do list** — задачі у вигляді списку.
+- **Task board** — задачі на сьогодні і завтра.
+- **Agenda:** Day / Week / Month.
+
+**Синхронізація з Google Calendar:**
+- Шлях: Calendar section → Synchronize → Enable → авторизувати Google account.
+- Двостороння синхронізація.
+- Прив'язка задачі до ліда з Google Calendar: у текстовому полі задачі вказати `#ID`.
+- **Не можна** змінювати тип задачі через Google Calendar.
+
+**Сповіщення:**
+- Email-сповіщення: при створенні нової задачі + за 5 хвилин до дедлайну.
+- Pop-up в Kommo: при призначенні задачі іншим користувачем + за 5 хвилин до дедлайну.
+- Задачі на новий день тригеруються о **9:00**.
+- Видалені задачі зберігаються **30 днів**, потім видаляються назавжди.
+
+---
+
+### Filters (типи, пресети, збереження)
+
+**Типи фільтрів:**
+- **Single** — один рядковий параметр.
+- **Multiple** — кілька значень.
+- **Range** — числові значення "від–до".
+- **By stages** — фільтр за stage ліда в pipeline.
+- **By custom fields** — фільтр за значеннями кастомних полів.
+
+**Пресетні фільтри в секції Leads:**
+Active leads, My leads, One leads, Lost leads, Leads without tasks, Leads with overdue tasks.
+
+**Пресетні фільтри в секції Chats:**
+Open conversations, Unanswered, Assigned to me, Subscribed, Start.
+
+**Збереження кастомних фільтрів:**
+- Доступно тільки для account administrator.
+- Шлях: вибрати параметри → Apply → Save → ввести ім'я.
+- **Кастомні фільтри задач зберегти не можна.**
+
+---
+
+### Import (методи, формати, ліміти)
+
+**Три методи імпорту:**
+1. **Import from a spreadsheet** (ручне завантаження файлу).
+2. **Import from Google Sheets** (авторизація Google account + вибір таблиці).
+3. **Google Sheets integration** (автоматична синхронізація в реальному часі).
+
+**Вимоги до файлу:**
+- Формати: XLS, XLSX, ODS, CSV.
+- Максимальний розмір файлу: **2 МБ**.
+- Максимум рядків: **10 000**.
+- Обов'язково наявний заголовок ліда.
+
+**Google Sheets integration (реальний час):**
+- Кожна підключена таблиця — окреме lead source.
+- Синхронізуються лише **нові рядки** після підключення.
+- Порожній рядок = кінець таблиці.
+- Правила: не видаляти стовпці, не перейменовувати стовпці, не пропускати рядки.
+
+**Шаблони імпорту:**
+- Можна зберегти шаблон мепінгу після ручного зіставлення.
+
+---
+
+### Export (ліди, контакти, задачі, формати)
+
+**Права доступу:** Settings → Users → вибрати користувача → секція Export → Allow або Deny.
+
+**Експорт лідів:**
+- Формати: **Excel**, **CSV**, **Google Sheets**.
+- **Ліміт**: понад **500 лідів** — файли розбиваються на частини.
+- Для часткового експорту: застосувати фільтр → Export → "Select all (filter applied)".
+
+**Експорт контактів та компаній:**
+- Формати: Excel, CSV, Google Sheets + **vCard (VCF)**.
+- vCard містить: ім'я, посада, адреса, email, телефон, зображення.
+
+**Експорт задач:**
+- Формати: **iCal**, **Microsoft Outlook**, **Google Calendar**.
+
+---
+
+### Chat Templates (створення, dynamic fields, використання)
+
+**Доступність:** на всіх тарифних планах.
+
+**Шлях:** Settings → Communication Tools → Response Templates → Add a new template.
+
+**Налаштування шаблону:**
+- Назва, текст повідомлення.
+- **Dynamic fields:** поля з lead card, contact card, company card (ім'я клієнта, телефон, ім'я менеджера тощо).
+- Attachments: зображення, відео або документ.
+- **Обмеження:** деякі месенджери не підтримують передачу файлів.
+
+**Використання:** Відкрити lead card → Chat → ввести назву шаблону → обрати зі списку → повідомлення підставляється в чат з автозаповненими dynamic fields → Send.

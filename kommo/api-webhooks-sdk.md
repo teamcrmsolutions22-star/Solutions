@@ -400,3 +400,245 @@ define(['jquery'], function($) {
 
 ---
 
+
+---
+
+## Widget Development — Повна документація (YouTube)
+
+### Skeleton CLI
+
+```bash
+npx @kommo/create-kommo-integration
+```
+
+CLI доступний на npm та GitHub. Встановлює React, TypeScript, i18n, deployment configs і документацію одним запуском.
+
+**Кроки при ініціалізації:**
+1. Вибір мови CLI: English, Spanish, Portuguese, Indonesian, Turkish
+2. Ввести назву директорії проекту
+3. Вибрати локалі (створює i18n з JSON-файлами перекладів)
+4. Налаштування manifest: `init_once`, потрібні дані, посилання, email, locations
+
+**Структура проекту після scaffold:**
+```
+project-dir/
+├── README.md
+├── client/
+│   ├── manifest.json
+│   ├── script.js
+│   ├── i18n/
+│   ├── images/
+│   ├── css/
+│   └── templates/
+├── server/           ← бекенд (OAuth, webhook-handlers)
+├── .env.dev
+└── .env.prod
+```
+
+**Environment файли:**
+- `.env.dev` / `.env.prod` — `INTEGRATION_CODE`, `BASE_URL` (зазвичай порт 9000)
+- `server/.env` — `CLIENT_ID`, `CLIENT_SECRET`, `REDIRECT_URI`, `SUBDOMAIN`
+
+**Dev server:**
+```bash
+# Термінал 1 — фронтенд
+cd client && yarn dev      # localhost:9000, live reload
+
+# Термінал 2 — бекенд
+cd server && yarn dev      # localhost:3000
+```
+
+**Dev mode (без повторного завантаження zip):**
+```javascript
+// В браузерній консолі:
+localStorage.setItem('<integration_code>_is_dev', 'localhost:9000')
+```
+
+**Build та деплой:**
+```bash
+yarn build   # → dist/ + widget.zip (готовий до завантаження в Kommo)
+```
+
+**Tunneling для локальної розробки:** ngrok — зовнішній URL вказується у `manifest.json` (webhook_url, iframe URL), OAuth redirect URI.
+
+---
+
+### manifest.json — всі поля
+
+**КРИТИЧНО:** `interface_version` ЗАВЖДИ має дорівнювати `2`.
+
+```json
+{
+  "widget": {
+    "name": "i18n:widget.name",
+    "description": "i18n:widget.description",
+    "version": "1.0.0",
+    "interface_version": 2,
+    "init_once": false,
+    "langs": ["en", "es", "pt"],
+    "installation": true,
+    "locations": [
+      {"code": "settings", "path": "settings/widget"},
+      {"code": "card1", "path": "card/widget"},
+      {"code": "ccard0", "path": "ccard/widget"}
+    ],
+    "adp_digital_pipeline": {
+      "webhook_url": "https://your-ngrok-url/webhook"
+    }
+  }
+}
+```
+
+| Поле | Опис |
+|------|------|
+| `interface_version` | **Завжди `2`** — обов'язково |
+| `init_once` | `true` — ініціалізується один раз; `false` — на кожній сторінці |
+| `langs` | Масив локалей: `"en"`, `"es"`, `"pt"` |
+| `installation` | `true` — є сторінка налаштувань; `false` — налаштування через API |
+| `locations` | `settings` (сторінка встановлення), `card1` (права панель ліда), `ccard0` (профіль контакту без відображення) |
+
+---
+
+### script.js — AMD патерн та callbacks
+
+```javascript
+define(['jquery'], function($) {
+  return {
+    render: function() {
+      var self = this;
+      // Логіка відображення
+      return self;
+    },
+    init: function() {
+      var self = this;
+      // Одноразова ініціалізація
+      return self;
+    },
+    onSave: function() {
+      var self = this;
+      // Збереження налаштувань
+      return self;
+    },
+    bind_actions: function() {
+      var self = this;
+      // jQuery-обробники кліків, форм
+      return self;
+    },
+    settings: function() {
+      return this;
+    },
+    destroy: function() {
+      return this;
+    }
+  };
+});
+```
+
+---
+
+### Структура файлів — обов'язкові компоненти
+
+```
+widget.zip (кореневий рівень!)
+├── manifest.json
+├── script.js
+├── i18n/
+│   ├── en.json
+│   ├── es.json
+│   └── pt.json
+├── images/
+│   ├── logo_min.png       ← обов'язковий
+│   ├── logo.png           ← обов'язковий
+│   ├── logo_main.png      ← обов'язковий
+│   ├── logo_feature.png   ← обов'язковий
+│   └── logo_medium.png    ← обов'язковий
+├── css/
+│   └── style.css
+└── templates/
+    └── *.twig
+```
+
+⚠️ **Усі файли мають бути на кореневому рівні архіву** — не у вкладеній папці.
+
+---
+
+### Lead Capture Integration — Python
+
+```python
+subdomain = "your_account_subdomain"
+api_key = "your_long_lived_token"
+
+base_lead_url = f"https://{subdomain}.kommo.com/api/v4/leads"
+base_contact_url = f"https://{subdomain}.kommo.com/api/v4/contacts"
+base_contact_custom_fields_url = f"https://{subdomain}.kommo.com/api/v4/contacts/custom_fields"
+
+# Крок 1: Отримати ID поля телефону
+contact_custom_fields_response = requests.get(
+    base_contact_custom_fields_url,
+    headers={"Authorization": f"Bearer {api_key}"}
+)
+contact_custom_fields = contact_custom_fields_response.json()["_embedded"]["custom_fields"]
+phone_field_id = next(f["id"] for f in contact_custom_fields if f["code"] == "PHONE")
+
+# Крок 2: Перевірка дублікатів (HTTP 204 = не знайдено, 200 = знайдено)
+check_response = requests.get(
+    base_contact_url,
+    params={"query": phone_number},
+    headers={"Authorization": f"Bearer {api_key}"}
+)
+
+# Крок 3: Створення ліда з контактом
+lead_body = [{
+    "name": student_name,
+    "pipeline_id": pipeline_id,
+    "status_id": stage_id,
+    "responsible_user_id": manager_id,
+    "_embedded": {
+        "contacts": [{
+            "first_name": parent_name,
+            "custom_fields_values": [{
+                "field_id": phone_field_id,
+                "values": [{"value": phone_number, "enum_code": "WORK"}]
+            }]
+        }]
+    }
+}]
+
+# Якщо контакт вже існує — додати його ID замість нових даних
+if duplicate_contact_id:
+    lead_body[0]["_embedded"]["contacts"] = [{"id": duplicate_contact_id}]
+
+response = requests.post(base_lead_url, json=lead_body,
+                         headers={"Authorization": f"Bearer {api_key}"})
+```
+
+**UTM-параметри (поля типу `tracking_data`):**
+```python
+def parse_utm(url):
+    from urllib.parse import urlparse, parse_qs
+    params = parse_qs(urlparse(url).query)
+    return {k: v[0] for k, v in params.items() if k.startswith("utm_")}
+
+# Знайти поля типу tracking_data та додати UTM до тіла запиту
+for field in lead_custom_fields:
+    if field["type"] == "tracking_data":
+        utm_value = utm_data.get(field["code"].lower(), "")
+        if utm_value:
+            lead_custom_fields_body.append({
+                "field_id": field["id"],
+                "values": [{"value": utm_value}]
+            })
+```
+
+---
+
+### Типові помилки та підводні камені
+
+1. **`interface_version` ≠ 2** → віджет не завантажиться.
+2. **Відсутній будь-який з 5 PNG-логотипів** → системна помилка при встановленні.
+3. **Файли не на кореневому рівні архіву** → упакуй файли безпосередньо у корінь zip, не у вкладену папку.
+4. **Неунікальні CSS-класи** → конфлікт стилів з іншими víджетами або системою Kommo.
+5. **Хардкодні `pipeline_id` / `status_id` / `custom_field_id`** → IDs не є універсальними; завжди отримувати динамічно через API.
+6. **Rate limit API: 7 запитів/сек** → HTTP 429. Повторні порушення → IP-блокування (HTTP 403).
+7. **`installation: true` vs `false`**: якщо налаштування через зовнішній API — встановлювати `false`.
+8. **`init_once: false`** для víджетів без спільного контексту між сторінками.

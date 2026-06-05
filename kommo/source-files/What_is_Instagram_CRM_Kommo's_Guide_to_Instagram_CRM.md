@@ -1,0 +1,103 @@
+# What is Instagram CRM? | Kommo's Guide to Instagram CRM
+
+hey and welcome back to our Channel I'm Rebecca and today we'll show you how to manage conversations stories and comments on Instagram using our Instagram CRM in this video you'll learn how to streamline lead management personalized messaging and optimize performance on Instagram ready let's get started 
+
+you're probably thinking what is Instagram CRM Instagram CRM is a customer relationship management software integrated with Instagram and helps you capture and manage conversations stories and comments from Instagram Direct and that's not all with an Instagram CRM you can also respond to customer comments and messages in one place get deeper insights into your 
+
+your audience create targeted Outreach and advertising allow multiple agents to handle your DMs and increase your sales revenue but before we dig deeper into how this Instagram CRM Works let's review some Basics Instagram offers two types of accounts personal and professional with a personal Instagram account you can interact with friends and family and share photos 
+
+and stories this account is for individual usage so it has no Advanced features the professional account is divided into Instagram Creator account and Instagram business account Creator account is made for influencers and creators to help them build their brands so it comes with more advanced functionality including swipe up ads and follower insights business account on the other hand is perfect for Brands and companies like yours 
+
+yours to promote your products and services and take advantage of our Advanced marketing tools such as Instagram DM API Instagram shop and Instagram ads now that you understand different types of Instagram accounts let's dig deeper into your Instagram business accounts inbox options for managing your DMs overall there are three types of inboxes Instagram app inbox meta business Suite inbox 
+
+and Instagram DM API which one you choose will depend on your business needs and size the Instagram app inbox is best suited for a micro business or for those of you who run a business on your own all you need to have is an Instagram business account and the Instagram app this allows you to handle low volume DMS reply to DMS anytime start new conversations with any public account set up to four 
+
+automated replies to frequently ask questions and use Quick replies to speed up the conversation process now if you are running a small business that requires more flexibility and automation The Meta business Suite inbox is the best for you you can get it by simply connecting your Instagram business account to your business's Facebook page with the meta business Suite inbox you can handle low to mid volume DM 
+
+reply to DMS and comments at any time continue conversations started in the Instagram app and create simple automation based on keywords but keep in mind that in the meta business Suite inbox you can't start a new conversation with anyone to do that you have to use Instagram app and further continue the conversation from meta business Suite inbox and finally we have our Instagram Direct message Api in 
+
+box this is an ideal solution for medium and large businesses relying heavily on Instagram to communicate with their customers with Instagram DM API you can handle High volumes of messages set up Advanced automation features receive Instagram story mentions reply privately to Instagram comments and use the ig me link to initiate a conversation bear in mind that the DN 
+
+API itself doesn't have a user interface this means that you can only use its features by connecting it with a CRM also you are not allowed to initiate conversations using Instagram DM API now if you think that Instagram DM API is what your business needs let's briefly talk about the different types of Instagram business Integrations that should be available in your CRM Instagram 
+
+CRM Integrations can be categorized into native Integrations and third-party Integrations the native integration is built into a CRM platform provided by the CRM itself the third- party integration on the other hand is built by an external company and developers in Como we actually have both and this is one of the many reasons you should choose KO as your Instagram CRM solution let me 
+
+brag about KO some more did you know that Como is the world's first Instagram CRM yes it is it comes equipped with dozens of Instagram features to empower your team to sell more effectively and we are also proud to say that we are an officially badged meta business partner which means that our expertise has been vetted and recognized by meta 
+
+our partnership with meta has helped us Elevate our services and provide our clients with the best possible solutions for their digital marketing needs including those who use Instagram so I hope I was able to convince you that KO is a great tool for your business now let's explore how you can take full advantage of Instagram's potential for lead management with Como with Como you can take your Instagram Market 
+
+marketing game to the next level thanks to the ability to capture leads set up remarketing campaigns measure performance and automate communication and work processes on top of that using an Instagram CRM like KO will allow you to increase the messaging window during which you have to respond to your customers as you might know meta has a strict 24-hour messaging rule which means you as a business have only 
+
+24 hours to respond to the message this means no more days off for you unless you start using KO of course with our platform you can increase your messaging window by up to 7 Days using the human agent tag how handy is that this gives you more time to respond to messages and engage with your customers according to your schedule keep in mind that unlike other meta platforms like Facebook messenger and WhatsApp the 
+
+human agent tag is the only tag available to continue the conversation outside the 24-hour window and you want to know what's more our chatbot can even send reminders to your team when a conversation is approaching the 24hour mark ensuring you don't miss out on any important opportunities all right so with businesses not being allowed to initiate conversations using Instagram DM API 
+
+how do you make the most out of your Instagram marketing well you can Implement some strategies to encourage your followers to message you for example you can use chat links and QR codes Instagram widgets and click to Instagram Direct ads at the same time you can generate leads from comments and Instagram story mentions let's go over each of them one by one first the igme link that is 
+
+also known as a chat link that redirects Instagram users directly to your Instagram DMS here is what this looks like so say for example our business username on Instagram is Como so our igme link will be set to ig. m/m/c once you have the link all you have to do is share your unique link on your website email or text message and 
+
+you will be able to connect with your customers more easily than ever before no more searching for Instagram profiles just click the link and start chatting but if you use Instagram to enhance your brand awareness and prefer to communicate with customers through a messenger like WhatsApp you can easily redirect them to your WhatsApp chat using a WhatsApp link QR code or button if you want to learn more about this we have a great video prepared for you 
+
+you can find the link in the description box below now if your goal is to drive more traffic to your Instagram profile you can add an Instagram widget to your website this little eye catchy icon will stay throughout the whole browsing experience appearing on every page of your website and reminding the visitors about your Instagram account and other socials with Instagram widget not only can visitors 
+
+ERS get a taste of your Instagram content but they can also follow your Instagram or even DM you to learn more check out our video on how to add social media widgets to your website so what if you plan on reaching a wider audience click to Instagram Direct ads can be the way to go the ads can be shown in Instagram stories or feeds and prompt the user to 
+
+write you a direct message the new conversation will then appear in your Instagram DM inbox here is how it works when Instagram users see the ad on their feed or in their stories they can click the send message button and instantly get redirected to your DMs using these ads can help you initiate more conversations with potential customers and interact with them more quickly this means you can move leads down the sales funnel 
+
+much easier resulting in better conversion rates similarly if a user mentions your business in their Instagram story it will pop up in your CRM account this way you can easily start a conversation with them this feature lets you stay on top of your mentions and engage with potential customers helping you build stronger relationships with your audience okay Instagram Direct messages are a popular option 
+
+but do you know that you can also generate quality leads from comments under your posts when a user leaves a comment it will appear in your como account where you can follow up with them and turn them into potential customers but that's not all you can also increase your page engagement with various promotions and set up a chat bot to automatically respond to your comments using specific keyword triggers 
+
+if you want to learn more about the life-changing feature then check out our video on keyword triggers all right now it's time to bring out the big guns our sales bot this big boy is a must-have tool for marketing teams these days it can help you automate your messages engage with followers and drive sales by setting up the bot you can ensure you provide quick support send personalized content gather feedback 
+
+back and make sure no lead is left unattended the best part you don't need any coding skills to set up the chatbot our visual chatbot Builder is extremely userfriendly and straightforward if you're feeling adventurous you can build a chatbot from scratch with the help of our tutorial but if you are like the rest of us you can select an existing template and customize it to fit your business needs 
+
+for example you can set up a bot that can collect optins to send out your marketing campaigns let's be honest not everyone wants to get spammed by your business even if it means getting the best deals so simply asking for your clients consent to receive promotional materials can enhance their perception of your brand and improve their overall attitude towards it here is how you can do it in just two steps 
+
+first customize a chatbot template to ask customers whether they want to opt in or opt out of receiving promotional deals from you based on their response the chatbot assigns a specific tag to the contact after all the tags are in place you can initiate your promotional campaign once you start using Como for your Instagram marketing campaigns our dashboard and statistics tab will provide you with a comprehensive overview of your performance 
+
+with our all-in-one Command Center you can track essential metrics monitor customer feedback and respond to inquiries in real time plus our stats tab offers a win- lose analysis Consolidated reports and customer specific reports giving you the insights you need to optimize your Instagram marketing strategy if you want to learn more about tracking and measuring your sales with KO we've attached the link for the video in the description box 
+
+on top of acing your marketing game KO is the ultimate solution for Instagram sales our tools enable you to streamline your sales process and close deals more effectively thanks to centralized lead management and communication personalized Mass messaging campaigns Instagram bot Automation and automated document generation so how do we provide centralized 
+
+bleed management and communication the answer is KO Unified Inbox Unified Inbox lets you manage all customer Communication in one place including messages from Instagram social media email live chat and other connected platforms this means no more switching between different apps plus Como generates lead cards for each incoming lead providing you with instant access 
+
+access to the message history and contact information and that's not it another way Como ensures centralized lead management is providing a crystal clear view of your sales process by categorizing leads into various stages of the Instagram sales pipeline this means you'll know precisely where your leads stand and your sales cycle enabling you to take charge of your sales process and convert leads into lifelong customers however 
+
+at Ko we understand that managing incoming leads and responding to inquiries can become timec consuming our platform allows you to create Instagram chat templates that can be customized for each client streamlining communication and saving time with Instagram templates you can send personalized pre-written messages that address frequently asked questions and handle routine operations in just one click for those of you who want to set them up in com 
+
+we have a tutorial just for that so what about the sales teams what can Instagram chatbot do for them well let's start with the ice breakers with the Instagram Ice Breakers you can show prompt messages to users reaching out to you for the first time ice breakers are optional but can be a great way to start a conversation with new customers and personalize their experience with your brand here's how 
+
+how it works when someone opens an Instagram DM chat with your account static message buttons appear by clicking on one of the options the selection will be sent as a message which will also appear in your como account please note that you can add up to four Icebreaker messages on a single Instagram account each message must not exceed 80 characters in length with our chatbot you can also create messages 
+
+with quick reply buttons these buttons allow your leads to respond to your message with just a single tap making it easier and more convenient for them to engage with your brand here's how it works when your lead Taps on one of the quick reply buttons their selection will be sent as a message the message will then appear in your Unified Inbox allowing you to easily manage and respond to all your customer interactions and 
+
+one place using quick reply buttons can improve your response time and streamline your customer communication keep in mind you can create up to 13 quick reply buttons each button can be up to 20 characters long our chatbot is also super helpful when it comes to qualifying Instagram leads it automates the lead qualification process by engaging with potential customers learning about their needs and interest and routing them to the 
+
+person on your team with kom's chatot you can save time and energy while giving your customers a personalized experience that's a win-win for everyone however the chatbot is a game changer not only when it comes to qualifying leads but to nurturing leads as well with automated follow-ups you can make sure that you stay top of mind with those leads who may have been hesitant to say yes right away but that's not all our 
+
+large hatbot does all the hard work for you you can set it up in just a few clicks and it will start reaching out to those leads who haven't responded to you in a while kom's document generation bot can transfer all your valuable data from KO League cards straight to your document template with special modifiers you can move anything from names to order details and in just one click your customer will get an error free customer made document saving you 
+
+time effort and a lot of headaches along with the documents mentioned above our chatbot can generate and send invoices to your customers without human intervention this means our chatbot can fully automate and personalize your invoice generation process on top of this it can set up automatic payment processing send payment links for oneclick payments stay up toate with realtime invoice status updates automatically 
+
+transfer leads to different stages of your pipeline and easily edit or cancel unpaid invoices how awesome is that and you can integrate Kom with payment systems such as PayPal verato pgo and stripe to get more details on document generation bot check out our video you can find the link below at Ko we also understand that providing excellent customer support is crucial 
+
+for the success of any business that's why our team has developed several features that make the whole process more efficient and customer interactions more personalized with our Instagram CRM you can seamlessly collaborate with your team leverage chat Bots for more efficient support and track customer satisfaction for starters you can chat with colleagues set tasks and create reminders directly within kom's lead card streamlining your work 
+
+worklow and ensuring that everything and everyone is taken care of our Instagram chatbot will also become a time and Lifesaver for your customer support teams with just a few simple setup steps your customers can quickly access their order details find answers to frequently asked questions and receive highquality customer support all without the need for human agents or the need to wait and they can e 
+
+easily share their feedback providing valuable insights to help you improve your service so what else can our Bots do with our Instagram chatbot you can easily ensure your leads are routed to the most appropriate customer support representative simply ask a few leading questions and the chat bot will route them to the specialist who is best equipped to answer their inquiries this bot will save your team time and provide your customers with a more personalized experience 
+
+increasing the likelihood of conversions now we all know that in today's fast-paced world customers expect quick responses with our round-the-clock customer support bot you can meet their expectations and stay ahead of the game no matter your business hours or time zone you can provide your customers with the support they need when they need it last but not least is our 
+
+chatbot for measuring customer satisfaction it provides a simple yet powerful way to see how satisfied your customers are with your service with just an emoji your customers can easily give feedback allowing you to gather valuable insights and improve your customer support don't miss out on this opportunity to connect with your customers and enhance their experience with your brand now let's talk about the two ways you can use your Instagram in 
+
+integration in coma first and foremost you can use our desktop version of the CRM to fully control your communication and sales processes but if you're always on the go fear not we got you covered with our mobile app with just one tap you can access your lead database and tasks and chat with clients directly from your smartphone its userfriendly interface makes it easy to manage your leads when you are out and about 
+
+and with real-time notifications for New Leads and follow-ups you'll never miss an opportunity to connect with potential customers the app is available both for IOS and Android devices all right we got to the most important part now only the savviest have made it this far and you're one of them and I've got some great news for you because KO offers a free native Instagram DM API integration with a 
+
+plethora of features including everything we've mentioned before and much more to Kickstart the process you'll need just two things an Instagram business account and a Facebook business page well and of course your como account once you are ready go to settings in your como account then click Integrations and select Instagram and hit install connect it using your Facebook account and you are ready to roll 
+
+if you're still not convinced why you should use KO as your Instagram CRM for your business you can watch the videos of success stories of our customers that were able to increase their revenue and build stronger customer relationships using our product we recommend starting with the story of submundo tattoo a tattoo studio based in Brazil and that's it for today folks if you've enjoyed this video do not forget to give it a like And subscribe click the notification button to 
+
+make sure you don't miss our new videos thanks for watching now go out there and start CRM oh I meant dming 

@@ -1,0 +1,43 @@
+# What are click-to-message ads? | Kommo's Click to Message Ads Guide
+
+hello everyone I'm Rebecca and in today's video we'll explore click to message ads a revolutionary tool that helps customers connect with businesses through Messenger apps they already love are you ready let's get started so what exactly are click to message ads click to message ads Direct 
+
+customers to Whatsapp Instagram Direct and Facebook Messenger unlike a regular ad that takes you to the static page or Brand's website a click to message ad is perfect if your customer has doubts about your product or wants to ask you more questions for example when a user clicks to send a message on Instagram after seeing the ad they will be redirected to Facebook Messenger WhatsApp or Instagram Direct you can also 
+
+Al set up a template with up to three messages automatically appearing when someone Taps your ad this will help you start the conversation and encourage customers to reply with click to message ads your business can achieve amazing results you can generate more leads provide personalized sales assistance and increase conversions all while building trust and loyalty with your customers so if you're struggling to create a convenient customer Journey click to 
+
+message ads are the perfect solution but how do you create click to message ads that stand out and get results we'll cover that next there are different ways you can use click to message ads for your business goals whether you want to promote product updates generate leads sell High involvement products or offer enticing discounts we have some strategies to help you succeed let's take a look at them the first one is about click to mage 
+
+message ads for product updates when you have exciting new products or features to share leverage click to message ads to create a buzz write catchy ad copy highlighting the updates Main benefits and invite users to chat with you to learn more ensure your messages provide additional details or offer demos to stoke curiosity and generate engagement next we have click to message ads for lead generation if you want to capture value 
+
+valuable leads for your business use click to message ads to offer something exclusive that users can get by chatting with you two write a motivating ad copy that emphasizes the value of the offer and the benefits of starting a conversation three once users initiate a chat respond promptly and provide further information or resources to nurture them toward becoming qualified leads let's move on to click to message 
+
+ads for high involvement products selling products that require more consideration or have a higher price point can benefit from personalized conversations craft ad copy that highlights the unique features and benefits of the product and encourage users to reach out for more information or to discuss their specific needs then use the messaging platform to provide detailed product information answer questions and address concerns this will help you build trust and 
+
+and increase the likelihood of conversion lastly we have click to message ads for offers and discounts if you want to drive immediate action and boost sales quickly one use click to message ads to create offers or time limited discounts two write clear and concise ad copy that communicates the offer's value and creates a sense of urgency three invite users to chat with you to claim the offer or get more detail 
+
+four use the messages to guide them through Redeeming the offer provide any necessary coupon codes and ensure a smooth customer experience remember regardless of the specific purpose of your click to message ads there are a few overarching best practices to remember craft clear and concise ad copy personalize your messages prompt quick responses and regularly Monitor and optimize your camp 
+
+campaigns Based on data and user feedback by implementing these best practices you'll be well equipped to effectively Leverage The Power of click to message ads driving engagement capturing leads selling High involvement products and enticing customers with irresistible offers setting up click to message ads is pretty straightforward simply go to your ads manager account 
+
+select engagement as your campaign objective and set your ad conversion location to messaging apps next choose the messaging platform to which your customers will be redirected select the one that suits your audience best whether it's Facebook Messenger WhatsApp or another popular messaging app now let's optimize your ad Performance Set a budget that aligns with your goals and 
+
+Target a customer audience highly likely to engage with your advertisement narrowing down your audience increases your chances of connecting with the right people genuinely interested in your offer once your budget and audience are done it's time to set up and design your ad creative select your ad placements and don't forget to include a headline and text for your call to action button when designing your ad creative choose eye-catching visuals craft a 
+
+captivating headline and don't forget to include compelling text for your call to action button this is your chance to make a strong impression and entice users to tap on your ad to streamline lead generation create a template that prompts potential leads to start a chat with you when they tap on your ad once everything looks good in the ad preview click publish and voila you're all set to generate New Leads with click to message ads 
+
+moving on let's talk about ad placements and destinations it's important to place your ads strategically in different sections of your Instagram and Facebook accounts based on your goals for example your Facebook or Instagram are excellent for building awareness while stories effectively Drive impulse purchases the explore page and Instagram reals can extend your reach to a broader 
+
+audience to simplify the process you can choose the Advantage Plus option which uses meta data to allocate your ads automatically this ensures that your ads are displayed where they are likely to perform best maximizing the impact of your campaign remember that ads that click on messenger can appear on Facebook messenger and Instagram ads that click on Instagram are exclusive to Instagram and ads that click on WhatsApp can be 
+
+shown on Facebook and Instagram moreover if one of your audiences doesn't have a certain app on their phone meta can show your app on another destination for example if someone doesn't have WhatsApp installed they may be sent to messenger instead now let's discuss how to handle all those conversations generated by your click to message ads leverage Kom CRM to save your marketing or sales team 
+
+time and capture all conversations as an official meta business partner it offers many features including chatbots and automations for instance you can integrate coml sales bot chatbot into regular messaging flows to answer customer questions before they reach one of your sales reps it can answer common questions before a human agent is needed sales bot also enables quick replies and can provide customer service 
+
+during off hours suppose a human agent is needed regardless of the channel set in your click to message ads in that case the sales bot automatically directs the conversation to the best team or person to handle that inquiry KO gets every message delivered to the right person to secure a higher conversion rate from click to message ads and keeps it all within the pipeline it also collects all contact details and messages and stores them in an automatically 
+
+generated lead card providing a centralized hub for easy access and multi-channel communication with kom's dashboard you can easily monitor important conversations from your clickto message ads whether you want to track unanswered messages or monthly sales targets you can gather all these metrics with just a few clicks combining click to message ads with KO can create a seamless customer Journey that drives results the ads 
+
+spark interest and capture attention while kom's messenger-based sales approach takes it further converting leads into loyal customers paired with Como click to message ads will revolutionize your business communication making it easier to start conversations find new customers and build relationships and that's a wrap folks if you found this video helpful please hit that notification Bell and give it a thumbs up thank you so much for watching and I'll see you in the 
+
+next video 

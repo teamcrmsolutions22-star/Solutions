@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 60px 50px;
+    min-height: 200px;
+  }
+
+  .cover-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e2b96f;
+    margin-bottom: 16px;
+  }
+
+  .cover h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .cover h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #a0aec0;
+    margin-bottom: 30px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .cover-meta-item { font-size: 10px; color: #a0aec0; }
+  .cover-meta-item strong { display: block; color: white; font-size: 12px; margin-top: 2px; }
+
+  .content { padding: 35px 45px; }
+
+  .section { margin-bottom: 22px; }
+
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e2b96f;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .priority-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .priority-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #f8f9fc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    border-left: 3px solid #0f3460;
+  }
+
+  .priority-num {
+    background: #0f3460;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .priority-text strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .priority-text span {
+    font-size: 10px;
+    color: #666;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5px;
+    margin-bottom: 6px;
+    page-break-inside: avoid;
+    table-layout: fixed;
+  }
+
+  th {
+    background: #0f3460;
+    color: white;
+    padding: 6px 5px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    word-wrap: break-word;
+  }
+
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+
+  td {
+    padding: 5px 5px;
+    border-bottom: 1px solid #e8ecf4;
+    vertical-align: middle;
+    word-wrap: break-word;
+    line-height: 1.3;
+  }
+
+  tr:nth-child(even) td { background: #f8f9fc; }
+  tr:hover td { background: #eef1f8; }
+
+  .check-yes { color: #22c55e; font-weight: 700; }
+  .check-no { color: #ef4444; font-weight: 700; }
+  .check-warn { color: #f59e0b; font-weight: 700; }
+  .check-q { color: #94a3b8; font-weight: 700; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: 600;
+  }
+
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-orange { background: #fff7ed; color: #9a3412; }
+  .badge-red { background: #fef2f2; color: #991b1b; }
+  .badge-blue { background: #eff6ff; color: #1e40af; }
+  .badge-yellow { background: #fefce8; color: #854d0e; }
+
+  .pros-cons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .pc-card {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .pc-header {
+    padding: 6px 10px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+  }
+
+  .pc-header.integrator { background: #6366f1; }
+  .pc-header.developer { background: #0ea5e9; }
+  .pc-header.user { background: #10b981; }
+
+  .pc-body {
+    padding: 8px 10px;
+    background: #f8f9fc;
+  }
+
+  .pc-list { list-style: none; }
+  .pc-list li {
+    font-size: 9.5px;
+    padding: 2px 0;
+    padding-left: 12px;
+    position: relative;
+    color: #374151;
+  }
+  .pc-list li::before { position: absolute; left: 0; }
+  .pc-list.pros li::before { content: "+"; color: #22c55e; font-weight: 700; }
+  .pc-list.cons li::before { content: "−"; color: #ef4444; font-weight: 700; }
+
+  .system-block {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+
+  .system-header {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .system-name {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .system-price {
+    font-size: 11px;
+    color: #666;
+  }
+
+  .system-body { padding: 0 16px 12px; }
+
+  .system-kommo .system-header { background: #fdf4ff; border-left: 4px solid #a855f7; }
+  .system-kommo .system-name { color: #7e22ce; }
+
+  .system-pipedrive .system-header { background: #fff7ed; border-left: 4px solid #f97316; }
+  .system-pipedrive .system-name { color: #c2410c; }
+
+  .system-uspacy .system-header { background: #eff6ff; border-left: 4px solid #3b82f6; }
+  .system-uspacy .system-name { color: #1d4ed8; }
+
+  .system-planfix .system-header { background: #f0fdf4; border-left: 4px solid #22c55e; }
+  .system-planfix .system-name { color: #15803d; }
+
+  .system-gplus .system-header { background: #fefce8; border-left: 4px solid #eab308; }
+  .system-gplus .system-name { color: #854d0e; }
+
+  .timeline-badge {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .rec-box {
+    background: linear-gradient(135deg, #0f3460, #1a1a2e);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+
+  .rec-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e2b96f;
+    margin-bottom: 8px;
+  }
+
+  .rec-body { font-size: 10.5px; line-height: 1.6; color: #e2e8f0; }
+
+  .footnote {
+    font-size: 9px;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .warning-box {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 10px;
+    color: #991b1b;
+  }
+
+  .warning-box strong { color: #7f1d1d; }
+
+  .page-break { page-break-before: always; }
+
+  .summary-row {
+    background: #0f3460 !important;
+    color: white !important;
+  }
+  .summary-row td { color: white !important; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">CRM Solutions — аналітичний звіт</div>
+  <h1>Підбір CRM-системи<br>для «Клубний квартал Троїцький»</h1>
+  <h2>Порівняльний аналіз · Рекомендація · Бюджет впровадження</h2>
+  <div class="cover-meta">
+    <div class="cover-meta-item">Дата<strong>Червень 2026</strong></div>
+    <div class="cover-meta-item">Проаналізовано систем<strong>5 платформ</strong></div>
+    <div class="cover-meta-item">Підготовлено<strong>CRM Solutions</strong></div>
+    <div class="cover-meta-item">Статус<strong>Конфіденційно</strong></div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- SECTION 1: PRIORITIES -->
+<div class="section">
+  <div class="section-title">1. Ваші пріоритети та вимоги</div>
+  <div class="priority-grid">
+    <div class="priority-item">
+      <div class="priority-num">1</div>
+      <div class="priority-text">
+        <strong>Юзабіліті та знайомий інтерфейс</strong>
+        <span>Команда працювала в amoCRM — мінімальний поріг входу, інтуїтивне управління угодами</span>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-num">2</div>
+      <div class="priority-text">
+        <strong>Шахматка квартир (інтерактивна)</strong>
+        <span>Візуальна сітка зі статусами: вільна / резерв / продана / іпотека. Захист від подвійного продажу</span>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-num">3</div>
+      <div class="priority-text">
+        <strong>Telegram та WhatsApp</strong>
+        <span>Інтеграція мессенджерів — вся комунікація з клієнтами в одному вікні CRM</span>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-num">4</div>
+      <div class="priority-text">
+        <strong>Email та SMS-розсилки</strong>
+        <span>Автоматичні сповіщення клієнтам: підтвердження резервації, нагадування про платежі</span>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-num">5</div>
+      <div class="priority-text">
+        <strong>Телефонія + колтрекінг (Binotel)</strong>
+        <span>Запис дзвінків, прив'язка до картки клієнта, аналітика по рекламних каналах</span>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-num">6</div>
+      <div class="priority-text">
+        <strong>Генерація документів</strong>
+        <span>Договори, КП, акти, рахунки — одним кліком з шаблону без ручного заповнення</span>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-num">7</div>
+      <div class="priority-text">
+        <strong>Фінансова аналітика</strong>
+        <span>Розстрочки, іпотечні графіки, дебіторка, KPI менеджерів, воронка конверсії</span>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-num">8</div>
+      <div class="priority-text">
+        <strong>Мультиофісний доступ</strong>
+        <span>Одеса (відділ продажів) + Київ (фінанси/керівництво) — різні ролі та рівні доступу</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: COMPARISON TABLE -->
+<div class="section">
+  <div class="section-title">2. Порівняння CRM-систем</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:20%">Критерій</th>
+        <th style="width:16%">Kommo</th>
+        <th style="width:16%">Pipedrive + FLATRIS</th>
+        <th style="width:16%">Uspacy + FLATRIS</th>
+        <th style="width:16%">PlanFix</th>
+        <th style="width:16%">G-PLUS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Шахматка</strong></td>
+        <td><span class="check-warn">⚠</span> FLATRIS +</td>
+        <td><span class="check-yes">✓</span> FLATRIS офіц.</td>
+        <td><span class="check-warn">⚠</span> FLATRIS API</td>
+        <td><span class="check-yes">✓</span> В платформі</td>
+        <td><span class="check-yes">✓</span> Нативна</td>
+      </tr>
+      <tr>
+        <td><strong>Синхронізація з сайтом</strong></td>
+        <td><span class="check-warn">⚠</span> Інтеграція</td>
+        <td><span class="check-yes">✓</span> FLATRIS</td>
+        <td><span class="check-warn">⚠</span> API</td>
+        <td><span class="check-yes">✓</span> API + вебхуки</td>
+        <td><span class="check-yes">✓</span> Реалтайм</td>
+      </tr>
+      <tr>
+        <td><strong>Telegram / WhatsApp</strong></td>
+        <td><span class="check-yes">✓</span> Відмінно</td>
+        <td><span class="check-yes">✓</span> Інтеграції</td>
+        <td><span class="check-yes">✓</span> Є</td>
+        <td><span class="check-yes">✓</span> Є</td>
+        <td><span class="check-yes">✓</span> Є</td>
+      </tr>
+      <tr>
+        <td><strong>Email / SMS</strong></td>
+        <td><span class="check-yes">✓</span></td>
+        <td><span class="check-yes">✓</span></td>
+        <td><span class="check-yes">✓</span></td>
+        <td><span class="check-yes">✓</span></td>
+        <td><span class="check-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td><strong>Телефонія / Binotel</strong></td>
+        <td><span class="check-yes">✓</span> Є</td>
+        <td><span class="check-yes">✓</span> Є</td>
+        <td><span class="check-yes">✓</span> Binotel, Ringostat</td>
+        <td><span class="check-yes">✓</span> Binotel, UniTalk</td>
+        <td><span class="check-yes">✓</span> Вбудована</td>
+      </tr>
+      <tr>
+        <td><strong>Генерація документів</strong></td>
+        <td><span class="check-warn">⚠</span> Базово</td>
+        <td><span class="check-warn">⚠</span> Інтеграції</td>
+        <td><span class="check-yes">✓</span> Шаблони</td>
+        <td><span class="check-yes">✓</span> Нативно</td>
+        <td><span class="check-yes">✓</span> Нативно</td>
+      </tr>
+      <tr>
+        <td><strong>Фінансова аналітика</strong></td>
+        <td><span class="check-no">✗</span> Немає</td>
+        <td><span class="check-no">✗</span> Кастом</td>
+        <td><span class="check-warn">⚠</span> Базова</td>
+        <td><span class="check-yes">✓</span> Гнучка</td>
+        <td><span class="check-yes">✓</span> Розстрочки, KPI</td>
+      </tr>
+      <tr>
+        <td><strong>Автоматизація</strong></td>
+        <td><span class="check-warn">⚠</span> Базова</td>
+        <td><span class="check-warn">⚠</span> Базова</td>
+        <td><span class="check-yes">✓</span> Є</td>
+        <td><span class="check-yes">✓✓</span> Найкраща</td>
+        <td><span class="check-yes">✓</span> Є</td>
+      </tr>
+      <tr>
+        <td><strong>Pipeline UX (amoCRM)</strong></td>
+        <td><span class="check-yes">✓✓</span> Ідентично</td>
+        <td><span class="check-yes">✓✓</span> Дуже схоже</td>
+        <td><span class="check-yes">✓</span> Добре</td>
+        <td><span class="check-warn">⚠</span> Своя логіка</td>
+        <td><span class="check-warn">⚠</span> Інший UX</td>
+      </tr>
+      <tr>
+        <td><strong>Українська мова</strong></td>
+        <td><span class="check-no">✗</span> Немає</td>
+        <td><span class="check-no">✗</span> / <span class="check-yes">✓</span> FLATRIS</td>
+        <td><span class="check-yes">✓</span> Повністю</td>
+        <td><span class="check-yes">✓</span> Повністю</td>
+        <td><span class="check-yes">✓</span> Повністю</td>
+      </tr>
+      <tr>
+        <td><strong>Без рос. інфраструктури</strong></td>
+        <td><span class="check-warn">⚠</span> США (51% — 1C Росія)</td>
+        <td><span class="check-yes">✓</span> Естонія + UA</td>
+        <td><span class="check-yes">✓</span> Україна</td>
+        <td><span class="check-yes">✓</span> EU-сервери</td>
+        <td><span class="check-yes">✓</span> Україна</td>
+      </tr>
+      <tr>
+        <td><strong>Доступ з України</strong></td>
+        <td><span class="check-yes">✓</span> Без VPN</td>
+        <td><span class="check-yes">✓</span> Повний</td>
+        <td><span class="check-yes">✓</span> Повний</td>
+        <td><span class="check-yes">✓</span> Повний</td>
+        <td><span class="check-yes">✓</span> Повний</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 3: PRICING TABLE -->
+<div class="section">
+  <div class="section-title">3. Бюджет: ліцензія + впровадження</div>
+  <p style="font-size:10px; color:#666; margin-bottom:10px;">Розрахунок орієнтовно на 10 користувачів (уточніть реальну кількість — вартість ліцензії перерахуємо). Впровадження — одноразова вартість налаштування під ваші процеси.</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:20%">Система</th>
+        <th style="width:16%">Ліцензія / міс</th>
+        <th style="width:16%">Ліцензія / рік</th>
+        <th style="width:16%">Впровадження (разово)</th>
+        <th style="width:16%">FLATRIS (якщо потрібен)</th>
+        <th style="width:16%">Загалом рік 1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Kommo</strong><br><span style="font-size:9px;color:#666">Advanced, 10 юзерів</span></td>
+        <td>$250</td>
+        <td>$3,000</td>
+        <td>від $1,500</td>
+        <td>від $500</td>
+        <td><strong>~$5,000+</strong><br><span class="badge badge-orange">⚠ VPN</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pipedrive + FLATRIS</strong><br><span style="font-size:9px;color:#666">Professional, 10 юзерів</span></td>
+        <td>$490</td>
+        <td>$5,880</td>
+        <td>від $2,000</td>
+        <td>від $500</td>
+        <td><strong>~$8,400+</strong><br><span class="badge badge-blue">Знайомий UX</span></td>
+      </tr>
+      <tr>
+        <td><strong>Uspacy + FLATRIS</strong><br><span style="font-size:9px;color:#666">Professional, 10 юзерів</span></td>
+        <td>~€150</td>
+        <td>~€1,800</td>
+        <td>від $1,500</td>
+        <td>від $500</td>
+        <td><strong>~$4,000+</strong><br><span class="badge badge-yellow">Молода платф.</span></td>
+      </tr>
+      <tr>
+        <td><strong>PlanFix</strong><br><span style="font-size:9px;color:#666">Business, 10 юзерів</span></td>
+        <td>€50</td>
+        <td>€600</td>
+        <td>від $2,000</td>
+        <td>Не потрібен</td>
+        <td><strong>~$2,700+</strong><br><span class="badge badge-green">Найдешевша ліц.</span></td>
+      </tr>
+      <tr class="summary-row">
+        <td><strong>G-PLUS CRM</strong><br><span style="font-size:9px;color:#ccc">Безліміт юзерів</span></td>
+        <td>$250</td>
+        <td>$3,000</td>
+        <td>від $1,500</td>
+        <td>Не потрібен</td>
+        <td><strong>~$4,500+</strong><br><span class="badge badge-green">Всё включено</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:9px; color:#94a3b8; margin-top:6px;">* Ціни орієнтовні. Точна вартість впровадження залежить від обсягу налаштувань, кількості інтеграцій та кількості менеджерів. Розрахунок надається після технічного брифінгу.</p>
+</div>
+
+<!-- PAGE BREAK -->
+<div class="page-break"></div>
+
+<!-- SECTION 4: PROS/CONS -->
+<div class="section">
+  <div class="section-title">4. Плюси та мінуси кожної системи</div>
+  <p style="font-size:10px; color:#666; margin-bottom:14px;">Аналіз з трьох позицій: як <strong>інтегратор</strong> (хто налаштовує), як <strong>розробник</strong> (технічні можливості), як <strong>кінцевий користувач</strong> (менеджер з продажу).</p>
+
+  <!-- KOMMO -->
+  <div class="system-block system-kommo">
+    <div class="system-header">
+      <div>
+        <div class="system-name">Kommo (amoCRM)</div>
+        <span class="badge badge-blue">США · Без VPN</span>
+        <span class="badge badge-orange">⚠ 51% власник — 1C Росія</span>
+      </div>
+      <div class="system-price">Ліцензія: $250/міс · Впровадження: від $1,500 · FLATRIS: +$500</div>
+    </div>
+    <div class="system-body">
+      <div class="timeline-badge">⏱ Термін впровадження: 2–3 тижні</div>
+      <div class="pros-cons-grid">
+        <div class="pc-card">
+          <div class="pc-header integrator">Інтегратор</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Зрілий ринок партнерів</li>
+              <li>Широка документація API</li>
+              <li>Багато готових шаблонів</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Шахматку треба настроювати окремо (FLATRIS)</li>
+              <li>Фінансову аналітику не закрити без кастому</li>
+              <li>Репутаційний ризик: 51% — 1C (Москва)</li>
+              <li>Генерація документів — базова, потрібні інтеграції</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header developer">Розробник (API)</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Відмінний REST API</li>
+              <li>Вебхуки на всі події</li>
+              <li>Великий маркетплейс виджетів</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Сервери в США — дані поза ЄС-юрисдикцією</li>
+              <li>Майбутнє продукту на UA ринку невідоме</li>
+              <li>API rate limits жорсткіші ніж у конкурентів</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header user">Менеджер з продажу</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Найзнайоміший інтерфейс — amoCRM</li>
+              <li>Мінімальне навчання команди</li>
+              <li>Зручний мобільний додаток</li>
+              <li>Працює без VPN</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Немає української мови інтерфейсу</li>
+              <li>Слабка нативна аналітика для девелопера</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIPEDRIVE -->
+  <div class="system-block system-pipedrive">
+    <div class="system-header">
+      <div>
+        <div class="system-name">Pipedrive + FLATRIS</div>
+        <span class="badge badge-green">Безпечно · Естонія</span>
+        <span class="badge badge-blue">Найближчий до amoCRM</span>
+      </div>
+      <div class="system-price">Ліцензія: $490/міс · Впровадження: від $2,000 · FLATRIS: +$500</div>
+    </div>
+    <div class="system-body">
+      <div class="timeline-badge">⏱ Термін впровадження: 2–4 тижні</div>
+      <div class="pros-cons-grid">
+        <div class="pc-card">
+          <div class="pc-header integrator">Інтегратор</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>FLATRIS — офіційний додаток маркетплейсу</li>
+              <li>Простота базового налаштування</li>
+              <li>Велика екосистема готових інтеграцій</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Фінансова аналітика — кастомна розробка</li>
+              <li>Дорога ліцензія при масштабуванні</li>
+              <li>Pipedrive без Ukrainian UI — клієнт може заперечити</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header developer">Розробник (API)</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Відмінний REST API</li>
+              <li>Zapier / Make / n8n підтримка</li>
+              <li>FLATRIS має повне API</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Webhooks лише на платних тарифах</li>
+              <li>Обмежені можливості без кастом-розробки для девелоперської фінаналітики</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header user">Менеджер з продажу</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Дуже схожий UX на amoCRM</li>
+              <li>Команда адаптується за 3–5 днів</li>
+              <li>Шахматка в одному вікні (FLATRIS)</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Інтерфейс англійською</li>
+              <li>Мобільний додаток слабший ніж у Kommo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USPACY -->
+  <div class="system-block system-uspacy">
+    <div class="system-header">
+      <div>
+        <div class="system-name">Uspacy + FLATRIS</div>
+        <span class="badge badge-green">Українська компанія</span>
+        <span class="badge badge-yellow">Платформа 2 роки</span>
+      </div>
+      <div class="system-price">Ліцензія: ~€150/міс · Впровадження: від $1,500 · FLATRIS: +$500</div>
+    </div>
+    <div class="system-body">
+      <div class="timeline-badge">⏱ Термін впровадження: 3–5 тижнів (FLATRIS API — кастом)</div>
+      <div class="pros-cons-grid">
+        <div class="pc-card">
+          <div class="pc-header integrator">Інтегратор</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Найдешевша ліцензія серед pipeline-CRM</li>
+              <li>Повна українська мова</li>
+              <li>Відкритий API (uspacy.dev)</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>FLATRIS не plug-and-play — потрібна API-інтеграція на замовлення</li>
+              <li>Мала екосистема партнерів</li>
+              <li>Молода платформа — можливі прогалини у функціях</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header developer">Розробник (API)</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>API-first архітектура</li>
+              <li>Вхідні та вихідні вебхуки</li>
+              <li>Make / Zapier підтримка</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>API ще розвивається — можливі зміни</li>
+              <li>Менша документація ніж у зрілих CRM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header user">Менеджер з продажу</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Українська мова — легкий онбординг</li>
+              <li>Чистий сучасний інтерфейс</li>
+              <li>Вбудований корпоративний месенджер</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Менше можливостей ніж у Pipedrive</li>
+              <li>Мобільний додаток базовий</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLANFIX -->
+  <div class="system-block system-planfix">
+    <div class="system-header">
+      <div>
+        <div class="system-name">PlanFix</div>
+        <span class="badge badge-green">EU-сервери · Найдешевша ліцензія</span>
+        <span class="badge badge-blue">Платформа для всього бізнесу</span>
+      </div>
+      <div class="system-price">Ліцензія: €50/міс (10 юзерів, Business) · Впровадження: від $2,000</div>
+    </div>
+    <div class="system-body">
+      <div class="timeline-badge">⏱ Термін впровадження: 4–8 тижнів (шахматка + фінаналітика будується в платформі)</div>
+      <div class="pros-cons-grid">
+        <div class="pc-card">
+          <div class="pc-header integrator">Інтегратор</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Найпотужніша автоматизація — сценарії, IF/ELSE, тригери</li>
+              <li>Одна платформа — без зайвих інтеграцій</li>
+              <li>Ліцензія дешевша в рази</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Висока складність впровадження</li>
+              <li>Шахматку треба будувати (2–3 тижні роботи)</li>
+              <li>Потрібен досвідчений інтегратор PlanFix</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header developer">Розробник (API)</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Потужний REST API v2</li>
+              <li>Вебхуки на всі події</li>
+              <li>Гнучкі кастомні поля</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Rate limit 1 запит/сек (Plan B: 50k/добу)</li>
+              <li>XML-RPC застарілий API поруч з новим — плутає</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header user">Менеджер з продажу</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Повністю українська мова</li>
+              <li>Все в одному — задачі, документи, угоди</li>
+              <li>Потужна аналітика для керівника</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Не схожий на amoCRM — навчання 1–2 тижні</li>
+              <li>Складніший інтерфейс</li>
+              <li>Більше кліків для простих дій</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G-PLUS -->
+  <div class="system-block system-gplus">
+    <div class="system-header">
+      <div>
+        <div class="system-name">G-PLUS CRM</div>
+        <span class="badge badge-green">Спеціалізовано для забудовників</span>
+        <span class="badge badge-green">Безліміт юзерів</span>
+      </div>
+      <div class="system-price">Ліцензія: $250/міс (∞ юзерів) · Впровадження: від $1,500</div>
+    </div>
+    <div class="system-body">
+      <div class="timeline-badge">⏱ Термін впровадження: 2–3 тижні (все нативне — налаштування без розробки)</div>
+      <div class="pros-cons-grid">
+        <div class="pc-card">
+          <div class="pc-header integrator">Інтегратор</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Все нативне — шахматка, документи, фінанси</li>
+              <li>Найшвидше впровадження</li>
+              <li>120+ готових інтеграцій</li>
+              <li>Ціна не залежить від кількості юзерів</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Менш гнучка кастомізація ніж PlanFix</li>
+              <li>Ціна фіксована — вигідна при 5+ юзерів</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header developer">Розробник (API)</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Відкритий API для інтеграції з сайтом</li>
+              <li>Шахматка вбудовується на сайт через API</li>
+              <li>Портальні інтеграції (LUN, Dom.RIA) нативно</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>API менш задокументований ніж Pipedrive</li>
+              <li>Менша екосистема third-party інтеграцій</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-header user">Менеджер з продажу</div>
+          <div class="pc-body">
+            <ul class="pc-list pros">
+              <li>Платформа створена саме для продажу квартир</li>
+              <li>Повністю українська мова</li>
+              <li>Шахматка прямо в інтерфейсі</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Не схожий на amoCRM — навчання 1–2 тижні</li>
+              <li>Менш знайомий інтерфейс для тих хто виходить з amoCRM</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: RECOMMENDATION -->
+<div class="section">
+  <div class="section-title">5. Рекомендація</div>
+
+  <div class="warning-box">
+    <strong>⚠ Важливо щодо Kommo (amoCRM):</strong> Kommo — юридично американська компанія (QSOFT LLC, Каліфорнія), сервери в США, в Україні доступна без VPN. Однак з 2016 року <strong>51% компанії належить 1C (Москва, Росія)</strong> — це репутаційний ризик для компанії, що працює з іноземними покупцями. Рекомендуємо зважити цей фактор при прийнятті рішення.
+  </div>
+
+  <div class="rec-box">
+    <div class="rec-title">⭐ Варіант A — «Знайомий інтерфейс + швидкий старт»</div>
+    <div class="rec-body">
+      <strong style="color:#e2b96f">Pipedrive + FLATRIS</strong><br>
+      Команда отримає інтерфейс, максимально близький до amoCRM — воронки, картки, drag-drop. Українська шахматка FLATRIS синхронізується з вашим сайтом у реальному часі. Захист від подвійного продажу. Жодного російського ПЗ, жодного VPN. Термін запуску: 2–4 тижні.
+      <br><br>
+      <strong style="color:#e2b96f">Для кого:</strong> якщо команді критично важливо зберегти звичний спосіб роботи і швидко стартувати.
+    </div>
+  </div>
+
+  <div class="rec-box">
+    <div class="rec-title">⭐ Варіант B — «Платформа для всього бізнесу за мінімальну ліцензію»</div>
+    <div class="rec-body">
+      <strong style="color:#e2b96f">PlanFix (Business)</strong><br>
+      Найнижча вартість ліцензії: €50/міс на 10 юзерів (€600/рік). Закриває не тільки продажі, а й весь операційний контур: задачі, документи, фінансова аналітика розстрочок, автоматизація сценаріїв. Шахматка будується засобами платформи. Потребує якісного впровадження, але дає систему без обмежень на роки вперед.
+      <br><br>
+      <strong style="color:#e2b96f">Для кого:</strong> якщо є готовність один раз пройти навчання і отримати систему, яка виросте з бізнесом.
+    </div>
+  </div>
+
+  <div class="rec-box">
+    <div class="rec-title">⭐ Варіант C — «Все в одному для забудовника, без конструктора»</div>
+    <div class="rec-body">
+      <strong style="color:#e2b96f">G-PLUS CRM</strong><br>
+      Єдина система, де шахматка, розстрочки, синхронізація з сайтом і телефонія вбудовані нативно — нічого не треба збирати. $250/міс незалежно від кількості менеджерів. Найшвидше впровадження: 2–3 тижні. 1000+ клієнтів-забудовників в Україні та Європі.
+      <br><br>
+      <strong style="color:#e2b96f">Для кого:</strong> якщо пріоритет — мінімальний ризик, максимальна нативна функціональність для девелопера.
+    </div>
+  </div>
+</div>
+
+<div class="footnote">
+  Документ підготовлено CRM Solutions · Червень 2026 · Конфіденційно — тільки для «Клубний квартал Троїцький»<br>
+  Усі ціни є орієнтовними та можуть бути уточнені після технічного брифінгу · Вартість ліцензій вказана без ПДВ
+</div>
+
+</div>
+</body>
+</html>

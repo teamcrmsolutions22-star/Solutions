@@ -1,0 +1,3 @@
+# Power your sales with Kommo
+
+bombarded with notifications Como makes staying on top of every customer message easy it connects all your sales channels emails calls SMS chats and more into one gorgeous platform and provides complete visibility into your sales pipeline while assigning every potential customer to someone on your team use Como for everything from automatically creating lead profiles to measuring and boosting your team's performance to keeping your business running 24 7 with a friendly AI sales bot no coding required plus Como integrates with the tools you already use simply sign up for your free trial and customize your sales pipeline Como transform conversations into customers 

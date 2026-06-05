@@ -1,8 +1,8 @@
 # Uspacy Knowledge Base — Індекс
 
 > Платформа: Uspacy (https://uspacy.com/)  
-> Оновлено: 2026-06-04 (Deep Research — 30+ пошуків, 20+ джерел)  
-> ⚠️ Прямий фетч uspacy.ua/com/eu заблокований (403). Дані зібрані через WebSearch + Google cache.
+> Оновлено: 2026-06-05 (Deep Research + 94 джерела: База знань Uspacy, серія «Тепер усе ясно» #1-15, вебінари «Година Pro»)  
+> ⚠️ Прямий фетч uspacy.ua/com/eu заблокований (403). Дані зібрані через WebSearch + Google cache + транскрипції вебінарів.
 
 ---
 
@@ -10,19 +10,19 @@
 
 | Файл | Зміст |
 |------|-------|
-| `01-overview-pricing.md` | Огляд платформи, компанія, інвестори, тарифи Free/Standard/Pro (USD + UAH 2026), мобільні застосунки, site map |
-| `02-admin-setup.md` | Повна таблиця фіч по модулях, RBAC, Company & People, Smart Objects, Document Generator, Automation, Tasks, CRM деталі, кейси |
-| `03-integrations.md` | 50+ нативних інтеграцій по категоріях, External Lines (WhatsApp/TG/Viber/FB/IG), Zapier triggers & actions, телефонія, middleware |
-| `04-api-webhooks.md` | REST API, 3 методи автентифікації (JWT/OAuth/Incoming Webhook), таблиця мікросервісів, всі відомі ендпоінти, матриця webhook-подій, cURL приклади |
+| `01-overview-pricing.md` | Огляд платформи, компанія, інвестори, тарифи Free/Standard/Pro (USD + UAH 2026), мобільні застосунки, site map, серія вебінарів «Тепер усе ясно» та «Година Pro» |
+| `02-admin-setup.md` | Реєстрація, онбординг, демо-режим, RBAC, Company & People, Smart Objects, CRM (ліди/угоди/контакти/компанії + конвертація + продукти + оплати), Tasks (підзавдання, чеклісти, AI-функції, Kanban), Справи + Резервування, Маркетинг (форми + розсилки), Пошта, External Lines деталі, Кошик, Стрічка новин, кейси |
+| `03-integrations.md` | 50+ нативних інтеграцій, покрокове підключення External Lines (Telegram/Viber/WhatsApp/Facebook/Instagram), відеозустрічі (Google Meet/Zoom), Zapier, Make, n8n, телефонія, маркетингові інтеграції |
+| `04-api-webhooks.md` | REST API, 3 методи автентифікації (JWT/OAuth/Incoming Webhook), таблиця мікросервісів, всі відомі ендпоінти, матриця webhook-подій, cURL приклади, vibe coding, поради CTO Kирила Мельничука |
 
 ---
 
 ## Маршрутизація (ключові слова)
 
-- **Ціна, тариф, план, мобільний, компанія, site map** → `01-overview-pricing.md`
-- **Ролі, RBAC, права, налаштування, процес, автоматизація, воронка, кастомне поле, Smart Object, Tasks, CRM модуль** → `02-admin-setup.md`
-- **Інтеграція, Zapier, Make, n8n, телефонія, Viber, Telegram, Prom, Rozetka, External Lines** → `03-integrations.md`
-- **API, token, OAuth, webhook, endpoint, REST, мікросервіс, код, розробник** → `04-api-webhooks.md`
+- **Ціна, тариф, план, мобільний, компанія, site map, вебінар, навчання** → `01-overview-pricing.md`
+- **Реєстрація, онбординг, ролі, RBAC, права, налаштування, процес, автоматизація, воронка, кастомне поле, Smart Object, Tasks, CRM модуль, завдання, лід, угода, контакт, продукт, форма, розсилка, AI, справи, пошта, кошик** → `02-admin-setup.md`
+- **Інтеграція, Zapier, Make, n8n, телефонія, Viber, Telegram, WhatsApp, Facebook, Instagram, Prom, Rozetka, External Lines, Zoom, Google Meet** → `03-integrations.md`
+- **API, token, OAuth, webhook, endpoint, REST, мікросервіс, код, розробник, curl, vibe coding** → `04-api-webhooks.md`
 
 ---
 

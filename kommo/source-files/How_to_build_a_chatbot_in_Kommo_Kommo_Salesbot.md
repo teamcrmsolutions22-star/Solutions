@@ -1,0 +1,45 @@
+# How to build a chatbot in Kommo | Kommo Salesbot
+
+hey there are you ready to step up your sales game and close more deals today I'll show you how to create your very own chatbot in Como let's dive in so why are chatbots essential for sales teams in our Digital World customers expect quick responses 24/7 but it's tough and expensive for business 
+
+businesses to be glued to their screens at all hours that's where Kom sales bot comes in these automated chat Bots handle repetitive conversations letting your team focus on important stuff they engage with leads instantly qualify them and move them down the pipeline while you sleep curious how it works let's find out it all starts when someone starts a chat with your business this conversation becomes a new lead in Como your sales bot wakes up in immedi 
+
+immediately replies hey how can I help you and offers a few options to choose from let's say the client goes for service promotions the bot sends a list of provided services and gives your lead a bit of time to see if there is a promotion they are interested in let's say they choose website Creation in The Next Step the sales bot asks if they want to schedule a meeting and the lead replies still have questions the sales bot requests the lead's preferred method of communication 
+
+and the phone number when the lead provides it KO assigns a manager moving the lead forward in your sales pipeline in the meantime in your lead card you can see the lead's contact number the responsible user and the current pipeline stage once Kom verifies the number the lead receives a portfolio file showcasing previous website projects while the manager connects but what if the lead asks for something like social media marketing services and hasn't chosen 
+
+in any of the pre-made scenarios sales bot alerts the team to step in signaling that human assistance is needed the agent in return can help the bot by indicating that the message is consistent with an intent suggested by the bot or taking full control of the conversation during the conversation your manager handles the regular sales work filling out the lead cards answering queries and dealing with objections when it's time to close the deal Sales spot assists in gener 
+
+ating contracts or invoices once the invoice is sent the lead automatically moves to the invoice sent stage after the lead pays sales bot swiftly moves them to the final closed one stage and sends a confirmation message with almost no human involvement sales bot has just helped us sell our website creation services with sales bot you can customize everything to match your business needs to build a sales bot from scratch you 
+
+don't need any coding skills let me walk you through the process and you'll see how easy it is in commo you can create your sales bot directly from the pipeline right from your inbox or through communication tools in the settings tab It All Leads to the same intuitive visual builder for this video let's focus on the first method go to the lead section 
+
+and click on automate here you can see all the stages of your pipeline you can add a bot to any of these stages on the left side we have lead sources the channels we get new leads from like social media Messengers websites Google forms Facebook ads and so on since all the requests land in the incoming lead stage let's add our sales bot here click on any empty cell and select sales bot you can customize when and how your Bot gets Tred 
+
+triggered for example the bot can wake up immediately when the lead enters the pipeline it can also get scheduled for a particular time and day or for a specific action like a website visit let's set a trigger for when a conversation starts through an incoming message in telegram this way your sales bot will get triggered when a new conversation starts in your telegram now let's create our chatbot using the visual Builder here's what it looks like all you got to do 
+
+do is drag and drop the steps to craft your bot's journey you can do anything from sending automated messages to customers to setting conditions for different responses and internal Communications also you can pause the bot until a certain action is completed for example until the lead watches the video sales bot has advanced features such as changing responsible users creating follow-up tasks generating forms and documents with the help of kom's widget 
+
+and even implementing a andb testing once the client sends you any contact information you can use the validation feature that recognizes different numbers letters and emails to automatically check the validity of this information if you feel like going beyond our preset steps you can use the custom step to input your own piece of code if you need more guidance check out our knowledge-based article now let's build our bot to create efficient customer 
+
+interactions let's start by setting up a greeting message with call to action buttons by the way you can add synonyms for these buttons to ensure the bot recognizes different phrases you can also create an algorithm of actions for customers who will send a different answer for example the bot can say something like aha I'm not a wizard I'm just learning please give me a 
+
+a moment I will ask for help and redirect your lead to one of your agents as mentioned earlier the agent can specify the bot's intent so it knows how to act in a similar situation or take full control of the conversation now for each of the original responses we need to craft a custom scenario let's stick with the scenario we've covered earlier once the lead clicks on 
+
+service promotions they'll receive a new message with the latest offers of the month let's add another message attach the promotions file and add a short engaging text now let's give our lead a moment to look at the offers for that we'll pause the bot for a bit and once the time is up sales bot will send a couple of follow-up messages with more calls to action you can also pause the bot for various triggers for example until the message from the client is received during your 
+
+off hours or for particular lead actions in our scenario the lead is interested in web creation services but has questions to answer their questions we'll assign a personal manager and automatically move them to the incoming lead stage but before we do that let's ask our lead if they prefer to continue this conversation via telegram or phone if you remember 
+
+our lead requests a call we'll ask for their phone number if the number is correct it will automatically be added to the lead card perfect now let's assign our responsible user in 
+
+and change the lead status but for our manager to take action we need to make sure they are aware of this lead so our bot will create a follow-up task for them and specify that the lead wants to be contacted via phone sometimes it might take a minute or even five for the manager to get their hands on the chat but we need to keep our potential customers engaged during that time so how do we do that one of the options 
+
+is to send a portfolio with your previous projects here you can attach an image video or PDF file and that's when our sales bot stops now you can customize the spot to fit your needs and add steps for your calls to action and alternative scenarios you can rename duplicate and delete any steps you want just don't forget to click the save button this was just to show you how easy it is to build one from scratch all 
+
+all you need is an understanding of the flow and a bit of creativity now let's add another bot to the mix one that will transfer leads to the closed one stage after a purchase and send them a link with order confirmation go to the stage invoice sent and add a trigger choose the trigger that should act when a form is submitted now we'll set our bot to always so that time zones don't stop us from making sales and keeping our customer 
+
+customers happy now we've got to pay attention here make sure to toggle on leave messages unread this way we'll be aware that the customer makes the payment finally it's time to create our payment bot first we need to change the stage of the lead to closed one and then send a message confirming the order 
+
+let's say we want to personalize this message we can make our bot address the customer using their first name as specified in telegram stop the bot and click save now if you decide to remove this trigger just click on the bin icon all right click done and don't forget to save your changes and there you have it just an hour of your time can save you and your team days even 
+
+weeks of repetitive work if you're curious about creating a document generation bot check out one of our previous tutorials for knowledge and that's it for today folks I hope you found this video helpful don't forget to subscribe so that you never miss an update thank you for watching until next time 

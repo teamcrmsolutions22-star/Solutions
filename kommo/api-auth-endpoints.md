@@ -654,3 +654,41 @@ $signature = hash_hmac('sha1', $body, $secret);
 
 ---
 
+## Додаткові факти (ChatGPT Deep Research, червень 2026)
+
+### Soft-deleted записи
+
+Видалені записи (в «кошику») повертають 404 при GET. Щоб отримати їх:
+
+```
+GET /api/v4/leads?with=deleted
+GET /api/v4/leads?with=all
+```
+
+### Batch API — ліміт
+
+Максимум **250 об'єктів** за один запит у `add`/`update` масивах. Рекомендується по 50–100 об'єктів за запит.
+
+### OAuth токен — endpoint
+
+```
+POST https://oauth.kommo.com/token
+```
+
+Параметри: `grant_type`, `code` (або `refresh_token`), `client_id`, `client_secret`, `redirect_uri`.
+
+### Топ-10 помилок інтеграторів
+
+| # | Помилка | Рішення |
+|---|---------|---------|
+| 1 | Невірний subdomain — 404/500 | Використовуй `https://mycompany.kommo.com/api/v4/...` |
+| 2 | Expired access token — 401 | Оновлюй через refresh token |
+| 3 | Невірний формат `custom_fields_values` | Масив з `field_id` + `values` |
+| 4 | Контакт без прив'язки при створенні ліда | Використовуй `/leads/complex` або `contacts_id` вже існуючого |
+| 5 | Пагінація: пропуск записів | `limit` + `page`, поки не повернеться порожній масив |
+| 6 | Rate limit 429 | Затримка / backoff між запитами |
+| 7 | Вебхуки не приходять | Тільки HTTPS, порти 80/443 |
+| 8 | Плутанина `catalogs` vs `catalog_elements` | `/api/v4/catalogs/{id}/elements` для елементів |
+| 9 | Batch перевищено 250 — помилка | Ділити на менші пакети |
+| 10 | Soft-delete — 404 при GET | Використовуй `with=deleted` або `with=all` |
+

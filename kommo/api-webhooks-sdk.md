@@ -36,7 +36,7 @@ Fields included: `text`, `attachment`, `date_create`, `note_type`, `element_type
 
 | Parameter | Value |
 |-----------|-------|
-| **Timeout** | 2 seconds |
+| **Timeout** | 10 seconds |
 | **Valid response** | HTTP 100–299 |
 | **Auto-disable trigger** | More than 100 invalid responses in last 2 hours AND last webhook also invalid |
 
@@ -45,7 +45,7 @@ Fields included: `text`, `attachment`, `date_create`, `note_type`, `element_type
 - API: `POST /api/v4/webhooks` with `destination` URL and `settings` array
 - UI: Settings → Integrations → Add webhook
 - **Ліміт:** максимум **100 вебхуків** на один акаунт (через `/api/v4/webhooks`)
-- **Retry-логіка:** не задокументовано ⚠️ — кількість повторних спроб, інтервали та критерії невідомі
+- **Retry-логіка:** всього **5 спроб**: 1-ша — одразу; 2-га — через 5 хв; 3-тя — через 15 хв; 4-та — через 15 хв (при кодах 499 або 5xx); 5-та — через 1 год. Успішна відповідь — будь-який 2xx. Порти: лише **80** і **443** (лише HTTPS).
 
 ### Digital Pipeline Webhooks
 - Separate from account webhooks
@@ -54,7 +54,7 @@ Fields included: `text`, `attachment`, `date_create`, `note_type`, `element_type
 - Docs: `https://developers.kommo.com/docs/webhooks-dp`
 
 ### Security / Verification
-- Standard webhooks: No built-in signing (verify by IP or shared secret)
+- Standard webhooks: `X-KOMMO-Signature` header (HMAC-SHA256 of request body with shared secret)
 - Chats API webhooks: `X-Signature` header (HMAC-SHA1)
 - Salesbot webhooks: JWT token signed with integration secret (HS256)
 
@@ -851,4 +851,101 @@ app.post("/kommo-chat-webhook", (req, res) => {
 });
 
 app.listen(3000);
+
+---
+
+## Додаткові факти та приклади коду (ChatGPT Deep Research, червень 2026)
+
+### Webhook payload — поле `before`
+
+При **update** події webhook payload містить поле `before` з попередніми значеннями сутності:
+
+```json
+{
+  "timestamp": 1622540000,
+  "topic": "lead_update",
+  "object": {
+    "id": 123,
+    "name": "New Deal",
+    "custom_fields_values": [...]
+  },
+  "before": {
+    "status_id": 456,
+    "responsible_user_id": 78
+  }
+}
+```
+
+Дозволяє порівняти старий і новий стан без додаткових запитів до API.
+
+### Python (Flask) — обробка вхідного вебхука
+
+```python
+from flask import Flask, request
+import hmac, hashlib
+
+app = Flask(__name__)
+
+@app.route('/kommo_webhook', methods=['POST'])
+def kommo_webhook():
+    secret = b'your_secret_key'
+    signature = request.headers.get('X-KOMMO-Signature', '')
+    body = request.get_data()
+    expected = hmac.new(secret, body, hashlib.sha256).hexdigest()
+    # опційна перевірка підпису
+    data = request.json
+    print("Event:", data.get('topic'), "| Lead ID:", data.get('object', {}).get('id'))
+    return '', 200
+```
+
+### Python — пагінатор (отримати всі ліди)
+
+```python
+import requests
+
+token = 'YOUR_ACCESS_TOKEN'
+sub = 'your-subdomain'
+headers = {'Authorization': f'Bearer {token}'}
+
+page = 1
+all_leads = []
+while True:
+    params = {'limit': 250, 'page': page}
+    resp = requests.get(f'https://{sub}.kommo.com/api/v4/leads', headers=headers, params=params)
+    resp.raise_for_status()
+    data = resp.json().get('_embedded', {}).get('leads', [])
+    if not data:
+        break
+    all_leads.extend(data)
+    page += 1
+
+print(f"Total leads: {len(all_leads)}")
+```
+
+### Node.js — створити задачу на лід
+
+```js
+const fetch = require('node-fetch');
+const token = 'YOUR_ACCESS_TOKEN';
+const sub = 'your-subdomain';
+
+const body = {
+  add: [{
+    entity_id: 123,
+    entity_type: 'leads',
+    complete_till: Math.floor(Date.now() / 1000) + 86400,
+    text: 'Зателефонувати клієнту',
+    task_type: 'CALL'
+  }]
+};
+
+fetch(`https://${sub}.kommo.com/api/v4/tasks`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + token
+  },
+  body: JSON.stringify(body)
+}).then(res => res.json()).then(console.log);
+```
 ```

@@ -708,8 +708,9 @@ All direct WebFetch calls returned 403. Data was sourced from WebSearch results 
 | Ko AI на trial-акаунтах | Безкоштовно, з обмеженнями |
 
 **AI Agent — кількість одночасно активних агентів:**
-- Advanced: до **3** активних агентів
-- Pro: до **50** активних агентів
+- Base: до **3** активних агентів
+- Advanced: до **50** активних агентів
+- Pro: **необмежено** (unlimited)
 - Enterprise: кастомна кількість (по запиту)
 
 **AI Agent Sources (Knowledge Base) — ліміти:**

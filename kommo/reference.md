@@ -707,7 +707,32 @@ All direct WebFetch calls returned 403. Data was sourced from WebSearch results 
 | AI Agent | Платний add-on (будь-який план) |
 | Ko AI на trial-акаунтах | Безкоштовно, з обмеженнями |
 
-**Два рівні лімітів:**
+**AI Agent — кількість одночасно активних агентів:**
+- Advanced: до **3** активних агентів
+- Pro: до **50** активних агентів
+- Enterprise: кастомна кількість (по запиту)
+
+**AI Agent Sources (Knowledge Base) — ліміти:**
+- Trial: до **10** джерел знань
+- Платні тарифи: до **100** джерел знань
+
+**AI features per plan (офіційний поділ):**
+- **Base**: AI writing assistance, AI summaries, AI reply suggestions, AI task suggestions, AI Copilot
+- **Advanced**: + AI field value suggestions, AI unanswered message alerts, AI agent (chat replies + automations, до 3)
+- **Pro**: + AI agent з voice messages та appointment scheduling, **AI analyst** (plain-language запити до даних CRM — відповідає таблицями та графіками), ROI analytics
+- **Enterprise**: + custom кількість AI agents, SSO, SLA, dedicated account manager
+
+**AI Agent Actions — структура:**
+Кожна дія складається з трьох частин:
+- **WHEN** — умови (що говорить клієнт, тон, відсутність відповіді)
+- **DO** — що робить агент: завжди надсилає відповідь + опціонально запрошує інформацію, оновлює лід, запускає бота, передає чат людині
+- **MORE** — додаткові інструкції для специфічних ситуацій
+
+**AI Agent Persona:**
+- Можна вибрати мову відповідей або увімкнути **авто-визначення мови клієнта**
+- Налаштовується тон, роль, довжина відповідей
+
+**Два рівні лімітів використання (AI Rewriter/Summary/Suggestions):**
 
 **1. Personal limit:**
 - Фіксована кількість запитів на місяць для кожного користувача Enterprise-акаунту

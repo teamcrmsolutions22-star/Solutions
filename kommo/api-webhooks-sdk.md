@@ -45,6 +45,7 @@ Fields included: `text`, `attachment`, `date_create`, `note_type`, `element_type
 - API: `POST /api/v4/webhooks` with `destination` URL and `settings` array
 - UI: Settings → Integrations → Add webhook
 - **Ліміт:** максимум **100 вебхуків** на один акаунт (через `/api/v4/webhooks`)
+- **Retry-логіка:** не задокументовано ⚠️ — кількість повторних спроб, інтервали та критерії невідомі
 
 ### Digital Pipeline Webhooks
 - Separate from account webhooks

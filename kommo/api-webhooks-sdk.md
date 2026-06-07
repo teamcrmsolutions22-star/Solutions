@@ -24,6 +24,10 @@ Basic payload format:
 
 **Incoming Lead Events:** `add`, `update`, `delete`
 
+**Incoming Message Events:** `add`
+
+**Catalog Element Events:** `add`, `update`, `delete`
+
 ### Webhook Payload — Note Added to Lead
 
 Fields included: `text`, `attachment`, `date_create`, `note_type`, `element_type`, `element_id`, `metadata`
@@ -40,6 +44,7 @@ Fields included: `text`, `attachment`, `date_create`, `note_type`, `element_type
 - Available on **Advanced, Pro, Enterprise** plans only
 - API: `POST /api/v4/webhooks` with `destination` URL and `settings` array
 - UI: Settings → Integrations → Add webhook
+- **Ліміт:** максимум **100 вебхуків** на один акаунт (через `/api/v4/webhooks`)
 
 ### Digital Pipeline Webhooks
 - Separate from account webhooks
@@ -642,3 +647,207 @@ for field in lead_custom_fields:
 6. **Rate limit API: 7 запитів/сек** → HTTP 429. Повторні порушення → IP-блокування (HTTP 403).
 7. **`installation: true` vs `false`**: якщо налаштування через зовнішній API — встановлювати `false`.
 8. **`init_once: false`** для víджетів без спільного контексту між сторінками.
+
+---
+
+## 10. CODE EXAMPLES — cURL / Python / Node.js
+
+> Неофіційні навчальні приклади на основі офіційних endpoint-ів. Точні схеми запитів/відповідей звіряйте з `developers.kommo.com`.
+
+### GET /api/v4/contacts — Список контактів
+
+```bash
+# cURL
+curl -X GET \
+  "https://SUBDOMAIN.kommo.com/api/v4/contacts?limit=50&order[updated_at]=desc" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Accept: application/json"
+```
+
+```python
+# Python
+import requests
+
+resp = requests.get(
+    "https://SUBDOMAIN.kommo.com/api/v4/contacts",
+    headers={"Authorization": "Bearer YOUR_ACCESS_TOKEN", "Accept": "application/json"},
+    params={"limit": 50, "order[updated_at]": "desc"},
+)
+resp.raise_for_status()
+for contact in resp.json().get("_embedded", {}).get("contacts", []):
+    print(contact.get("id"), contact.get("name"))
+```
+
+```js
+// Node.js
+import fetch from "node-fetch";
+
+const res = await fetch(
+  "https://SUBDOMAIN.kommo.com/api/v4/contacts?limit=50&order[updated_at]=desc",
+  { headers: { "Authorization": "Bearer YOUR_ACCESS_TOKEN", "Accept": "application/json" } }
+);
+const data = await res.json();
+data._embedded?.contacts?.forEach((c) => console.log(c.id, c.name));
+```
+
+### POST /api/v4/contacts — Створення контакту
+
+```bash
+# cURL
+curl -X POST \
+  "https://SUBDOMAIN.kommo.com/api/v4/contacts" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '[{"name": "Jane Doe", "custom_fields_values": [{"field_id": 123456, "values": [{"value": "+1 999 555 1234"}]}]}]'
+```
+
+```python
+# Python
+import requests
+
+resp = requests.post(
+    "https://SUBDOMAIN.kommo.com/api/v4/contacts",
+    headers={"Authorization": "Bearer YOUR_ACCESS_TOKEN", "Content-Type": "application/json"},
+    json=[{"name": "Jane Doe", "custom_fields_values": [{"field_id": 123456, "values": [{"value": "+1 999 555 1234"}]}]}],
+)
+resp.raise_for_status()
+print("Created", [c.get("id") for c in resp.json().get("_embedded", {}).get("contacts", [])])
+```
+
+```js
+// Node.js
+import fetch from "node-fetch";
+
+const res = await fetch("https://SUBDOMAIN.kommo.com/api/v4/contacts", {
+  method: "POST",
+  headers: { "Authorization": "Bearer YOUR_ACCESS_TOKEN", "Content-Type": "application/json" },
+  body: JSON.stringify([{ name: "Jane Doe", custom_fields_values: [{ field_id: 123456, values: [{ value: "+1 999 555 1234" }] }] }]),
+});
+const data = await res.json();
+console.log("Created", data._embedded?.contacts?.map((c) => c.id));
+```
+
+### GET /api/v4/leads — Список лідів
+
+```bash
+# cURL
+curl -X GET \
+  "https://SUBDOMAIN.kommo.com/api/v4/leads?limit=50&order[created_at]=desc" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Accept: application/json"
+```
+
+```python
+# Python
+import requests
+
+resp = requests.get(
+    "https://SUBDOMAIN.kommo.com/api/v4/leads",
+    headers={"Authorization": "Bearer YOUR_ACCESS_TOKEN"},
+    params={"limit": 50, "order[created_at]": "desc"},
+)
+resp.raise_for_status()
+for lead in resp.json().get("_embedded", {}).get("leads", []):
+    print(lead.get("id"), lead.get("name"), lead.get("price"))
+```
+
+```js
+// Node.js
+import fetch from "node-fetch";
+
+const res = await fetch(
+  "https://SUBDOMAIN.kommo.com/api/v4/leads?limit=50&order[created_at]=desc",
+  { headers: { "Authorization": "Bearer YOUR_ACCESS_TOKEN" } }
+);
+const data = await res.json();
+data._embedded?.leads?.forEach((l) => console.log(l.id, l.name, l.price));
+```
+
+### PATCH /api/v4/leads — Масове оновлення лідів
+
+```bash
+# cURL
+curl -X PATCH \
+  "https://SUBDOMAIN.kommo.com/api/v4/leads" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '[{"id": 12345678, "price": 5000, "custom_fields_values": [{"field_id": 987654, "values": [{"value": "VIP"}]}]}]'
+```
+
+```python
+# Python
+import requests
+
+resp = requests.patch(
+    "https://SUBDOMAIN.kommo.com/api/v4/leads",
+    headers={"Authorization": "Bearer YOUR_ACCESS_TOKEN", "Content-Type": "application/json"},
+    json=[{"id": 12345678, "price": 5000, "custom_fields_values": [{"field_id": 987654, "values": [{"value": "VIP"}]}]}],
+)
+resp.raise_for_status()
+print(resp.json())
+```
+
+### GET + POST /api/v4/webhooks — Керування вебхуками
+
+```bash
+# GET — список вебхуків
+curl -X GET "https://SUBDOMAIN.kommo.com/api/v4/webhooks" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+
+# POST — створення вебхука
+curl -X POST "https://SUBDOMAIN.kommo.com/api/v4/webhooks" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"destination": "https://example.com/kommo-webhook", "settings": ["add_lead"]}'
+```
+
+```python
+# Python — отримання списку
+import requests
+
+headers = {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}
+resp = requests.get("https://SUBDOMAIN.kommo.com/api/v4/webhooks", headers=headers)
+resp.raise_for_status()
+for wh in resp.json().get("_embedded", {}).get("webhooks", []):
+    print(wh.get("id"), wh.get("destination"), wh.get("settings"))
+
+# Python — створення вебхука
+resp = requests.post(
+    "https://SUBDOMAIN.kommo.com/api/v4/webhooks",
+    headers={**headers, "Content-Type": "application/json"},
+    json={"destination": "https://example.com/kommo-webhook", "settings": ["add_lead"]},
+)
+resp.raise_for_status()
+print(resp.json())
+```
+
+### X-Signature — Верифікація підпису Chats API Webhook (Node.js)
+
+Chats API вебхуки містять заголовок `X-Signature` (HMAC-SHA1 з channel secret).
+
+```js
+import crypto from "crypto";
+import express from "express";
+
+const app = express();
+app.use(express.text({ type: "*/*" })); // зчитуємо "сирий" body
+
+const CHANNEL_SECRET = process.env.KOMMO_CHANNEL_SECRET;
+
+app.post("/kommo-chat-webhook", (req, res) => {
+  const signature = req.headers["x-signature"];
+  const expected = crypto
+    .createHmac("sha1", CHANNEL_SECRET)
+    .update(req.body, "utf8")
+    .digest("hex");
+
+  if (signature !== expected) {
+    return res.status(401).send("Invalid signature");
+  }
+
+  console.log("Valid webhook", req.body);
+  res.sendStatus(200);
+});
+
+app.listen(3000);
+```

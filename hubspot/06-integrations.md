@@ -1,54 +1,49 @@
 # HubSpot — Каталог інтеграцій
 
-> Актуально: червень 2026. Маркери: ✅ офіц. | ⚠️ потребує перевірки
-> **Marketplace: 2,000+ застосунків.** ✅
+> Актуально: червень 2026 (Deep Research). Маркери: ✅ офіц. | ⚠️ вторинне | ❌ застаріло
+> **Marketplace: 2,000+ застосунків, 2.5M+ активних інсталяцій** (мілстоун ~жовтень 2025). ✅
 
-## Вбудовані інтеграції за категоріями
+## Email & Calendar
+- **Gmail / Outlook (M365):** двостороння sync пошти; сайдбар-розширення; open-трекінг (free) + click (Sales seat). ✅
+- **Google / Outlook Calendar:** двостороння sync із Meetings-tool. ⚠️
 
-### Email & Calendar
-- **Gmail / Outlook (Microsoft 365):** двостороння синхронізація пошти й календаря, трекінг + логування листів, браузерне розширення. ✅
-- **Google / Outlook Calendar:** запис зустрічей у CRM, авто-запрошення учасників (Meeting links). ✅
+## Телефонія & комунікації
+- **HubSpot Calling (VoIP):** хвилини/міс — Free **15/user**, Starter **500** (1 номер), Pro **3,000** (3 номери), Ent **12,000**; запис+транскрипція Pro/Ent; потрібен Sales/Service paid seat; toll-free не надаються; список країн ⚠️. ✅
+- **Microsoft Teams:** native; **лише 1 інстанс Teams/акаунт**; особисті Teams не підтримуються; Conversation Intelligence для записів. ✅
+- **Slack:** алерти угод/контактів, slash-пошук, «Send Slack message» workflow-дія. ✅
+- **Zoom / Zoom Phone:** sync, click-to-dial. ⚠️
+- **Aircall:** «Essential App for Sales 2026»; click-to-call, screen pop, insight cards. ⚠️
 
-### Телефонія & комунікації
-- **HubSpot Calling:** вбудований VoIP. ✅ (точний tier-gating ⚠️; ChatGPT: Sales/Service Starter+, 2 номери, запис розмов).
-- **Zoom** — створення/синхронізація зустрічей і записів. ✅
-- **Aircall** — телефонія. ✅
-- **Slack** — сповіщення про угоди, чат-бот, пошук контактів. ✅
-- **Microsoft Teams** — сповіщення, чат, HubSpot Tab. ✅
-- **SMS** — немає рідної; конектори (Twilio, Nexmo) через Marketplace. ⚠️
+## Marketing / реклама
+- Мережі: **Facebook/Instagram, LinkedIn, Google, TikTok** — Marketing усі рівні (вкл. Free); lead-форми → контакт миттєво; Starter+ додає lookalike. ✅
+- LinkedIn Lead Gen Forms потребують поле Email як required. ✅
 
-### Marketing & реклама
-- **Facebook/Instagram Lead Ads** — авто-перенос лідів у CRM. ✅
-- **Google Ads** — витрати, конверсії, синхронізація аудиторій (Customer Match). ✅
-- **LinkedIn Ads (Lead Gen Forms)** — збір лідів. ✅
-- **TikTok Ads + TikTok social** — інтегровано (Spring 2026), повна атрибуція + sync аудиторій. ✅
+## Месенджери
+- **WhatsApp Business:** Marketing/Service **Pro/Ent**; **1,000 template-повідомлень/міс** (спільно; деякі KB кажуть «conversations» ⚠️); **25 номерів/WABA**; verified Meta Business Manager для >50 business-initiated/день; відповідь = 24-год сесія. ✅
+- **Facebook Messenger:** канал Conversations. ✅
+- **SMS:** native — платний Marketing SMS add-on (~$75/міс за 1,000 сегментів, Marketing Pro/Ent, переважно bulk) ⚠️; повноцінний 2-way — частіше через сторонні (Sakari 200+ країн). ⚠️
 
-### Месенджери
-- **WhatsApp Business** — через Conversations; до **25 номерів/WABA**, **1,000 template-повідомлень/міс**. ✅
-- **Facebook Messenger** — підключається до Shared Inbox. ✅
-- **Telegram / WeChat** — через сторонні інтеграції (Marketplace, не вбудовано). ⚠️
+## E-commerce & платежі
+- **Shopify (Data Sync, native):** Contacts + Products — **двостороння**; Orders + Carts — **одностороння** (Shopify→HubSpot); кинуті checkout→Carts, замовлення→Orders; варіанти товарів односторонньо; синк ~10 хв після історичного імпорту. ✅
+- **WooCommerce:** через Data Sync / marketplace (не first-party). ⚠️
+- **Commerce Hub:** платежі + quoting + invoicing + checkout + підписки. ✅
+- **HubSpot Payments:** лише **US/UK/CA**; **0.5%** платформ-фі. **Stripe-через-HubSpot:** більшість країн Stripe; **0.75%**. Карти/ACH/SEPA/BACS/Apple Pay/Google Pay; **130+ валют**. ✅
 
-### E-commerce
-- **Shopify** — повна синхронізація через Data Hub (Data Sync): контакти, компанії, продукти, замовлення, кинуті кошики. ✅
-- **WooCommerce** — конектор з Marketplace (продукти/замовлення/клієнти). ✅
-- **Stripe** — прийом платежів через Commerce Hub; дані платежів у CRM (разові + підписки). ✅
-- **HubSpot Payments** — власний процесор (US/UK/CA), аналог Stripe всередині CRM; нативне інвойсування. ✅
-- **Бухгалтерія:** QuickBooks Online, Xero — через Marketplace/партнерів. ⚠️
+## Автоматизація & Data Sync
+- **Data Hub Data Sync** (ex-Operations): **100+ застосунків**, one-way/two-way + дедуп-матчинг. ✅
+- **Zapier:** HubSpot серед 8,000+ застосунків. ⚠️ (число Zapier)
+- **n8n:** офіційний built-in node (contacts/companies/deals/lists/engagements, CRUD); self-hosted + Cloud. ✅ (n8n docs)
+- **Make (Integromat):** модулі HubSpot. ⚠️
 
-### Автоматизація & Data Sync
-- **Zapier** — офіційний конектор. ✅
-- **Make (Integromat)** — модуль HubSpot. ✅
-- **Data Hub Data Sync** (раніше Operations Hub) — вбудована двостороння синхронізація для **100+ застосунків** (Salesforce, Jira, Marketo, Zendesk, Mailchimp). ✅
-- **n8n** — community node (не HubSpot). ⚠️
+## Документи & підписи
+- **DocuSign:** create/send/track envelopes у HubSpot (лише e-sign). ⚠️
+- **PandaDoc:** native — eSign + CPQ + платежі; «PandaDoc CPQ for HubSpot» = перший повністю-native CPQ (2024); потребує PandaDoc Business ($49/seat/міс). ⚠️
+- **Native:** HubSpot Quotes + Payments (Commerce Hub). ✅
 
-### Документи & підписи
-- **DocuSign, PandaDoc** — відправка на підпис, зберігання в угодах (Marketplace). ⚠️
-- **HubSpot Quotes + Payments** — нативні quotes з інтеграцією платежів (Stripe). ✅
+## Marketplace
+- **2,000+ застосунків, 2.5M+ інсталяцій.** ✅ (third-party crawl ~1,946 live ⚠️)
+- Бейджі якості: **HubSpot Certified App** (+фільтр), **Built by HubSpot** (first-party). ✅
+- Сертифікація: ≥**60 активних унікальних інсталяцій** + ≥**6 міс** лістингу; (з 31.03.2026) тест-credentials не потрібні — замість них demo-відео; вимоги оновлено травень 2026. ✅
+- Популярні: Gmail, Outlook, Salesforce, Mailchimp, Aircall, Slack тощо (ecosystem.hubspot.com/marketplace/apps/popular). ⚠️
 
-## Оцінка інтеграцій (Marketplace)
-
-- **2,000+ застосунків** у всіх категоріях. ✅
-- Якість оцінюється за бейджами: **Certified app**, **Built by HubSpot**, **Powered by Partner** тощо. У кожного — розробник і відгуки.
-- ⚠️ Точні підрахунки інсталяцій варіюються (ChatGPT: Google Contacts ~68K, QuickBooks ~15K).
-
-**Джерела:** hubspot.com/products | hubspot.com/pricing/commerce | knowledge.hubspot.com/inbox/connect-whatsapp-to-the-conversations-inbox | hubspot.com/company-news/spring-2026-spotlight | ecosystem.hubspot.com (Marketplace)
+**Джерела:** ecosystem.hubspot.com/marketplace | knowledge.hubspot.com (calling, inbox/connect-whatsapp, integrations/connect-hubspot-and-microsoft-teams, integrations/connect-hubspot-and-shopify-via-data-sync, payment-processing) | hubspot.com/products/data-sync | hubspot.com/tiktok-integration | community.hubspot.com (2,000 Apps / 2.5M installs)

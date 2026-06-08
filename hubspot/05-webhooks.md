@@ -1,49 +1,51 @@
 # HubSpot — Вебхуки
 
-> Актуально: червень 2026. Маркери: ✅ офіц. | ⚠️ потребує перевірки
+> Актуально: червень 2026 (Deep Research). Маркери: ✅ офіц. | ⚠️ не виявлено/вторинне
 
 ## Налаштування
 
-- **Версія API підписок:** `/webhooks/2026-3/{appId}/...` (новий, замінює `/webhooks/v3/...`). ✅
-- **Де:** на рівні додатка в developer-акаунті: **Apps → [App] → Webhooks**, або через `GET/PUT /webhooks/2026-3/{appId}/settings` та `.../subscriptions`. ✅
-- **Target URL:** має бути публічний **HTTPS** endpoint; non-HTTPS → **400**. ✅
+- **Через UI:** developer-акаунт → Apps → [App] → Webhooks.
+- **Через API:** `PUT webhooks/v3/{appId}/settings` (body: `targetUrl`, `throttling` з `maxConcurrentRequests`) + `.../subscriptions`. ✅
+- **Target URL:** обов'язково публічний **HTTPS**. ✅
 
 ## Поведінка та ліміти
 
 | Параметр | Значення | Надійність |
 |----------|----------|-----------|
-| **Concurrency** | макс. **10 одночасних HTTP-запитів** на встановлений портал | ✅ |
-| **Подій на запит** | до **100 events** в одному HTTP-запиті | ✅ |
-| **Підписок на додаток** | до **1,000** | ✅ |
-| **Timeout** | **5 секунд** на відповідь (далі — retry) | ✅ |
-| **Retry** | до **10 спроб протягом 24 год** з рандомізованим backoff | ✅ |
-| **Гарантія доставки** | **at-least-once**; порядок НЕ гарантується, можливі дублі | ✅ |
-| **Підпис** | SHA-256 (app secret + raw body) у `X-HubSpot-Signature` | ✅ |
-| **vs API limits** | Webhook-POST'и **не рахуються** в API rate limits | ✅ |
+| **Concurrency** | **10 in-flight запитів/акаунт** (`maxConcurrentRequests`) | ✅ |
+| **Rate limit** | вебхуки мають ЛИШЕ concurrency, **не rate-limit** (`period`/`rateLimitPolicy` видалено 20.05.2024) | ✅ |
+| **Timeout** | **5 секунд** на 2XX (інакше timeout → retry) | ✅ |
+| **Retry** | до **10 спроб протягом 24 год** | ✅ |
+| **Доставка** | at-least-once (з retry); порядок НЕ гарантується | ⚠️ |
+| **vs API ліміт** | webhook-доставки **не рахуються** | ✅ |
+| **Max підписок/додаток** | ≈1,000 | ⚠️ (не підтверджено цей раз) |
 
-> ⚠️ Точні інтервали між спробами офіційно не публікуються (від секунд до годин, експоненційно).
+## Підпис (валідація)
 
-## Retry — тригери
+- **v3** — заголовок `X-HubSpot-Signature-v3`:
+  1. Reject, якщо `X-HubSpot-Request-Timestamp` старший за **5 хв**.
+  2. Конкатенація: `requestMethod + requestUri + requestBody + timestamp`.
+  3. **HMAC-SHA256** з app secret → **Base64**.
+  4. Порівняти з заголовком. ✅
+- **v1/v2** (`X-HubSpot-Signature`) ще існують; **v3 — рекомендований**. ✅
 
-Повтор відбувається при: connection failures, 4xx/5xx статусах, timeout (>5 сек). ✅
+## Payload
+
+JSON-**масив** подій. Поля: `objectId`, `propertyName`, `propertyValue`, `changeSource`, `eventId`, `subscriptionId`, `portalId`, `appId`, `occurredAt` (мс), `subscriptionType`/`eventType`, `attemptNumber`. ✅
 
 ## Типи подій
 
-- Сотні подій: створення/оновлення/видалення об'єктів, зміна властивостей, подієві тригери.
-- Приклади: `contact.creation`, `deal.propertyChange` тощо.
-- **Формат:** JSON із `eventId`, `subscriptionId`, `occurredAt`, `objectId`; при зміні властивості — `propertyName`, `propertyValue`, `previousValue`. ✅
-- **Scopes:** кожен тип підписки вимагає відповідного scope (див. webhooks guide). ✅
+Per-object create/delete/propertyChange: напр. `contact.creation`, `contact.deletion`, `contact.propertyChange`, `deal.propertyChange` тощо. Кожен тип вимагає відповідного scope. ✅
 
 ## Best practices
 
-- Слухати конкретний `propertyName`, а не всі зміни (інакше шквал сповіщень). ⚠️
-- Верифікувати підпис саме **SHA-256** (не SHA-1). ✅
-- Відповідати 2xx швидко (<5 сек), обробку — асинхронно в черзі.
-- Обробляти **дублі** (at-least-once) через ідемпотентність за `eventId`.
+- Слухати конкретний `propertyName` (інакше шквал). ⚠️
+- Відповідати 2XX <5с, обробка асинхронно.
+- Ідемпотентність за `eventId` (at-least-once → дублі).
+- Налаштувати `maxConcurrentRequests` під пропускну здатність ендпоінта.
 
 ## Дебаг
 
-- **Webhooks journal & management API** (BETA) — історичні в'юхи + фільтрація. ✅
-- Журнал подій у налаштуваннях додатка (UI). ✅
+- ⚠️ Окремого публічного webhook-activity-log API не виявлено; моніторинг через app logs / UI.
 
-**Джерела:** developers.hubspot.com/docs/api-reference/latest/webhooks/guide | developers.hubspot.com/changelog/2018-12-10-updated-webhook-retry-logic | developers.hubspot.com/docs/api-reference/legacy/webhooks/webhooks-journal
+**Джерела:** developers.hubspot.com/docs/api-reference/webhooks-webhooks-v3/guide | developers.hubspot.com/changelog/introducing-version-3-of-webhook-signatures | developers.hubspot.com/changelog/upcoming-sunset-webhooks-ratelimit-policy-field

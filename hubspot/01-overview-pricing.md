@@ -1,99 +1,90 @@
 # HubSpot — Огляд та Ціни
 
-> Актуально: червень 2026 (Spring 2026 Spotlight). Джерела: Perplexity + ChatGPT Deep Research на основі офіційної документації HubSpot.
-> Маркери: ✅ підтверджено офіц. доками | ⚠️ вторинне джерело/потребує перевірки | ❌ застаріло/недоступно
+> Актуально: червень 2026 (власний Deep Research). Маркери: ✅ офіц. | ⚠️ вторинне/блог чи число у PST | ❌ застаріло
+> Ціни: статичні сторінки /pricing ховають числа за калькулятором → багато цифр з офіц. блогу HubSpot (✅ джерело, але вторинне) чи PST.
 
 ## Що таке HubSpot і для кого
 
-HubSpot — хмарна **«agentic customer platform»** (платформа для маркетингу, продажів і сервісу), збудована навколо **Smart CRM** + AI-шарів **Breeze**. ✅
+HubSpot — хмарна **«agentic customer platform»**: **Smart CRM** (єдина БД, що живить усі продукти) + 6 хабів + AI-шари **Breeze**. ✅
+- **Smart CRM** — «underlying database that powers each product»; безкоштовні інструменти = lite-версії платних. ✅
+- **Хаби:** Marketing, Sales, Service, **Content** (ex-CMS), **Data** (ex-Operations), Commerce. ✅
+- **Free CRM:** 2 користувачі, 1,000 контактів, без терміну дії, без ліміту на дані. ✅
 
-**Структура платформи (хаби):**
-- **Smart CRM** — горизонтальний фундамент (єдина модель даних для всіх хабів)
-- **Marketing Hub** — маркетинг, лендінги, email, форми, реклама
-- **Sales Hub** — продажі, угоди, sequences, зустрічі
-- **Service Hub** — сервіс, тікети, база знань, портал клієнта
-- **Content Hub** (раніше CMS Hub) — сайти, контент, AI-генерація
-- **Data Hub** (раніше Operations Hub) — синхронізація даних, якість, автоматизація
-- **Commerce Hub** — платежі, інвойси, quotes
+**Аудиторія:** від SMB до enterprise. **278,880 клієнтів** (30.09.2025, SEC 10-Q; 267,982 на 30.06.2025) у **135+ країнах**. ✅ *(прежнє «~299k» ❌)*
+⚠️ Маркетинг: «середній час запуску Starter Customer Platform — 5 днів» (compare-сторінка).
 
-**Безкоштовне ядро (Smart CRM Free):** базове керування контактами, угоди, задачі, прості тікети, дашборд звітів, email-трекінг, обмежений Breeze Assistant. ✅
+**«Connected platform»:** усі хаби на спільному Smart CRM → єдиний UI, права, аналітика, AI-контекст. 2,000+ інтеграцій, 2.5M+ активних інсталяцій. ✅
 
-**Аудиторія:** Free CRM + Starter Customer Platform — стартапи й малий бізнес; Pro/Enterprise хаби — mid-market та enterprise (governance, кастомні об'єкти, складна автоматизація). ✅
-**~299,000+ клієнтів у 135+ країнах** (SaaS, e-commerce, послуги, нерухомість, освіта). ✅
+## Конкуренти (офіц. compare-сторінки існують; самі цифри — маркетинг ⚠️)
 
-**Ключова перевага — «connected platform»:** Smart CRM у центрі живить усі хаби → єдиний UI, права, аналітика, AI-контекст. Spring 2026 називає це «context advantage» проти generic-AI. ✅ **2,000+ інтеграцій** у маркетплейсі. ✅
+> Офіц. порівняння: hubspot.com/comparisons (Salesforce, Pipedrive, Zoho ✅). Для **Kommo/amoCRM та Bitrix24 офіц. сторінок НЕМАЄ** ❌ — лише блоги.
 
-## Відмінності від конкурентів (якісно, ⚠️ інтерпретація)
+- **vs Salesforce** ⚠️: HubSpot заявляє 85% ↑продуктивності, 72% вище adoption, 75% менше часу на дані, **71% нижчий TCO** після переходу. Простіше впровадження.
+- **vs Pipedrive** ⚠️: «86% краща якість лідів»; повний lifecycle проти pipeline-only.
+- **vs Zoho** ⚠️: G2 ease-of-use 8.7 vs 8.3; «Zoho потребує конекторів між інструментами».
+- **vs Kommo/Bitrix24** ⚠️: офіц. порівнянь немає; talk-track — повний стек + AI-агенти + екосистема проти месенджер/«все-в-одному».
 
-> HubSpot не публікує прямих feature-таблиць проти конкурентів — нижче talk-track для продажників.
+## Демо-сценарії (⚠️ сконструйовані)
 
-- **vs Salesforce:** простіше освоєння, швидший time-to-value, нижча TCO, єдина платформа. Salesforce — глибша кастомізація, але потребує більше впровадження й спеціалістів. ⚠️
-- **vs Pipedrive:** HubSpot ширший (Marketing/Content/Service/Data/Commerce + AI-агенти); Pipedrive — переважно sales-воронка. ⚠️
-- **vs Kommo (amoCRM):** Kommo — месенджер-центрична CRM; HubSpot покриває весь lifecycle із нативним маркетингом/сервісом і більшою екосистемою. ⚠️
-- **vs Bitrix24:** HubSpot виграє в UX, англомовній документації, партнерській мережі; Bitrix24 ширший «все-в-одному» (проєкти/HR), але складніший. ⚠️
-- **vs Zoho CRM:** Zoho дешевший per-user через багато окремих застосунків; HubSpot — глибина per-hub + Smart CRM + Breeze. Ризик lock-in у HubSpot вищий (функції централізовані). ⚠️
+- **B2B SaaS:** форми/кампанії (Marketing) → нуртуринг workflow → lead scoring + lifecycle → угоди (Sales) → Smart Deal Progression після дзвінків → Service після продажу.
+- **Агенція:** клієнт = угода; воронки = проєкти; тікети для delivery; дашборди per-client.
+- **E-commerce:** кинутий кошик (Shopify→Carts) → workflow-нагадування → замовлення (Commerce) → сервіс.
+- **Нерухомість:** форма на лістингу → угода + Meeting Scheduler → стадії → закриття.
 
-## Демо-сценарії за типом бізнесу (⚠️ сконструйовані)
+## Типи місць (Seats) — модель з 05.03.2024 ✅
 
-- **B2B SaaS (MQL → Closed-Won):** форми/кампанії в Marketing Hub → нуртуринг workflow → lead scoring + lifecycle stages → угоди в Sales Hub → Conversation Intelligence / Smart Deal Progression після дзвінків → Service Hub після продажу.
-- **Агенція:** клієнт = угода (Deal); воронки = проєкти, тікети для delivery, дашборди per-client.
-- **E-commerce:** кинутий кошик (Commerce/Shopify) → workflow у Marketing Hub (нагадування) → замовлення в Commerce Hub → післяпродажний сервіс.
-- **Нерухомість:** форма на сайті (Marketing) → угода + задача (Sales) → Meeting Scheduler → закриття.
+| Тип | Що дає | Ціна add-on |
+|-----|--------|-------------|
+| **Core Seat** | Edit-доступ до куплених хабів + Smart CRM + крос-платформ AI | Starter **$20** / Pro **$50** (блог: $45 ⚠️) / Ent **$75** /міс |
+| **Sales Seat / Service Seat** | Усі фічі Sales/Service Hub **Pro або Ent** (sequences, playbooks, forecasting, click-tracking) | Pro ~$90 / Ent ~$150 ⚠️ |
+| **View-Only Seat** | Лише перегляд | **Безкоштовно, безліміт** ✅ |
+| **Partner Seat** | Доступ співробітників партнера до акаунта клієнта | **Безкоштовно** ✅ |
 
-## Тарифи: типи місць (Seats)
+> Лише платні місця споживають Credits. Seat-мінімуми прибрано для Sales/Service (берез. 2024); ⚠️ але блог згадує **10-seat мінімум для Service Enterprise** (конфлікт).
 
-Зміна ціноутворення 2024: прибрано seat-мінімуми для Sales/Service Hub, введено Core Seat + View-Only Seat. ✅
+**Starter Customer Platform:** **$7/міс за seat (річна)** / **$10/міс (місячна)**; бандл усіх 6 Starter-редакцій + Smart CRM + **1,000 marketing-контактів**. ✅
 
-| Тип місця | Що дає | Надійність |
-|-----------|--------|-----------|
-| **Core Seat** (раніше Starter Seat) | Edit-доступ до куплених хабів + Smart CRM + Breeze (де ліцензовано) | ✅ |
-| **Sales Seat / Service Seat** | Доступ до спец-інструментів Sales/Service Hub **Pro та Enterprise** (sequences, playbooks, сервіс-функції) | ✅ |
-| **View-Only Seat** | **Безкоштовно й безліміт** на платних порталах — лише перегляд, без редагування | ✅ |
-| **Partner Seats** | Для партнерів; разом із Core/Sales/Service/Commerce можуть споживати HubSpot Credits | ✅ |
+## Повна цінова таблиця (хаб × tier)
 
-> Лише **платні місця** (Core, Sales, Service, Commerce, Partner) споживають Credits. Free та View-Only — **не споживають**. ✅
+| Хаб | Free | Starter | Professional | Enterprise |
+|-----|------|---------|--------------|------------|
+| **Marketing** | $0 | $9/seat (річна)/$15 (міс); 1,000 контактів ✅ | **$890/міс** (3 Core seats, 2,000 контактів) ✅ | **$3,600/міс** (5 seats, 10,000 контактів) ✅ |
+| **Sales** | $0 | $15/seat ⚠️ | **$90/seat** (річна)/$100 (міс) ⚠️ | **$150/seat** ⚠️ |
+| **Service** | $0 | $15/seat ⚠️ | $90/seat ⚠️ | $150/seat (10-seat min ⚠️) |
+| **Content** | $0 | $9/seat ⚠️ | **$450/міс** (річна)/$600 (міс) ⚠️ | **$1,500/міс** ⚠️ |
+| **Data** | $0 | ⚠️ (PST) | **$720/міс** (річна)/$800 (міс), 1 seat ⚠️ | **$2,000/міс**, 1 seat ⚠️ |
+| **Commerce** | транзакційна модель (без абонплати, крім CPQ) ✅ | | | |
 
-## Тарифи: структура й ціни
+**Marketing-контакти:** включено Starter 1,000 / Pro 2,000 / Ent 10,000; non-marketing безкоштовні до **15 млн**; білінг кроками по 1,000; Ent +~$100/міс за 10,000. ⚠️
+**Commerce/платежі:** HubSpot Payments **0.5%** платформ-фі, Stripe-через-HubSpot **0.75%**; US/UK/CA для HubSpot Payments; 130+ валют. ✅
 
-> ⚠️ Точні цифри на офіц. сторінках /pricing приховані за калькулятором «Calculate your price». Авторитетне джерело — **Product & Services Catalog (PST)** + in-app калькулятор. Усі рівні: **Free / Starter / Professional / Enterprise**.
+**Річна знижка:** єдиного % немає; ~10–40% залежно від хаба (напр. Sales Pro $90 річна vs $100 міс ≈10%). ⚠️
 
-| Хаб | Модель | Орієнтовні ціни | Надійність |
-|-----|--------|-----------------|-----------|
-| **Marketing Hub** | За marketing-контактами (перші 1,000 включені) | Legacy Pro: від **$800/міс** (1,000 контактів) ✅[офіц]; Starter ~$20/seat ⚠️[ChatGPT]; +$100/10,000 контактів ⚠️ | ✅/⚠️ |
-| **Sales Hub** | Per-seat, без seat-мінімумів | Starter **$9/seat (річна) / $15 (міс)** ✅[blog]; Pro ~$100/seat ⚠️; Ent ~$150/seat ⚠️ | ✅/⚠️ |
-| **Service Hub** | Per-seat (аналогічно Sales) | Starter ~$9–20/seat ⚠️; Pro ~$100; Ent ~$150 ⚠️ | ⚠️ |
-| **Content Hub** | Per-seat | Starter **$9/seat/міс** ✅[blog]; Pro/Ent вище | ✅/⚠️ |
-| **Data Hub** | Per-seat / workflows | Professional ~**$720/міс** ⚠️[blog] | ⚠️ |
-| **Commerce Hub** | Комісія з транзакцій (через Stripe/HubSpot Payments) | % з транзакції, без окремої абонплати | ✅ |
-| **Starter Customer Platform** | Бандл усіх Starter-редакцій | **$7–10/міс за seat** (промо до −65%) ✅[офіц] | ✅ |
+**Onboarding (одноразово, ⚠️ блог):** Sales Pro **$1,500** / Ent **$3,500**; Marketing Pro **$3,000** / Ent **$7,000**; Service ~аналогічно Sales. Для Starter — не потрібен. Можна waive через сертифікованого партнера.
 
-> ⚠️ Конфлікт джерел по Sales Hub Starter: офіц. блог HubSpot — **$9/seat (річна)**, ChatGPT DR — ~$20/seat. Пріоритет: офіц. блог.
+**Add-ons:** Transactional Email **$1,000/міс** (+dedicated IP, Marketing Pro/Ent) ⚠️; API Limit Increase (→250/10с, +1M/добу/пак) ціна не опублікована ⚠️; Credit-паки **$10/1,000/міс**; AEO standalone **$50/міс** ($45 річна; 2,500 відповідей + 25 промптів/день; free у Marketing Pro/Ent).
 
-**Річна знижка:** є при «billed annually», але **єдиного %** офіційно не вказано (варіюється за хабом/регіоном; ChatGPT оцінює ~10–20%). ⚠️
-**Onboarding:** деякі Pro/Enterprise хаби вимагають платний onboarding (ціни в PST). ChatGPT: ~$3,500 для Enterprise Sales/Service. ⚠️
-**Add-ons:** API Limit Increase, додаткові контакти, додаткові місця, AEO ($50/міс standalone ✅).
+## HubSpot Credits (коротко; деталі → 03)
 
-## HubSpot Credits (коротко)
+- Місячна квота за **найвищим tier**: Starter **500** / Pro **3,000** / Ent **5,000**; **не переносяться**; **1 cr = $0.01**. ✅
+- Pay-per-outcome (з 14.04.2026): Customer Agent $0.50/вирішення, Prospecting $1/лід. ✅
+- Докупівля: capacity packs $10/1,000 або pay-as-you-go; адмін ставить ліміти/алерти. ✅
 
-Віртуальна валюта для AI-функцій Breeze (детально → `03-ai-breeze.md`).
-- Місячна квота включена за **найвищим тарифом** акаунта; **точні цифри per-tier офіційно не публікуються** (дивись в акаунті / PST). ⚠️
-- ChatGPT DR наводить Starter **500**, Pro **3,000**, Ent **5,000** — ⚠️ **не підтверджено офіц. KB**.
-- Міграція 2–15 червня 2025: Breeze Intelligence Credits 100 / 1,000 / 10,000 → HubSpot Credits **3,000 / 15,000 / 125,000**. ✅
-- **Не переносяться** на наступний місяць (no rollover). ✅
+## ROI (офіц. hubspot.com/roi, ✅)
 
-## ROI та кейси
+- **+129% inbound-лідів** (Marketing Hub, 12 міс)
+- **+94% закритих угод** (6 міс)
+- **−48% час до закриття** (з AI sales-фічами)
+- Service Hub Starter: «до +28% закритих тікетів» ⚠️
+- База звіту: 268,000+ клієнтів, 135+ країн
+- ⚠️ Єдиного «середнього часу впровадження» офіційно немає.
 
-- HubSpot публікує загальну статистику; єдиної цифри «HubSpot ROI» немає. ✅
-- Customer Agent: «resolve 70%+ conversations», «39% faster ticket resolution», кейси з 70–91% чатів. ✅
-- ❌ ChatGPT DR цитує «+129% лідів, +36% угод, −37% час відповіді за рік» — ⚠️ не знайдено в офіц. доках, не вважати авторитетним.
-- Середній час впровадження офіційно не публікується (ChatGPT: 4–12 тижнів / 2–6 міс). ⚠️
+## Заперечення (talk-track ⚠️)
 
-## Типові заперечення (talk-track ⚠️)
+- **«Дорого vs Pipedrive/Zoho»** → базовий CRM безкоштовний; вбудований AI + автоматизація економлять на окремих інструментах; View-Only/Partner місця безкоштовні; 71% нижчий TCO (vs Salesforce).
+- **«Потрібен тільки CRM»** → Free CRM + Starter Customer Platform $7/seat; хаби додаються без міграції.
+- **«У Salesforce більше фіч»** → так, але швидше впровадження, єдиний UI, AI-агенти з коробки.
+- **«Lock-in»** → 2,000+ інтеграцій, відкритий API, експорт даних.
+- **«Вже маємо X»** → ROI-кейси + AI (Customer/Prospecting Agent, Smart Deal Progression), які важко відтворити на клаптиковій системі.
 
-- **«Дорого vs Pipedrive/Zoho»** → базовий CRM безкоштовний; вбудований AI + автоматизація економлять на окремих інструментах та інтеграціях; View-Only місця безкоштовні.
-- **«Потрібен тільки CRM»** → Free CRM + Starter Customer Platform; хаби додаються пізніше без міграції.
-- **«У Salesforce більше фіч»** → так, але HubSpot — швидше впровадження, єдиний UI, AI-агенти «з коробки» з контекстом, менше адмін-навантаження.
-- **«Lock-in ризик»** → 2,000+ інтеграцій, відкритий API, експорт/імпорт даних.
-- **«У нас вже X»** → ROI-кейси + AI (Customer/Prospecting Agent, Smart Deal Progression), які важко відтворити на «клаптиковій» системі.
-
-**Джерела:** hubspot.com/products | hubspot.com/pricing | legal.hubspot.com/hubspot-product-and-services-catalog | hubspot.com/company-news/spring-2026-spotlight | blog.hubspot.com/sales/hubspot-sales-hub-pricing | knowledge.hubspot.com/account-management/manage-seats
+**Джерела:** hubspot.com/products/crm, /pricing/*, /roi, /comparisons | hubspot.com/products/crm/starter | knowledge.hubspot.com/account-management/manage-seats | legal.hubspot.com/hubspot-product-and-services-catalog | sec.gov (HubSpot 10-Q 2025) | blog.hubspot.com (pricing guides)

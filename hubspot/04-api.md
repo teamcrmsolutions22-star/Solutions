@@ -1,99 +1,83 @@
-# HubSpot — REST API (для розробника)
+# HubSpot — REST API (розробник)
 
-> Актуально: червень 2026. Маркери: ✅ офіц. | ⚠️ потребує перевірки | ❌ застаріло
-> **Base URL:** `https://api.hubapi.com` (канонічний для всіх API). ✅
+> Актуально: червень 2026 (Deep Research). Маркери: ✅ офіц. | ⚠️ не виявлено/вторинне | ❌ застаріло
+> **Base URL:** `https://api.hubapi.com` (усі API). ✅
 
 ## Автентифікація
 
 | Спосіб | Деталі | Статус |
 |--------|--------|--------|
-| **Private App Token** | Рекомендований для інтеграцій 1 акаунта. Статичний токен зі скоупами, у заголовку `Authorization: Bearer {token}` | ✅ |
-| **OAuth 2.0** | Для публічних/marketplace-додатків. Authorization Code Flow, обмін на `https://api.hubapi.com/oauth/v1/token` | ✅ |
-| **API Key (`hapikey`)** | Вимкнено для продакшну (legacy після 30.11.2022). Dev API key — лише для dev-tooling | ❌ deprecated |
+| **Private App Token** | Bearer; **не протухає**, ротується; формат `pat-na1-…` (na1=регіон); ті ж scopes | ✅ |
+| **OAuth 2.0** | Authorization Code; **access token 30 хв (1800с)**; **refresh не протухає**; обмін `POST /oauth/v1/token` | ✅ |
+| **API Key (`hapikey`)** | нові з 15.07.2022 ні; **вимкнено 30.11.2022** (Developer Account API Key для конфігу додатків лишився) | ❌ |
 
-- **OAuth access token:** видається з `expires_in`; додаток має зберігати TTL і **рефрешити** (не покладатися на 401 як сигнал). Фіксований числовий час життя офіційно не публікується. ⚠️
-- **Scopes:** гранулярні per object/feature (напр. `crm.objects.contacts.read`, `tickets`, `conversations.read`). ✅
-- Реєстрація додатків: `app.hubspot.com/developer`.
+- **OAuth v3** ендпоінти випущено (v1 deprecated, працює); date-based: `POST /oauth/2026-03/token` + `/token/introspect`. ✅
+- Реєстрація: developer-акаунт; публічні додатки — OAuth authorization code flow. ✅
 
-## Версіонування та base URL
+## Версіонування та base URLs
 
-- **Date-based версії** (новий канонічний патерн): `/crm/objects/2026-03/...`, `/webhooks/2026-3/{appId}/...`. ✅
-- **Legacy v3:** `/crm/v3/objects/contacts` — ще підтримується й присутній у багатьох прикладах. ✅
-- **v1/v2** — для деяких legacy-функцій (Timeline, OAuth v1). ✅
-- OpenAPI/Swagger: developers.hubspot.com.
+- **Date-based версіонування** `/YYYY-MM/` (напр. `/2026-03/`), замінює v1–v4. Перша версія **`2026-03`** (Spring 2026), GA **30.03.2026**. ✅
+- **Immutable**, підтримка кожної ≥**18 міс**, breaking changes **двічі/рік (березень + вересень)**. ✅
+- Legacy `/crm/v3/...`, `/crm/v4/associations/...` ще працюють; v4 — до березня 2027; `/2025-09/` — до релізу `/2027-03/`. ✅
+- **OpenAPI:** `GET https://api.hubspot.com/public/api/spec/v1/specs`; GitHub **HubSpot/HubSpot-public-api-spec-collection**. ✅
 
-## Основні групи CRM API
+## Основні групи ендпоінтів
 
-| Об'єкт | Date-based | Legacy v3 |
-|--------|-----------|-----------|
-| Contacts | `/crm/objects/2026-03/contacts/...` | `/crm/v3/objects/contacts` |
-| Companies | `/crm/objects/2026-03/companies/...` | `/crm/v3/objects/companies` |
-| Deals | `/crm/objects/2026-03/deals/...` | `/crm/v3/objects/deals` |
-| Tickets | `/crm/objects/2026-03/tickets/...` | `/crm/v3/objects/tickets` |
-| Products | `/crm/objects/2026-03/products/...` | `/crm/v3/objects/products` |
-| Line Items | `/crm/objects/2026-03/line_items/...` | `/crm/v3/objects/line_items` |
-| Custom Objects | `/crm/objects/2026-03/{objectType}/...` (схема через custom-objects guide) | `/crm/v3/objects/{objectType}` |
-| Engagements | notes/calls/emails/tasks/meetings як CRM-об'єкти | `/crm/v3/objects/{type}` |
-
-- **Associations (v4):** `/crm/v4/associations/...` — many-to-many, кастомні типи/мітки. ✅
-- **Properties:** `/crm/v3/properties/{objectType}`. ✅
-- **Pipelines:** `/crm/v3/pipelines/{objectType}`. ✅
-- **Owners (users):** `/crm/v3/owners`. ✅
-- **Marketing:** `/marketing/v3/emails`, `/marketing/v3/forms`, campaigns guide. ✅
-- **Webhooks:** `/webhooks/2026-3/{appId}/subscriptions` (новий) / `/webhooks/v3/{appId}/subscriptions` (legacy). ✅ (деталі → `05-webhooks.md`)
-- **Timeline Events:** legacy timeline extensions API. ✅
-- **Workflows API:** ⚠️ повноцінного публічного Workflow management API немає; є **Sequences API** (Sales Pro+) + automation v4. Оркестрація — переважно через UI.
+- CRM-об'єкти: `/crm/v3/objects/{contacts|companies|deals|tickets|products|line_items|…}` (+ date-based `/crm/objects/2026-03/...`). ✅
+- Custom object схеми: `POST /crm/v3/schemas`. ✅
+- Associations **v4**: `/crm/v4/associations/...`. ✅
+- Properties, Pipelines, Owners, Engagements (notes/emails/calls/meetings/tasks), Marketing Emails, Forms — окремі групи. ✅
+- **Webhooks:** `webhooks/v3/{appId}/...`. ✅
+- **Timeline Events:** `POST /crm/v3/timeline/{appId}/event-templates` (750 шаблонів/додаток, 500 токенів/шаблон). ✅
+- **Workflows/Automation API ІСНУЄ:** `/automation/...`; **v4 Automation API (public beta)** — batch + оновлення існуючих workflow; **Custom Workflow Actions v4** (actionUrl отримує HTTPS POST). ✅ *(раніше «немає»)*
 
 ## CRM Search API
 
-- **Endpoint:** `POST /crm/objects/2026-03/{object}/search` (або `/crm/v3/objects/{objectType}/search`). ✅
-- **Сторінка:** до **200** записів (`limit`, default 10); курсор `after`. ✅
-- **Макс. результатів на запит:** **10,000** (спроба пройти далі → 400). ✅
-- **Фільтри:** до **5 `filterGroups`**, до **6 `filters` у групі**, **макс. 18 фільтрів**. ✅
-- **Оператори:** `LT, LTE, GT, GTE, EQ, NEQ, BETWEEN, IN, NOT_IN, HAS_PROPERTY, NOT_HAS_PROPERTY, CONTAINS_TOKEN, NOT_CONTAINS_TOKEN`. ✅
-- **Rate limit Search:** **5 запитів/сек на акаунт** (окремо). ✅
+- `POST /crm/v3/objects/{type}/search`. ✅
+- **5 filterGroups × 6 фільтрів = max 18** (з 26.08.2024; перевищення → `VALIDATION_ERROR`). ✅
+- Сторінка **200** (default 10); cap **10,000** (далі HTTP 400); пагінація **cursor `after`** (не offset). ✅
+- Оператори: `EQ NEQ LT LTE GT GTE BETWEEN IN NOT_IN HAS_PROPERTY NOT_HAS_PROPERTY CONTAINS_TOKEN NOT_CONTAINS_TOKEN`. ✅
+- **Rate limit: 5 req/сек** на акаунт (з 23.09.2024, було 4); 1 sort-правило/запит. ✅
 
 ## Batch API
 
-- Операції create/update/read/delete по CRM-об'єктах: `POST /crm/v3/objects/{objectType}/batch/{op}`.
-- **Макс. за batch: 100 записів** — ✅ за SDK/blog-патернами, але ⚠️ цей конкретний ліміт **не повторено** в API-reference 2026 (детектувати через помилки API).
-- Часткові помилки: HTTP **207 Multi-Status** — обробляти статус кожного елемента окремо. ⚠️
+- create/update/read/upsert: **до 100 inputs/запит**; **batch зі 100 = 1 виклик** rate-limit. ✅
+- HTTP **200** при повному успіху, **207 Multi-Status** при частковій помилці (перевіряти кожен елемент). ✅
 
 ## Rate limits
 
-| Контекст | Ліміт | План |
-|----------|-------|------|
-| Private App — Free/Starter | **100 req/10с** на додаток; **250,000/день** на акаунт | Free/Starter ✅ |
-| Private App — Professional | **190 req/10с**; **625,000/день** | Pro ✅ |
-| Private App — Enterprise | **190 req/10с**; **1,000,000/день** | Ent ✅ |
-| API Limit Increase add-on | **250 req/10с**; **+1,000,000/день** за пак (до 2 паків, +2M) | Усі ✅ |
-| Public OAuth (Marketplace) | **110 req/10с** на акаунт (burst) | OAuth ✅ |
-| Search API | **5 req/сек** на акаунт | Усі ✅ |
+| Контекст | Ліміт |
+|----------|-------|
+| Free/Starter | 100/10с; 250k/добу ⚠️ (JS-таблиця не зчиталась) |
+| **Professional** | **190/10с; 650,000/добу** ✅ |
+| **Enterprise** | **190/10с; 1,000,000/добу** ✅ |
+| API Limit Increase | **250/10с; +1M/добу за пак (×2 = +2M)** ✅ |
+| Public OAuth | 110/10с на акаунт ✅ |
+| Search | 5/сек ✅ |
 
-> Ліміти **не залежать від хаба** — лише від тарифу акаунта + add-ons. ✅
+- Денний reset — північ за часовим поясом акаунта; burst per-app, денний — спільний на всі private apps. ✅
+- **429:** `status:error`, `message`, `errorType:RATE_LIMIT`, `correlationId`, `policyName` (DAILY/secondly), `requestId`. ✅
+- **Headers:** `X-HubSpot-RateLimit-Daily(-Remaining)`, `X-HubSpot-RateLimit-Secondly(-Remaining)` (secondly **deprecated**, не енфорситься); тепер є й на OAuth-викликах. ✅
+- Вторинні ліміти: Search 5/сек, Form Submissions свій. ✅
+- **423** (locked) — затримка ≥2с. ✅
 
-- **Заголовки:** `X-HubSpot-RateLimit-Max`, `-Remaining`, `-Interval-Milliseconds` (+ deprecated secondly). ✅
-- **429** — JSON із `status`, `message`, `errorType: "RATE_LIMIT"`, `policyName` (DAILY / TEN_SECONDLY_ROLLING), `correlationId`, `requestId`. Робити **exponential backoff** за заголовками. ✅
-- **423** (locked) — затримка ≥2 сек перед повтором. ✅
-- Webhook-доставки **не рахуються** в API rate limits. ✅
+## Асоціації v4 vs v3
 
-## Асоціації v4
+- `category` (`HUBSPOT_DEFINED` vs `USER_DEFINED`) + `typeId` (associationTypeId) + опц. `label`. ✅
+- Дефолтні: «Primary» (для lists/workflows) + «Unlabeled» (label=null). ✅
+- **Many-to-many**; ліміти однакові для symmetric, різні per-direction для asymmetric; адмін конфігурує ліміти через API. ✅
 
-- Кастомні типи асоціацій із labels; дефолтні + кастомні; many-to-many. ✅
-- Часто потрібен `associationType`/`associationCategory` (дефолт `HUBSPOT_DEFINED`). ⚠️ Per-object ліміти — у guide/PST.
+## Custom Objects (Enterprise)
 
-## Кастомні об'єкти (Enterprise)
-
-- Створення схеми: `POST /crm/v3/schemas` (JSON: name, поля, опції); **тільки Enterprise**. ✅
-- Мін. поля схеми: `name`, `id`, `createdate`. ⚠️
-- CRUD записів — як звичайні об'єкти через `/crm/.../objects/{objectType}`. ✅
-- ⚠️ Макс. кількість типів/записів на портал офіційно не вказана в KB (ChatGPT: 10 типів, 1M записів, 50 воронок) — у PST.
+- `POST /crm/v3/schemas` (name, properties, associations); потрібна ≥1 Enterprise-підписка. ✅
+- **Max 10 custom objects/портал**; докупівля через PST; live-ліміти `GET /crm/v3/limits/custom-object-types`. ✅
+- CRUD через `/crm/v3/objects/{objectTypeId|FQN}`. ✅
 
 ## SDK
 
-- Офіційні: **Node.js, Python, PHP, Ruby, Java**. ✅
-- Community **hubspot-go** (2026): `WithRetries(n)` — 5xx/429 з exponential backoff + Retry-After; batch-хелпери. ⚠️ (повнота vs REST не гарантована).
-- Встановлення: `npm install @hubspot/api-client`, `pip install hubspot-api-client`, `composer require hubspot/hubspot-php`.
+- **Офіційні:** Node.js, Python, PHP (v2), Ruby, **.NET**. ✅
+- ❌ Офіційних **Go/Java немає**; Go — community: `hubspot-go`, `belong-inc/go-hubspot`, `clarkmcc/go-hubspot`. ✅
+- Repo: github.com/HubSpot/hubspot-api-{nodejs|python|ruby}. Встановлення: `npm i @hubspot/api-client`, `pip install hubspot-api-client`.
 
 ## Приклади (ілюстративні, не офіц. семпли)
 
@@ -103,36 +87,26 @@ curl -X POST https://api.hubapi.com/oauth/v1/token \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'grant_type=authorization_code&client_id=ID&client_secret=SECRET&redirect_uri=URI&code=CODE'
 
-# GET контактів
-curl 'https://api.hubapi.com/crm/v3/objects/contacts?properties=firstname,lastname,email&limit=10' \
-  -H 'Authorization: Bearer YOUR_TOKEN'
+# GET контактів (cursor-пагінація)
+curl 'https://api.hubapi.com/crm/v3/objects/contacts?properties=firstname,email&limit=100&after=CURSOR' \
+  -H 'Authorization: Bearer TOKEN'
 
-# POST угоди + асоціація з контактом
-curl -X POST https://api.hubapi.com/crm/v3/objects/deals \
-  -H 'Authorization: Bearer YOUR_TOKEN' -H 'Content-Type: application/json' \
-  -d '{"properties":{"dealname":"Test","amount":"1000"},
-       "associations":[{"to":{"id":"CONTACT_ID"},
-       "types":[{"associationCategory":"HUBSPOT_DEFINED","associationTypeId":3}]}]}'
+# Search з фільтрами
+curl -X POST https://api.hubapi.com/crm/v3/objects/deals/search \
+  -H 'Authorization: Bearer TOKEN' -H 'Content-Type: application/json' \
+  -d '{"filterGroups":[{"filters":[{"propertyName":"amount","operator":"GT","value":"1000"}]}],
+       "sorts":[{"propertyName":"createdate","direction":"DESCENDING"}],"limit":100}'
 ```
 
-## Типові помилки інтеграцій
+## Топ помилок інтеграцій
 
-- Використання deprecated `hapikey` замість Private App/OAuth → помилка auth. ✅
-- Невірний base URL (треба `api.hubapi.com`). ✅
-- Брак OAuth scope → 401/403. ✅
-- Ігнорування різниці v3 vs v4 associations (`associationTypeId`). ✅
-- Без backoff → швидко 429. ✅
-- Search offset > 10,000 → помилка (пагінація через `after`). ✅
-- Batch: не перевіряти 207 поелементно. ⚠️
-- Webhook: невірний `propertyName` → шквал сповіщень. ⚠️
-- Підпис вебхука: SHA-256, не SHA-1. ✅
-- Timestamps — мс UTC. ✅
+`hapikey` замість Bearer ❌ • невірний base URL (треба api.hubapi.com) • брак OAuth scope → 401/403 • плутанина v3↔v4 associations (`associationTypeId`) • без backoff → 429 • Search offset>10k (треба `after`) • Batch: не перевіряти 207 поелементно • webhook: невірний `propertyName` → шквал • підпис **v3 SHA-256** (не SHA-1) • timestamps — мс UTC • OAuth: не ротувати refresh-token.
 
-## Дебаг-інструменти
+## Дебаг та пісочниці
 
-- **API call usage / Logs** у developer-порталі (Monitoring). ✅
-- **Webhooks journal API** (BETA) — історія + фільтрація. ✅
-- **Workflow execution history** (Automation → Workflows). ✅
-- **Developer test accounts / sandboxes** — концепт підтверджено. ✅ (ChatGPT: повноцінний Sandbox — Enterprise ⚠️).
+- API call usage + build history у CRM dev tools. ✅
+- **Developer test accounts:** до **10**, безкоштовні, **90-дн trial Enterprise-фіч**. ✅
+- **Standard Sandbox — Enterprise**; Dev Sandbox — легкий; усі sandbox: **200,000 записів/об'єкт**. ✅
+- ⚠️ Webhook-activity-log та workflow-execution-history як публічні API-ендпоінти не виявлено (моніторинг через UI/app logs).
 
-**Джерела:** developers.hubspot.com/docs/api-reference/latest | developers.hubspot.com/docs/developer-tooling/platform/apis-by-tier | developers.hubspot.com/changelog/increasing-our-api-limits | developers.hubspot.com/docs/api-reference/error-handling | developers.hubspot.com/blog/introducing-hubspot-go-a-community-go-sdk-for-hubspot-developers
+**Джерела:** developers.hubspot.com/changelog (date-based-versioning, increasing-our-api-limits, oauth-tokens, search breaking change, simplifying-batch) | developers.hubspot.com/docs/api-reference/* (webhooks-v3, crm-associations-v4, crm-custom-objects-v3, search) | developers.hubspot.com/docs/api/client-libraries | developers.hubspot.com/docs/api/creating-test-accounts

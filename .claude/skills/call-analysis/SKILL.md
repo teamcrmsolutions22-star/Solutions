@@ -25,9 +25,10 @@ description: |
 | Имя | Telegram username | Имя в реестре бота |
 |-----|-------------------|-------------------|
 
-При рассылке используй имя из столбца "Имя в реестре бота".
-Если участник не найден в реестре — сначала вызови `telegram_get_updates`, найди его chat_id
-и зарегистрируй через `telegram_register_employee`, затем отправь задачи.
+Реестр участников хранится в Supabase: таблица `public.tg_employees` (`name`, `username`, `chat_id`),
+проект `hfurrbuipqskzegqxtok`. Если участник не найден — попроси его написать боту `/start`,
+дерни `sync_updates`, найди chat_id в `public.tg_seen_chats` и занеси в `public.tg_employees`
+(подробно — шаг 5 и `/telegram/README.md`).
 
 ## Доступные интеграции
 
@@ -35,7 +36,12 @@ description: |
   * Страница БД: https://app.notion.com/p/45d6a662aa624d46aea70538a5389d2a
   * Data source ID (сюда пиши задачи): `collection://62fe1adb-5e94-4e00-ae0e-35c6ee802dac`
   * Поля: `Задача` (title), `Ответственный`, `Дедлайн` (date), `Приоритет` (select), `Статус` (select), `Проект` (multi-select), `Источник встречи`, `Цитата`
-* **Telegram** (`telegram_*` инструменты) — рассылка задач команде
+* **Telegram** — рассылка задач команде через **Supabase Edge Function** (своя реализация, см. `/telegram/README.md`). Прямого доступа к Telegram из этого окружения НЕТ — работаем через Supabase MCP:
+  * Проект Supabase: `dogovora-yurii-bot` (project_id `hfurrbuipqskzegqxtok`)
+  * Реестр сотрудников: таблица `public.tg_employees` (`name`, `username`, `chat_id`)
+  * Очередь отправки: таблица `public.tg_outbox` — кладёшь сюда строки, cron раз в минуту отправляет
+  * Функция `telegram-bot` (действия `ping` / `drain` / `sync_updates`) дергается внутри Supabase (pg_cron+pg_net)
+  * Секрет `TELEGRAM_BOT_TOKEN` ставит пользователь в Supabase (Claude его не видит)
 
 ---
 
@@ -104,37 +110,45 @@ description: |
 
 Сохрани `page_id` каждой созданной страницы — он нужен для кнопок в Telegram.
 
-### 5. Разошли задачи в Telegram
+### 5. Разошли задачи в Telegram (через Supabase)
 
-Сразу после создания в Notion — вызови `telegram_send_meeting_summary`.
-Для каждого участника из раздела "Команда" имя уже известно, используй его напрямую.
+Рассылка идёт через очередь `public.tg_outbox` в проекте Supabase `hfurrbuipqskzegqxtok`
+(прямого доступа к Telegram отсюда нет). Все шаги — через **Supabase MCP** (`execute_sql`).
 
+Для каждого ответственного:
+1. Найди `chat_id` по имени:
+   `select chat_id, name from public.tg_employees where lower(name) = lower('Саша') and is_active;`
+   Если не найден — см. блок «Регистрация» ниже, не отправляй вслепую.
+2. Вставь в очередь приветствие (одно на человека) + по сообщению на каждую задачу.
+   Кнопка-ссылка ведёт на страницу задачи в Notion (`notion_url`):
+
+```sql
+insert into public.tg_outbox (chat_id, text, reply_markup, meeting, responsible, notion_page_id, notion_url)
+values (
+  123456789,
+  '📋 <b>Подготовить КП для Альфа-Банка</b>%0A🗓 до 15 февраля · 🔴 Высокий · Продажи',
+  jsonb_build_object('inline_keyboard',
+    jsonb_build_array(jsonb_build_array(
+      jsonb_build_object('text','📋 Открыть в Notion','url','https://app.notion.com/p/<page_id>')))),
+  'Название встречи — Дата', 'Саша', '<notion_page_id>', 'https://app.notion.com/p/<page_id>'
+);
 ```
-Инструмент: telegram_send_meeting_summary
-Параметры:
-  meeting_name: "Название встречи — Дата"
-  commitments: [
-    {
-      "responsible": "Саша",
-      "task": "Подготовить КП для Альфа-Банка",
-      "task_id": "<notion_page_id>",   ← важно для кнопок
-      "deadline": "15 февраля",
-      "priority": "Высокий",
-      "project": "Продажи"
-    },
-    ...
-  ]
-```
 
-Каждый сотрудник получит приветствие + отдельное сообщение на каждую задачу с кнопками:
-**✅ Готово | 🕐 Отложить | ❌ Не актуально**
+3. Cron `telegram-drain` отправит всё из очереди в течение ≤1 минуты.
+   Можно не ждать — дернуть сразу через `net.http_post(... body {"action":"drain"})`.
+4. Проверь доставку: `select status, error, responsible from public.tg_outbox order by id desc;`
 
-Если человек упомянут по имени но не найден в реестре:
-1. Вызови `telegram_get_updates` — найди его chat_id
-2. Зарегистрируй через `telegram_register_employee`
-3. Затем отправь задачи
+**Регистрация (если человек не в `tg_employees`):**
+1. Сотрудник пишет боту `/start`.
+2. Дерни `sync_updates` (через `net.http_post`) → его чат появится в `public.tg_seen_chats`.
+3. Занеси в реестр:
+   `insert into public.tg_employees (name, username, chat_id) values ('Саша','sasha',123456789);`
 
-Если Telegram не подключён вообще — создай только Notion и скажи как подключить бота.
+**Если `TELEGRAM_BOT_TOKEN` ещё не задан** (ping → `token_set:false`) — создай только задачи
+в Notion и скажи пользователю поставить секрет в Supabase (см. `/telegram/README.md`).
+
+> Кнопки ✅ Готово / 🕐 Отложить / ❌ Не актуально (тап → статус в Notion) — это v2,
+> отдельный Telegram webhook. Пока — кнопка-ссылка на Notion.
 
 ### 6. Итог
 
@@ -208,14 +222,13 @@ CREATE TABLE "Договорённости" (
 )
 ```
 
-### Telegram бот
+### Telegram бот (Supabase Edge Function)
 
-Если Telegram не подключён:
-1. Создай бота через @BotFather → получи токен
-2. Добавь MCP-сервер в конфиг Claude Desktop
-3. Попроси сотрудников написать боту `/start`
-4. Вызови `telegram_get_updates` → получи chat_id
-5. Зарегистрируй каждого через `telegram_register_employee`
+Конвейер уже развёрнут (`/telegram/README.md`). Для активации:
+1. Бот у @BotFather → токен (после `/revoke`, если светился).
+2. Поставь секрет `TELEGRAM_BOT_TOKEN` в Supabase → Edge Functions → Secrets (проект `dogovora-yurii-bot`).
+3. Проверка: `ping` → `token_set:true`.
+4. Сотрудники пишут боту `/start` → `sync_updates` → заносим в `public.tg_employees`.
 
 ---
 

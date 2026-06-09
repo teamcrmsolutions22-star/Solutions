@@ -597,6 +597,15 @@ CRM для освіти, CRM для онлайн-школи, CRM для навч
 
 ---
 
+### ✈️ ТУРИЗМ / ГОТЕЛІ / ТУРАГЕНТСТВА / АПАРТАМЕНТИ
+
+### → читай `crm-selection/niches/tourism.md`
+**Тригерні фрази:** «підбери CRM для турагентства», «яку CRM для готелю», «PMS для готелю», «channel manager Україна», «хочу автоматизувати турагентство», «CRM для туроператора», «яку систему замість TravelLine», «замість Bnovo», «замість U-ON», «міграція з TravelLine», «підбери PMS»
+
+CRM для туризму, CRM для турагентства, CRM для туроператора, CRM для готелю, CRM для хостелу, CRM для апартаментів, CRM для санаторію, CRM для бази відпочинку, CRM для екскурсій, CRM для MICE, CRM для DMC, PMS для готелю, PMS Україна, channel manager Україна, channel manager для готелю, OTA синхронізація, Booking.com Airbnb автоматизація, шахматка готель, МоїТуристи, All-Inclusive CRM, TurScanner CRM ТАТ, CRM Travels, KeyCRM туризм, Servio HMS, OtelMS, KWHotel, Cloudbeds, YieldPlanet, EasyMS, Little Hotelier, SiteMinder, Beds24, Smoobu, Channex, Travel Tree, IT-Tour, Bnovo альтернатива, TravelLine альтернатива, U-ON Travel альтернатива, САМО-тур альтернатива, ПРРО готель, Vchasno.Kasa готель, Ribas Hotels Group, Servio EasyMS YieldPlanet, туристична CRM Україна, готельна PMS Україна, подобова оренда автоматизація, відповідний PMS для Airbnb, готельний software без ризику РФ
+
+---
+
 ### 💼 B2B ПОСЛУГИ / АГЕНТСТВА / КОНСАЛТИНГ
 
 ### → читай `crm-selection/niches/b2b-services-business-processes.md`

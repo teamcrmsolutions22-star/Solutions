@@ -539,3 +539,43 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 
 `teamcrmsolutions22-star/Solutions`  
 Гілка: поточна робоча (кожна сесія створює свою, зливати в `main` після завершення)
+
+---
+
+## 🧬 Система разбора звонков + маркетинг-скиллы (ПАМЯТЬ ПРОЕКТА)
+
+> Построено в сессии (ветка `claude/sharp-hopper-06nu50` → слито в `main`).
+> **Окружение Claude Code on the web НЕ имеет прямого egress** к `api.telegram.org` / `loom.com` /
+> `tldv.io` / Supabase HTTP (host allowlist). Поэтому: всё с Supabase — через **Supabase MCP**;
+> внешние вызовы (Telegram/Loom/tl;dv) идут **из Edge Functions** (сеть Supabase).
+> Триггер функции из MCP: `select net.http_post('<url функции>', headers с anon_key из tg_config,
+> body := jsonb_build_object('action','...'))` → ответ читать в `net._http_response`.
+
+### Установленные скиллы (`.claude/skills/`)
+- **call-analysis** — разбор ОДНОГО звонка/встречи → задачи в Notion + рассылка в Telegram. Наш,
+  расширен: источники Loom/tl;dv, логика «резюме→задачи» + маркеры задач.
+- **call-corpus-analysis** — анализ ЦЕЛОГО корпуса звонков → отчёт + scorecard + библиотека
+  возражений + скрипт + deep-dive.
+- **client-dna** — глубинный портрет ЦА (5 частей) + матрица сегментов. `role.md` очищен от
+  джейлбрейк-обёртки; оригинал сохранён в `role.original.md` (не загружается).
+- **hunt-ladder** — лестница осознанности Бена Ханта → стратегия запуска/прогрева.
+- Конвейер: звонки (corpus/один) → инсайты; **client-dna** → портрет; **hunt-ladder** → прогрев.
+
+### Supabase — проект `call-analysis-bot` (id `beoendcicsoorvipswmh`, org CRMSolutions, EU)
+- Таблицы (public): `tg_employees` (name/username/chat_id), `tg_outbox` (очередь рассылки),
+  `tg_seen_chats`, `tg_config` (anon_key, webhook_secret, function_url), `loom_transcripts`,
+  `tldv_transcripts`.
+- Edge Functions: `telegram-bot` (ping/drain/sync_updates/set_webhook/webhook_info/notion_check),
+  `telegram-webhook` (входящие: привет+авторегистрация, кнопки ✅/🕐/❌→статус в Notion;
+  verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`.
+- Cron `telegram-drain` — раз в минуту шлёт `tg_outbox`.
+- Секреты (ставит ПОЛЬЗОВАТЕЛЬ в Supabase → Edge Functions → Secrets; Claude их НЕ видит):
+  `TELEGRAM_BOT_TOKEN`, `TLDV_API_KEY`, `NOTION_TOKEN`. Бот: **@Sales_CRM_Solutions_bot**.
+- Детали + SQL-примеры: `/telegram/README.md`, `/loom/README.md`, `/tldv/README.md`.
+- ⛔ Старый проект `dogovora-yurii-bot` (другой аккаунт) НЕ использовать — перешли на `call-analysis-bot`.
+
+### Notion — база «Договорённості» (раздел «📟 Продажи»)
+- Data source: `collection://62fe1adb-5e94-4e00-ae0e-35c6ee802dac`
+  (страница: https://app.notion.com/p/45d6a662aa624d46aea70538a5389d2a)
+- Поля: `Задача`(title), `Ответственный`, `Дедлайн`(date), `Приоритет`(select),
+  `Статус`(select), `Проект`(multi-select), `Источник встречи`, `Цитата`.

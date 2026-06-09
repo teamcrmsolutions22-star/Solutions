@@ -328,6 +328,59 @@ NetHunt інтеграції, NetHunt підключити, NetHunt Zapier, NetH
 ### → читай `nethunt/youtube-insights.md`
 NetHunt відео, NetHunt кейс, NetHunt приклад, NetHunt поради, NetHunt демо
 
+---
+
+## OneBox OS (Ванбокс) → папка `onebox/`
+
+> Якщо тема не ясна — спочатку читай `onebox/00-MASTER-KNOWLEDGE.md` (зведення + карта тем), потім дочитуй потрібний файл.
+
+### → читай `onebox/00-MASTER-KNOWLEDGE.md`
+OneBox, Ванбокс, OneBox OS, 1b.app, crm-onebox, що таке OneBox, OneBox огляд, OneBox карта тем, OneBox зведення, OneBox MVP
+
+### → читай `onebox/01-overview-pricing.md`
+OneBox ціна, OneBox тариф, OneBox вартість, OneBox хмара коробка, OneBox on-premise, OneBox ліцензія, OneBox активаційний ключ, OneBox OS vs MVP, OneBox архітектура застосунків, OneBox Network, OneBox партнер, OneBox інтегратор, OneBox дистрибутор, Sales Partner OneBox, OneBox позиціонування, OneBox холдинг, OneBox конкурент
+
+### → читай `onebox/02-onboarding-setup.md`
+OneBox встановлення, OneBox активація, OneBox налаштування інтерфейсу, OneBox підключити пошту, OneBox підключити телефонію, OneBox підключити SMS, OneBox SendPulse, OneBox перші кроки, OneBox онбординг, OneBox фонова автоматика, OneBox додаткове поле
+
+### → читай `onebox/03-business-processes.md`
+OneBox бізнес-процес, OneBox БП, OneBox процес, OneBox заказ, OneBox етап, OneBox дія, OneBox процедура, OneBox підпроцес, OneBox родительский процес, OneBox блокування переходу, OneBox масова генерація процесів, OneBox виконавці, OneBox контроль активності, OneBox конфіденційні процеси, OneBox обробка лідів
+
+### → читай `onebox/04-products-warehouse.md`
+OneBox товари, OneBox продукт, OneBox склад, OneBox карточка товару, OneBox одиниці виміру, OneBox дробність, OneBox ціни товару, OneBox спеціальні ціни, OneBox перерахунок цін, OneBox термін придатності, OneBox аналоги, OneBox комірки складу, OneBox вибір складу, OneBox залишки
+
+### → читай `onebox/05-contacts.md`
+OneBox контакти, OneBox типи контактів, OneBox карточка контакту, OneBox історія контакту, OneBox фільтри контактів, OneBox унікальні поля, OneBox довідник контакту
+
+### → читай `onebox/06-api.md`
+OneBox API, OneBox ключ API, OneBox md5 пароль, OneBox rest api, OneBox запит, OneBox API заказів, OneBox API товарів, OneBox API категорій, OneBox API брендів, OneBox API платежів, OneBox API складів, OneBox розробник, OneBox інтеграція через код
+
+### → читай `onebox/07-integrations.md`
+OneBox інтеграції, OneBox Justin, OneBox Google Adwords, OneBox SMS-Fly, OneBox SMSLife, OneBox Dropbox, OneBox Яндекс.Диск, OneBox KIDDISVIT, OneBox доставка, OneBox постачальник, OneBox підключити сервіс
+
+### → читай `onebox/08-messengers-chat.md`
+OneBox месенджери, OneBox чат, OneBox E-chat, OneBox Viber, OneBox Facebook Messenger, OneBox Instagram Direct, OneBox Telegram бот, OneBox поштовий клієнт, OneBox email з процесу, OneBox TurboSMS, OneBox перетворення листів у чат
+
+### → читай `onebox/09-apps.md`
+OneBox застосунок, OneBox app, OneBox приложение, OneBox CRM застосунок, OneBox GTD Calendar, OneBox Документи, OneBox Воронка, OneBox Глобальний пошук, OneBox Links, OneBox Workflows, OneBox стікери, OneBox встановити застосунок
+
+### → читай `onebox/10-display-interface.md`
+OneBox способи відображення, OneBox воронка вид, OneBox канбан, OneBox Гант, OneBox таймлайн, OneBox таблиця, OneBox сітка, OneBox робочі столи, OneBox меню, OneBox поля у списках, OneBox інтерфейс
+
+### → читай `onebox/11-import-export.md`
+OneBox імпорт, OneBox експорт, OneBox XLS, OneBox XML, OneBox CSV, OneBox Google Таблиці, OneBox завантажувач залишків, OneBox обмін даними, OneBox міграція, OneBox передача заказів, OneBox експорт БП github
+
+### → читай `onebox/12-finance.md`
+OneBox фінанси, OneBox платежі, OneBox каса, OneBox Cashflow, OneBox прогноз cashflow, OneBox KPI бонуси, OneBox експорт платежів XML
+
+### → читай `onebox/13-admin-access.md`
+OneBox права доступу, OneBox користувачі, OneBox співробітники, OneBox 2FA, OneBox двофакторна, OneBox реферальна система, OneBox пріоритети, OneBox задачі, OneBox файлове сховище, OneBox Шахматка, OneBox опитування, OneBox гарячі клавіші, OneBox шаблони документів, OneBox масові розсилки
+
+### → читай `onebox/14-mvp2020-changelog.md`
+OneBox MVP, OneBox 2020, OneBox changelog, OneBox реліз, OneBox історія версій MVP
+
+---
+
 ### → читай `pipedrive/01-overview-pricing.md`
 Pipedrive, pipeline, воронка продажів Pipedrive, тарифи Pipedrive, Essential, Advanced, Professional, Power, Enterprise, Lite, Growth, Premium, Ultimate, Kanban CRM, Activity-based selling, Leadbooster, конкурент HubSpot, порівняння CRM, впровадження Pipedrive, Pulse, ціна Pipedrive, плани Pipedrive
 

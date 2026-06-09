@@ -1,0 +1,7 @@
+# How To Use ChatSpot for Adding Records in Your CRM
+
+getting the right data into your CRM doesn't have to be difficult let's see how chatspot can speed up the creation of new records in your CRM start by going to templates then click on CRM here you'll find prompts to add all types of information directly into your HubSpot portal easily add a company by entering the domain and any additional properties you may have chatspot quickly adds the company which you can view directly in HubSpot as well perhaps you want to quickly add some new contacts that you met yesterday in 
+
+to your CRM use the add contact prompt and as long as you have the email address you can add this quickly and easily without having to bounce back and forth in your browser or tabs if you have a note you'd like to add about that contact as well such as some comments about how you met in your recent conversation click on add note to contact and add the details here click on view and HubSpot to quickly see how this information is presented in their contact record lastly you can quickly create tickets or deals and chat spot you'll notice the same flow here as the other prompts 
+
+for tickets enter your ticket name then hit send click on view in HubSpot to see your efforts in action by using chatspot to create contacts and Records you can easily enter and create data from one place keep chatspot open during your day and streamline your work at chats spot. 

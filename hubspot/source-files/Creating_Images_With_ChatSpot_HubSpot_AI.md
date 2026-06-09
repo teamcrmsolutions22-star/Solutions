@@ -1,0 +1,7 @@
+# Creating Images With ChatSpot | HubSpot AI
+
+want to generate images for your website and social media you can do that quickly and easily using chatspot to start choose from the many types of images available your options range from animated or cartoon type images to cinematic or photorealistic images for each type chat Spot Will generate a handful of different image options based on your criteria for example let's say we're creating an image for a website About Pets let's use the image prompt for this go to templates click on that prompt and describe the image 
+
+make sure to be specific if you want a particular type of picture chat Spot Will generate image options for you to consider if you'd like to revise the photo at all simply add additional descriptors in this case we'd like the dog to be playing with a red ball continue to revisit this process until you have the photo you need for your project now let's try some more creative formats like the comic book style enter your description and press send or hit enter 
+
+look how fun these images are for a quick look at how these stack up let's use that same prompt for retro film style and pixel art style your creativity here is endless and a great way to create original images for your marketing from web pages to Collateral to social posts start creating your images at chatspot doai 

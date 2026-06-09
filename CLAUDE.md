@@ -540,6 +540,14 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 - `09-youtube-insights.md` — дистилляция 152 видео офиц. YouTube-канала: реймейны (ChatSpot→Breeze, Lists→Segments), free-лимиты, тактики, примеры ChatSpot/Breeze промптов, каталог интеграций со статами, кейсы партнёров, каталог видео
 - `source-files/` — 152 сырых транскрипта YouTube (⛔ не читать для ответов)
 
+## CRM Selection — підбір CRM по нішах (`crm-selection/`)
+
+### → читай `crm-selection/00-niche-priority.md`
+ніша, яку CRM обрати, підібрати CRM для, рейтинг ніш, пріоритет ніш, який бізнес шукає CRM, e-commerce ніша, нерухомість ніша, медицина ніша, beauty ніша, логістика ніша
+
+### → читай `crm-selection/niches/ecommerce-business-processes.md`
+CRM для інтернет-магазину, CRM для e-commerce, інтернет-магазин CRM, Nova Poshta CRM, Rozetka Prom CRM, онлайн-магазин автоматизація, замовлення ТТН CRM, e-commerce Ukraine CRM підбір
+
 ## Репозиторий
 
 `teamcrmsolutions22-star/Solutions`  

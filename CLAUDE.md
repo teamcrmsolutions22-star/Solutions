@@ -545,8 +545,14 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 ### → читай `crm-selection/00-niche-priority.md`
 ніша, яку CRM обрати, підібрати CRM для, рейтинг ніш, пріоритет ніш, який бізнес шукає CRM, e-commerce ніша, нерухомість ніша, медицина ніша, beauty ніша, логістика ніша
 
+### → читай `crm-selection/niches/ecommerce.md`
+CRM для інтернет-магазину, CRM для e-commerce, інтернет-магазин CRM, Nova Poshta CRM, Rozetka Prom CRM, онлайн-магазин автоматизація, замовлення ТТН CRM, e-commerce Ukraine CRM підбір, яку CRM вибрати для магазину, порівняння CRM магазин, KeyCRM vs SalesDrive, KeyCRM vs KeepinCRM e-commerce, SITNIKS CRM, LP-CRM, SalesDrive порівняння
+
+### → читай `crm-selection/niches/ecommerce-implementation-guide.md`
+впровадження CRM інтернет-магазин, підключити Nova Poshta CRM, налаштувати KeyCRM e-commerce, налаштувати SalesDrive, покрокове впровадження CRM магазин, підключити Prom Rozetka CRM, чек-ліст CRM інтернет-магазин
+
 ### → читай `crm-selection/niches/ecommerce-business-processes.md`
-CRM для інтернет-магазину, CRM для e-commerce, інтернет-магазин CRM, Nova Poshta CRM, Rozetka Prom CRM, онлайн-магазин автоматизація, замовлення ТТН CRM, e-commerce Ukraine CRM підбір
+промпт для e-commerce CRM, deep research інтернет-магазин, бізнес-процеси інтернет-магазину, шаблон дослідження e-commerce CRM
 
 ## Репозиторий
 

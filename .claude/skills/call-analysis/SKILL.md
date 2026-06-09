@@ -87,6 +87,26 @@ select transcript from public.loom_transcripts where share_url = '<ССЫЛКА>
   Если `ok:false` (приватное видео / нужен логин / нет транскрипта) — попроси открыть видео →
   вкладка **Transcript** → скопировать → вставить текст. **Не проси логин/куки от аккаунта Loom:**
   для публичных share-ссылок они не нужны, делиться ими — риск.
+- **Ссылка на tl;dv** (`https://tldv.io/app/meetings/<id>`) → через Edge Function `tldv-transcript`
+  (официальный API, нужен секрет `TLDV_API_KEY`; детали — `/tldv/README.md`):
+
+```sql
+select net.http_post(
+  url := 'https://beoendcicsoorvipswmh.supabase.co/functions/v1/tldv-transcript',
+  headers := jsonb_build_object(
+    'Content-Type','application/json',
+    'Authorization','Bearer ' || (select value from public.tg_config where key='anon_key'),
+    'apikey', (select value from public.tg_config where key='anon_key')
+  ),
+  body := jsonb_build_object('action','fetch','url','<ССЫЛКА>'),
+  timeout_milliseconds := 15000
+);
+select status_code, content from net._http_response order by id desc limit 1;  -- ok / диагностика
+select transcript from public.tldv_transcripts where meeting_id = '<id>' order by id desc limit 1;
+```
+
+  Ошибки: `key_set:false`/`status 401-403` → проверь `TLDV_API_KEY` и тариф; `404` → неверный id;
+  `202/425` → транскрипт ещё обрабатывается.
 - **Другая ссылка на видео** (YouTube, Drive и т.п.) — надёжно расшифровать не выйдет; попроси
   транскрипт текстом или из субтитров.
 

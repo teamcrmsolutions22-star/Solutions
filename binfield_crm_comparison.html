@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @page { size: A4; margin: 12mm 0; }
+  body { font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "DejaVu Sans", sans-serif; font-size: 10.5px; color: #1a1a2e; line-height: 1.45; }
+
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 60px 50px 50px; }
+  .cover-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #e2b96f; margin-bottom: 16px; }
+  .cover h1 { font-size: 29px; font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+  .cover h2 { font-size: 14px; font-weight: 400; color: #a8b3c7; margin-bottom: 22px; }
+  .cover-meta { display: flex; gap: 34px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.15); flex-wrap: wrap; }
+  .cover-meta-item { font-size: 10px; color: #a8b3c7; } .cover-meta-item strong { display:block; color:#fff; font-size:12px; margin-top:3px; }
+
+  .content { padding: 26px 38px 10px; }
+  .section { margin-bottom: 20px; }
+  .section-title { font-size: 14px; font-weight: 700; color: #0f3460; margin-bottom: 12px; padding-bottom: 5px; border-bottom: 2px solid #e2b96f; text-transform: uppercase; letter-spacing:.5px; }
+  .sub { font-size: 12px; font-weight:700; color:#0f3460; margin: 12px 0 6px; }
+  .lead { font-size: 10.5px; color: #555; margin-bottom: 12px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.6px; margin-bottom: 6px; table-layout: fixed; }
+  th { background: #0f3460; color: #fff; padding: 6px 5px; text-align: left; font-weight: 600; font-size: 8.2px; text-transform: uppercase; letter-spacing:.2px; }
+  th:first-child { border-radius: 6px 0 0 0; } th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 5px 5px; border-bottom: 1px solid #e8ecf4; vertical-align: top; word-wrap: break-word; line-height: 1.3; }
+  tr:nth-child(even) td { background: #f8f9fc; }
+  td.crit { font-weight: 600; color:#1a1a2e; }
+  .grp td { background:#eef1f8 !important; font-weight:700; color:#0f3460; font-size:8.4px; text-transform:uppercase; letter-spacing:.3px; }
+  .y { color:#16a34a; font-weight:700; } .yy { color:#15803d; font-weight:800; } .w { color:#d97706; font-weight:700; } .n { color:#dc2626; font-weight:700; }
+  .note { color:#667; font-size:8px; display:block; }
+
+  .verdict { background: linear-gradient(135deg,#0f3460,#1a1a2e); color:#e2e8f0; border-radius:10px; padding:16px 20px; margin-bottom:12px; }
+  .verdict h3 { color:#e2b96f; font-size:13px; margin-bottom:8px; }
+  .verdict ol { margin-left:18px; } .verdict li { margin-bottom:5px; font-size:10.5px; }
+  .fork { background:#fffaf0; border:1px solid #f0d9a8; border-left:4px solid #e2b96f; border-radius:8px; padding:12px 16px; margin-top:8px; }
+  .fork b { color:#9a6a00; }
+
+  .cards { display:grid; grid-template-columns:1fr; gap:8px; }
+  .card { border:1px solid #e2e8f0; border-radius:9px; overflow:hidden; page-break-inside:avoid; }
+  .card-h { padding:8px 12px; font-size:12px; font-weight:700; color:#fff; display:flex; justify-content:space-between; align-items:center; }
+  .card-h .px { font-size:9.5px; font-weight:600; opacity:.92; }
+  .c-odoo .card-h{background:#714b9b;} .c-zoho .card-h{background:#c2410c;} .c-pf .card-h{background:#0f7b6c;} .c-pf2 .card-h{background:#1d4ed8;} .c-us .card-h{background:#64748b;}
+  .card-b { padding:8px 12px; background:#f8f9fc; display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .pc h4 { font-size:9px; text-transform:uppercase; letter-spacing:.3px; margin-bottom:3px; }
+  .pc.pp h4{color:#15803d;} .pc.cc h4{color:#b91c1c;}
+  .pc ul { list-style:none; } .pc li { font-size:9px; padding-left:11px; position:relative; color:#374151; margin-bottom:2px; line-height:1.3; }
+  .pc.pp li::before{content:"+";position:absolute;left:0;color:#16a34a;font-weight:700;}
+  .pc.cc li::before{content:"−";position:absolute;left:0;color:#dc2626;font-weight:700;}
+
+  .legend { font-size:9px; color:#555; margin:4px 0 10px; }
+  .legend b{color:#0f3460;}
+  .page-break { page-break-before: always; }
+  .footnote { font-size:8.5px; color:#94a3b8; border-top:1px solid #e2e8f0; padding-top:9px; margin-top:14px; text-align:center; }
+  .star{color:#e2b96f;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">CRM Solutions · Порівняльний аналіз</div>
+  <h1>Порівняння CRM-систем<br>для BINFIELD</h1>
+  <h2>Odoo · Zoho CRM · Planfix · Perfectum · Uspacy — повна матриця відповідності ТЗ</h2>
+  <div class="cover-meta">
+    <div class="cover-meta-item">Дата<strong>Червень 2026</strong></div>
+    <div class="cover-meta-item">Клієнт<strong>BINFIELD (агро, B2B)</strong></div>
+    <div class="cover-meta-item">Систем<strong>5</strong></div>
+    <div class="cover-meta-item">Підготував<strong>CRM Solutions</strong></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- VERDICT FIRST -->
+  <div class="section">
+    <div class="section-title">Резюме та вердикт</div>
+    <div class="verdict">
+      <h3>Рейтинг під вимоги BINFIELD</h3>
+      <ol>
+        <li><b>Odoo (Enterprise/Custom)</b> — єдина з <b>прямим доступом до БД (PostgreSQL)</b> для Power BI + необмежена кастомізація + нативний склад для роздатки. Якщо «прямий SQL» — жорсткий, це №1.</li>
+        <li><b>Zoho CRM (Enterprise)</b> — найшвидше і найергономічніше для 30 польових менеджерів (Blueprint, Territory, мобільний, телефонія). Power BI — через Analytics/ODBC.</li>
+        <li><b>Planfix (Business/Corporate)</b> — максимум гнучкості процесів і документів за менші гроші. Підходить, якщо BI годуємо через API/експорт (не прямий SQL).</li>
+        <li><b>Perfectum CRM+ERP (коробка)</b> — UA all-in-one, box = прямий доступ до MariaDB, є виробництво/склад. Менший вендор, слабший мобільний.</li>
+        <li><b>Uspacy (поточна)</b> — не рекомендуємо лишати під ці вимоги.</li>
+      </ol>
+      <div class="fork">
+        <b>Головна розвилка:</b> вимога Power BI «прямий доступ до БД / SQL» (ст. 4.2 ТЗ) — жорстка?<br>
+        ТАК → <b>Odoo</b> або Perfectum (єдині з прямим доступом до БД).<br>
+        BI через конектор/експорт прийнятно → у фінал виходять <b>Zoho</b> та <b>Planfix</b>.
+      </div>
+    </div>
+    <div class="legend">
+      <b>Легенда:</b> <span class="yy">✓✓</span> сильно/нативно · <span class="y">✓</span> є · <span class="w">⚠</span> з обмеженням / кастом / потребує перевірки · <span class="n">✗</span> немає.
+      Оцінка — під конкретне ТЗ BINFIELD, не «загалом».
+    </div>
+  </div>
+
+  <!-- METHOD -->
+  <div class="section">
+    <div class="section-title">Що і як порівнюємо</div>
+    <p class="lead"><b>5 систем зі стеку CRM Solutions</b>, відібраних під B2B-агро та це ТЗ. Поза порівнянням свідомо: Bitrix24 (рос. походження — ризик), Salesforce/Creatio (enterprise, але дорого й поза нашим основним впровадженням). Критерії згруповано за розділами ТЗ + інтеграції + комерція. Конфігурації: Odoo <b>Custom</b> (потрібні External API + Studio + multi-company), Zoho <b>Enterprise</b>, Planfix <b>Business/Corporate</b>, Perfectum <b>коробка/ERP</b>, Uspacy — поточний тариф.</p>
+  </div>
+
+  <!-- BIG MATRIX -->
+  <div class="section">
+    <div class="section-title">Повна матриця відповідності вимогам ТЗ</div>
+    <table>
+      <colgroup><col style="width:25%"><col style="width:15%"><col style="width:15%"><col style="width:15%"><col style="width:15%"><col style="width:15%"></colgroup>
+      <thead><tr><th>Вимога ТЗ</th><th>Odoo</th><th>Zoho CRM</th><th>Planfix</th><th>Perfectum</th><th>Uspacy</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="6">A. Дані та структура (Компанії, Контакти)</td></tr>
+        <tr><td class="crit">Кастомні об'єкти (Семплінги, Рекламації, Роздатка, Госп-ва)</td><td><span class="yy">✓✓</span><span class="note">модулі/Studio</span></td><td><span class="y">✓</span><span class="note">custom modules</span></td><td><span class="yy">✓✓</span><span class="note">Objects</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span><span class="note">Smart Obj, обмеж.</span></td></tr>
+        <tr><td class="crit">Каскадні довідники Область→Район→Нас.пункт</td><td><span class="y">✓</span></td><td><span class="y">✓</span><span class="note">dependent picklist</span></td><td><span class="y">✓</span><span class="note">довідники</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Дедуплікація ЄДРПОУ (унікальне, блокування)</td><td><span class="y">✓</span><span class="note">SQL constraint</span></td><td><span class="yy">✓✓</span><span class="note">no-dup + validation</span></td><td><span class="w">⚠</span><span class="note">сценарій/перевірка</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Один контакт ↔ кілька компаній + історія прив'язок</td><td><span class="yy">✓✓</span><span class="note">m2m</span></td><td><span class="w">⚠</span><span class="note">junction/кастом</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td><td><span class="w">⚠</span></td></tr>
+
+        <tr class="grp"><td colspan="6">B. Процеси, статуси, автоматизації</td></tr>
+        <tr><td class="crit">Статусні воронки + авто-переходи (компанії, угоди)</td><td><span class="y">✓</span><span class="note">server actions</span></td><td><span class="yy">✓✓</span><span class="note">Blueprint</span></td><td><span class="yy">✓✓</span><span class="note">сценарії</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span><span class="note">Process Builder</span></td></tr>
+        <tr><td class="crit">Фіксація дат і тривалості кожного статусу/стадії</td><td><span class="y">✓</span><span class="note">log/кастом</span></td><td><span class="y">✓</span><span class="note">stage history</span></td><td><span class="yy">✓✓</span><span class="note">історія статусів у звітах</span></td><td><span class="w">⚠</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Тригери/ескалації (прострочені задачі, нотифікації)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="yy">✓✓</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Багатопозиційні угоди, ціна з довідника номенклатури</td><td><span class="yy">✓✓</span><span class="note">sale order lines</span></td><td><span class="y">✓</span><span class="note">products/quotes</span></td><td><span class="y">✓</span><span class="note">аналітики</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Візування угоди керівником + причини відхилення</td><td><span class="y">✓</span><span class="note">approvals</span></td><td><span class="y">✓</span><span class="note">approval/blueprint</span></td><td><span class="y">✓</span><span class="note">кнопки/ролі</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+
+        <tr class="grp"><td colspan="6">C. Спеціальні об'єкти ТЗ + документи</td></tr>
+        <tr><td class="crit">Семплінги (статуси, огляди 1-3, результат впливає на компанію)</td><td><span class="y">✓</span><span class="note">кастом</span></td><td><span class="y">✓</span><span class="note">кастом</span></td><td><span class="yy">✓✓</span><span class="note">Object+сценарії</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Рекламації (змінюють статус компанії, email-відправка)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Генерація docx/pdf з будь-яких полів (Акт ТМЦ)</td><td><span class="y">✓</span><span class="note">QWeb pdf; docx модуль</span></td><td><span class="y">✓</span><span class="note">Writer merge</span></td><td><span class="y">✓</span><span class="note">шаблони</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Маркетингова роздатка: віртуальні склади + rollup + критичні залишки</td><td><span class="yy">✓✓</span><span class="note">Inventory locations</span></td><td><span class="w">⚠</span><span class="note">кастом-модуль</span></td><td><span class="w">⚠</span><span class="note">аналітики кастом</span></td><td><span class="y">✓</span><span class="note">склад</span></td><td><span class="w">⚠</span></td></tr>
+
+        <tr class="grp"><td colspan="6">D. Інтеграції та BI</td></tr>
+        <tr><td class="crit">ERP BAS/1С — двостороння, real-time, API</td><td><span class="y">✓</span><span class="note">connector + UA-партнери</span></td><td><span class="w">⚠</span><span class="note">API/конектор кастом</span></td><td><span class="w">⚠</span><span class="note">API 1 req/сек</span></td><td><span class="y">✓</span><span class="note">ближче до BAS</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Power BI — ПРЯМИЙ доступ до БД / SQL</td><td><span class="yy">✓✓</span><span class="note">PostgreSQL</span></td><td><span class="w">⚠</span><span class="note">Analytics/ODBC</span></td><td><span class="n">✗</span><span class="note">API; report 1×/10хв</span></td><td><span class="yy">✓✓</span><span class="note">MariaDB (box)</span></td><td><span class="n">✗</span><span class="note">тільки API</span></td></tr>
+        <tr><td class="crit">Telegram-бот (вхідні ліди, відповіді, сповіщення)</td><td><span class="y">✓</span></td><td><span class="y">✓</span><span class="note">Cliq/API</span></td><td><span class="y">✓</span><span class="note">чат-канали</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td class="crit">Телефонія (запис, click-to-call, розпізнавання номера)</td><td><span class="y">✓</span><span class="note">VoIP/Binotel</span></td><td><span class="yy">✓✓</span><span class="note">PhoneBridge 100+</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">SMS (Київстар) / Email (SendPulse)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+
+        <tr class="grp"><td colspan="6">E. Поле, мобільний, ролі</td></tr>
+        <tr><td class="crit">Мобільний застосунок (планшети/ноутбуки, польова робота)</td><td><span class="y">✓</span><span class="note">Ent apps</span></td><td><span class="yy">✓✓</span><span class="note">сильні apps</span></td><td><span class="y">✓</span><span class="note">task-центр</span></td><td><span class="w">⚠</span><span class="note">iOS слабкий</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">GPS-геомітки авто при візиті/дзвінку</td><td><span class="y">✓</span><span class="note">Field Service</span></td><td><span class="y">✓</span><span class="note">check-in</span></td><td><span class="w">⚠</span></td><td><span class="w">⚠</span></td><td><span class="w">⚠</span></td></tr>
+        <tr><td class="crit">Територіальні ролі/права (регіон; view/edit матриці)</td><td><span class="y">✓</span><span class="note">record rules</span></td><td><span class="yy">✓✓</span><span class="note">Territory Mgmt</span></td><td><span class="y">✓</span><span class="note">ролі/групи</span></td><td><span class="y">✓</span><span class="note">філії</span></td><td><span class="y">✓</span><span class="note">базово</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- COMMERCIALS -->
+  <div class="section">
+    <div class="section-title">Комерція, хостинг, впровадження</div>
+    <table>
+      <colgroup><col style="width:22%"><col style="width:16%"><col style="width:16%"><col style="width:15%"><col style="width:16%"><col style="width:15%"></colgroup>
+      <thead><tr><th>Параметр</th><th>Odoo</th><th>Zoho CRM</th><th>Planfix</th><th>Perfectum</th><th>Uspacy</th></tr></thead>
+      <tbody>
+        <tr><td class="crit">Ліцензія (25 юз, орієнт./рік)</td><td>~$14–17.5k (Custom)</td><td>~$12–15k (Ent)</td><td>дешевша<span class="note">грн, Business/Corp</span></td><td>UA box разово<span class="note">або хмара грн/міс</span></td><td>найдешевша</td></tr>
+        <tr><td class="crit">Модель/хостинг</td><td>self-host / Odoo.sh<span class="note">прямий доступ до БД</span></td><td>хмара SaaS</td><td>хмара SaaS</td><td>коробка (self-host)<span class="note">або хмара</span></td><td>хмара SaaS</td></tr>
+        <tr><td class="crit">Доступ до коду/даних</td><td><span class="yy">✓✓</span> повний (open-source)</td><td><span class="w">⚠</span> закрита хмара</td><td><span class="w">⚠</span> закрита хмара</td><td><span class="y">✓</span> код у коробці</td><td><span class="w">⚠</span> закрита хмара</td></tr>
+        <tr><td class="crit">Глибина кастомізації</td><td><span class="yy">✓✓</span> необмежена (код)</td><td><span class="y">✓</span> сильна no-code</td><td><span class="yy">✓✓</span> сценарії/Objects</td><td><span class="y">✓</span></td><td><span class="w">⚠</span> середня</td></tr>
+        <tr><td class="crit">Строк впровадження</td><td>6–12 міс</td><td><b>8–12 тижнів</b></td><td>2–4 міс</td><td>2–5 міс</td><td>уже є (перебудова)</td></tr>
+        <tr><td class="crit">Зрілість / ризик вендора</td><td>висока</td><td>висока</td><td>середня-висока</td><td>середня<span class="note">менший вендор</span></td><td>молода</td></tr>
+        <tr><td class="crit">UA-мова / присутність</td><td><span class="y">✓</span> (локаліз. через community)</td><td><span class="y">✓</span></td><td><span class="yy">✓✓</span> planfix.ua</td><td><span class="yy">✓✓</span> UA</td><td><span class="yy">✓✓</span> UA</td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:6px"><b>Важливо по інтеграції BAS/1С:</b> нативної інтеграції немає в жодної системи — скрізь кастом через API. Перевага Odoo/Perfectum — фреймворки/досвід UA-партнерів і прямий доступ до БД, що спрощує і обмін, і BI.</p>
+  </div>
+
+  <!-- PER-SYSTEM PROS/CONS -->
+  <div class="section">
+    <div class="section-title">Сильні та слабкі сторони кожної системи</div>
+    <div class="cards">
+
+      <div class="card c-odoo">
+        <div class="card-h"><span>1. Odoo (Enterprise / Custom)</span><span class="px">self-host · ~$14–17.5k/рік (25 юз) + впровадження</span></div>
+        <div class="card-b">
+          <div class="pc pp"><h4>Плюси</h4><ul>
+            <li>Прямий PostgreSQL → Power BI без API-лімітів</li>
+            <li>Необмежена кастомізація (код + Studio)</li>
+            <li>Нативний склад → віртуальні склади роздатки з rollup</li>
+            <li>Власне виробництво (MRP), якщо знадобиться</li>
+            <li>Повне володіння даними, без vendor lock-in</li>
+            <li>UA-партнери з досвідом BAS-інтеграцій</li>
+          </ul></div>
+          <div class="pc cc"><h4>Мінуси</h4><ul>
+            <li>Найдовше і найдорожче впровадження (6–12 міс)</li>
+            <li>Потрібен партнер + адміністратор/DevOps</li>
+            <li>UA-локалізація офіційно відсутня (бухгалтерія лишається в BAS)</li>
+            <li>Ергономіка воронки слабша за «чисту» CRM</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="card c-zoho">
+        <div class="card-h"><span>2. Zoho CRM (Enterprise)</span><span class="px">хмара · ~$12–15k/рік (25 юз) + впровадження</span></div>
+        <div class="card-b">
+          <div class="pc pp"><h4>Плюси</h4><ul>
+            <li>Blueprint — ідеально під статусну логіку ТЗ</li>
+            <li>Territory Management + Roles/Profiles під регіони</li>
+            <li>Найсильніший мобільний + GPS check-in + RouteIQ</li>
+            <li>PhoneBridge (100+ телефоній), дедуп по полю</li>
+            <li>Найшвидший запуск (8–12 тижнів)</li>
+          </ul></div>
+          <div class="pc cc"><h4>Мінуси</h4><ul>
+            <li>Power BI — не прямий SQL (через Analytics/ODBC)</li>
+            <li>Склад роздатки — кастом-модуль</li>
+            <li>Один контакт ↔ кілька компаній — обхідно</li>
+            <li>Дані в закритій хмарі (без прямого доступу до БД)</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="card c-pf">
+        <div class="card-h"><span>3. Planfix (Business / Corporate)</span><span class="px">хмара · найгнучкіша · нижча ціна</span></div>
+        <div class="card-b">
+          <div class="pc pp"><h4>Плюси</h4><ul>
+            <li>Objects + сценарії — глибока кастомізація процесів</li>
+            <li>Історія статусів у звітах — дослівно вимога ТЗ</li>
+            <li>Аналітики (позиції угод) + генерація документів</li>
+            <li>Гранульовані ролі; телефонія; UA; ціна</li>
+          </ul></div>
+          <div class="pc cc"><h4>Мінуси</h4><ul>
+            <li>Power BI прямого доступу до БД немає (API/експорт)</li>
+            <li>API ліміт 1 req/сек → ризик для real-time BAS + повного BI на обсязі</li>
+            <li>Склад роздатки з rollup — кастом на аналітиках</li>
+            <li>Мобільний/GPS і воронка на планшеті слабші за Zoho</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="card c-pf2">
+        <div class="card-h"><span>4. Perfectum CRM+ERP (коробка)</span><span class="px">self-host · UA all-in-one</span></div>
+        <div class="card-b">
+          <div class="pc pp"><h4>Плюси</h4><ul>
+            <li>Коробка = прямий доступ до MariaDB для Power BI</li>
+            <li>Є виробництво + склад + CRM в одному</li>
+            <li>UA-вендор, ближче до BAS</li>
+            <li>Одноразова ліцензія коробки</li>
+          </ul></div>
+          <div class="pc cc"><h4>Мінуси</h4><ul>
+            <li>Менший вендор; менше перевірено на такій складності</li>
+            <li>Слабкий iOS-застосунок (критично для поля)</li>
+            <li>Кастомізація/екосистема менші за Odoo/Zoho</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="card c-us">
+        <div class="card-h"><span>5. Uspacy (поточна)</span><span class="px">хмара · вже впроваджена, але не влаштовує</span></div>
+        <div class="card-b">
+          <div class="pc pp"><h4>Плюси</h4><ul>
+            <li>Уже в експлуатації, команда знайома</li>
+            <li>UA, дешева, є Process Builder + API/вебхуки</li>
+            <li>Базові ролі/права</li>
+          </ul></div>
+          <div class="pc cc"><h4>Мінуси</h4><ul>
+            <li>Немає прямого доступу до БД для Power BI</li>
+            <li>Глибина кастомних об'єктів нижча за потребу ТЗ</li>
+            <li>Поточне налаштування визнане невдалим (Ліди замість Угод)</li>
+            <li>Слабші: склад/rollup, поле/GPS</li>
+          </ul></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RECOMMENDATION -->
+  <div class="section">
+    <div class="section-title">Рекомендація та наступний крок</div>
+    <p class="lead">
+      <b>Якщо «прямий SQL до БД» для Power BI — жорстка вимога</b> (а в ТЗ вона прописана прямо) → рекомендуємо <b>Odoo</b> як основний варіант: він єдиний нативно дає прямий доступ до даних, закриває склад роздатки і має найбільший запас кастомізації; <b>Perfectum</b> — бюджетна UA-альтернатива з тією ж перевагою (коробка/БД), але з ризиками меншого вендора й мобільного.
+      <br><br>
+      <b>Якщо Power BI можна годувати через конектор/експорт</b> (Analytics/ODBC чи нічні вивантаження) → у фінал виходять <b>Zoho</b> (найкраще для 30 польових менеджерів і найшвидший запуск) та <b>Planfix</b> (максимум гнучкості процесів за менші гроші).
+      <br><br>
+      <b>Uspacy</b> під повний обсяг ТЗ лишати не радимо — навіть після перебудови залишаються стелі по BI та глибині об'єктів.
+    </p>
+    <div class="fork">
+      <b>Щоб зафіналити — потрібно від клієнта 3 відповіді:</b> (1) Power BI «прямий SQL до БД» — обов'язково чи можна через конектор? (2) Бюджет на ліцензії + впровадження і бажаний строк запуску? (3) Самохостинг прийнятний (для прямого доступу до БД потрібен self-host / Odoo.sh / коробка)?
+    </div>
+  </div>
+
+  <div class="footnote">
+    Документ підготовлено CRM Solutions · Червень 2026 · Конфіденційно — для внутрішнього використання та обговорення з BINFIELD<br>
+    Оцінки під конкретне ТЗ; ціни орієнтовні й уточнюються після технічного брифінгу. Позначка ⚠ означає «реалізується кастомом / потребує підтвердження на демо».
+  </div>
+
+</div>
+</body>
+</html>

@@ -50,6 +50,7 @@ description: |
 | Что пришло | Режим |
 |------------|-------|
 | Транскрипция / запись встречи | → **ANALYZE** |
+| Ссылка на Loom (`loom.com/share/...`) | → **ANALYZE** (авто-транскрипт) |
 | "Отчёт по встрече", "Что обещали — что сделали" | → **REPORT** |
 | "Сделай документ", "методичка", "инструкция по итогам" | → **DOCUMENT** |
 | Первый запуск без настроенной базы | → **SETUP** |
@@ -57,6 +58,37 @@ description: |
 ---
 
 ## РЕЖИМ: ANALYZE — Разбор встречи
+
+### 0. Получи транскрипт (источник)
+
+- **Вставленный текст / транскрипция** → используй напрямую, переходи к шагу 1.
+- **Ссылка на Loom** (`https://www.loom.com/share/<id>`) → загрузи транскрипт автоматически
+  через Edge Function `loom-transcript` (детали — `/loom/README.md`). Прямого доступа к loom.com
+  из окружения нет, поэтому через **Supabase MCP** (проект `beoendcicsoorvipswmh`):
+
+```sql
+-- 1) запустить загрузку (для запароленного видео добавь 'password','<пароль>' в body)
+select net.http_post(
+  url := 'https://beoendcicsoorvipswmh.supabase.co/functions/v1/loom-transcript',
+  headers := jsonb_build_object(
+    'Content-Type','application/json',
+    'Authorization','Bearer ' || (select value from public.tg_config where key='anon_key'),
+    'apikey', (select value from public.tg_config where key='anon_key')
+  ),
+  body := jsonb_build_object('action','fetch','url','<ССЫЛКА>'),
+  timeout_milliseconds := 15000
+);
+-- 2) прочитать ответ функции (ok / диагностика)
+select status_code, content from net._http_response order by id desc limit 1;
+-- 3) забрать сам текст
+select transcript from public.loom_transcripts where share_url = '<ССЫЛКА>' order by id desc limit 1;
+```
+
+  Если `ok:false` (приватное видео / нужен логин / нет транскрипта) — попроси открыть видео →
+  вкладка **Transcript** → скопировать → вставить текст. **Не проси логин/куки от аккаунта Loom:**
+  для публичных share-ссылок они не нужны, делиться ими — риск.
+- **Другая ссылка на видео** (YouTube, Drive и т.п.) — надёжно расшифровать не выйдет; попроси
+  транскрипт текстом или из субтитров.
 
 ### 1. Извлечение договорённостей
 

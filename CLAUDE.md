@@ -633,6 +633,15 @@ CRM для опту, CRM для оптової торгівлі, CRM для ди
 
 ---
 
+### 💰 ФІНАНСОВИЙ СЕКТОР / МФО / БАНКИ / СТРАХУВАННЯ / ОБМІН ВАЛЮТ
+
+### → читай `crm-selection/niches/finance.md`
+**Тригерні фрази:** «підбери CRM для МФО», «яку систему для мікрокредитування», «CRM для банку», «LOS для МФО», «кредитний конвеєр», «скоринг УБКІ», «CRM для страхового агента», «CRM для обмінника», «замість 1С для МФО», «Diia підпис для кредитів», «BankID інтеграція», «НБУ постанова 99», «хмара для банку»
+
+CRM для МФО, CRM для мікрофінансової організації, LOS система, LMS система, кредитний конвеєр CRM, скоринг УБКІ, кредитне бюро інтеграція, УБКІ API, BankID НБУ, Diia підпис, e-KYC Diia, CRM для банку, банківська CRM, Creatio Banking, Creatio Lending Edition, XRM Banking, CRM.ua banking, Salesforce FSC, E-Consulting crm.ua, MicroF1, microf1.ua, Lendex Artjoker, Mahaon, mahaon.ua, LBS Cloud, lbs.systems, Perfectum мікрокредит, OneBox УБКІ, кредитна спілка CRM, ломбард CRM, CRM для страхування, страховий агент CRM, Ukasko.connect, Insurs Online, Polis.ua B2B, ОСЦПВ онлайн, INRISK страхова, обмінник валют програма, USU обмін валют, AS-Service валюта, Form 377 НБУ, НБУ Постанова 99, НБУ Постанова 143, кібербезпека МФО, СУІБ МФО, GigaCloud банк, B-Cloud НБУ, КСЗІ хмара Україна, Collection CRM, NPL-колекшн, реструктуризація кредитів, платіжний агент CRM, BNPL CRM, Kommo заборона фінансовий, Kommo ВРУ 2024, Bitrix24 заборона банк, 1С МФО заборона, BAS МФО заборона, AI Banking Agents, Creatio AI Referral Agent, Renewal Agent, Retention Agent, Onboarding Agent, телеком-скоринг Vodafone Kyivstar, IndScore 0-700
+
+---
+
 ### 💼 B2B ПОСЛУГИ / АГЕНТСТВА / КОНСАЛТИНГ
 
 ### → читай `crm-selection/niches/b2b-services-business-processes.md`

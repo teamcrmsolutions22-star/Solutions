@@ -1,5 +1,5 @@
 -- Telegram sender pipeline — schema init
--- Project: dogovora-yurii-bot (hfurrbuipqskzegqxtok)
+-- Project: call-analysis-bot (beoendcicsoorvipswmh)
 -- Applied via Supabase MCP apply_migration.
 
 create extension if not exists pg_net;
@@ -62,6 +62,6 @@ alter table public.tg_config     enable row level security;
 -- NOTE: 'anon_key' is the project's PUBLISHABLE anon key (safe to store; protected by RLS).
 insert into public.tg_config(key, value) values
   ('anon_key', '<PROJECT_ANON_KEY>'),
-  ('project_ref', 'hfurrbuipqskzegqxtok'),
-  ('function_url', 'https://hfurrbuipqskzegqxtok.supabase.co/functions/v1/telegram-bot')
+  ('project_ref', 'beoendcicsoorvipswmh'),
+  ('function_url', 'https://beoendcicsoorvipswmh.supabase.co/functions/v1/telegram-bot')
 on conflict (key) do update set value = excluded.value, updated_at = now();

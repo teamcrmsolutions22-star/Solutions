@@ -1,7 +1,7 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
 // === telegram-bot Edge Function ===
-// Deployed to Supabase project: dogovora-yurii-bot (hfurrbuipqskzegqxtok)
+// Deployed to Supabase project: call-analysis-bot (beoendcicsoorvipswmh)
 //
 // Actions (POST JSON { "action": "..." }):
 //   ping         -> { ok, token_set }   (diagnostics, no token needed)

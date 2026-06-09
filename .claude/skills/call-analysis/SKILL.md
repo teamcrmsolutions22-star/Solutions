@@ -26,7 +26,7 @@ description: |
 |-----|-------------------|-------------------|
 
 Реестр участников хранится в Supabase: таблица `public.tg_employees` (`name`, `username`, `chat_id`),
-проект `hfurrbuipqskzegqxtok`. Если участник не найден — попроси его написать боту `/start`,
+проект `beoendcicsoorvipswmh`. Если участник не найден — попроси его написать боту `/start`,
 дерни `sync_updates`, найди chat_id в `public.tg_seen_chats` и занеси в `public.tg_employees`
 (подробно — шаг 5 и `/telegram/README.md`).
 
@@ -37,7 +37,7 @@ description: |
   * Data source ID (сюда пиши задачи): `collection://62fe1adb-5e94-4e00-ae0e-35c6ee802dac`
   * Поля: `Задача` (title), `Ответственный`, `Дедлайн` (date), `Приоритет` (select), `Статус` (select), `Проект` (multi-select), `Источник встречи`, `Цитата`
 * **Telegram** — рассылка задач команде через **Supabase Edge Function** (своя реализация, см. `/telegram/README.md`). Прямого доступа к Telegram из этого окружения НЕТ — работаем через Supabase MCP:
-  * Проект Supabase: `dogovora-yurii-bot` (project_id `hfurrbuipqskzegqxtok`)
+  * Проект Supabase: `call-analysis-bot` (project_id `beoendcicsoorvipswmh`)
   * Реестр сотрудников: таблица `public.tg_employees` (`name`, `username`, `chat_id`)
   * Очередь отправки: таблица `public.tg_outbox` — кладёшь сюда строки, cron раз в минуту отправляет
   * Функция `telegram-bot` (действия `ping` / `drain` / `sync_updates`) дергается внутри Supabase (pg_cron+pg_net)
@@ -112,7 +112,7 @@ description: |
 
 ### 5. Разошли задачи в Telegram (через Supabase)
 
-Рассылка идёт через очередь `public.tg_outbox` в проекте Supabase `hfurrbuipqskzegqxtok`
+Рассылка идёт через очередь `public.tg_outbox` в проекте Supabase `beoendcicsoorvipswmh`
 (прямого доступа к Telegram отсюда нет). Все шаги — через **Supabase MCP** (`execute_sql`).
 
 Для каждого ответственного:
@@ -226,7 +226,7 @@ CREATE TABLE "Договорённости" (
 
 Конвейер уже развёрнут (`/telegram/README.md`). Для активации:
 1. Бот у @BotFather → токен (после `/revoke`, если светился).
-2. Поставь секрет `TELEGRAM_BOT_TOKEN` в Supabase → Edge Functions → Secrets (проект `dogovora-yurii-bot`).
+2. Поставь секрет `TELEGRAM_BOT_TOKEN` в Supabase → Edge Functions → Secrets (проект `call-analysis-bot`).
 3. Проверка: `ping` → `token_set:true`.
 4. Сотрудники пишут боту `/start` → `sync_updates` → заносим в `public.tg_employees`.
 

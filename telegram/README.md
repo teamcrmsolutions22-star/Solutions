@@ -22,7 +22,7 @@ Edge Function telegram-bot
 Сотрудники получают сообщения в Telegram
 ```
 
-Проект Supabase: **`dogovora-yurii-bot`** (`hfurrbuipqskzegqxtok`).
+Проект Supabase: **`call-analysis-bot`** (`beoendcicsoorvipswmh`).
 
 ## Компоненты
 
@@ -37,9 +37,9 @@ Edge Function telegram-bot
 **Единственный секрет, который ставишь ты (Claude его не видит):**
 
 1. Создай/обнови бота у **@BotFather**, возьми токен (после `/revoke`, если светился).
-2. Supabase Dashboard → проект `dogovora-yurii-bot` → **Edge Functions → Secrets** →
+2. Supabase Dashboard → проект `call-analysis-bot` → **Edge Functions → Secrets** →
    добавь секрет `TELEGRAM_BOT_TOKEN = <новый токен>`.
-   (CLI-аналог: `supabase secrets set TELEGRAM_BOT_TOKEN=... --project-ref hfurrbuipqskzegqxtok`)
+   (CLI-аналог: `supabase secrets set TELEGRAM_BOT_TOKEN=... --project-ref beoendcicsoorvipswmh`)
 3. Проверка: `ping` должен вернуть `token_set: true` (Claude дернёт через MCP).
 
 `SUPABASE_URL` и `SUPABASE_SERVICE_ROLE_KEY` платформа подставляет сама — их ставить не нужно.

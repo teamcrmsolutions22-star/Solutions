@@ -304,6 +304,9 @@ HubSpot Academy, HubSpot навчання, HubSpot сертифікація, Hub
 ### → читай `hubspot/08-changelog.md`
 HubSpot оновлення, HubSpot changelog, HubSpot нові функції, HubSpot Spotlight, Spring 2026 Spotlight, HubSpot AEO, HubSpot What's New, HubSpot TikTok
 
+### → читай `hubspot/09-youtube-insights.md`
+HubSpot відео, HubSpot YouTube, HubSpot туторіал, HubSpot walkthrough, HubSpot ChatSpot, ChatSpot prompts, HubSpot приклади промптів, HubSpot Campaign Assistant, HubSpot Brand Kit, HubSpot Clip Creator, HubSpot Guide Creator, HubSpot AI Search Grader, HubSpot free ліміти, HubSpot Segments, HubSpot Orders, HubSpot Projects, HubSpot кейс, HubSpot демо, HubSpot тактика, HubSpot Essential Apps, HubSpot App Cards, HubSpot партнерський кейс
+
 ### → читай `nethunt/overview.md`
 NetHunt, нетхант, NetHunt CRM, NetHunt Gmail, NetHunt Google Workspace, NetHunt тариф, NetHunt ціна, NetHunt налаштування, NetHunt воронка
 
@@ -534,6 +537,8 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 - `06-integrations.md` — каталог интеграций: почта, телефония, реклама, мессенджеры, e-commerce, Data Sync
 - `07-onboarding-partners.md` — обучение (Academy), внедрение, onboarding, партнёрская программа
 - `08-changelog.md` — что нового: Spring 2026 Spotlight, май–июнь 2026
+- `09-youtube-insights.md` — дистилляция 152 видео офиц. YouTube-канала: реймейны (ChatSpot→Breeze, Lists→Segments), free-лимиты, тактики, примеры ChatSpot/Breeze промптов, каталог интеграций со статами, кейсы партнёров, каталог видео
+- `source-files/` — 152 сырых транскрипта YouTube (⛔ не читать для ответов)
 
 ## Репозиторий
 

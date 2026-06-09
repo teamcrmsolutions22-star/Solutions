@@ -18,6 +18,8 @@
 | [06-integrations.md](06-integrations.md) | Каталог інтеграцій: пошта, телефонія, реклама, месенджери, e-commerce, Data Sync, маркетплейс |
 | [07-onboarding-partners.md](07-onboarding-partners.md) | Academy, впровадження, onboarding-fees, партнерська програма 2026 |
 | [08-changelog.md](08-changelog.md) | Spring 2026 Spotlight + dev changelog (березень–червень 2026) |
+| [09-youtube-insights.md](09-youtube-insights.md) | YouTube-інсайти: ренейми, free-ліміти, тактики, приклади промптів, каталог інтеграцій, кейси, 152 відео |
+| [source-files/](source-files/) | 152 сирі транскрипти офіційного YouTube HubSpot (⛔ не читати для відповідей) |
 
 ---
 

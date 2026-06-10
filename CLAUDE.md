@@ -688,6 +688,15 @@ CRM для B2B, CRM для агентства, CRM для консалтингу
 
 ---
 
+### 💻 IT / DIGITAL — IT-АУТСОРС / АГЕНТСТВА / DIGITAL / SAAS
+
+### → читай `crm-selection/niches/it-digital.md`
+**Тригерні фрази:** «підбери CRM для IT-компанії», «яку CRM для dev-shop», «CRM для digital агентства», «CRM для IT-аутсорсу», «CRM для SaaS», «яку CRM для маркетингового агентства», «CRM з PM-інтеграцією», «CRM з ретейнерами для агентства», «HubSpot vs Pipedrive для IT», «NetHunt vs Pipedrive», «CRM для Jira», «CRM для ClickUp», «CRM з email-sequences», «CRM для outbound IT», «CRM для Upwork Clutch LinkedIn», «T&M billing CRM», «SOW NDA MSA CRM»
+
+CRM для IT-аутсорсу, CRM для IT-компанії, CRM для dev-shop, CRM для software-компанії, CRM для digital агентства, CRM для маркетингового агентства, CRM для SMM-агентства, CRM для SEO-агентства, CRM для PPC-агентства, CRM для креативної студії, CRM для дизайн-студії, CRM для брендинг-агентства, CRM для продакшн-студії, CRM для SaaS-компанії, CRM для фрілансера IT, CRM для мікро-студії, CRM довгий цикл угоди, CRM з ретейнерами агентство, retainer CRM, CRM+PM звʼязка, CRM Jira інтеграція, CRM ClickUp інтеграція, CRM Asana інтеграція, CRM Worksection, T&M billing CRM, time tracking CRM агентство, billable hours IT, SOW NDA MSA шаблони CRM, email sequences outbound IT, LinkedIn outreach CRM, Upwork Clutch ліди CRM, outbound prospecting CRM, HubSpot IT-аутсорс, Pipedrive IT-компанія, NetHunt агентство, Flowlu агентство, Scoro агентство, Productive.io агентство, Close CRM IT, Attio SaaS, Uspacy IT, Planfix IT-агентство, Worksection CRM, NetHunt Worksection, Folk CRM, Zoho One IT, CRM для Jira, CRM для ClickUp, CRM для Asana, CRM для Google Workspace, Gmail CRM IT, Breeze AI HubSpot IT, Ringostat CRM IT, Apollo.io CRM, Lemlist CRM, IT аутсорс яку CRM обрати Україна, digital агентство яку CRM, порівняння CRM IT Україна 2025 2026
+
+---
+
 ### 🏗️ БУДІВНИЦТВО / РЕМОНТ / ПІДРЯДНИКИ / ДЕВЕЛОПЕРИ
 
 ### → читай `crm-selection/niches/construction.md`

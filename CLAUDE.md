@@ -568,10 +568,10 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 ### Supabase — проект `call-analysis-bot` (id `beoendcicsoorvipswmh`, org CRMSolutions, EU)
 - Таблицы (public): `tg_employees` (name/username/chat_id), `tg_outbox` (очередь рассылки),
   `tg_seen_chats`, `tg_config` (anon_key, webhook_secret, function_url), `loom_transcripts`,
-  `tldv_transcripts`.
+  `tldv_transcripts`, `vidyard_transcripts`.
 - Edge Functions: `telegram-bot` (ping/drain/sync_updates/set_webhook/webhook_info/notion_check),
   `telegram-webhook` (входящие: привет+авторегистрация, кнопки ✅/🕐/❌→статус в Notion;
-  verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`.
+  verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`, `vidyard-transcript`.
 - Cron `telegram-drain` — раз в минуту шлёт `tg_outbox`.
 - Секреты (ставит ПОЛЬЗОВАТЕЛЬ в Supabase → Edge Functions → Secrets; Claude их НЕ видит):
   `TELEGRAM_BOT_TOKEN`, `TLDV_API_KEY`, `NOTION_TOKEN`. Бот: **@Sales_CRM_Solutions_bot**.

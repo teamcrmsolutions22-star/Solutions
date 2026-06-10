@@ -728,6 +728,11 @@ CRM для B2B, CRM для агентства, CRM для консалтингу
   (ffmpeg -vn, моно 16кГц) → Storage → вызывает `audio-transcribe` (Whisper) → транскрипт в
   `audio_jobs`. Claude кладёт job (video_url) через MCP, читает transcript. Это и есть путь для
   YouTube-видео, у которых `youtube-transcript` вернул `no_captions`.
+- Отчёты «что обещали — что сделали»: action `report` (mode `weekly|overdue|both`) у `telegram-bot`
+  читает Notion-базу «Договорённости» (`tg_config.notion_db_id`) и шлёт дайджест менеджеру
+  (`tg_config.report_chat_id` = Наташа 164719255) + пинг по просрочке каждому ответственному
+  (матч `Ответственный` → `tg_employees` по имени/username). Cron: `report-weekly` (Пн 07:00 UTC),
+  `report-overdue` (Пн–Пт 06:30 UTC).
 - Cron `telegram-drain` — раз в минуту шлёт `tg_outbox`.
 - Секреты (ставит ПОЛЬЗОВАТЕЛЬ в Supabase → Edge Functions → Secrets; Claude их НЕ видит):
   `TELEGRAM_BOT_TOKEN`, `TLDV_API_KEY`, `NOTION_TOKEN`, `GROQ_API_KEY`/`OPENAI_API_KEY` (аудио).

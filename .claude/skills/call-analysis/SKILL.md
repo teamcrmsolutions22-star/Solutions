@@ -107,6 +107,24 @@ select transcript from public.tldv_transcripts where meeting_id = '<id>' order b
 
   Ошибки: `key_set:false`/`status 401-403` → проверь `TLDV_API_KEY` и тариф; `404` → неверный id;
   `202/425` → транскрипт ещё обрабатывается.
+- **Ссылка на Vidyard** (`https://share.vidyard.com/watch/<id>`) → через Edge Function `vidyard-transcript`
+  (публичный конфиг плеера, для публичных видео без ключа; детали — `/vidyard/README.md`):
+
+```sql
+select net.http_post(
+  url := 'https://beoendcicsoorvipswmh.supabase.co/functions/v1/vidyard-transcript',
+  headers := jsonb_build_object(
+    'Content-Type','application/json',
+    'Authorization','Bearer ' || (select value from public.tg_config where key='anon_key'),
+    'apikey', (select value from public.tg_config where key='anon_key')
+  ),
+  body := jsonb_build_object('action','fetch','url','<ССЫЛКА>'),
+  timeout_milliseconds := 20000
+);
+select transcript from public.vidyard_transcripts where share_url = '<ССЫЛКА>' order by id desc limit 1;
+```
+
+  `ok:false / no_captions` → у видео нет субтитров или оно закрытое (нужен API-ключ владельца).
 - **Другая ссылка на видео** (YouTube, Drive и т.п.) — надёжно расшифровать не выйдет; попроси
   транскрипт текстом или из субтитров.
 

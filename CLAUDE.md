@@ -705,6 +705,10 @@ CRM для B2B, CRM для агентства, CRM для консалтингу
   текстов без давления, принцип «Я ОК — ты ОК». Синтез корпуса книг по продажам; исходники
   НЕ в репозитории (копирайт), только своя методичка.
 - Конвейер: звонки (corpus/один) → инсайты; **client-dna** → портрет; **hunt-ladder** → прогрев.
+- **server-agent** (`server-agent/`) — каркас постоянного агента 24/7 на Claude Agent SDK: общий
+  «мозг» = этот репо (знания + `.claude/skills` + `CLAUDE.md`, грузятся через `settingSources:['project']`)
+  + Supabase как шина. Очередь `public.agent_jobs` (decoupled, как frame/audio jobs); деплой —
+  Railway/VPS из корня репо с `server-agent/Dockerfile`. Секреты в Variables. Детали — `/server-agent/README.md`.
 
 ### Supabase — проект `call-analysis-bot` (id `beoendcicsoorvipswmh`, org CRMSolutions, EU)
 - Таблицы (public): `tg_employees` (name/username/chat_id), `tg_outbox` (очередь рассылки),

@@ -1,0 +1,2 @@
+# Зависимостей нет — чистый stdlib (urllib/subprocess/json).
+# Файл нужен, чтобы Railway/Nixpacks определил проект как Python.

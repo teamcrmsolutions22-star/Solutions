@@ -1,2 +1,4 @@
-# Зависимостей нет — чистый stdlib (urllib/subprocess/json).
+# Python-зависимостей у воркера нет (чистый stdlib: urllib/subprocess/json).
+# yt-dlp ставится как CLI-бинарь в Dockerfile/nixpacks, а не импортируется.
 # Файл нужен, чтобы Railway/Nixpacks определил проект как Python.
+yt-dlp

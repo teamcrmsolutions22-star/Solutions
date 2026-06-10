@@ -1,6 +1,10 @@
-# Railway/Nixpacks: ставим ffmpeg и запускаем поллер
+# Railway/Nixpacks: ставим ffmpeg + yt-dlp и запускаем поллер
+# (основной билд идёт через Dockerfile; этот файл — на случай Nixpacks-сборки)
 [phases.setup]
 aptPkgs = ["ffmpeg"]
+
+[phases.install]
+cmds = ["pip install -U yt-dlp"]
 
 [start]
 cmd = "python3 worker.py"

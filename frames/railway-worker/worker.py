@@ -12,7 +12,7 @@ Railway ffmpeg-воркер (поллер) для скилла call-analysis.
 ENV: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, [FRAME_BUCKET=frames], [AUDIO_BUCKET=audio], [POLL_SEC=15]
 Требует ffmpeg (см. Dockerfile). Чистый stdlib.
 """
-import json, os, re, subprocess, time, tempfile, urllib.request, urllib.parse
+import json, os, re, shutil, subprocess, time, tempfile, urllib.request, urllib.parse
 
 SUPABASE_URL = os.environ["SUPABASE_URL"].rstrip("/")
 KEY = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
@@ -21,6 +21,7 @@ AUDIO_BUCKET = os.environ.get("AUDIO_BUCKET", "audio")
 POLL = int(os.environ.get("POLL_SEC", "15"))
 AUDIO_FN = f"{SUPABASE_URL}/functions/v1/audio-transcribe"
 UA = {"User-Agent": "Mozilla/5.0 (frames-worker)"}
+YTDLP = shutil.which("yt-dlp")  # универсальный резолвер (YouTube/Vidyard/Loom/…); если нет — fallback на ffmpeg-direct
 
 
 def sb(method, path, body=None, raw=False, extra=None):
@@ -90,6 +91,22 @@ def resolve_media(video):
     return video
 
 
+def fetch_to_file(url, d, audio=False):
+    """Скачать медиа в локальный файл через yt-dlp (YouTube/Vidyard/Loom/прямые .mp4 и т.д.).
+    Если yt-dlp нет или он не справился — вернуть прямой/резолвнутый URL (ffmpeg откроет сам)."""
+    if YTDLP and url.startswith("http"):
+        out = os.path.join(d, "dl.%(ext)s")
+        fmt = "bestaudio/best" if audio else "best[height<=720][ext=mp4]/best[ext=mp4]/best"
+        p = subprocess.run([YTDLP, "--no-playlist", "--no-warnings", "--no-progress",
+                            "-f", fmt, "-o", out, url],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+        files = [os.path.join(d, f) for f in os.listdir(d) if f.startswith("dl.")]
+        if p.returncode == 0 and files:
+            return files[0]
+        print(f"yt-dlp failed ({url}): {p.stderr.decode('utf-8', 'ignore')[-200:]}", flush=True)
+    return resolve_media(url)
+
+
 def ffmpeg(cmd):
     p = subprocess.run(["ffmpeg", "-y", *cmd], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     if p.returncode != 0:
@@ -117,9 +134,9 @@ def claim(table):
 # ---------- frames ----------
 def process_frames(job):
     jid = job["id"]
-    video = resolve_media(job["video_url"])
     out = []
     with tempfile.TemporaryDirectory() as d:
+        video = fetch_to_file(job["video_url"], d, audio=False)
         for x in job["timestamps"]:
             sec = parse_ts(x)
             try:
@@ -158,10 +175,10 @@ def fetch_transcript_text(audio_url):
 
 def process_audio(job):
     jid = job["id"]
-    video = resolve_media(job["video_url"])
     with tempfile.TemporaryDirectory() as d:
+        src = fetch_to_file(job["video_url"], d, audio=True)
         ap = os.path.join(d, f"a{jid}.m4a")
-        ffmpeg(["-i", video, "-vn", "-ac", "1", "-ar", "16000", "-b:a", "64k", ap])
+        ffmpeg(["-i", src, "-vn", "-ac", "1", "-ar", "16000", "-b:a", "64k", ap])
         size_mb = round(os.path.getsize(ap) / 1048576, 1)
         audio_url = upload(ap, f"audiojob{jid}.m4a", AUDIO_BUCKET, "audio/mp4")
     sb("PATCH", f"/rest/v1/audio_jobs?id=eq.{jid}",
@@ -179,7 +196,8 @@ def process_audio(job):
 
 
 def main():
-    print(f"frames-worker up. frames={FRAME_BUCKET} audio={AUDIO_BUCKET} poll={POLL}s url={SUPABASE_URL}", flush=True)
+    print(f"frames-worker up. frames={FRAME_BUCKET} audio={AUDIO_BUCKET} poll={POLL}s "
+          f"yt-dlp={'yes' if YTDLP else 'no'} url={SUPABASE_URL}", flush=True)
     while True:
         try:
             did = False

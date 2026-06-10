@@ -709,26 +709,31 @@ CRM для B2B, CRM для агентства, CRM для консалтингу
 ### Supabase — проект `call-analysis-bot` (id `beoendcicsoorvipswmh`, org CRMSolutions, EU)
 - Таблицы (public): `tg_employees` (name/username/chat_id), `tg_outbox` (очередь рассылки),
   `tg_seen_chats`, `tg_config` (anon_key, webhook_secret, function_url), `loom_transcripts`,
-  `tldv_transcripts`, `vidyard_transcripts`, `audio_transcripts`, `frame_jobs`, `audio_jobs`
-  (+ Storage buckets `frames` / `audio`).
+  `tldv_transcripts`, `vidyard_transcripts`, `audio_transcripts`, `youtube_transcripts`,
+  `web_fetches`, `frame_jobs`, `audio_jobs` (+ Storage buckets `frames` / `audio`).
 - Edge Functions: `telegram-bot` (ping/drain/sync_updates/set_webhook/webhook_info/notion_check),
   `telegram-webhook` (входящие: привет+авторегистрация, кнопки ✅/🕐/❌→статус в Notion;
   verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`, `vidyard-transcript`,
-  `audio-transcribe` (аудио по URL → Whisper).
-- Источники транскриптов в `SKILL.md` (шаг 0): текст · Loom · tl;dv · Vidyard · аудио-URL ·
-  скриншот/PDF (их Claude читает нативно через Read).
+  `audio-transcribe` (аудио по URL → Whisper), `youtube-transcript` (субтитры YT через InnerTube
+  ANDROID/WEB → json3; `no_captions` → путь audio_jobs), `fetch-url` (URL/редиректы + Google
+  Docs/Sheets/Slides export + HTML→текст → `web_fetches`).
+- Источники транскриптов в `SKILL.md` (шаг 0): текст · Loom · tl;dv · Vidyard · YouTube ·
+  веб-страница/Google-док · аудио-URL · скриншот/PDF (их Claude читает нативно через Read).
 - Кадры из видео: таблица `frame_jobs` + Storage bucket `frames`; ffmpeg-воркер
   `frames/railway-worker/` (хостит ПОЛЬЗОВАТЕЛЬ на Railway, опрашивает frame_jobs). Claude
   кладёт job через MCP, читает result (URL кадров). Railway из сессии создать нельзя — деплоит
   пользователь; кадры в Storage Claude напрямую не открывает (нет egress) — для Notion/человека.
 - Видео без субтитров → текст: таблица `audio_jobs` + bucket `audio`; тот же Railway-воркер
-  вытягивает аудио-дорожку (ffmpeg -vn, моно 16кГц) → Storage → вызывает `audio-transcribe`
-  (Whisper) → транскрипт в `audio_jobs`. Claude кладёт job (video_url) через MCP, читает transcript.
+  резолвит медиа через **yt-dlp** (YouTube/Vidyard/Loom/прямые .mp4), вытягивает аудио-дорожку
+  (ffmpeg -vn, моно 16кГц) → Storage → вызывает `audio-transcribe` (Whisper) → транскрипт в
+  `audio_jobs`. Claude кладёт job (video_url) через MCP, читает transcript. Это и есть путь для
+  YouTube-видео, у которых `youtube-transcript` вернул `no_captions`.
 - Cron `telegram-drain` — раз в минуту шлёт `tg_outbox`.
 - Секреты (ставит ПОЛЬЗОВАТЕЛЬ в Supabase → Edge Functions → Secrets; Claude их НЕ видит):
   `TELEGRAM_BOT_TOKEN`, `TLDV_API_KEY`, `NOTION_TOKEN`, `GROQ_API_KEY`/`OPENAI_API_KEY` (аудио).
   Бот: **@Sales_CRM_Solutions_bot**.
-- Детали + SQL-примеры: `/telegram/README.md`, `/loom/README.md`, `/tldv/README.md`.
+- Детали + SQL-примеры: `/telegram/README.md`, `/loom/README.md`, `/tldv/README.md`,
+  `/youtube/README.md`, `/web-fetch/README.md`, `/frames/railway-worker/README.md`.
 - ⛔ Старый проект `dogovora-yurii-bot` (другой аккаунт) НЕ использовать — перешли на `call-analysis-bot`.
 
 ### Notion — база «Договорённості» (раздел «📟 Продажи»)

@@ -1,0 +1,6 @@
+# Railway/Nixpacks: ставим ffmpeg и запускаем поллер
+[phases.setup]
+aptPkgs = ["ffmpeg"]
+
+[start]
+cmd = "python3 worker.py"

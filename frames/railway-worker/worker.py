@@ -54,6 +54,17 @@ def parse_ts(x):
     return int(float(s))
 
 
+def pick_media(text):
+    text = text.replace("\\/", "/")
+    mp4 = [u for u in re.findall(r'https?:[^"\s\\]+?\.mp4[^"\s\\]*', text) if "urlset" not in u and ".m3u8" not in u]
+    if mp4:
+        return sorted(set(mp4), key=len)[-1]
+    m3u8 = [u for u in re.findall(r'https?:[^"\s\\]+?\.m3u8[^"\s\\]*', text) if "urlset" not in u]
+    if m3u8:
+        return sorted(set(m3u8), key=len)[-1]
+    return None
+
+
 def resolve_media(video):
     if not video.startswith("http"):
         return video
@@ -63,14 +74,13 @@ def resolve_media(video):
             m = re.search(r"/(?:watch|player|embed)/([A-Za-z0-9_-]{6,})", video)
             if m:
                 pj = http_get(f"https://play.vidyard.com/player/{m.group(1)}.json").decode("utf-8", "ignore")
-                mp4 = re.findall(r'https?:[^"\s\\]+?\.mp4[^"\s\\]*', pj.replace("\\/", "/"))
-                if mp4:
-                    return sorted(set(mp4), key=len)[-1]
+                u = pick_media(pj)
+                if u:
+                    return u
         if "loom.com" in host:
-            page = http_get(video).decode("utf-8", "ignore")
-            mp4 = re.findall(r'https?:[^"\s\\]+?\.mp4[^"\s\\]*', page.replace("\\/", "/"))
-            if mp4:
-                return sorted(set(mp4), key=len)[-1]
+            u = pick_media(http_get(video).decode("utf-8", "ignore"))
+            if u:
+                return u
     except Exception as e:
         print(f"resolve failed: {e}", flush=True)
     return video

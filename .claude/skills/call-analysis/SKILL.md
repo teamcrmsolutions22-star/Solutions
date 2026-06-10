@@ -50,7 +50,7 @@ description: |
 | Что пришло | Режим |
 |------------|-------|
 | Транскрипция / запись встречи | → **ANALYZE** |
-| Ссылка на Loom (`loom.com/share/...`) | → **ANALYZE** (авто-транскрипт) |
+| Ссылка на видео/звонок (Loom / tl;dv / Vidyard / YouTube) или веб-док | → **ANALYZE** (авто-транскрипт, шаг 0) |
 | "Отчёт по встрече", "Что обещали — что сделали" | → **REPORT** |
 | "Сделай документ", "методичка", "инструкция по итогам" | → **DOCUMENT** |
 | Первый запуск без настроенной базы | → **SETUP** |
@@ -130,12 +130,36 @@ select transcript from public.vidyard_transcripts where share_url = '<ССЫЛК
   договорённости, имена, сроки. Несколько скринов — прочитай все по очереди.
 - **PDF / DOCX** (протокол, бриф, КП, договор) → читай напрямую **Read** (для больших PDF — постранично
   через параметр `pages`, до конца). Используй как источник договорённостей/контекста.
-- **Аудио/видео-файл** (mp3/m4a/wav/mp4…) → «слышать» звук напрямую нельзя, нужен транскрайбер.
-  Edge Function `audio-transcribe` (Whisper API) — аудио должно быть доступно **по URL** или загружено
-  в Supabase Storage. Файл, брошенный прямо в чат, это окружение транскрибировать не может (нет egress
-  к API распознавания). Детали — `/audio/README.md`.
-- **Другая ссылка на видео** (YouTube, Drive и т.п.) — надёжно расшифровать не выйдет; попроси
-  транскрипт текстом или из субтитров.
+- **Ссылка на YouTube** (`youtube.com/watch?v=…`, `youtu.be/…`, Shorts) → Edge Function
+  `youtube-transcript` (берёт субтитры через InnerTube ANDROID; детали — `/youtube/README.md`):
+
+```sql
+select net.http_post(
+  url := 'https://beoendcicsoorvipswmh.supabase.co/functions/v1/youtube-transcript',
+  headers := jsonb_build_object('Content-Type','application/json',
+    'Authorization','Bearer ' || (select value from public.tg_config where key='anon_key')),
+  body := jsonb_build_object('action','fetch','id','<videoId или URL>','lang','uk')
+);
+select status_code, content from net._http_response order by id desc limit 1;
+select transcript from public.youtube_transcripts where video_id = '<id>' order by id desc limit 1;
+```
+
+  `no_captions` → у видео нет субтитров: поставь его в `audio_jobs` (ниже — видео→аудио→Whisper).
+- **Веб-страница / Google Doc/Sheet/Slides** (статья, КП, бриф по ссылке) → Edge Function `fetch-url`
+  (редиректы + экспорт Google-доков + HTML→текст → `web_fetches`; детали — `/web-fetch/README.md`).
+  Приватный Google-док → попроси открыть доступ «по ссылке: любой».
+- **Видео без субтитров / аудио-видео по URL** (YouTube без капшнов, Vidyard/Loom без субтитров,
+  mp4/mp3/m4a по ссылке) → очередь `public.audio_jobs`: Railway-воркер (yt-dlp) вытащит аудио →
+  Whisper → транскрипт. Детали — `/frames/railway-worker/README.md`.
+
+```sql
+insert into public.audio_jobs (video_url, meeting) values ('<URL>','<название встречи>');
+-- воркер сам обработает; забрать результат:
+select status, chars, transcript, left(error,120) from public.audio_jobs where video_url='<URL>' order by id desc limit 1;
+```
+
+  Файл, брошенный прямо в чат (не по URL), окружение транскрибировать не может — попроси URL или
+  залей в Supabase Storage. Если аудио уже по URL — можно сразу `audio-transcribe` (`/audio/README.md`).
 
 ### 1. Определи тип записи и сделай резюме
 
@@ -214,6 +238,34 @@ select transcript from public.vidyard_transcripts where share_url = '<ССЫЛК
 * **Цитата** — дословный фрагмент из транскрипции
 
 Сохрани `page_id` каждой созданной страницы — он нужен для кнопок в Telegram.
+
+### 4.5. Кадры из видео в Notion (для видео-встреч и демо)
+
+Если источник — видео (Loom/Vidyard/YouTube/файл по URL) и в нём есть важные **визуальные** моменты
+(показ интерфейса, схема, экран с цифрами/настройками) — приложи стоп-кадры к задаче или к
+документу-инструкции в Notion, чтобы там лежало ВСЁ: задача, цитата, дедлайн и кадр-пруф.
+
+1. По транскрипту выбери 3–8 ключевых таймкодов (где визуально происходит важное) с подписями —
+   **не «вслепую», а по смыслу из текста**.
+2. Поставь задание воркеру (Railway режет кадры ffmpeg'ом → Storage bucket `frames`):
+
+```sql
+insert into public.frame_jobs (video_url, timestamps, meeting)
+values ('<URL видео>', '["1:05","3:40","7:12"]'::jsonb, '<название>');
+```
+
+3. Забери URL'ы готовых кадров:
+
+```sql
+select status, result from public.frame_jobs where video_url='<URL>' order by id desc limit 1;
+-- result: [{"sec":65,"url":"https://…/frames/jobN_000065.jpg"}, …]
+```
+
+4. Вставь кадры (по URL, image-блоки) + цитаты в карточку задачи или в документ Notion
+   (`notion-update-page` / `notion-create-pages`).
+
+> Сам Claude картинки из Storage не открывает (нет egress) — кадры для Notion/человека.
+> Воркер хостит пользователь на Railway; если `frame_jobs` висит в `pending` — воркер не поднят.
 
 ### 5. Разошли задачи в Telegram (через Supabase)
 

@@ -709,7 +709,8 @@ CRM для B2B, CRM для агентства, CRM для консалтингу
 ### Supabase — проект `call-analysis-bot` (id `beoendcicsoorvipswmh`, org CRMSolutions, EU)
 - Таблицы (public): `tg_employees` (name/username/chat_id), `tg_outbox` (очередь рассылки),
   `tg_seen_chats`, `tg_config` (anon_key, webhook_secret, function_url), `loom_transcripts`,
-  `tldv_transcripts`, `vidyard_transcripts`, `audio_transcripts`, `frame_jobs` (+ Storage bucket `frames`).
+  `tldv_transcripts`, `vidyard_transcripts`, `audio_transcripts`, `frame_jobs`, `audio_jobs`
+  (+ Storage buckets `frames` / `audio`).
 - Edge Functions: `telegram-bot` (ping/drain/sync_updates/set_webhook/webhook_info/notion_check),
   `telegram-webhook` (входящие: привет+авторегистрация, кнопки ✅/🕐/❌→статус в Notion;
   verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`, `vidyard-transcript`,
@@ -720,6 +721,9 @@ CRM для B2B, CRM для агентства, CRM для консалтингу
   `frames/railway-worker/` (хостит ПОЛЬЗОВАТЕЛЬ на Railway, опрашивает frame_jobs). Claude
   кладёт job через MCP, читает result (URL кадров). Railway из сессии создать нельзя — деплоит
   пользователь; кадры в Storage Claude напрямую не открывает (нет egress) — для Notion/человека.
+- Видео без субтитров → текст: таблица `audio_jobs` + bucket `audio`; тот же Railway-воркер
+  вытягивает аудио-дорожку (ffmpeg -vn, моно 16кГц) → Storage → вызывает `audio-transcribe`
+  (Whisper) → транскрипт в `audio_jobs`. Claude кладёт job (video_url) через MCP, читает transcript.
 - Cron `telegram-drain` — раз в минуту шлёт `tg_outbox`.
 - Секреты (ставит ПОЛЬЗОВАТЕЛЬ в Supabase → Edge Functions → Secrets; Claude их НЕ видит):
   `TELEGRAM_BOT_TOKEN`, `TLDV_API_KEY`, `NOTION_TOKEN`, `GROQ_API_KEY`/`OPENAI_API_KEY` (аудио).

@@ -21,14 +21,22 @@ const REPO_ROOT = process.env.REPO_ROOT || resolve(dirname(fileURLToPath(import.
 const MODEL = process.env.AGENT_MODEL || 'claude-opus-4-8';
 const POLL = parseInt(process.env.POLL_SEC || '15', 10);
 
-async function sb(method, path, body) {
+async function sb(method, path, body, prefer = 'return=representation') {
   const r = await fetch(`${SUPABASE_URL}${path}`, {
     method,
-    headers: { apikey: KEY, Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json', Prefer: 'return=representation' },
+    headers: { apikey: KEY, Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json', Prefer: prefer },
     body: body ? JSON.stringify(body) : undefined,
   });
   const text = await r.text();
   try { return JSON.parse(text); } catch { return text; }
+}
+
+async function heartbeat() {
+  try {
+    await sb('POST', '/rest/v1/worker_heartbeat?on_conflict=worker',
+      { worker: 'server-agent', last_seen: new Date().toISOString() },
+      'resolution=merge-duplicates,return=minimal');
+  } catch (e) { console.log(`heartbeat failed: ${e}`); }
 }
 
 async function claim() {
@@ -76,6 +84,7 @@ async function main() {
   console.log(`server-agent up. repo=${REPO_ROOT} model=${MODEL} poll=${POLL}s`);
   for (;;) {
     try {
+      await heartbeat();
       const job = await claim();
       if (!job) { await new Promise((r) => setTimeout(r, POLL * 1000)); continue; }
       console.log(`agent job ${job.id}: ${String(job.prompt).slice(0, 80)}`);

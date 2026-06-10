@@ -637,3 +637,321 @@ IT-Tour (ittour.com.ua) — це безкоштовний агрегатор 67+
 ---
 
 *Оновлено: червень 2026 | Джерела: 5 агентів deep research + 3 завантажені звіти (590da74c/65a9915c/e8fc1fd9) | Наступний перегляд: жовтень 2026*
+
+---
+
+## 🏨 ЧАСТИНА 3: Глибокий аналіз PMS для 5 готельних сегментів (deep research 2026)
+
+> **Оновлення червень 2026:** Додано системи Mews, RoomRaccoon, Hotelogix, Sirvoy, Clock PMS; блоки Guest CRM, OTA-економіка, AI, pre/post-stay; 5 сегментів.
+
+### Класи ПЗ — обов'язкове розмежування
+
+| Клас | Функція | Приклади |
+|------|---------|----------|
+| **PMS** | Шахматка/rack, check-in/out, фоліо гостя, групи, overstay, housekeeping | Servio HMS, Mews, Cloudbeds, Hotelogix |
+| **Channel Manager (CM)** | Real-time синхронізація наявності і цін між PMS та OTA; anti-overbooking | YieldPlanet, SiteMinder, Channex |
+| **Booking Engine (BE)** | Прямі бронювання на сайті без комісії OTA (0%) | Cloudbeds BE, Little Hotelier, RoomRaccoon |
+| **Guest CRM** | Профіль гостя, лояльність, сегментація, маркетинг, post-stay | Revinate, TrustYou, Cloudbeds Guest Marketing |
+| **RMS** (Revenue Mgmt) | Динамічні ціни, прогноз завантаження, AI-рекомендації тарифів | Cloudbeds Signals AI, YieldPlanet Price Optimizer, Mews+Atomize |
+| **POS** | Ресторан/SPA/трансфер на фоліо гостя | Mews POS, Hotelogix POS |
+| **All-in-One** | PMS + CM + BE в одному продукті | Cloudbeds, Mews, RoomRaccoon, Little Hotelier, Hotelogix, Sirvoy |
+
+---
+
+### Нові системи: міжнародні All-in-One
+
+#### Mews PMS ✅ — #1 Hotel Tech Report 3 роки поспіль
+**Тип:** All-in-One (PMS + BE + POS + marketplace)  
+**Channel Manager:** через marketplace (не нативно; потрібна окрема підписка)  
+**Ціна:** ⚠️ від €300+/місяць (base PMS, без CM); реальна вартість для готелю 20 номерів — €4 800–8 400+/рік ✅ (hotelminder.com 2026); без публічного прайсу, лише sales-дзвінок; **2-річне зобов'язання** ⚠️  
+**Ключові функції:**
+- Інтуїтивний interface, 15 000 готелів у 85 країнах ✅
+- **1 000+ інтеграцій** через Mews Marketplace ✅
+- Вбудований Booking Engine ✅
+- POS для ресторану/SPA ✅
+- Mews Payments: депозити, авто-еквайринг ✅
+- Online check-in, digital key, гостьовий портал ✅
+- AI-рекомендації тарифів (Atomize RMS — окрема підписка) ✅
+- Мобільний застосунок ✅
+- Аналітика: occupancy/ADR/RevPAR + Dashboards ✅
+
+**Обмеження:** ❌ Немає ПРРО для UA; ❌ EN-only (немає UA-мови); ⚠️ Channel Manager = окремий vendor через marketplace; ⚠️ дорого для малих готелів; ⚠️ обмежена кастомна звітність  
+**Підходить для:** бізнес-готелі, бутік-готелі, мережі з фокусом на цифровій гостьовій подорожі  
+**Юрисдикція:** Нідерланди (Mews Systems B.V.) ✅
+
+---
+
+#### RoomRaccoon ✅ — All-in-One для незалежних готелів
+**Тип:** All-in-One (PMS + CM + BE + Payments)  
+**Ціна:** від ~€149/місяць (базовий); реальна вартість по запиту, per-property ✅ (hotelminder.com 2026)  
+**Ключові функції:**
+- 200+ каналів OTA ✅
+- Автоматизація pricing rules (базовий RMS) ✅
+- Мобільний додаток для персоналу ✅
+- Бронювання з bookable add-ons (ранній заїзд, пакети) ✅
+- Payments модуль вбудовано ✅
+- Drag-and-drop шахматка, color-coded статуси ✅
+
+**Обмеження:** ⚠️ часті системні баги (відмічено у відгуках 2025); ⚠️ повільна підтримка; ❌ ПРРО для UA відсутнє; ❌ EN-only  
+**Підходить для:** бутік-готелі (10–80 номерів), B&B, незалежні готелі в Євросоюзі  
+**Юрисдикція:** Нідерланди ✅
+
+---
+
+#### Hotelogix ✅ — бюджетний All-in-One
+**Тип:** All-in-One (PMS + CM + BE + POS)  
+**Ціна:** **від $4/кімната/місяць** ✅ (saascounter.com 2025); є безкоштовний тріал  
+**Ключові функції:**
+- PMS + Channel Manager + Booking Engine в одному ✅
+- POS для ресторану і додаткових послуг ✅
+- 100+ вбудованих звітів ✅
+- Multi-property management ✅
+- Мобільний застосунок ✅
+- GDS-підключення ✅
+
+**Обмеження:** ❌ Немає ПРРО UA; ❌ EN-only інтерфейс; ⚠️ походження — Індія (Chandigarh), дизайн менш сучасний; підтримка в азіатській часовій зоні  
+**Підходить для:** бюджетний старт для малих/середніх готелів, B&B, курортних готелів без UA-специфіки  
+**Юрисдикція:** Індія (Hotelogix Pvt Ltd) ✅
+
+---
+
+#### Sirvoy ✅ — найдешевший All-in-One
+**Тип:** All-in-One (PMS + CM + BE)  
+**Ціна:** **від $9/місяць** (Starter, 2 номери); Solo $49/міс; Team $99/міс ✅ (hotelminder.com 2026); без довгострокових контрактів ✅  
+**Ключові функції:**
+- CM: Booking.com, Airbnb, Expedia ✅
+- Booking engine для сайту (WordPress plugin ✅) ✅
+- Гостьова комунікація (email, SMS) ✅
+- Мобільний веб-клієнт ✅
+- 24/7 підтримка ✅
+- Мультимовний інтерфейс ✅
+
+**Обмеження:** ❌ Немає ПРРО UA; ⚠️ обмежена аналітика (немає ADR/RevPAR); ⚠️ немає POS; ⚠️ обмежена автоматизація; ⚠️ складно масштабувати  
+**Найкраще для:** B&B, гостьові будинки, міні-готелі без складних процесів, бюджетний старт  
+**Юрисдикція:** Швеція ✅
+
+---
+
+#### Clock PMS ✅ — все-в-одному, гостьовий self-service
+**Тип:** All-in-One (PMS + CM + BE + гостьовий портал)  
+**Ціна:** **€250–810/місяць** залежно від доходу та розміру ✅ (hotelminder.com 2026)  
+**Ключові функції:**
+- Online check-in, digital keys, гостьовий портал ✅
+- Автоматичні підтвердження і нагадування ✅
+- Multi-currency invoicing ✅
+- Multi-property ✅
+- Платежі і депозити ✅
+- 1 500+ готелів у 65 країнах ✅
+
+**Обмеження:** ❌ ПРРО UA відсутнє; ❌ EN-only; ⚠️ ціна вища ніж Sirvoy/Beds24  
+**Підходить для:** бутік та бізнес-готелі з фокусом на digital guest journey  
+**Юрисдикція:** Болгарія (Clock Software OOD) ✅
+
+---
+
+### Оновлена велика порівняльна таблиця PMS (18 критеріїв)
+
+> Класи покриття: **P**=PMS · **C**=Channel Manager · **B**=Booking Engine · **G**=Guest CRM · **R**=RMS · **S**=POS
+
+| Система | Класи | ПРРО UA | OTA | AI/RMS | Гість портал | Multi-obj | UA мова | Ціна/міс | Юрисдикція |
+|---------|-------|---------|-----|--------|-------------|-----------|---------|----------|------------|
+| **Servio HMS** | P+B+S | ✅ Vchasno.Kasa | ✅ через YieldPlanet | ❌ | ⚠️ | ✅ | ✅ | від 1200 грн | 🇺🇦 |
+| **EasyMS** | P+C+B | ⚠️ | ✅ | ❌ | ⚠️ | ✅ | ✅ | ⚠️ запит | 🇺🇦 |
+| **Cloudbeds** | P+C+B+G+R | ❌ | ✅ 300+ OTA | ✅ Signals AI | ✅ | ✅ | ❌ EN | $200-1000+ | 🇺🇸 |
+| **Mews** | P+B+S | ❌ | ✅ через marketplace | ✅ Atomize add-on | ✅ | ✅ | ❌ EN | €300+ | 🇳🇱 |
+| **RoomRaccoon** | P+C+B | ❌ | ✅ 200+ OTA | ⚠️ basic rules | ⚠️ | ✅ | ❌ EN | від €149 | 🇳🇱 |
+| **Little Hotelier** | P+C+B | ❌ | ✅ 450+ SiteMinder | ❌ | ⚠️ | ❌ | ❌ EN | від $109 | 🇦🇺 |
+| **Hotelogix** | P+C+B+S | ❌ | ✅ | ❌ | ⚠️ | ✅ | ❌ EN | від $4/кімн | 🇮🇳 |
+| **Sirvoy** | P+C+B | ❌ | ✅ Booking/Airbnb | ❌ | ❌ | ⚠️ | ⚠️ | $9-99 | 🇸🇪 |
+| **Clock PMS** | P+C+B | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ EN | €250-810 | 🇧🇬 |
+| **KWHotel** | P+C | ❌ | ✅ | ❌ | ❌ | ⚠️ | ✅ (21 мова) | від €8 | 🇵🇱 |
+| **Beds24** | P+C+B | ❌ | ✅ 60+ OTA | ⚠️ basic | ⚠️ | ✅ | ❌ EN | від €15.90 | 🇪🇺 |
+| **Smoobu** | P+C+B | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ EN | від €23.20 | 🇩🇪 |
+| **SiteMinder** | C+B | ❌ | ✅ 650+ OTA | ❌ | ❌ | ✅ | ❌ EN | від €56 | 🇦🇺 |
+| **YieldPlanet** | C+R | ❌ | ✅ 500+ | ✅ AI Price Opt | ❌ | ✅ | ❌ | €40-250 | 🇵🇱 |
+| **OtelMS** | P+C | ❌ | ✅ 100+ | ❌ | ⚠️ | ⚠️ | ✅ | 890-1790 UAH | ⚠️Кіпр/РФ |
+| **Bnovo** | P+C | ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ❌ | ~$50+ | 🚫🇷🇺 1C |
+| **TravelLine** | C+B | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | — | 🚫🇷🇺 |
+
+---
+
+### Топ-3 по 5 готельних сегментах
+
+#### A. Міський бізнес-готель (корпоративні гості, конференції, тарифна сітка)
+
+**Ключові вимоги:** корпоративні тарифи, групові бронювання/блоки, CRM профілів гостей, pre/post-stay, звіти, OTA і прямі бронювання, ПРРО.
+
+1. **Servio HMS + YieldPlanet** — єдина повна UA-стек з ПРРО, корпоративними тарифами, конференц-модулем, аналітикою по каналах. Від 1200 грн/міс + YieldPlanet за запитом.
+2. **Mews** — якщо готель орієнтований на міжнародну аудиторію: digital check-in, POS (ресторан/SPA), 1000+ інтеграцій, 3-кратний переможець Hotel Tech Report. ❌ Без ПРРО UA.
+3. **Cloudbeds** — якщо потрібне AI-динамічне ціноутворення (Signals AI) і unified inbox для всіх каналів комунікації. ❌ Без ПРРО UA; $200-1000+/міс.
+
+---
+
+#### B. Курортний готель / санаторій / база відпочинку (сезонність, пакети, all-inclusive)
+
+**Ключові вимоги:** сезонні тарифи, пакетні пропозиції (харчування+проживання), SPA/процедури на фоліо, ПРРО, довге перебування (ALOS), статистична звітність.
+
+1. **Servio HMS + YieldPlanet** — найкращий вибір для UA санаторіїв: сезонні тарифи, ПРРО через Vchasno.Kasa, POS-модуль для послуг, звіти про завантаження. Рекомендація Ribas Hotels Group ✅.
+2. **Cloudbeds** — якщо є міжнародні гості і потрібен AI-прогноз сезонного завантаження; unified messaging; без ПРРО.
+3. **Hotelogix** — бюджетна опція для санаторіїв з POS і базовою аналітикою від $4/кімн/міс.
+
+---
+
+#### C. Бутік-готель / міні-готель (10–30 номерів): прямі бронювання, персоналізація
+
+**Ключові вимоги:** прямі бронювання (booking engine), персоналізований сервіс, легкий у налаштуванні, ПРРО бажано.
+
+1. **Servio HMS + EasyMS** — для UA бутіку: ПРРО, Ukrainian booking engine, channel manager, персоналізовані тарифи. Оптимальна вартість + UA підтримка.
+2. **RoomRaccoon** або **Little Hotelier** — якщо не потрібна UA-специфіка: drag-and-drop шахматка, мобільний застосунок, 200+ OTA. від €149 або $109/міс.
+3. **Sirvoy** — найдешевший старт ($49-99/міс); WordPress booking engine plugin; для готелів без складних потреб.
+
+---
+
+#### D. Апарт-готель / апартаменти / хостел / подобова оренда (channel manager + кілька об'єктів)
+
+**Ключові вимоги:** channel manager з Airbnb/Booking/VRBO, multi-property, self check-in, прибирання, мінімальна PMS-логіка.
+
+1. **Beds24** — Airbnb Preferred+ Partner 2025; від €15.90/міс; multi-property; automation rules; найдешевший multi-OTA для апартаментів ✅.
+2. **Smoobu** — простий guest portal + гостьовий booking engine; від €23.20/міс; для 1-10 апартаментів.
+3. **Cloudbeds** — для мережі 5+ апарт-об'єктів з AI-тарифами і centralized inbox; $200+/міс.
+
+⚠️ Якщо ПРРО обов'язкова для хостелу/апарт-готелю → **Servio HMS** єдиний UA-варіант.
+
+---
+
+#### E. Мережа готелів (кілька об'єктів, корпоративні тарифи, централізоване управління)
+
+**Ключові вимоги:** multi-property у єдиному dashboard, централізований гостьовий профіль, корпоративні тарифи, консолідована аналітика, ПРРО.
+
+1. **Servio HMS** (мережна конфігурація) — єдиний UA-варіант для мереж з ПРРО; модуль корпоративних тарифів (Servio HMS Corporate) ✅; Ribas Hotels Group (28+ готелів) — референс.
+2. **Cloudbeds Enterprise** — для мереж з міжнародними гостями; централізована аналітика, AI Signals, unified guest profiles. Ціна по запиту.
+3. **Mews** — для преміум-мереж: 1000+ інтеграцій, Mews Marketplace, POS, digital key. ❌ Без ПРРО; дорого.
+
+---
+
+### Блок: Гостьова CRM + лояльність + Pre/in/post-stay + Reputation
+
+> Guest CRM — це **окремий шар** поверх PMS. Більшість PMS має базову комунікацію (email-підтвердження, SMS), але повноцінний профіль гостя, сегментацію, маркетинг і reputation — потребує спеціалізованого рішення або надбудови.
+
+#### Що вміють PMS нативно (pre/in/post-stay)
+
+| Функція | Cloudbeds | Mews | Servio HMS | Little Hotelier | Sirvoy/KWHotel |
+|---------|-----------|------|------------|-----------------|----------------|
+| Pre-stay email-підтвердження | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pre-stay upsell (ранній заїзд, пакети) | ✅ | ✅ через marketplace | ⚠️ | ⚠️ | ❌ |
+| Online check-in (pre-arrival) | ✅ | ✅ | ❌ | ⚠️ | ❌ |
+| In-stay комунікація (WhatsApp/TG) | ✅ unified inbox | ✅ через интеграції | ❌ | ❌ | ❌ |
+| Post-stay відгук (email + посилання) | ✅ | ✅ | ⚠️ | ⚠️ | ❌ |
+| Гостьовий профіль (повторні гості) | ✅ | ✅ | ⚠️ | ❌ | ❌ |
+| Програма лояльності | ⚠️ базова | ⚠️ через маркетплейс | ❌ | ❌ | ❌ |
+
+#### Спеціалізовані Guest CRM / Reputation-платформи (надбудова над PMS)
+
+**Revinate** (revinate.com)
+- Клас: Guest CRM + Marketing + Reputation
+- Збирає відгуки з Booking.com, TripAdvisor, Google, аналізує sentiment
+- Post-stay surveys, сегментація, email-маркетинг по RFM
+- Інтегрується з більшістю PMS (Cloudbeds, Mews, Opera тощо)
+- Ціна: по запиту (SaaS per-property); основний ринок — ЄС/США
+- ⚠️ Немає UA-локалізації або UA-специфічних інтеграцій
+
+**TrustYou** (trustyou.com)
+- Клас: Reputation + Sentiment Analysis + AI Agents (2025)
+- AI-driven semantic analysis по відгуках
+- Survey tools: pre/in/post-stay
+- TrustYou AI Agents (2025–2026): автовідповіді на відгуки, AI-консьєрж
+- Інтеграція з Google, Booking.com, TripAdvisor
+- Ціна: по запиту; більше для готелів 50+ номерів
+- ⚠️ Немає UA-локалізації
+
+**GuestRevu** (guestrevu.com)
+- Клас: Reputation + Guest feedback
+- Доступніша ціна ніж Revinate/TrustYou для малих готелів
+- Збирає відгуки, benchmark vs конкуренти
+- ⚠️ Немає UA-локалізації
+
+> **Практична рекомендація для UA ринку:** Для більшості UA готелів достатньо **Cloudbeds Guest Marketing** (вбудовано) або **Servio HMS + KeepinCRM** для базової гостьової CRM. Revinate/TrustYou — для готелів 50+ номерів або мереж.
+
+---
+
+### Блок: Прямі бронювання vs OTA — економіка комісій
+
+> **Ключовий фінансовий аргумент** для впровадження booking engine і метапошуку.
+
+#### Реальні втрати на комісіях OTA
+
+| OTA | Комісія | Середнє за 2025 |
+|-----|---------|----------------|
+| Booking.com | 15–25% від вартості бронювання | ~18% |
+| Airbnb (host fee) | 3–5% + guest fee 14% | ~18% total |
+| Expedia | 15–30% | ~22% |
+
+**Підраховано (2025 дані):** Пряме бронювання в середньому $516 vs OTA $312 — тобто пряме бронювання на $204 доходніше per booking. (Джерело: SiteMinder 2025 research)
+
+#### Як зменшити залежність від OTA
+
+```
+Booking Engine на сайті → 0% комісії OTA
+Google Hotel Ads (метапошук) → платиш лише за кліки або % від бронювання (commission model)
+Прямий email-маркетинг → повторні гості без OTA
+Програма лояльності → преференції при прямому бронюванні
+```
+
+#### Які системи мають booking engine + Google Hotel Ads
+
+| Система | Booking Engine | Google Hotel Ads / Meta | Модель оплати |
+|---------|-------------|------------------------|--------------|
+| **Cloudbeds** | ✅ нативно | ✅ вбудовано | Per transaction / % |
+| **SiteMinder Demand Plus** | ✅ | ✅ Google Hotel Ads, Trivago, TripAdvisor | Commission per stay |
+| **Mews** | ✅ нативно | ✅ через marketplace | — |
+| **RoomRaccoon** | ✅ | ⚠️ через інтеграцію | — |
+| **Little Hotelier** | ✅ | ⚠️ через SiteMinder | — |
+| **Servio HMS** | ✅ базовий BE | ❌ немає нативно | — |
+| **Sirvoy** | ✅ WordPress plugin | ❌ | — |
+| **KWHotel** | ✅ | ❌ | — |
+
+> **Золоте правило:** Інвестиція в booking engine (навіть $100/міс) окуповується при першому прямому бронюванні, яке замінило OTA-бронювання з комісією $60-100.
+
+---
+
+### Блок: AI-функції для готелів (2025–2026)
+
+| AI-функція | Система | Деталі | Статус |
+|-----------|---------|--------|--------|
+| **Динамічні ціни / Revenue Mgmt** | Cloudbeds Signals AI | Прогноз попиту 90-денний, до 95% точності | ✅ нативно |
+| **AI Revenue Mgmt** | YieldPlanet Price Optimizer | AI-тарифи + revenue rules + закриття OTA при завантаженні | ✅ нативно |
+| **AI RMS (надбудова)** | Mews + Atomize | Atomize RMS як окрема підписка в Mews marketplace | ✅ add-on |
+| **AI Scribe / SOAP** | — (для vet) | не застосовно для готелів | — |
+| **AI консьєрж / чат-бот** | TrustYou AI Agents | Автовідповіді на відгуки, AI-консьєрж у чаті | ✅ 2025 |
+| **AI sentiment analysis** | TrustYou, Revinate | Аналіз відгуків: виявлення проблем у реальному часі | ✅ |
+| **AI-rекомендації тарифів** | Mews AI | AI rate suggestions у dashboard | ✅ 2025 |
+| **AI upsell** | Cloudbeds, Mews | Автопропозиції раннього заїзду, апгрейду номеру до check-in | ✅ |
+| **AI housekeeping** | Mews | Автоматичне формування завдань покоївкам | ✅ |
+| **Прогноз ADR/RevPAR** | Cloudbeds Signals | Dashboard з прогнозом на основіhistor. даних + попиту | ✅ |
+| **Google AI Mode Hotels** | SiteMinder | Google AI Mode тепер показує готелі — SiteMinder одним із перших партнерів (2026) | ✅ новинка |
+
+> **Висновок для UA ринку:** AI-revenue management реально доступний у **Cloudbeds Signals** (вбудовано) або **YieldPlanet Price Optimizer** (add-on до будь-якого PMS). Для UA-готелів найдоступніший варіант — **YieldPlanet** + Servio HMS: тарифна автоматизація без відмови від ПРРО.
+
+---
+
+### Підводні камені (доповнення)
+
+#### 10. Mews — «ціна питання» прихована
+
+Mews не публікує ціни. Реальний стек для 20-номерного готелю: base PMS (€300+) + channel manager через marketplace (€50-100) + Atomize RMS (€100+) + premium support = **€500-700+/міс** з 2-річним зобов'язанням. Малим готелям краще підходить Sirvoy, KWHotel або Little Hotelier.
+
+#### 11. Google Hotel Ads — нова обов'язкова точка дотику (2026)
+
+З 2026 Google AI Mode почав показувати готелі безпосередньо в пошуку. Готелі без booking engine і Google Hotel Ads **втрачають прямі бронювання** на рівні пошукової видачі. SiteMinder Demand Plus — найпростіше рішення (commission model, без абонплати).
+
+#### 12. Всі міжнародні PMS без ПРРО — але вихід є
+
+ПРРО обов'язковий для всіх з 01.01.2024. Для готелів на Cloudbeds, Mews, Little Hotelier та ін. — потрібна окрема каса (наприклад, Checkbox або Vchasno.Kasa). Servio HMS + Vchasno.Kasa = єдина нативна комбінація.
+
+#### 13. OtelMS — увага на юрисдикцію
+
+ChatGPT Deep Research (2026-06) підтверджує: попри заявлений вихід з РФ-ринку, сервери та офіс розробки OtelMS залишаються в Ставрополі (РФ). Офіційна юрисдикція — Кіпр. Підтримує тільки Stripe/PayPal (без LiqPay/WayForPay). Для UA ПРРО — не підходить.
+
+---
+
+*Оновлено deep research: червень 2026 | Нові системи: Mews, RoomRaccoon, Hotelogix, Sirvoy, Clock PMS | Нові блоки: Guest CRM, OTA economics, AI готелі, 5 готельних сегментів | Джерела: hotelminder.com, hoteltechreport.com, ribashotelsgroup.ua, expertsolution.com.ua, mews.com, cloudbeds.com, roomraccoon.com, siteminder.com, yieldplanet.com, revinate.com, trustyou.com, beds24.com*

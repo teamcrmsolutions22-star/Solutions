@@ -1,0 +1,7 @@
+# Build context hygiene — used by server-agent/Dockerfile (build context = repo root).
+# (The frames/railway-worker build uses its own subdir context and isn't affected by this file.)
+.git
+**/node_modules
+**/source-files/
+**/.DS_Store
+*.log

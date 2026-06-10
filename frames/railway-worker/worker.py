@@ -23,6 +23,15 @@ AUDIO_FN = f"{SUPABASE_URL}/functions/v1/audio-transcribe"
 UA = {"User-Agent": "Mozilla/5.0 (frames-worker)"}
 YTDLP = shutil.which("yt-dlp")  # универсальный резолвер (YouTube/Vidyard/Loom/…); если нет — fallback на ffmpeg-direct
 
+# Опц. cookies для yt-dlp (нужны для YouTube из дата-центра, чтобы пройти bot-check).
+# Положить содержимое cookies.txt (Netscape-формат) в env YT_COOKIES.
+COOKIES_FILE = None
+_cookies = os.environ.get("YT_COOKIES")
+if _cookies:
+    COOKIES_FILE = "/tmp/yt_cookies.txt"
+    with open(COOKIES_FILE, "w") as _fh:
+        _fh.write(_cookies)
+
 
 def sb(method, path, body=None, raw=False, extra=None):
     headers = {"apikey": KEY, "Authorization": f"Bearer {KEY}"}
@@ -97,9 +106,10 @@ def fetch_to_file(url, d, audio=False):
     if YTDLP and url.startswith("http"):
         out = os.path.join(d, "dl.%(ext)s")
         fmt = "bestaudio/best" if audio else "best[height<=720][ext=mp4]/best[ext=mp4]/best"
-        p = subprocess.run([YTDLP, "--no-playlist", "--no-warnings", "--no-progress",
-                            "-f", fmt, "-o", out, url],
-                           stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+        cmd = [YTDLP, "--no-playlist", "--no-warnings", "--no-progress", "-f", fmt, "-o", out, url]
+        if COOKIES_FILE:
+            cmd[1:1] = ["--cookies", COOKIES_FILE]
+        p = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         files = [os.path.join(d, f) for f in os.listdir(d) if f.startswith("dl.")]
         if p.returncode == 0 and files:
             return files[0]
@@ -118,6 +128,16 @@ def upload(path, name, bucket, content_type):
     sb("POST", f"/storage/v1/object/{bucket}/{obj}", body=open(path, "rb").read(), raw=True,
        extra={"Content-Type": content_type, "x-upsert": "true"})
     return f"{SUPABASE_URL}/storage/v1/object/public/{bucket}/{obj}"
+
+
+def heartbeat():
+    """Отметка «я жив» для watchdog-крона (он алертит в Telegram, если воркер замолчал)."""
+    try:
+        sb("POST", "/rest/v1/worker_heartbeat?on_conflict=worker",
+           body={"worker": "frames-worker", "last_seen": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())},
+           extra={"Prefer": "resolution=merge-duplicates,return=minimal"})
+    except Exception as e:
+        print(f"heartbeat failed: {e}", flush=True)
 
 
 def claim(table):
@@ -197,9 +217,11 @@ def process_audio(job):
 
 def main():
     print(f"frames-worker up. frames={FRAME_BUCKET} audio={AUDIO_BUCKET} poll={POLL}s "
-          f"yt-dlp={'yes' if YTDLP else 'no'} url={SUPABASE_URL}", flush=True)
+          f"yt-dlp={'yes' if YTDLP else 'no'} cookies={'yes' if COOKIES_FILE else 'no'} "
+          f"url={SUPABASE_URL}", flush=True)
     while True:
         try:
+            heartbeat()
             did = False
             fj = claim("frame_jobs")
             if fj:

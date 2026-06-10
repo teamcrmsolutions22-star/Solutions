@@ -767,7 +767,12 @@ CRM для фітнесу, CRM для фітнес-клубу, CRM для спо
   резолвит медиа через **yt-dlp** (YouTube/Vidyard/Loom/прямые .mp4), вытягивает аудио-дорожку
   (ffmpeg -vn, моно 16кГц) → Storage → вызывает `audio-transcribe` (Whisper) → транскрипт в
   `audio_jobs`. Claude кладёт job (video_url) через MCP, читает transcript. Это и есть путь для
-  YouTube-видео, у которых `youtube-transcript` вернул `no_captions`.
+  YouTube-видео, у которых `youtube-transcript` вернул `no_captions`. Vidyard/Loom тянутся без
+  доп. настроек; **YouTube из дата-центра** требует env `YT_COOKIES` (cookies.txt) у воркера.
+- Watchdog: воркер пишет `public.worker_heartbeat` каждый цикл; cron `worker-watchdog` (5 мин)
+  шлёт алерт менеджеру в Telegram, если воркер/агент молчит >10 мин. (server-agent тоже шлёт heartbeat.)
+- Дедуп задач: call-analysis перед созданием задач проверяет «Источник встречи» (формат
+  `Название — ДД.ММ.ГГГГ`) и не плодит копии при повторном разборе того же звонка.
 - Отчёты «что обещали — что сделали»: action `report` (mode `weekly|overdue|both`) у `telegram-bot`
   читает Notion-базу «Договорённости» (`tg_config.notion_db_id`) и шлёт дайджест менеджеру
   (`tg_config.report_chat_id` = Наташа 164719255) + пинг по просрочке каждому ответственному

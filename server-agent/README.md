@@ -27,17 +27,22 @@ insert into public.agent_jobs (prompt) values
 select status, left(result, 500), error from public.agent_jobs order by id desc limit 1;
 ```
 
-## Деплой (Railway/VPS — как воркер)
-1. **Source repo** = `teamcrmsolutions22-star/Solutions`, ветка `main`.
-   **Build** = Dockerfile, **Root Directory** = `server-agent`.
-   > Важно: Docker-контекст — корень репо (Dockerfile копирует весь репо, чтобы были скиллы и
-   > `CLAUDE.md`), а Root Directory указывает Railway, где искать Dockerfile. На Railway это работает,
-   > т.к. сборка идёт из корня репо с указанным Dockerfile-путём; на чистом docker:
-   > `docker build -f server-agent/Dockerfile -t crm-agent .` из корня репо.
-2. **Variables** (см. `.env.example`): `ANTHROPIC_API_KEY`, `SUPABASE_URL`,
-   `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_ACCESS_TOKEN`, опц. `AGENT_MODEL`, `POLL_SEC`.
-   Все секреты — только в Variables, в репозиторий не коммитим.
-3. **Deploy.** В логах: `server-agent up. repo=/app model=claude-opus-4-8 poll=15s`.
+## Деплой на Railway (отдельный сервис, НЕ тот же что воркер)
+> Ключевой нюанс: агенту нужен весь репо (скиллы + `CLAUDE.md`), поэтому контекст сборки —
+> **корень репо**, а не `server-agent/`. Поэтому настройки иные, чем у воркера кадров.
+
+1. Railway → твой проект → **+ New → GitHub Repo** → `teamcrmsolutions22-star/Solutions`, ветка `main`.
+2. Открой созданный сервис → **Settings → Build**:
+   - **Root Directory** — оставь **пустым** (= корень репо).
+   - **Builder** = Dockerfile, **Dockerfile Path** = `server-agent/Dockerfile`.
+   - (`.dockerignore` в корне уже исключает `.git`, `node_modules`, `source-files` — контекст лёгкий.)
+3. **Settings → Variables** (см. `.env.example`):
+   `ANTHROPIC_API_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (новый `sb_secret_...`),
+   `SUPABASE_ACCESS_TOKEN`, опц. `AGENT_MODEL`, `POLL_SEC`. Секреты — только тут, не в репо.
+4. **Deploy.** В логах: `server-agent up. repo=/app model=claude-opus-4-8 poll=15s`.
+
+На чистом Docker (VPS) эквивалент — из **корня репо**:
+`docker build -f server-agent/Dockerfile -t crm-agent . && docker run --env-file server-agent/.env crm-agent`
 
 ## Запуск локально
 ```

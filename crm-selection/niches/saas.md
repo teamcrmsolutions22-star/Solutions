@@ -1,161 +1,207 @@
 # CRM для SaaS / продуктових software-компаній (UA-команди, 2025–2026)
 
-> **Джерела:** 10+ веб-пошуків, 15+ джерел 2025–2026: SaaStr, G2, Vendr, офіційні сайти, Capterra, The CS Cafe, Knowlee, Mixpanel blog, Oliv.ai.
+> **Джерела:** Deep Research (2026-06-10) — 82 підтверджених джерела + 10 веб-пошуків.
+> Офіційні сайти, G2, Capterra, SaaStr, Stacksync, Vitally, ChurnZero, Gainsight, HubSpot blog, Salesforce docs, Attio Help Center, NetHunt, folk.app, Pipedrive KB, Close.com.
 > **Дата дослідження:** червень 2026.
 
 ---
 
 ## ВСТУП: SaaS — це стек, а не один продукт
 
-У SaaS/software-компаніях **CRM — лише один шар із чотирьох**. Ніхто не закриє всі потреби одним інструментом:
+### Тренд 2026: Platform Consolidation
+
+Станом на 2026 рік середнє підприємство використовує **300+ SaaS-застосунків**, з яких активно застосовуються менше половини — проблема "мертвого ПЗ" (shelfware). Відповідь ринку: консолідація навколо потужного CRM-ядра з мінімумом суміжних шарів.
+
+> ⚠️ **Головна помилка при виборі CRM для SaaS:** чекати, що одна система закриє всі шари. Правильне питання: *«Який є мій основний стек і що потрібно інтегрувати?»*
+
+### П'ять класів систем у SaaS-стеку
 
 | Шар | Що покриває | Приклади систем |
 |-----|-------------|-----------------|
-| **CRM** | Воронка, угоди, контакти, pipeline, звіти | HubSpot, Salesforce, Attio, Pipedrive, Close |
-| **Білінг** | Підписки, MRR/ARR, dunning, invoice | Stripe, Paddle, Chargebee |
-| **Product Analytics / CDP** | Usage events, retention, PQL | Mixpanel, Amplitude, Segment, June.so |
+| **CRM** | Воронка, угоди, контакти, pipeline, звіти | HubSpot, Salesforce, Attio, Pipedrive, Close, NetHunt |
+| **Білінг / Subscription Management** | Підписки, MRR/ARR, dunning, invoice, CPQ | Stripe, Paddle, Chargebee, Hyperline |
+| **Product Analytics / CDP** | Usage events, retention cohorts, PQL | Mixpanel, Amplitude, Segment (CDP), June.so |
 | **Customer Success (CS)** | Health score, renewals, onboarding, NRR | Gainsight, Vitally, ChurnZero, Planhat |
-| **Sales Engagement** | Email sequences, cadences, LinkedIn outreach | Outreach, Salesloft |
-| **Conversation Intelligence** | Запис дзвінків, coaching, forecast | Gong, Chorus (ZoomInfo) |
+| **Sales Engagement** | Email sequences, cadences, LinkedIn | Outreach, Salesloft, HubSpot Sequences |
+| **Conversation Intelligence** | Запис дзвінків, coaching, deal forecast | Gong, Chorus (ZoomInfo), Einstein CI |
 
-> ⚠️ **Головна помилка при виборі CRM для SaaS:** чекати, що одна система закриє всі шари. Правильне питання: *«Який є мій основний стек і що потрібно інтегрувати?»*
+**CRM сам по собі не розраховує MRR/ARR.** Підписочна аналітика живе в білінгу (Stripe/Chargebee) і/або в спеціалізованому шарі (ChartMogul, CS-платформа). CRM лише *відображає* фінансовий стан клієнта для менеджера.
 
 ---
 
 ## СЕГМЕНТИ БІЗНЕСУ
 
-- **A. B2B SaaS:** продажі за підпискою, MRR/ARR, inbound + outbound
-- **B. PLG SaaS:** product-led, self-serve, trial→paid, freemium
-- **C. Sales-led / Enterprise SaaS:** демо, довгий цикл, AE/SDR, buying committee
-- **D. Мобільний / B2C SaaS-застосунок:** підписки, churn, великий обсяг
-- **E. Software product company / стартап:** змішана модель
+- **A. B2B SaaS:** класична MRR/ARR-модель, inbound + outbound, sales-assisted
+- **B. PLG SaaS:** product-led, self-serve, freemium/trial→paid, PQL
+- **C. Sales-led / Enterprise SaaS:** демо, довгий цикл (6–12 міс), AE/SDR, buying committee
+- **D. B2C / Мобільний SaaS:** масові підписки, high-volume churn, retention cohorts
+- **E. Software Product Company / стартап:** змішана PLG + sales-led, швидкі пivots
 
 ---
 
-## ТАБЛИЦЯ ПОРІВНЯННЯ: CRM-СИСТЕМИ
+## ВЕЛИКА ПОРІВНЯЛЬНА МАТРИЦЯ: 9 CRM-СИСТЕМ
 
-> Позначки: ✅ нативно | 🔌 через інтеграцію | ⚠️ частково/лише старші тарифи | ❌ відсутнє | 💰 платний add-on
+> Позначки: ✅ нативно | 🔌 через інтеграцію | ⚠️ частково / лише старші тарифи | ❌ відсутнє | 💰 платний add-on
 
-### Клас: CRM (основний шар — pipeline, угоди, контакти)
+| Критерій | HubSpot (Sales Hub) | Salesforce (Revenue Cloud) | Attio | Pipedrive | Close | Folk | NetHunt | KeyCRM | Uspacy |
+|---|---|---|---|---|---|---|---|---|---|
+| **Клас / фокус** | CRM + Marketing (B2B SaaS) | Enterprise CRM + CPQ | PLG SaaS / Startups | Sales-led CRM | Inside Sales / Outbound | Lightweight CRM (Seed) | CRM in Gmail (Outbound) | E-com / B2C Messengers | Workspace + CRM |
+| **B2B воронка MQL→SQL** | ✅ комплексна | ✅ масштабна | ✅ надгнучка | ✅ візуальна | ✅ фокус на SQL | ⚠️ базова | ✅ стандартна + LinkedIn | ⚠️ базові ліди | ✅ багатоворонкова |
+| **MRR/ARR-облік** | ⚠️ Commerce Hub / Stripe Data Sync | ✅ Revenue Cloud (CPQ, ASC 606) | 🔌 custom fields + Hyperline/Stripe | ⚠️ Revenue Management module | ❌ через Stripe/iPaaS | ❌ | 🔌 custom fields | 🔌 API | 🔌 Smart Objects (API) |
+| **PLG / PQL тригери** | ⚠️ через June.so/Segment/Amplitude | ⚠️ Data Cloud + Segment | ✅ **найкраща PLG-архітектура** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **CS / Health Score** | ⚠️ Service Hub (окремий) | ⚠️ Service Cloud (окремий) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Outbound sequences** | ✅ Professional+ | 💰 Outreach/Salesloft | ⚠️ Pro тариф | ⚠️ Growth+ | ✅ **нативна потужна** | ⚠️ Premium | ✅ Email + LinkedIn | ❌ | ❌ |
+| **LinkedIn integ.** | 🔌 Sales Nav | 🔌 Sales Nav | 🔌 enrichment | 🔌 | 🔌 | ✅ Chrome ext. (enrichment) | ✅ нативна | ❌ | ❌ |
+| **Buying committee** | ✅ Associations | ✅ Opportunity Contact Roles | ✅ relationship graph | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ❌ | ❌ |
+| **Stripe / Chargebee / Paddle** | ✅ native | ✅ AppExchange | 🔌 Hyperline/Paid/API | ✅ native Chargebee | 🔌 Zapier/Make | 🔌 Zapier/Make | 🔌 кастомна інтеграція | 🔌 API | 🔌 API |
+| **Mixpanel/Amplitude/Segment** | ✅ native integrations | 🔌 Data Cloud | ✅ API-first + Segment | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Мультивалюта USD/EUR** | ✅ Professional+ | ✅ | ✅ | ✅ | ✅ базово | ✅ базово | ✅ | ✅ | ✅ |
+| **MRR-аналітика в CRM** | ⚠️ custom reports + інтеграція | ✅ Revenue Intelligence | ⚠️ custom reports | ⚠️ Revenue Management | ❌ | ❌ | 🔌 Looker Studio | ❌ | ❌ |
+| **Conversation Intelligence** | ⚠️ вбудована (transcript/keywords) | 💰 Einstein CI (add-on) | ✅ **нативна на Pro** (BANT/MEDDPICC) | 🔌 | ✅ Call Assistant (Chloe, +$50/org) | ❌ | 🔌 | ❌ | ❌ |
+| **AI функції** | ✅ Breeze AI (Агенти, Data, Prospecting) | ✅ Agentforce (Аналіз, Прогнози, CPQ) | ✅ AI Attributes, AI Enrichment | ⚠️ AI Sales Assistant | ⚠️ AI Call Summary (Chloe) | ✅ Magic Fields | ❌ | ❌ | ❌ |
+| **Права доступу / RevOps** | ✅ глибокі ролі | ✅ максимальні | ✅ глибокі Pro/Enterprise | ✅ базові + розширені | ✅ розширені на Scale | ⚠️ базові | ✅ налаштовувані | ✅ гнучкі | ✅ гнучкі |
+| **Аналітика NRR/CAC** | ✅ кастомна, потужна | ✅ кастомна, потужна | ⚠️ гнучка (API/Reports) | ⚠️ pipeline basic | ⚠️ дзвінки/воронка | ❌ | 🔌 Looker Studio | ❌ | ⚠️ базова |
+| **Мобільний застосунок** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ (через Gmail mobile) | ✅ | ✅ |
+| **Ціна (per seat/міс, annual)** | $15–$150 | $25–$200+ | Free / $29 / $69+ ⚠️ | $14–$79 | $19–$149 | $24–$80 | $24–$60 | $19/акаунт 🔵 | Free/$10/$20 |
+| **Англомовний інтерфейс** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Українська мова** | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| **Складність впровадження** | Середня–висока | Дуже висока (місяці) | Низька–середня | Низька | Середня | Низька | Середня | Низька | Низька |
+| **Юрисдикція** | США ✅ | США ✅ | Велика Британія ✅ | Естонія/США ✅ | США ✅ | Франція ✅ | Україна/ЄС ✅ | Україна ✅ | Україна ✅ |
 
-| Критерій | **HubSpot Sales Hub** | **Salesforce Sales Cloud** | **Attio** | **Close** | **Pipedrive** |
-|---|---|---|---|---|---|
-| **Клас системи** | CRM + Marketing + CS lite | CRM + AI Agents ecosystem | CRM (data-first, API-first) | CRM + Sales Engagement | CRM (pipeline-focused) |
-| **B2B воронка inbound+outbound** | ✅ повна | ✅ повна | ✅ + custom objects | ✅ (фокус на outbound) | ✅ |
-| **MRR/ARR-облік** | 🔌 custom properties + Stripe/Chargebee | ✅ Revenue Cloud (add-on) | 🔌 custom fields + API | ❌ | ❌ |
-| **PLG / PQL тригери** | ⚠️ через Operations Hub | ⚠️ через Einstein + Segment | ✅ API-first, custom objects | ❌ | ❌ |
-| **CS / Health Score** | ⚠️ Service Hub (окремий продукт) | ⚠️ Service Cloud (окремий) | ❌ | ❌ | ❌ |
-| **Outbound sequences** | ✅ Professional+ | 💰 потрібен Outreach/Salesloft | ❌ нативно | ✅ (сильна сторона) | ⚠️ Growth+ |
-| **Email + LinkedIn** | ✅ email; 🔌 LinkedIn Sales Nav | 🔌 LinkedIn Sales Nav | 🔌 enrichment | ✅ email + 🔌 LinkedIn | ✅ email + 🔌 |
-| **Buying committee / stakeholders** | ✅ Contacts per deal | ✅ Opportunity Contact Roles | ✅ custom relationships | ⚠️ базово | ⚠️ |
-| **Stripe/Chargebee/Paddle** | ✅ native integrations | ✅ глибока інтеграція | 🔌 API/Zapier | 🔌 | 🔌 |
-| **Mixpanel/Amplitude/Segment** | 🔌 Operations Hub | 🔌 Salesforce Connector | 🔌 API-first | ❌ | ❌ |
-| **Мультивалюта USD/EUR** | ✅ Professional+ | ✅ | ✅ | ✅ | ✅ Growth+ |
-| **MRR-аналітика в CRM** | ⚠️ через custom reports + інтеграцію | ✅ Revenue Intelligence | ⚠️ custom reports | ❌ | ❌ |
-| **Conversation Intelligence** | 🔌 Gong/Chorus | 🔌 Gong/Chorus/Clari | 🔌 | ✅ built-in call recording | 🔌 |
-| **AI: lead scoring / forecast** | ✅ Breeze AI (Pro+) | ✅ Agentforce, Einstein | ✅ AI Attributes (Plus+) | ⚠️ AI Email (Growth+) | ⚠️ AI (Premium+) |
-| **Мобільний застосунок** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Ціна (per seat/міс, annual billing)** | $15–$150 | $25–$350 | Free–$86+ | $19–$149 | $14–$79 |
-| **Англомовний інтерфейс** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Українська мова** | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Складність впровадження** | Середня–висока | Висока (потрібен RevOps) | Низька–середня | Низька | Низька |
-| **Юрисдикція** | США ✅ | США ✅ | Великобританія ✅ | США ✅ | Естонія/США ✅ |
+> 🔵 **KeyCRM:** $19/міс — ціна за акаунт (flat fee), а не per-seat. Унікальна модель для ринку.
+> ⚠️ **Attio ціни:** stacksync.com (2026) вказує $29/$69; Attio Help Center (липень 2025) згадує оновлення до $36/$86. Рекомендовано перевіряти актуальний прайс на attio.com/pricing.
 
 ---
 
-### Деталі цін CRM (станом на 2025–2026, annual billing)
+## ДЕТАЛІ ЦІН (станом на 2025–2026, annual billing)
 
-**HubSpot Sales Hub:**
+### HubSpot Sales Hub
 - Free: безкоштовно (обмежений функціонал)
 - Starter: ~$15–20/seat/міс
-- Professional: ~$100/seat/міс + обов'язковий onboarding $1,500
-- Enterprise: ~$150/seat/міс + onboarding $3,500
-- Джерело: HubSpot blog + Kixie, травень 2026
+- Professional: ~$100/seat/міс + обов'язковий onboarding **$1,500**
+- Enterprise: ~$150/seat/міс + onboarding **$3,500**
+- ⚠️ Onboarding fee не зазначено на сайті автоматично — враховувати в TCO
+- *Джерело: HubSpot Sales Hub Review, Docket.io 2026*
 
-**Salesforce Sales Cloud:**
+### Salesforce Sales Cloud
 - Starter Suite: $25/seat/міс
 - Pro Suite: $100/seat/міс
-- Enterprise: ~$175/seat/міс (після підвищення 01.08.2025 +6%)
+- **Enterprise: ~$175/seat/міс** (після підвищення 01.08.2025 +6%)
 - Unlimited: ~$350/seat/міс
+- Revenue Cloud Growth: від $150/seat/міс; Revenue Cloud Advanced: від $200/seat/міс
 - ⚠️ API доступ лише з Enterprise+
-- Джерело: Salesforce pricing update announcement, 2025
+- Впровадження: $50,000–$300,000 + 3–6 місяців, потрібен сертифікований RevOps
+- *Джерело: Salesforce pricing update 2025, Noltic.com Full Revenue Cloud Guide*
 
-**Attio:**
+### Attio
 - Free: 3 users, 50,000 records, 250 AI credits/міс
-- Plus: ~$36/seat/міс, 1,500 AI credits/міс
-- Pro: ~$86/seat/міс, custom objects, advanced permissions, 10,000 AI credits/міс
+- Plus: ~$29/seat/міс (альт. $36 після липня 2025), 1,500 AI credits/міс
+- Pro: ~$69/seat/міс (альт. $86), custom objects, **нативна Call Intelligence**, BANT/MEDDPICC матриці, 10,000 AI credits/міс
 - Enterprise: custom
-- ⚠️ Оновлення цін: липень 2025
-- Джерело: Attio Help Center (plan-pricing-changes-april-2025)
+- ⚠️ Ціни оновлювались у квітні та липні 2025 — перевіряти на attio.com/pricing
+- *Джерело: Stacksync Attio CRM 2026 Review; Attio Help Center plan-pricing-changes*
 
-**Close CRM:**
-- Solo: $19/seat/міс
-- Essentials: $49/seat/міс
-- Growth: $109/seat/міс (email sequences + Power Dialer + AI Email)
-- Scale: $149/seat/міс (predictive dialing, call coaching, roles)
-- -35% при annual billing
-- Джерело: Close.com pricing PDF, G2, 2025
-
-**Pipedrive (ребрендинг кінець 2025):**
-- Нові назви: Lite ($14) → Growth ($39) → Premium ($59) → Ultimate ($79)
+### Pipedrive (ребрендинг кінець 2025)
+- Lite: $14/seat/міс | Growth: $39 | Premium: $59 | Ultimate: $79
 - Старі назви: Essential → Advanced → Professional/Power → Enterprise
-- Немає free tier; 14-денний trial
-- Джерело: Pipedrive Knowledge Base "new-pipedrive-plans", 2025
+- ✅ Є українська локалізація інтерфейсу
+- Revenue Management (MRR/ARR) вбудовано з Premium+
+- *Джерело: Pipedrive KB "new-pipedrive-plans" + EmailToolTester 2026*
 
-**Folk CRM:**
-- Standard: $24/seat/міс (annual) / $30 monthly
+### Close CRM
+- Solo: $19/seat/міс | Essentials: $49 | Growth: $109 | Scale: $149
+- -35% при annual billing → Essentials ~$32, Scale ~$97
+- Call Assistant (AI Chloe): +$50/міс на організацію + usage fee
+- *Джерело: Close.com pricing PDF, MarketBetter.ai 2026*
+
+### Folk CRM
+- Standard: $24/seat/міс (annual) / $30 monthly — без sequences/deals
 - Premium: $48/seat/міс (annual) / $60 monthly — sequences, deals, dashboard
 - Custom: від $80/seat/міс
 - Немає free tier; 14-денний trial
-- Джерело: Folk pricing page, G2, 2026
+- ⚠️ API лише на Premium+ — без нього немає надійної інтеграції зі Stripe/Mixpanel
+- *Джерело: folk.app/pricing, Lightfield.app 2026*
+
+### NetHunt CRM
+- Basic: $24/seat/міс | Business: $34 | Advanced: $60 | Business+: $84 (monthly billing)
+- ✅ Є українська локалізація; підтримка UA
+- SaaS-специфіка: підтримка кількох пайплайнів (new business, onboarding, renewals, expansion)
+- Stripe інтеграція через MindCloud Cirra або Make/Zapier
+- *Джерело: nethunt.com/blog/what-features-a-crm-must-have-for-saas-companies/*
+
+### KeyCRM
+- **$19/міс за акаунт** (не per-seat — унікальна модель)
+- Доплати лише при перевищенні транзакційних лімітів
+- ✅ Дуже вигідно для великих команд по кількості users
+- ❌ SaaS-MRR/PLG не є core функцією
+- *Джерело: help.keycrm.app/en/first-time-using/our-pricing*
+
+### Uspacy
+- Free: безкоштовно
+- Standard: $10/seat/міс
+- Professional: $20/seat/міс
+- ✅ Повністю українськомовний, підтримка локальна
+- ✅ Відкритий API (API-first), Smart Objects для кастомізації
+- ❌ MRR/ARR/PLG не є core-функцією
+- *Джерело: uspacy.com/prices/*
 
 ---
 
-## ТАБЛИЦЯ ПОРІВНЯННЯ: CUSTOMER SUCCESS ПЛАТФОРМИ
+## ТАБЛИЦЯ: CUSTOMER SUCCESS ПЛАТФОРМИ
 
 | Критерій | **Gainsight** | **Vitally** | **ChurnZero** | **Planhat** |
 |---|---|---|---|---|
-| **Клас** | CS платформа | CS платформа | CS платформа | CS + Revenue платформа |
-| **Для кого** | 1000+ клієнтів, Enterprise | 100–1000 клієнтів, mid-market SaaS | Retention-first, renewals | NRR-focused, гнучка дата |
-| **Health Score** | ✅ найпотужніший | ✅ + PLG integrations | ✅ ChurnScore (ML-алгоритм) | ✅ гнучкий |
-| **Renewals / expansion** | ✅ | ✅ | ✅ (фокус на churn prevention) | ✅ (фокус на NRR) |
+| **Клас** | CS платформа | CS платформа | CS платформа | CS + Revenue CDP |
+| **Для кого** | 1000+ клієнтів, Enterprise | 100–1000 клієнтів, mid-market SaaS | Mid-market, retention-first | NRR-focused, гнучка дата модель |
+| **Health Score** | ✅ найпотужніший, journey orchestrator | ✅ сегментні health profiles | ✅ ChurnScore (ML, найкращий після Gainsight) | ✅ health lab, гнучкий |
+| **Renewals / Expansion** | ✅ | ✅ Success Plans | ✅ renewal playbooks | ✅ NRR/GRR dashboards |
+| **In-app messaging** | ✅ | ✅ | ✅ real-time | ❌ |
 | **Segment / Mixpanel / Amplitude** | 🔌 | ✅ нативно | 🔌 | 🔌 |
-| **PLG-friendly** | ⚠️ складно | ✅ найкраще | ⚠️ | ✅ |
-| **AI функції** | ✅ Copilot, AI Success Plans | ✅ AI health signals | ✅ ChurnScore ML | ⚠️ |
-| **Час впровадження** | 2–6 місяців | 1–4 тижні | 4–8 тижнів | 2–6 місяців |
+| **PLG-friendly** | ⚠️ | ✅ найкраще | ⚠️ | ✅ |
+| **AI функції** | ✅ Copilot, AI Success Plans | ✅ AI health signals, Slack alerts | ✅ ChurnScore ML | ⚠️ Customer Intelligence |
+| **CRM-функції** | ❌ (поверх CRM) | ❌ | ❌ | ⚠️ може частково замінити lightweight CRM |
+| **Час впровадження** | 2–6 місяців | **1–4 тижні** | 4–8 тижнів | 2–6 місяців |
 | **Ціна (орієнтовно)** | $60K+/рік | $18K–$45K/рік | $20K–$40K/рік | Enterprise (quote only) |
-| **NRR impact** | ✅ | ✅ | ✅ | ✅ |
+| **Інтеграції** | Salesforce, HubSpot | Salesforce, HubSpot, Stripe, Segment | Salesforce, HubSpot, Zendesk, Stripe | Salesforce, HubSpot, Stripe, custom |
 
-> **Дані:** 2025 Customer Revenue Leadership Study: CS-платформи дають NRR ~100% vs 94% без них.
-> Покупці часто отримують 20–35% знижку від початкових прайсів Vitally.
-
----
-
-## ТАБЛИЦЯ ПОРІВНЯННЯ: БІЛІНГ-СИСТЕМИ
-
-| Критерій | **Stripe Billing** | **Chargebee** | **Paddle** |
-|---|---|---|---|
-| **Клас** | Payment processor + billing | Subscription management | Merchant of Record |
-| **MRR/ARR tracking** | 🔌 потрібен ChartMogul/webhook | ✅ нативно | ✅ |
-| **Dunning** | ✅ basic | ✅ розширений | ✅ |
-| **CRM інтеграція** | 🔌 webhooks/Zapier | ✅ глибока (HubSpot/Salesforce) | 🔌 |
-| **VAT/податки глобально** | ❌ ваша відповідальність | ❌ ваша відповідальність | ✅ бере на себе |
-| **Ціна** | 0.5–0.8% від транзакцій | $249/міс (до $100K MRR) | ~5% + $0.50 per transaction |
-| **Рекомендовано при** | До $50K MRR | $50K+ MRR | Глобальні продажі без юр. особи |
-| **UA-специфіка** | ⚠️ потрібен non-UA бізнес-акаунт | ✅ глобально | ✅ особливо для EU/US продажів |
+> **NRR impact:** 2025 Customer Revenue Leadership Study: компанії з CS-платформами мають NRR ~100% vs 94% без них.
+> Покупці часто отримують 20–35% знижку від початкових прайсів Vitally при переговорах.
 
 ---
 
-## ТАБЛИЦЯ ПОРІВНЯННЯ: PRODUCT ANALYTICS / CDP
+## ТАБЛИЦЯ: БІЛІНГ / SUBSCRIPTION MANAGEMENT
+
+| Критерій | **Stripe Billing** | **Chargebee** | **Paddle** | **Hyperline** |
+|---|---|---|---|---|
+| **Клас** | Payment processor + billing | Subscription management | Merchant of Record | CPQ + Stripe billing |
+| **MRR/ARR tracking** | 🔌 потрібен ChartMogul/webhook | ✅ нативно | ✅ | ✅ (вбудована CPQ+quoting) |
+| **Dunning (повторні спроби)** | ✅ basic | ✅ розширений + Smart Retries | ✅ | ✅ |
+| **CRM інтеграція** | 🔌 webhooks → ClearSync/Omniroo/custom | ✅ глибока (HubSpot/Salesforce/Pipedrive) | 🔌 | ✅ нативна Attio інтеграція |
+| **Usage-based billing** | ✅ | ✅ | ✅ | ✅ |
+| **VAT/податки глобально** | ❌ ваша відповідальність | ❌ ваша відповідальність | ✅ повна відповідальність | ❌ |
+| **CPQ (Configure-Price-Quote)** | ❌ | ⚠️ обмежено | ❌ | ✅ core функція |
+| **Ціна** | 0.5–0.8% від транзакцій | $249/міс (до $100K MRR) | ~5% + $0.50/транзакція | Custom (SaaS-focused) |
+| **Рекомендовано при** | До $50K MRR | $50K+ MRR | Глобальні продажі без юр. особи | Attio + Stripe bundle, CPQ потреба |
+| **UA-специфіка** | ⚠️ потрібен non-UA бізнес-акаунт | ✅ глобально | ✅ особливо для EU/US продажів | ✅ |
+
+> **ChartMogul:** не білінг-система, але де-факто стандарт для MRR/NRR/cohort-аналітики поверх Stripe/Chargebee → синхронізується в HubSpot/Attio/Salesforce.
+
+---
+
+## ТАБЛИЦЯ: PRODUCT ANALYTICS / CDP
 
 | Критерій | **Segment (Twilio)** | **Mixpanel** | **Amplitude** | **June.so** |
 |---|---|---|---|---|
-| **Роль у стеку** | CDP / «сантехніка» PLG | Product Analytics | Product Analytics | PLG Analytics B2B SaaS |
-| **CRM ↔ product sync** | ✅ двосторонній | 🔌 через Segment | 🔌 через Segment | ✅ company-level |
-| **PQL scoring** | ✅ через Personas | ⚠️ custom setup | ⚠️ custom setup | ✅ built-in |
+| **Роль у стеку** | CDP / «сантехніка» PLG | Product Analytics | Product Analytics (retention/cohort) | PLG Analytics для B2B SaaS |
+| **CRM ↔ product sync** | ✅ двосторонній | 🔌 через Segment | 🔌 через Segment | ✅ company-level metrics |
+| **PQL scoring** | ✅ через Personas + Computed Traits | ⚠️ custom setup | ⚠️ custom setup | ✅ built-in |
+| **HubSpot integration** | ✅ нативна | ✅ нативна | ✅ нативна | ✅ нативна (june.so/integration/hubspot) |
+| **Attio integration** | ✅ | ✅ (Mixpanel → Attio cohorts + tasks) | 🔌 | ✅ нативна |
 | **Slack alerts на PQL** | 🔌 | 🔌 | 🔌 | ✅ 2 кліки |
+| **Мобільна аналітика** | ✅ | ✅ (сильний real-time) | ✅ | ❌ (B2B SaaS only) |
+| **Cohort / Retention аналіз** | 🔌 | ⚠️ | ✅ (сильний) | ✅ basic |
 | **Ціна** | Free (до 1K users) → $120+/міс | Free → $28/міс → Enterprise | Free → $61/міс → Enterprise | Free → $149+/міс |
-| **Для кого** | Будь-який PLG стек | SaaS з product-centric аналітикою | SaaS з behavioral analytics | B2B SaaS early-stage PLG |
+| **Для кого** | Будь-який PLG стек (obov'yazkovy layer) | SaaS з product-centric аналітикою | SaaS з behavioral + retention аналізом | B2B SaaS early-stage PLG |
 
 ---
 
@@ -163,210 +209,264 @@
 
 ### A. B2B SaaS ($1M–$10M ARR, inbound + outbound)
 
-| # | Система | Чому |
-|---|---------|------|
-| 🥇 | **HubSpot Sales Hub Pro** + Chargebee | Стандарт для SaaS $1M–$10M ARR. Одна платформа для marketing + sales. Chargebee дає нативний MRR sync. Breeze AI для scoring і forecast. Onboarding $1,500. |
-| 🥈 | **Attio Pro** + Stripe + Vitally | Сучасний вибір для tech-savvy команд. API-first, custom objects під SaaS-метрики. Легке впровадження. Популярний у AI-native компаній (Lovable, Granola, Modal, Replicate). |
-| 🥉 | **Pipedrive Premium** + Stripe + ChartMogul | Бюджетний варіант. Хороша воронка, мультивалюта. Без нативного MRR — ChartMogul дає dashboard поверх Stripe. |
+| # | Стек | Чому |
+|---|------|------|
+| 🥇 | **HubSpot Sales Hub Pro** + Chargebee + ChartMogul + Vitally | Стандарт для SaaS $1M–$10M ARR. Сильний inbound + Sales, Chargebee для MRR, ChartMogul для аналітики, Vitally для CS. Breeze AI для scoring. |
+| 🥈 | **Attio Pro** + Stripe + ChartMogul + Vitally | Сучасний вибір tech-savvy команд. API-first, вбудована Call Intelligence. Hyperline для CPQ. Popular у AI-native компаній (Lovable, Granola, Modal, Replicate). |
+| 🥉 | **NetHunt CRM** + Stripe + ChartMogul | Бюджетна альтернатива якщо команда у Google Workspace. Чудовий Email + LinkedIn outbound. Кратно дешевше за HubSpot. |
 
 ### B. PLG SaaS (self-serve, trial→paid, freemium)
 
-| # | Система | Чому |
-|---|---------|------|
-| 🥇 | **HubSpot + Segment + Mixpanel** | Operations Hub синхронізує product events як тригери для CRM workflows. PQL → sales handoff через lifecycle stages. |
-| 🥈 | **Attio + Segment + June.so** | API-first для custom PLG pipeline. June.so дає company-level analytics без складного налаштування. Attio Free для старту. |
-| 🥉 | **Salesforce + Amplitude + Gainsight** | Для PLG-компаній $10M+ ARR. Складно і дорого, але найпотужніше. |
+| # | Стек | Чому |
+|---|------|------|
+| 🥇 | **Attio** + Stripe + Segment + Mixpanel + Vitally | Найкраща PLG-архітектура. Mixpanel cohorts → Attio tasks → AE action. Вбудована CI для demo calls. |
+| 🥈 | **HubSpot** + Stripe + Amplitude + June.so | Якщо вже є HubSpot для маркетингу. June.so дає company-level PQL без складного setup. Amplitude → HubSpot native integration. |
+| 🥉 | **Close** + Stripe + Mixpanel + Vitally | Для PLG-стартапів з сильним outbound/sales-assist (upsell PQL → AE через built-in dialer). |
 
-### C. Sales-led / Enterprise SaaS (довгий цикл, AE/SDR, buying committee)
+### C. Sales-led / Enterprise SaaS (довгий цикл, buying committee)
 
-| # | Система | Чому |
-|---|---------|------|
-| 🥇 | **Salesforce Enterprise** + Outreach + Gong | Enterprise-стандарт. Agentforce AI. Opportunity Contact Roles для buying committee. Найширша GTM-агентська екосистема (Qualified, Artisan, Momentum, Agentforce). |
-| 🥈 | **HubSpot Sales Hub Enterprise** + Salesloft + Gong | Уникнути складності Salesforce. Sequences + CI через інтеграції. $150/seat/міс. |
-| 🥉 | **Close Growth** + HubSpot Marketing | Inside sales команди. Вбудований диалер, sequences, SMS. Дешевше за Outreach. |
+| # | Стек | Чому |
+|---|------|------|
+| 🥇 | **Salesforce Enterprise** + Stripe/Chargebee + Gainsight + Outreach + Gong | Enterprise-стандарт. Revenue Cloud для CPQ/ASC 606. Agentforce AI. Найширша GTM-екосистема. |
+| 🥈 | **HubSpot Enterprise** + Chargebee + ChurnZero + Salesloft + Gong | Менша складність vs Salesforce, повноцінний sales+CS стек. $150/seat. |
+| 🥉 | **Close Growth** + Stripe + Vitally | Inside sales команди. Вбудований predictive dialer + sequences + SMS. Дешевше за Outreach. |
 
-### D. Мобільний / B2C SaaS-застосунок (підписки, high-volume churn)
+### D. B2C / Мобільний SaaS (підписки, high-volume churn)
 
-| # | Система | Чому |
-|---|---------|------|
-| 🥇 | **Chargebee** (центр) + **Amplitude** + HubSpot | Chargebee закриває billing + dunning. Amplitude дає retention cohorts і behavioral analytics. HubSpot для lifecycle marketing automation. |
-| 🥈 | **Paddle** (merchant of record) + Mixpanel | Paddle бере на себе VAT і compliance по всьому світу. Ідеально для B2C з глобальними підписками. |
-| 🥉 | **Stripe** + ChartMogul + HubSpot | Мінімальний стек для стартапу. ChartMogul дає MRR dashboard поверх Stripe. |
+| # | Стек | Чому |
+|---|------|------|
+| 🥇 | **Chargebee** + **Amplitude** + HubSpot (Marketing Hub) | Chargebee = billing core. Amplitude = retention cohorts + behavioral ML. HubSpot = lifecycle marketing automation. |
+| 🥈 | **Paddle** (MoR) + Mixpanel + легкий CRM (Attio/Pipedrive) | Paddle бере на себе VAT глобально. Ідеально B2C без власних юр. осіб у кожній країні. |
+| 🥉 | **Stripe** + ChartMogul + HubSpot | Мінімальний стек. ChartMogul дає MRR dashboard поверх Stripe. |
 
-### E. Software product company / стартап (до $1M ARR, mixed model)
+### E. Software product company / стартап (до $1M ARR, mixed)
 
-| # | Система | Чому |
-|---|---------|------|
-| 🥇 | **Attio Free→Plus** + Stripe + June.so | Нульова вартість на старті. Free: 3 users, 50K records. June.so PLG analytics без складного налаштування. |
-| 🥈 | **HubSpot Free** → Professional | Найщедріший free tier. Масштабується. Знімає ризик ранньої інвестиції. |
-| 🥉 | **Close Essentials** ($49/seat) + Stripe | Якщо фокус — outbound sales. Вбудований диалер, sequences, SMS з коробки. |
+| # | Стек | Чому |
+|---|------|------|
+| 🥇 | **Attio Free→Plus** + Stripe + June.so | Zero cost старт. Free: 3 users, 50K records. June.so PLG без складного setup. |
+| 🥈 | **HubSpot Free → Starter** + Stripe | Найщедріший free tier. Масштабується без міграції. |
+| 🥉 | **Uspacy Standard** ($10/seat) + Stripe + Mixpanel | Якщо паралельно є аутсорс-проекти — Uspacy = CRM + task tracker + corporate messenger в одному. UA-локалізація, UA-підтримка. |
 
 ---
 
 ## БЛОК: ПІДПИСКИ / MRR / RENEWALS / EXPANSION
 
-### Що закриває CRM, а що — суміжні системи
+### Архітектура: хто що тримає
 
 ```
-STRIPE/CHARGEBEE/PADDLE        CRM (HubSpot/Salesforce/Attio)
-  ├── MRR розрахунок     ←→    ├── pipeline stage
-  ├── dunning                  ├── renewal deal  
-  ├── invoice/receipt          ├── upsell opportunity
-  ├── upgrade/downgrade        ├── customer contact
-  └── churn event       ←→    └── trigger → CS handoff
-                ↕
-         (двостороння синхронізація)
+BILLING LAYER (ground truth)          CRM LAYER (context display)
+ Stripe / Chargebee / Paddle
+  ├── MRR розрахунок        ──────→   ├── custom property "Current MRR"
+  ├── dunning                         ├── renewal deal у pipeline
+  ├── upgrade/downgrade     ──────→   ├── upsell opportunity
+  ├── churn event           ──────→   └── trigger → CS handoff task
+  └── invoice/receipt
+         ↓
+  ChartMogul / ClearSync / Omniroo
+  (MRR/NRR/cohort analytics layer)
+         ↓
+  CS LAYER (post-sale truth)
+  Vitally / ChurnZero / Gainsight
+  ├── health score
+  ├── renewal pipeline
+  └── expansion playbooks
 ```
 
-### Схема трекінгу MRR у CRM
+### Практичний патерн для UA SaaS 2025–2026
 
-- **Chargebee → HubSpot:** нативний коннектор. Синхронізує: new MRR, expansion MRR, contraction MRR, churned MRR → custom properties на контакті та угоді. **Найглибша інтеграція.**
-- **Stripe → HubSpot/Salesforce:** через webhooks або Zapier/Make. Потрібен custom setup або ChartMogul як проміжний шар. MRR Dashboard Stripe — не нативний, потрібен ChartMogul/Baremetrics.
-- **Paddle:** merchant of record — бере на себе VAT і compliance. Інтеграція через API/webhooks.
-- **Chargebee:** $249/міс для MRR до $100K → рекомендований при $50K+ MRR.
+1. **Stripe або Chargebee** = billing source of truth (підписки, платежі)
+2. **ChartMogul** (або вбудована фін-аналітика Chargebee) = MRR/NRR/cohort dashboard
+3. **HubSpot / Attio / Salesforce** = отримують MRR/ARR/renewal-поля від білінгу через конектор
+4. **CS-платформа** (Vitally/ChurnZero) = health, renewals, expansion поверх CRM + billing
 
-### Renewals у CRM
+### Рекомендовані конектори Stripe → CRM
 
-- **HubSpot:** renewal deal stage у pipeline → automation trigger за 90 днів до закінчення → задача для CSM
-- **Salesforce:** Opportunity з типом "Renewal" → рольова модель для CSM
-- **Attio:** custom renewal object → workflow trigger
+- **ClearSync** — спеціалізований Stripe→HubSpot sync (real-time MRR properties)
+- **Omniroo** — multi-CRM Stripe connector
+- **Chargebee native** — найглибша двостороння синхронізація з HubSpot/Salesforce/Pipedrive
+- **Stacksync** — bidirectional CRM sync (особливо для Attio + complex ERPs)
+- **Breadwinner** — Stripe for Salesforce (AppExchange)
 
-### Expansion revenue (upsell/cross-sell)
+### Salesforce Revenue Cloud (ASC 606)
 
-- Жодна CRM не трекає expansion автоматично без інтеграції з білінгом
-- Правильна архітектура: `Chargebee subscription upgrade event` → CRM update → CS-платформа (Vitally/ChurnZero) = health score оновлення + CSM alert
+Для Enterprise SaaS з контрактами $100K+: Revenue Cloud (тепер Agentforce Revenue Management) нативно керує CPQ, проратацією, recognition revenue по ASC 606. Автоматично генерує нові invoice-об'єкти при модифікації контракту. Інтеграція зі Stripe через офіційний AppExchange або Breadwinner.
 
 ---
 
-## БЛОК: PLG (PQL, product-usage тригери) + ІНТЕГРАЦІЯ З PRODUCT ANALYTICS
+## БЛОК: PLG (PQL, product-usage тригери)
 
-### PLG-конверсія, стан 2025
+### PLG-метрики та конверсія 2025
 
-- PQLs конвертують на **25–30%** (проти ~2–3% для MQL) — 2–3x покращення
-- **Тільки 24–25% PLG-компаній** реально впровадили PQL-фреймворк
-- AI-driven PQL моделі дають **+35% ефективності** sales при фокусі на high-intent behaviors
-- Джерело: Salespanel blog "What is PLG 2025", Optifai PLG Guide
+- PQL конвертують на **25–30%** (vs ~2–3% для MQL) — 2–3x покращення
+- Тільки **24–25% PLG-компаній** реально впровадили PQL-фреймворк
+- AI-driven PQL моделі: **+35% ефективності** sales команди
+- *Джерела: Salespanel "What is PLG 2025", Optifai PLG Guide*
 
 ### Типова PLG-архітектура стеку
 
 ```
+Event-first підхід (не email-first):
+
 Продукт (usage events)
        ↓
-  Segment (CDP) — "сантехніка PLG"
-  ├── → Mixpanel/Amplitude (product analytics)
-  ├── → HubSpot/Attio (CRM — PQL trigger)
-  ├── → Customer.io/Braze (lifecycle comms)
-  └── → Snowflake/BigQuery (data warehouse)
+  Segment (CDP) — обов'язковий шар
+  ├── → Mixpanel/Amplitude (product analytics + cohorts)
+  │         ↓
+  │    Computed Traits (PQL score, "кількість активних місць")
+  │         ↓
+  ├── → CRM (HubSpot/Attio/Salesforce) — PQL status update + deal create
+  ├── → Sales Engagement (Outreach/Close) — sequence trigger
+  ├── → CS Platform (Vitally/ChurnZero) — health score update
+  └── → Customer.io/Braze (lifecycle comms)
 ```
+
+### Приклад PQL-воркфлоу (Attio + Segment + Mixpanel)
+
+```
+Segment (CDP) стрімить product events у Mixpanel
+    ↓
+Mixpanel формує cohort: "workspace додав 5 users"
+    ↓
+Mixpanel sync → Attio custom field "PQL Score" = HIGH
+    ↓
+Attio workflow:
+  1. Змінює lifecycle stage → PQL
+  2. Створює deal з potential MRR = $X
+  3. Надсилає Slack повідомлення AE
+  4. Додає до sequences в Outreach
+```
+
+*Реальна n8n-автоматизація: Segment + Attio + Intercom + Lemlist + Claude/OpenAI для персоналізації → підтверджено на n8n.io/workflows/15297*
 
 ### High-intent PQL-сигнали (що трекати)
 
 - Генерація API ключа
-- Запрошення члена команди
-- Встановлення інтеграції
-- Перевищення usage threshold
-- Повторні логіни протягом 7 днів
-- Активація ключової фічі
+- Запрошення члена команди (особливо 3+ teammates)
+- Встановлення інтеграції зі стороннім сервісом
+- Перевищення usage threshold (наприклад, 80% free limit)
+- Активація ключової "core feature"
+- Повторні логіни 5+ днів з 7
 
 ### CRM + PLG по платформах
 
 | CRM | PLG підтримка | Деталі |
 |-----|--------------|--------|
-| **HubSpot + Operations Hub** | ✅ | Segment → HubSpot через native connector → workflow на basis of custom event property |
-| **Attio** | ✅ найкраще для стартапів | API-first = будь-який product event через REST API → trigger automation. Custom objects під PLG pipeline |
-| **Salesforce + Einstein** | ✅ але дорого | Для $5M+ ARR PLG. Segment Connector. Складно налаштувати |
-| **June.so** | ✅ спеціалізований | B2B SaaS PLG analytics. Company-level metrics з коробки. Slack alerts за 2 кліки. Free → $149+/міс |
-| **Pipedrive / Close** | ❌ | Немає PLG-підтримки |
+| **Attio** | ✅ найкраще для стартапів | Кастомні об'єкти (Workspaces, Projects), Mixpanel cohorts → Attio fields/tasks, нативна June.so інтеграція |
+| **HubSpot + Operations Hub** | ✅ | Segment → HubSpot native; Amplitude/Mixpanel → HubSpot; PQL segments → workflow → sequences |
+| **Salesforce + Data Cloud** | ✅ але складно | Для $5M+ ARR PLG. Segment Connector. Einstein PQL scoring. Найпотужніше але найдорожче. |
+| **June.so** | ✅ спеціалізований | B2B SaaS PLG. Company-level metrics з коробки. Attio + HubSpot native integrations. Slack alerts 2 кліки. Free → $149+/міс |
+| **Pipedrive / Close / NetHunt** | ⚠️ через iPaaS | Можливо через Zapier/Make/Segment, але немає native PQL flows |
+| **Folk / KeyCRM / Uspacy** | ❌ | Потребує важкої кастомізації |
 
 ---
 
 ## БЛОК: OUTBOUND SEQUENCES + CONVERSATION INTELLIGENCE
 
-### Sales Engagement платформи (НЕ CRM, окремий шар)
+### Sales Engagement (НЕ CRM)
 
-**Стандартний GTM-стек enterprise SaaS:**
+**Стандартний enterprise GTM-стек:**
 - **Top-of-funnel:** Outreach — outbound sequences, SDR workflow, meeting booking
-- **Mid/Bottom-funnel:** Gong — call recording, deal inspection, forecast
-
-#### Outreach vs Salesloft (2025–2026)
+- **Mid/Bottom-funnel:** Gong — call recording, deal inspection, forecast roll-up
 
 | | **Outreach** | **Salesloft (Clari Group)** |
 |---|---|---|
-| Email sequences | ✅ | ✅ |
-| AI агенти | ✅ Omni (квітень 2026): Meeting Prep Agent, Knowledge beta, Sequential Dialing | ✅ 26 AI-агентів Rhythm (травень 2025); AI Email Assistant (травень 2026) |
-| MCP ecosystem | ✅ Anthropic MCP (лютий 2026), ISO/IEC 42001 (липень 2025) | ✅ MCP Server + Agentic add-on (квітень 2026) |
-| Вбудована CI | ✅ Kaia | ✅ через Drift Conversation IQ (придбано лютий 2024) |
+| Email sequences | ✅ multi-channel, A/B тести | ✅ multi-channel |
+| Dialer + SMS | ✅ | ✅ |
+| AI агенти 2025–2026 | ✅ Omni (квітень 2026): Meeting Prep Agent, Knowledge beta, Sequential Dialing | ✅ 26 Rhythm AI-агентів (травень 2025); AI Email Assistant (травень 2026) |
+| MCP integration | ✅ Anthropic MCP (лютий 2026); ISO/IEC 42001 (липень 2025) | ✅ MCP Server + Agentic add-on (квітень 2026) |
+| Built-in CI | ✅ Kaia | ✅ через Drift Conversation IQ (придбано лютий 2024) |
 | Ціна (estimate) | ~$100–150/seat/міс | ~$75–125/seat/міс |
-| Краще для | SDR/AE enterprise workflows | Retention + renewal plays |
+| Краще для | SDR/AE enterprise workflows | Retention + renewal plays, CS-суміщення |
+
+> **Для малих команд (до 20 рeps):** Close CRM закриває sequences + dialer в одному продукті без покупки окремого SEP.
+> **Для UA outbound команд:** NetHunt дає Email + LinkedIn sequences безпосередньо з Gmail — без додаткового SEP за ціною $24–60/seat.
 
 ### Conversation Intelligence
 
-#### Gong (станом на 2025–2026)
+#### Gong (2025–2026)
 
 - Лідер ринку revenue intelligence
-- Записує, транскрибує та аналізує дзвінки, email, зустрічі
-- AI: deal risk signals, rep coaching, forecast accuracy на базі conversational data
+- AI: deal risk signals, rep coaching, forecast accuracy (conversational signals, не pipeline-guessing)
+- Ідентифікує: що роблять топ-репи інакше, ризики угод
 
-**Ціна (нова модульна структура, березень 2025):**
-- Foundations: ~$1,600/seat/рік + **обов'язковий platform fee**
-  - Small teams (<50 users): $5K–$10K/рік platform fee
+**Ціна (модульна структура, березень 2025):**
+- Foundations: ~$1,400–$1,600/seat/рік
+- Bundled (Engage + Forecast): ~$2,880–$3,000/seat/рік
+- **Обов'язковий platform fee:**
+  - Малі команди (<50 users): $5K–$10K/рік
   - Mid-market (50–250 users): $15K–$30K/рік
   - Enterprise: $30K–$50K+/рік
-- Bundled (з Engage + Forecast): ~$2,880–$3,000/seat/рік
-
-> ⚠️ **Підводний камінь:** Platform fee зріс з $10K до $50K для enterprise у березні 2025. Реальна вартість для команди 10 осіб ≈ $16K/рік seats + $5–10K platform = **$21–26K/рік**.
+- Впровадження: $15K–$65K
+- ⚠️ **Platform fee зріс з $10K до $50K у березні 2025.** TCO команди 10 осіб ≈ $16K seats + $5–10K platform = **$21–26K/рік**.
 
 #### Chorus (ZoomInfo Copilot)
-- Інтегрований у ZoomInfo Copilot з 2024
-- Доступний як частина ZoomInfo Enterprise
-- Альтернатива Gong для тих, хто вже використовує ZoomInfo для enrichment
+- Аналог Gong, часто в бандлі з ZoomInfo для enrichment
+- Інтегрований у ZoomInfo Copilot release cycles з 2024
+- Дешевше за Gong для тих, хто вже платить за ZoomInfo
+
+#### Salesforce Einstein Conversation Insights
+- CI як аддон до Sales Cloud (або включено у Unlimited edition)
+- AI транскрипти, action items, call trend dashboards, Spring '25 оновлення: generative AI features
+- Для тих, хто вже на Salesforce — уникає окремого Gong бюджету
+
+#### HubSpot Conversation Intelligence
+- Вбудована транскрипція + keyword search + basic analytics (Sales Hub Professional+)
+- Менш глибокий vs Gong, але достатній для SMB без окремого CI-бюджету
+
+#### Attio Pro — нативна Call Intelligence
+- ✅ Записує зустрічі і самостійно заповнює кваліфікаційні матриці (BANT, MEDDPICC) без зовнішніх інструментів
+- Унікально для CRM свого класу — зазвичай CI є лише у enterprise-платформах
+- *Джерело: Stacksync Attio CRM 2026 Review*
 
 ---
 
 ## БЛОК: AI-ФУНКЦІЇ — ЩО РЕАЛЬНО ПРАЦЮЄ 2025–2026
 
-### HubSpot Breeze AI ✅ реально, включено в Professional+
+### HubSpot Breeze AI ✅ включено в Professional+
 
-- **Breeze Copilot:** генерація email, summary угод, підготовка до дзвінків
-- **Breeze Agents:** Prospecting Agent (автоматична персоналізація outbound), Customer Agent (підтримка), Data Agent
-- **Breeze Intelligence:** data enrichment, buyer intent на базі web activity
-- **Lead scoring:** поведінковий + demographic scoring на Professional+
+- **Breeze Copilot:** генерація email, summary угод, підготовка до дзвінків у Gmail
+- **Data Agent:** шукає інформацію про компанію в мережі → заповнює поля в CRM автономно
+- **Prospecting Agent:** аналізує поведінку ліда → формує персоналізовані листи
+- **Customer Agent:** закриває до 80% рутинних запитів у підтримку
+- **Lead scoring:** поведінковий + demographic на Professional+
 - Breeze Credits: окрема оплата для агентів понад включений ліміт
+- *Джерело: hubspot.com/products/artificial-intelligence, OnTheFuze 2026*
 
 ### Salesforce Agentforce ✅ найпотужніший AI-стек 2025–2026
 
-- **Agentforce 1 Sales:** AI sales agents, autonomous prospecting
 - **Einstein Lead Scoring:** ML-score на базі historical win rates
-- **Revenue Intelligence:** MRR/ARR forecasting
+- **Revenue Intelligence (Agentforce Revenue Management):** MRR/ARR forecasting, deal risk
+- **Agentforce Sales Agent:** autonomous prospecting, quote generation
 - **GTM Agent Ecosystem:** Qualified, Artisan, Momentum, Clari, Agentforce — найширша екосистема
 - Ціна: $2/conversation або Enterprise bundle
-- Джерело: SaaStr "Which CRM 2026–2027: Follow the Agents"
+- SaaStr (2026): *"Salesforce has become the hub for AI agents. The ecosystem is deepest on Salesforce"*
 
-### Attio AI Attributes ✅ корисна інновація
+### Attio AI Attributes ✅ унікальна інновація
 
 - Custom AI-поля на будь-якому об'єкті (people, companies, deals, custom objects)
-- Автоматично заповнюються через AI на базі контексту
-- Доступно з Plus ($36/seat)
-- Для SaaS: поля "ICP score", "churn risk", "expansion signal", "PQL score" — AI заповнює автоматично
+- Автоматично заповнюються на базі контексту (листи, calendar, зовнішні дані)
+- Доступно з Plus (~$29/seat)
+- Для SaaS: "ICP score", "churn risk signal", "expansion opportunity", "PQL confidence" — AI заповнює
 
-### Gong AI ✅ зрілий продукт
+### Close AI (Chloe) ⚠️ базовий але зручний
 
-- Автоматичне визначення deal risk зі сигналів розмов
-- Coaching recommendations per rep
-- Forecast accuracy на базі conversational signals
-- Identify next best action по угоді
+- AI Call Summaries: транскрипція + summary після кожного дзвінка
+- AI Email Assistant (Growth+): генерація листів
+- +$50/міс на організацію + usage fee для Call Assistant
+- Економить SDR-командам години на ручному заповненні звітів
 
 ### CS-платформи AI ✅ практичний NRR-захист
 
-- **ChurnScore (ChurnZero):** ML-алгоритм health score — найнастроюваніший у класі після Gainsight
+- **ChurnScore ML (ChurnZero):** найкращий ML health score алгоритм після Gainsight
 - **Gainsight Copilot:** AI-генерація Success Plans, automated playbooks
-- **Vitally:** AI health signal detection, automated Slack alerts
+- **Vitally AI:** automated health signal detection, Slack alerts при падінні activity
+- **Planhat Customer Intelligence:** BI → CI module для NRR insights
 
 ### PLG AI: що реально 2025
 
-- **PQL scoring через Madkudu/Clearbit:** реально працює, +35% ефективності sales
-- **Predictive churn через Amplitude/Mixpanel:** early warning signals для CS
-- **June.so:** автоматичні Slack alerts при PQL-сигналах, company-level scoring
+- **PQL scoring (Madkudu / Clearbit / власна модель):** +35% ефективності sales команди
+- **Predictive churn (Amplitude ML):** early warning signals для CS
+- **June.so:** автоматичні Slack alerts на PQL-сигналах без ML-setup
 
 ---
 
@@ -375,29 +475,29 @@ STRIPE/CHARGEBEE/PADDLE        CRM (HubSpot/Salesforce/Attio)
 ### Seed (до $500K ARR)
 ```
 CRM:       Attio Free/Plus або HubSpot Free
-Billing:   Stripe (+ ChartMogul free tier)
+Billing:   Stripe (+ ChartMogul free tier або Stripe Dashboard)
 Analytics: June.so free
-CS:        Немає — засновник сам веде CS
-Бюджет:    ~$0–150/міс
+CS:        Немає — засновник сам
+Budget:    ~$0–150/міс
 ```
 
 ### Early ($500K–$2M ARR)
 ```
 CRM:       HubSpot Sales Hub Starter/Pro або Attio Pro
-Billing:   Chargebee ($249/міс)
+Billing:   Chargebee ($249/міс) або Stripe + ClearSync
 Analytics: Mixpanel Growth + Segment
 CS:        Vitally Starter або відсутня
-Бюджет:    ~$800–2,500/міс
+Budget:    ~$800–2,500/міс
 ```
 
 ### Growth ($2M–$10M ARR)
 ```
-CRM:              HubSpot Sales Hub Pro або Salesforce Pro
+CRM:              HubSpot Sales Hub Pro або Salesforce Pro Suite
 Billing:          Chargebee
 Analytics:        Amplitude + Segment
 CS:               Vitally або ChurnZero
-Sales Engagement: Outreach або Salesloft
-Бюджет:           ~$5,000–15,000/міс
+Sales Engagement: Outreach або Salesloft (або Close якщо outbound-heavy)
+Budget:           ~$5,000–15,000/міс
 ```
 
 ### Scale ($10M+ ARR)
@@ -408,79 +508,105 @@ Analytics:        Amplitude Enterprise + Segment
 CS:               Gainsight або Planhat
 Sales Engagement: Outreach
 Conv. Intelligence: Gong
-RevOps:           виділена роль обов'язково
-Бюджет:           $20,000+/міс
+RevOps:           виділена роль обов'язково (Salesforce Admin + RevOps)
+Budget:           $20,000+/міс
 ```
 
 ---
 
 ## ПІДВОДНІ КАМЕНІ + ЗАСТЕРЕЖЕННЯ
 
-### ⚠️ Топ-7 підводних каменів
+### ⚠️ Топ-8 підводних каменів
 
 **1. «CRM закриє все» — найдорожча помилка**
-MRR/ARR — це в білінгу (Stripe/Chargebee), не в CRM. Health score — це в CS-платформі (Vitally/ChurnZero), не в CRM. PQL — це product analytics (Segment/Mixpanel) + CRM тригер. CRM = лише один шар.
+MRR/ARR = білінг (Stripe/Chargebee). Health score = CS-платформа. PQL = product analytics. CRM = лише один шар. Спроба вести підписочну аналітику тільки в CRM — крихкі дані, що постійно розходяться з бухгалтерією.
 
 **2. HubSpot Professional: прихований onboarding fee**
-Обов'язковий одноразовий onboarding: Professional $1,500, Enterprise $3,500. Не включений у ціну на сайті.
+Professional: +$1,500 одноразово. Enterprise: +$3,500. Не зазначено автоматично на сайті. Враховувати в TCO першого року.
 
-**3. Gong: прихований platform fee**
-Після березня 2025 platform fee зріс до $50K/рік для enterprise. Для малих команд — $5–10K. Порахуй реальний TCO до підпису. Команда 10 осіб = $21–26K/рік реально.
+**3. Gong: platform fee зріс у березні 2025**
+Platform fee зріс з $10K до $50K для enterprise. Команда 10 осіб = $21–26K/рік реально. Рахуй TCO, не тільки per-seat.
 
 **4. Salesforce: «мертва зона» без RevOps**
-Enterprise потребує виділеного Salesforce Admin/RevOps. Без нього система деградує в «дорогу адресну книгу». API доступ лише з Enterprise ($175/seat).
+Enterprise потребує Salesforce Admin + RevOps. API доступ лише з Enterprise ($175/seat). Без виділеного спеціаліста перетворюється на "дорогу адресну книгу".
 
-**5. Attio: відсутність native sequences**
-Attio — data-first CRM без вбудованих email sequences. Для outbound потрібен Outreach/Close/Salesloft поверх.
+**5. Attio: немає native email sequences (тільки Pro+)**
+Attio = data-first CRM. До Pro тарифу — немає вбудованих sequences. Для SDR-команди потрібен Outreach/Close/Salesloft поверх.
 
-**6. Vitally/Gainsight: бюджет на CS-платформу недооцінюють**
-Vitally від $18K/рік — це не CRM add-on, це окремий бюджетний рядок. Потрібен виділений CS lead для впровадження.
+**6. Stripe як єдине джерело MRR-правди — пастка**
+Stripe не дає MRR dashboard з коробки. Потрібен ChartMogul, Baremetrics або Chargebee поверх.
 
-**7. Stripe як єдине джерело MRR-правди — пастка**
-Stripe не дає MRR dashboard з коробки. Потрібен ChartMogul, Baremetrics або Chargebee поверх для нормальної SaaS-аналітики.
+**7. Folk: без API = ізольований від стеку**
+Folk API лише на Premium ($48/seat). Без API немає надійної інтеграції зі Stripe/Mixpanel → Folk залишається ізольованим від продуктового стеку.
+
+**8. CS-платформа: недооцінений бюджет**
+Vitally від $18K/рік — окремий бюджетний рядок, не CRM add-on. Потрібен виділений CS lead для впровадження.
 
 ---
 
 ## УКРАЇНСЬКІ СИСТЕМИ: РЕАЛЬНА ОЦІНКА ПІД SAAS
 
-| Система | Висновок |
-|---------|----------|
-| **NetHunt CRM** | Хороший CRM для Gmail-команд. **Але:** без нативного MRR/ARR трекінгу, без PLG-підтримки, без sequences для SaaS sales. Підходить для pre-seed як cheap starting point. Масштабувати складно. |
-| **KeyCRM** | Орієнтований на e-commerce/ритейл. Не підходить для SaaS-метрик. |
-| **Uspacy** | Молода платформа, UAH-pricing. Для SaaS-метрик: немає нічого. Для внутрішньої команди: можливо. |
+| Система | Оцінка для SaaS | Рекомендація |
+|---------|-----------------|--------------|
+| **NetHunt CRM** | ⭐⭐⭐ Хороший варіант для B2B SaaS outbound | Підходить: Gmail-команди, B2B outbound з Email + LinkedIn, кілька pipeline (new biz / onboarding / renewals / expansion). Не підходить: PLG, нативний MRR/ARR, CS workflows. Ціна $24–84/seat — значно дешевше HubSpot. |
+| **Uspacy** | ⭐⭐ Для mixed SW company | Підходить: паралельний аутсорс + власний продукт, потрібен one-stop workspace (CRM + tasks + chat). Smart Objects дозволяють кастомізацію. Не підходить: PLG, SaaS-метрики. Перевага: Ukrainian-first, $10–20/seat. |
+| **KeyCRM** | ⭐ Для B2C/mobile SaaS з месенджерами | Підходить: B2C SaaS з масовою підтримкою через Instagram/Telegram/Viber. Flat fee $19/акаунт = вигідно для великих команд. Не підходить: B2B SaaS, PLG, MRR. |
 
-> **Рекомендація для UA SaaS-команд:** основний стек — глобальний (HubSpot/Attio/Salesforce). UA-системи — лише для внутрішнього helpdesk або додаткові канали. SaaS-продукт продається глобально → CRM також має бути глобальним.
+> **Загальна рекомендація для UA SaaS-команд:**
+> Основний GTM-стек = **глобальні системи** (HubSpot/Attio/Salesforce). UA-системи — лише для внутрішнього helpdesk або як additional sales channel де UA-локалізація критична.
+> SaaS продається глобально → CRM також має бути глобальним.
 
 ---
 
 ## 🚫 ЗАСТЕРЕЖЕННЯ ЩОДО РОСІЙСЬКОГО ПЗ
 
-| Система | Статус | Чому не рекомендувати |
-|---------|--------|----------------------|
-| **Bitrix24** 🚫🇷🇺 | Заборонено в Україні | Санкції РНБО 2024 до 2033, ФСБ-доступ, дані на серверах РФ |
-| **amoCRM / Kommo** 🚫🇷🇺 | Не рекомендується | VK Group (держ. структура РФ) = власник. Законопроект ВРУ 19.08.2024 про заборону. |
+| Система | Статус | Причина |
+|---------|--------|---------|
+| **Bitrix24** 🚫🇷🇺 | Заборонено в Україні | Санкції РНБО 2024 до 2033. ФСБ-доступ. Дані на RU-серверах. Ризик компрометації клієнтських даних глобальних замовників. |
+| **amoCRM / Kommo** 🚫🇷🇺 | Не рекомендується | VK Group (держ. структура РФ) = власник. Законопроект ВРУ 19.08.2024. Особливо небезпечно для компаній з глобальними клієнтами. |
+| **RetailCRM** 🚫🇷🇺 | Не рекомендується | Росія-походження, compliance ризики |
 
-Усі рекомендовані системи у цьому звіті — американська або EU-юрисдикція. ✅
+> Всі рекомендовані системи у цьому звіті — американська, британська або EU/UA юрисдикція. ✅
+
+---
+
+## ПРАКТИЧНІ РЕКОМЕНДАЦІЇ ДЛЯ UA SAAS-КОМАНД
+
+1. **Чітко розділяйте шари стеку**: CRM (GTM) ≠ Billing ≠ Product Analytics ≠ CS Platform ≠ Sales Engagement ≠ CI
+2. **Не ведіть MRR/ARR тільки в CRM** — використовуйте ChartMogul/BI як source of truth
+3. **Для PLG** — event-first архітектура (Segment + Mixpanel/Amplitude → CRM/CS/SEP)
+4. **Для enterprise sales-led** — інвестуйте у buying committee model, CI (Gong/Einstein), SEP (Outreach/Salesloft), CS-layer
+5. **З урахуванням UA реалій** — обирайте US/EU/UK юрисдикції, мультивалюта, англомовний інтерфейс, підтримка global payment methods
 
 ---
 
 ## ДЖЕРЕЛА
 
-- [SaaStr: Which CRM to use 2026–2027](https://www.saastr.com/which-crm-should-you-use-in-2026-2027-follow-the-agents/)
+**Deep Research (завантажені файли, червень 2026):**
+- Stacksync.com: Attio CRM 2026 Review — Features, Pros, Cons and Pricing
+- Noltic.com: Full Salesforce Revenue Cloud Guide for 2026
+- NetHunt blog: What Features a CRM Must Have for SaaS Companies
+- Vitally: Customer Health Score Software, CS best practices
+- ChurnZero: 2025 SaaS benchmarks on retention and AI
+- Planhat: Enterprise Buyer's Guide to Customer Success Platforms
+- n8n.io/workflows/15297: Sync and score PLG leads (Segment + Attio + Claude/OpenAI)
+- Hyperline: Best Attio Integrations for SaaS in 2026
+
+**Веб-пошуки (червень 2026):**
+- [SaaStr: Which CRM 2026–2027](https://www.saastr.com/which-crm-should-you-use-in-2026-2027-follow-the-agents/)
 - [Attio pricing changes July 2025](https://attio.com/help/reference/workspace-settings-billing/plan-pricing-changes-april-2025)
-- [Close CRM Plans & Pricing PDF](https://resource-downloads.close.com/website/Close-Plans-Pricing.pdf)
 - [Salesforce pricing update August 2025](https://www.salesforce.com/news/stories/pricing-update-2025/)
 - [Gong pricing guide 2026 – Oliv.ai](https://oliv.ai/blog/gong-io-pricing)
 - [Vitally vs ChurnZero vs Planhat](https://www.vitally.io/post/vitally-vs-churnzero-vs-planhat)
-- [PLG metrics guide – Mixpanel blog](https://mixpanel.com/blog/product-led-growth/)
-- [Stripe vs Paddle vs Chargebee 2026 – Automaiva](https://automaiva.com/stripe-vs-paddle-vs-chargebee-vs-recurly-saas-2026/)
+- [PLG metrics – Mixpanel blog](https://mixpanel.com/blog/product-led-growth/)
+- [Stripe vs Paddle vs Chargebee 2026](https://automaiva.com/stripe-vs-paddle-vs-chargebee-vs-recurly-saas-2026/)
 - [Outreach vs Gong 2026 – Knowlee](https://www.knowlee.ai/compare/outreach-vs-gong)
-- [CS platforms comparison 2026 – The CS Cafe](https://www.thecscafe.com/p/best-customer-success-platforms)
-- [Gong vs Salesloft 2026 – CirrusInsight](https://www.cirrusinsight.com/blog/gong-vs-salesloft)
-- [NetHunt CRM for SaaS](https://nethunt.com/industries/saas-crm)
+- [Salesloft AI features 2026](https://www.cirrusinsight.com/blog/gong-vs-salesloft)
 - [HubSpot Sales Hub pricing](https://blog.hubspot.com/sales/hubspot-sales-hub-pricing)
 - [Pipedrive new plans 2025](https://support.pipedrive.com/en/article/new-pipedrive-plans)
 - [Folk CRM pricing](https://www.folk.app/pricing)
-- [Salespanel: What is PLG 2025](https://salespanel.io/blog/marketing/what-is-product-led-growth/)
-- [ChurnZero: CS platform increase NRR](https://churnzero.com/blog/customer-success-platform-increase-nrr/)
-- [Best CRM for SaaS 2026 – DesignRevision](https://designrevision.com/blog/crm-for-saas-companies)
+- [ClearSync Stripe→HubSpot](https://www.clearsync.ai/blog/stripe-to-hubspot-gap-why-we-started-clearsync)
+- [June.so + HubSpot integration](https://www.june.so/integration/hubspot)
+- [Attio + June integration](https://attio.com/blog/attio-june-integration)
+- [Mixpanel → Attio case study – Novlini](https://novlini.io/case-studies/mixpanel-attio)
+- [Platform Consolidation 2026 – VantagePoint.io](https://vantagepoint.io/blog/sf/insights/platform-consolidation-2026-saas-stack-reduction-ai)

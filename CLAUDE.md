@@ -568,13 +568,17 @@ Uspacy API, uspacy token, uspacy OAuth, uspacy webhook, uspacy endpoint, uspacy 
 ### Supabase — проект `call-analysis-bot` (id `beoendcicsoorvipswmh`, org CRMSolutions, EU)
 - Таблицы (public): `tg_employees` (name/username/chat_id), `tg_outbox` (очередь рассылки),
   `tg_seen_chats`, `tg_config` (anon_key, webhook_secret, function_url), `loom_transcripts`,
-  `tldv_transcripts`, `vidyard_transcripts`.
+  `tldv_transcripts`, `vidyard_transcripts`, `audio_transcripts`.
 - Edge Functions: `telegram-bot` (ping/drain/sync_updates/set_webhook/webhook_info/notion_check),
   `telegram-webhook` (входящие: привет+авторегистрация, кнопки ✅/🕐/❌→статус в Notion;
-  verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`, `vidyard-transcript`.
+  verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`, `vidyard-transcript`,
+  `audio-transcribe` (аудио по URL → Whisper).
+- Источники транскриптов в `SKILL.md` (шаг 0): текст · Loom · tl;dv · Vidyard · аудио-URL ·
+  скриншот/PDF (их Claude читает нативно через Read).
 - Cron `telegram-drain` — раз в минуту шлёт `tg_outbox`.
 - Секреты (ставит ПОЛЬЗОВАТЕЛЬ в Supabase → Edge Functions → Secrets; Claude их НЕ видит):
-  `TELEGRAM_BOT_TOKEN`, `TLDV_API_KEY`, `NOTION_TOKEN`. Бот: **@Sales_CRM_Solutions_bot**.
+  `TELEGRAM_BOT_TOKEN`, `TLDV_API_KEY`, `NOTION_TOKEN`, `GROQ_API_KEY`/`OPENAI_API_KEY` (аудио).
+  Бот: **@Sales_CRM_Solutions_bot**.
 - Детали + SQL-примеры: `/telegram/README.md`, `/loom/README.md`, `/tldv/README.md`.
 - ⛔ Старый проект `dogovora-yurii-bot` (другой аккаунт) НЕ использовать — перешли на `call-analysis-bot`.
 

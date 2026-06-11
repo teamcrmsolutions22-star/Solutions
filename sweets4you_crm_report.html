@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  @page { size: A4; margin: 14mm 0; }
+
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "DejaVu Sans", sans-serif;
+    font-size: 11px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 64px 50px 54px;
+  }
+  .cover-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #e2b96f; margin-bottom: 18px; }
+  .cover h1 { font-size: 30px; font-weight: 700; line-height: 1.15; margin-bottom: 12px; }
+  .cover h2 { font-size: 15px; font-weight: 400; color: #a8b3c7; margin-bottom: 24px; }
+  .cover-meta { display: flex; gap: 38px; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+  .cover-meta-item { font-size: 10px; color: #a8b3c7; }
+  .cover-meta-item strong { display: block; color: white; font-size: 12px; margin-top: 3px; }
+
+  .content { padding: 30px 45px 10px; }
+  .section { margin-bottom: 24px; }
+  .section-title {
+    font-size: 15px; font-weight: 700; color: #0f3460; margin-bottom: 14px;
+    padding-bottom: 6px; border-bottom: 2px solid #e2b96f;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .lead { font-size: 11px; color: #555; margin-bottom: 14px; }
+
+  .intro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .intro-item { background: #f8f9fc; border-left: 3px solid #0f3460; border-radius: 8px; padding: 9px 12px; }
+  .intro-item strong { display:block; color:#0f3460; font-size: 10px; text-transform: uppercase; letter-spacing:.3px; margin-bottom:2px; }
+  .intro-item span { font-size: 11px; color:#1a1a2e; }
+
+  .priority-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .priority-item { display: flex; align-items: flex-start; gap: 10px; background: #f8f9fc; border-radius: 8px; padding: 10px 12px; border-left: 3px solid #e2b96f; }
+  .priority-num { background: #0f3460; color: white; min-width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; }
+  .priority-text strong { display: block; font-size: 11px; font-weight: 600; color: #1a1a2e; }
+  .priority-text span { font-size: 10px; color: #666; }
+
+  .flow { display:flex; flex-wrap: wrap; gap:6px; align-items:center; background:#f8f9fc; border-radius:10px; padding:14px; }
+  .flow-step { background:#fff; border:1px solid #d9e0ee; border-radius:7px; padding:6px 10px; font-size:10px; font-weight:600; color:#0f3460; }
+  .flow-arrow { color:#e2b96f; font-weight:700; font-size:12px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9.5px; margin-bottom: 6px; table-layout: fixed; }
+  th { background: #0f3460; color: white; padding: 7px 6px; text-align: left; font-weight: 600; font-size: 9px; text-transform: uppercase; letter-spacing: 0.3px; }
+  th:first-child { border-radius: 6px 0 0 0; } th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 7px 6px; border-bottom: 1px solid #e8ecf4; vertical-align: top; word-wrap: break-word; line-height: 1.35; }
+  tr:nth-child(even) td { background: #f8f9fc; }
+  .yes { color: #16a34a; font-weight: 700; } .no { color: #dc2626; font-weight: 700; } .warn { color: #d97706; font-weight: 700; }
+
+  .rec-box { background: linear-gradient(135deg, #0f3460, #1a1a2e); color: white; border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; }
+  .rec-box.alt { background: #f8f9fc; color:#1a1a2e; border:1px solid #e2e8f0; }
+  .rec-title { font-size: 13px; font-weight: 700; color: #e2b96f; margin-bottom: 7px; }
+  .rec-box.alt .rec-title { color:#0f3460; }
+  .rec-body { font-size: 10.5px; line-height: 1.6; }
+  .rec-box .rec-body { color: #e2e8f0; }
+
+  .why-box { background:#fffaf0; border:1px solid #f0d9a8; border-left:4px solid #e2b96f; border-radius:8px; padding:14px 16px; margin-top:10px; }
+  .why-box .rec-title { color:#9a6a00; }
+  .why-box .rec-body { color:#5b4a25; }
+
+  .risk-table th:nth-child(1){width:24%;} .risk-table th:nth-child(2){width:40%;} .risk-table th:nth-child(3){width:36%;}
+  .badge { display:inline-block; padding:2px 7px; border-radius:10px; font-size:8.5px; font-weight:700; }
+  .badge-green { background:#dcfce7; color:#166534; } .badge-amber{ background:#fef3c7; color:#92400e; } .badge-blue{ background:#dbeafe; color:#1e40af;}
+
+  .qa { background:#f8f9fc; border-radius:8px; padding:11px 14px; margin-bottom:7px; border-left:3px solid #0f3460; }
+  .qa .q { font-size:11px; font-weight:700; color:#0f3460; margin-bottom:3px; }
+  .qa .a { font-size:10.5px; color:#374151; }
+  .clarify { background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:12px 16px; }
+  .clarify ul { margin:6px 0 0 16px; } .clarify li { font-size:10.5px; margin-bottom:4px; color:#1e3a5f; }
+
+  .footnote { font-size: 9px; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 10px; margin-top: 16px; text-align: center; }
+  .page-break { page-break-before: always; }
+  h3.block { font-size:12px; color:#0f3460; margin: 4px 0 8px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">CRM Solutions · Аналітичний звіт</div>
+  <h1>Підбір CRM-системи<br>для Sweets4you</h1>
+  <h2>Кондитерське виробництво + омніканальний продаж · Рекомендація · Ризики · Наступні кроки</h2>
+  <div class="cover-meta">
+    <div class="cover-meta-item">Дата<strong>Червень 2026</strong></div>
+    <div class="cover-meta-item">Для<strong>Sweets4you (Влад)</strong></div>
+    <div class="cover-meta-item">Підготував<strong>CRM Solutions</strong></div>
+    <div class="cover-meta-item">Статус<strong>Конфіденційно</strong></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 1 -->
+  <div class="section">
+    <div class="section-title">1. Як ми зрозуміли ваш бізнес</div>
+    <p class="lead">Коротко підсумовуємо те, що почули на консультації — щоб ви бачили, що рекомендація побудована саме під вас.</p>
+    <div class="intro-grid">
+      <div class="intro-item"><strong>Сфера</strong><span>Власне виробництво кондитерки + продаж: 3 фізичні магазини, сайт, Instagram, телефон</span></div>
+      <div class="intro-item"><strong>Масштаб</strong><span>~10–11 співробітників у системі; до 100 запитів/день у сезон; реклама ~$100/день</span></div>
+      <div class="intro-item"><strong>Зараз</strong><span>Облік ведеться в Excel + внутрішній чат — незручно, дані розсинхронізовані</span></div>
+      <div class="intro-item"><strong>Доставка</strong><span>Нова Пошта — 99% відправлень, щодня; повернення поки відстежуєте вручну</span></div>
+      <div class="intro-item"><strong>Оплати</strong><span>Монобанк</span></div>
+      <div class="intro-item"><strong>Що не потрібно</strong><span>Маркетплейси (Prom/Rozetka) не використовуєте; B2B-напрям не розвиваєте</span></div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <div class="section-title">2. Ваші завдання, які має закрити система</div>
+    <div class="priority-grid">
+      <div class="priority-item"><div class="priority-num">1</div><div class="priority-text"><strong>Облік виробництва</strong><span>Рецептури/техкарти → автоматичне списання сировини, розрахунок собівартості</span></div></div>
+      <div class="priority-item"><div class="priority-num">2</div><div class="priority-text"><strong>Склади + залишки</strong><span>Сировина та готова продукція, основний склад + 2 магазини, актуальні залишки на сайті</span></div></div>
+      <div class="priority-item"><div class="priority-num">3</div><div class="priority-text"><strong>Усі канали в одному вікні</strong><span>Instagram Direct (головний), сайт, телефон, офлайн</span></div></div>
+      <div class="priority-item"><div class="priority-num">4</div><div class="priority-text"><strong>Нова Пошта</strong><span>ТТН у кілька кліків, трекінг статусів, контроль повернень/оплат</span></div></div>
+      <div class="priority-item"><div class="priority-num">5</div><div class="priority-text"><strong>Незабрані посилки</strong><span>Авто-нагадування менеджеру + SMS клієнту «посилка очікує»</span></div></div>
+      <div class="priority-item"><div class="priority-num">6</div><div class="priority-text"><strong>Маркетинг після продажу</strong><span>SMS/email розсилки, повторні продажі (≈30% клієнтів повертаються)</span></div></div>
+      <div class="priority-item"><div class="priority-num">7</div><div class="priority-text"><strong>Документи</strong><span>Автоматичні рахунки/накладні (особливо в сезон для організацій)</span></div></div>
+      <div class="priority-item"><div class="priority-num">8</div><div class="priority-text"><strong>Оплати</strong><span>Монобанк — бажано бачити надходження прямо в системі</span></div></div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <div class="section-title">3. Ваш робочий процес у системі</div>
+    <div class="flow">
+      <span class="flow-step">Заявка (сайт / Instagram / телефон / магазин)</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Замовлення у воронці</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Склад: бронь і списання</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Виробництво: рецептура → сировина</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Нова Пошта: ТТН + трекінг</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Контроль повернень</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Документи</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Розсилки + повторні продажі</span>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <div class="section-title">4. Порівняння систем і рекомендація</div>
+    <p class="lead">Ключовий фактор — у вас власне <strong>виробництво</strong>. Тому системи «лише для продажів» (як KeyCRM) поступаються рішенням, що вміють і виробництво, і продажі разом.</p>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:23%">Критерій</th>
+          <th style="width:21%">KeepinCRM</th>
+          <th style="width:20%">Perfectum ERP</th>
+          <th style="width:18%">Odoo</th>
+          <th style="width:18%">KeyCRM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Виробництво (рецептура→сировина, собівартість)</strong></td><td><span class="yes">✓</span> є (комплектація)</td><td><span class="yes">✓</span> модуль «Виробництво»</td><td><span class="yes">✓✓</span> повний MRP</td><td><span class="no">✗</span> немає</td></tr>
+        <tr><td><strong>Терміни/партії сировини</strong></td><td><span class="warn">⚠</span> уточнити на демо</td><td><span class="warn">⚠</span> уточнити</td><td><span class="yes">✓✓</span> так (дати придатності)</td><td><span class="no">✗</span></td></tr>
+        <tr><td><strong>Мультисклад + синхр. залишків на сайт</strong></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓✓</span></td><td><span class="yes">✓✓</span> реалтайм</td></tr>
+        <tr><td><strong>Instagram Direct (ваш головний канал)</strong></td><td><span class="yes">✓</span></td><td><span class="warn">⚠</span> перевірити</td><td><span class="warn">⚠</span> через плагіни</td><td><span class="yes">✓✓</span> нативно</td></tr>
+        <tr><td><strong>Нова Пошта + авто-SMS</strong></td><td><span class="yes">✓✓</span></td><td><span class="yes">✓</span></td><td><span class="warn">⚠</span> модулі</td><td><span class="yes">✓✓</span></td></tr>
+        <tr><td><strong>Монобанк (виписка в системі)</strong></td><td><span class="yes">✓✓</span></td><td><span class="yes">✓</span></td><td><span class="warn">⚠</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td><strong>Документи (рахунки/накладні)</strong></td><td><span class="yes">✓✓</span></td><td><span class="yes">✓✓</span></td><td><span class="yes">✓✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td><strong>POS для фізичних магазинів</strong></td><td><span class="warn">⚠</span> базово</td><td><span class="yes">✓✓</span> так</td><td><span class="yes">✓</span></td><td><span class="warn">⚠</span></td></tr>
+        <tr><td><strong>Ціна на 10–11 користувачів</strong></td><td>від ~300 грн<br>(безліміт юзерів)</td><td>RETAIL ~4 752 грн</td><td>€19.9/юзер +<br>впровадж. від $5k</td><td>~$60–120<br>(безліміт юзерів)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rec-box">
+      <div class="rec-title">⭐ Рекомендація №1 — KeepinCRM</div>
+      <div class="rec-body">
+        Єдина система, яка одночасно закриває <strong>виробництво</strong> (рецептура → списання сировини → собівартість), <strong>склад</strong>, <strong>продажі</strong> в усіх каналах, <strong>Нову Пошту з авто-SMS</strong>, <strong>Монобанк прямо у виписці</strong> та фінансову аналітику. Ціна не залежить від кількості менеджерів. Для вашого масштабу — оптимальний баланс «усе в одному» без зайвих надбудов.
+      </div>
+    </div>
+
+    <div class="rec-box alt">
+      <div class="rec-title">Альтернатива A — Perfectum CRM+ERP</div>
+      <div class="rec-body">Якщо важливий повноцінний <strong>POS у 3 магазинах</strong> і єдиний український ERP: є модуль «Виробництво» з перевіркою сировини за техкартами, склад, роздріб і CRM в одному. Дорожче, потужніше.</div>
+    </div>
+    <div class="rec-box alt">
+      <div class="rec-title">Альтернатива B — Odoo</div>
+      <div class="rec-body">Якщо виробництво виявиться складним (багаторівневі рецептури) і потрібен <strong>суворий облік партій і термінів сировини</strong>: повний MRP + дати придатності. Мінус — Instagram і Нова Пошта через додаткові модулі, впровадження дорожче й довше.</div>
+    </div>
+
+    <div class="why-box">
+      <div class="rec-title">Чому саме «єдина система» (а не зв'язка кількох сервісів)</div>
+      <div class="rec-body">Кожен «місток» між програмами (конектор) — це окрема точка можливого збою та щомісячна плата. Чим більше окремих сервісів зшито докупи, тим більше шансів, що щось «відвалиться» після чергового оновлення. KeepinCRM закриває виробництво + продажі + склад + фінанси <strong>нативно</strong>, тому мостів потрібно мінімум — система працює стабільніше, дешевше в підтримці і простіша для вашої команди.</div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- 5 RISKS -->
+  <div class="section">
+    <div class="section-title">5. Ризики та як ми їх закриваємо</div>
+    <p class="lead">Чесно показуємо місця, де можливі складнощі, і наш план дій по кожному. Жодних «підводних каменів» постфактум.</p>
+    <table class="risk-table">
+      <thead><tr><th>Ризик</th><th>Що це означає простими словами</th><th>Як ми це закриваємо</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Синхронізація залишків із сайтом</strong></td>
+          <td>Якщо у вашого сайту немає готового модуля до KeepinCRM, зв'язок роблять через сервіс-посередник (Make / ApiX-Drive). Такий «місток» — це окрема щомісячна плата, і він може тимчасово ламатися, коли сайт або CRM оновлюють свою технічну частину.</td>
+          <td>Спочатку перевіряємо рушій сайту. Якщо є <strong>прямий модуль</strong> — використовуємо його (надійніше). Якщо потрібен посередник — беремо стабільний, налаштовуємо «моніторинг» і одразу домовляємось, хто реагує на збій (це частина тех.підтримки).</td>
+        </tr>
+        <tr>
+          <td><strong>Терміни/партії сировини</strong></td>
+          <td>Ви хотіли облік термінів придатності саме для складу сировини. Це є не в кожній CRM «з коробки».</td>
+          <td>Перевіряємо це <strong>першим пунктом на демо KeepinCRM</strong>. Якщо потрібен суворий партійний облік, а KeepinCRM його не дає — варіант B (Odoo) це гарантовано вміє. Рішення приймаємо до старту, не після.</td>
+        </tr>
+        <tr>
+          <td><strong>Viber / WhatsApp</strong></td>
+          <td>У KeepinCRM Instagram (ваш головний канал) працює напряму, а Viber/WhatsApp — через додатковий сервіс.</td>
+          <td>Instagram Direct підключаємо нативно — основний потік закрито. Якщо Viber/WhatsApp потрібні — закладаємо додатковий сервіс заздалегідь, з прозорою вартістю.</td>
+        </tr>
+        <tr>
+          <td><strong>Варіативні товари</strong></td>
+          <td>Якщо товар має варіанти (вага, начинка, набір) — їх облік потребує акуратного налаштування.</td>
+          <td>Налаштовуємо структуру каталогу під ваш асортимент на етапі впровадження — щоб залишки й собівартість рахувались правильно.</td>
+        </tr>
+        <tr>
+          <td><strong>Перехід з Excel</strong></td>
+          <td>Дані зараз у таблицях і чаті — їх треба коректно перенести, нічого не загубивши.</td>
+          <td>Готуємо й переносимо каталог, клієнтів і залишки структуровано; звіряємо контрольні цифри перед запуском.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 6 CLIENT QUESTIONS -->
+  <div class="section">
+    <div class="section-title">6. Ваші запитання — і наші відповіді</div>
+    <div class="qa"><div class="q">Як зробити, щоб залишки на сайті завжди були актуальні?</div><div class="a">Склад у CRM стає «єдиним джерелом правди»: продаж у будь-якому каналі або виробництво автоматично змінюють залишок, а він синхронізується на сайт. Більше немає розбіжностей між магазинами й сайтом.</div></div>
+    <div class="qa"><div class="q">Як автоматизувати відстеження повернень і оплат Нової Пошти?</div><div class="a">CRM сама підтягує статуси доставки й накладені платежі, зіставляє їх із замовленням — менеджеру не треба заходити в кабінет НП вручну.</div></div>
+    <div class="qa"><div class="q">Як зробити, щоб менеджер не забував про незабрані посилки?</div><div class="a">Система нагадує менеджеру за кілька днів до закінчення терміну зберігання і може автоматично надіслати клієнту SMS «посилка очікує» — менше повернень.</div></div>
+    <div class="qa"><div class="q">Як автоматизувати рахунки й накладні?</div><div class="a">Документ формується з шаблону одним натисканням на основі даних замовлення — без ручного набору в Excel, особливо зручно в сезон.</div></div>
+    <div class="qa"><div class="q">Як «дотискати» клієнтів після покупки?</div><div class="a">Налаштовуємо авто-розсилки (SMS після отримання, серія повідомлень) і сегментацію повторних клієнтів — це піднімає частку повторних продажів.</div></div>
+    <div class="qa"><div class="q">Чи рахуватиме система собівартість нашої продукції?</div><div class="a">Так — через рецептури/комплектацію: система знає, скільки й якої сировини йде на виріб, списує її і рахує собівартість та маржу.</div></div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <div class="section-title">7. Що уточнимо разом на демо</div>
+    <div class="clarify">
+      <ul>
+        <li>Чи потрібен <strong>суворий облік партій/термінів</strong> саме для сировини — чи достатньо простого контролю залишків?</li>
+        <li>Які <strong>варіанти товарів</strong> у вас є (вага, начинка, набори) — щоб правильно скласти каталог?</li>
+        <li>На якому <strong>рушії працює сайт</strong> (Horoshop / OpenCart / WordPress / Weblium / інше) — від цього залежить спосіб синхронізації залишків?</li>
+        <li>Скільки приблизно <strong>замовлень на місяць</strong> у сезон і поза сезоном (не запитів, а оформлених)?</li>
+        <li>Чи потрібна <strong>фіскалізація / чеки (Checkbox, РРО)</strong> у магазинах?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Документ підготовлено CRM Solutions · Червень 2026 · Конфіденційно — тільки для Sweets4you<br>
+    Усі ціни орієнтовні та уточнюються після технічного брифінгу. Підписку на CRM клієнт оплачує вендору напряму; CRM Solutions надає послуги впровадження, налаштування, навчання та підтримки.
+  </div>
+
+</div>
+</body>
+</html>

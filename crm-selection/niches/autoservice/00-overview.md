@@ -1,6 +1,7 @@
 # CRM для Автосервісу — Огляд, Топ-3, Ціни, Підводні камені
 
 > **Джерела:** 5 паралельних deep research агентів (червень 2026) + 3 Perplexity/ChatGPT deep research звіти (червень 2026): carbook.mobi, roapp.io, ulteama.com, usap.online, appointer.ua, keepincrm.com, keycrm.app, crm-vortex.com, miisoft.com.ua, livebusiness.com.ua та ін. Маркери: ✅ підтверджено / ⚠️ перевірити / ❌ відсутнє / 🚨 критично
+> ✅ Перевірено: червень 2026
 
 ---
 

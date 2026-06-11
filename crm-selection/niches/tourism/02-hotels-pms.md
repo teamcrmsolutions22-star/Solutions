@@ -1,6 +1,7 @@
 # PMS + Channel Manager для готелів, хостелів, апартаментів
 
 > **Джерела:** 5 паралельних deep research агентів (червень 2026) + hotelminder.com, hoteltechreport.com, ribashotelsgroup.ua, expertsolution.com.ua. Маркери: ✅ підтверджено / ⚠️ перевірити / ❌ відсутнє
+> ✅ Перевірено: червень 2026
 
 ---
 

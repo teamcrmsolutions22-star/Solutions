@@ -186,7 +186,7 @@
 |---------|--------------|------|--------|
 | **Flatris** | Будь-яка CRM (Pipedrive, Kommo, HubSpot, Bitrix24) | $31–387/міс | Залежність від API-стабільності; 2 різні системи |
 | **Profitbase** | amoCRM/Kommo, Bitrix24 | від ~$1000 впровадження | ⚠️ Російська компанія — ризик для UA ринку |
-| **Bitrix24 + FLATRIS** | Агентства з Bitrix24 | Bitrix24 + Flatris | ⚠️ Bitrix24 — російське походження |
+| **Bitrix24 🚫🇷🇺 + FLATRIS** | Агентства з Bitrix24 | Bitrix24 + Flatris | ⚠️ Bitrix24 — російське походження |
 | **Custom UI (HubSpot/Salesforce)** | Enterprise забудовники | $50 000+ | Дорого, довго, потребує IT-команди |
 
 ### Шахматка через кастомну розробку (enterprise-варіант)

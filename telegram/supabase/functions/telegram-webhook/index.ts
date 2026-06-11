@@ -18,14 +18,13 @@ const REST = `${SUPABASE_URL}/rest/v1`;
 const STATUS_MAP: Record<string, string> = { done: 'Готово', defer: 'Отложено', cancel: 'Отменена' };
 
 // шаги онбординга (поля tg_employees) и вопросы
-const ORDER = ['full_name_uk', 'position_uk', 'phone', 'email', 'role', 'photo'];
+const ORDER = ['full_name_uk', 'position_uk', 'phone', 'email', 'photo'];
 const Q: Record<string, string> = {
-  full_name_uk: '1/6 — Напиши своє <b>ПІБ українською</b> (для підпису в КП):',
-  position_uk: '2/6 — Твоя <b>посада українською</b> (як показати клієнту в КП):',
-  phone: '3/6 — Твій <b>телефон</b>:',
-  email: '4/6 — <b>Email</b> для КП:',
-  role: '5/6 — Твоя <b>роль</b> (продажник / інтегратор / маркетолог …):',
-  photo: '6/6 — Надішли своє <b>фото</b> (картинкою) — воно піде в КП:',
+  full_name_uk: '1/5 — Напиши своє <b>ПІБ українською</b> (для підпису в КП):',
+  position_uk: '2/5 — Твоя <b>посада українською</b> (як показати клієнту в КП, напр. «Менеджер з продажу»):',
+  phone: '3/5 — Твій <b>телефон</b>:',
+  email: '4/5 — <b>Email</b> для КП:',
+  photo: '5/5 — Надішли своє <b>фото</b> (картинкою) — воно піде в КП:',
 };
 
 function restHeaders(extra: Record<string, string> = {}) {
@@ -45,7 +44,7 @@ async function send(chatId: number | string, text: string) {
   await tg('sendMessage', { chat_id: chatId, parse_mode: 'HTML', disable_web_page_preview: true, text });
 }
 async function getEmp(chatId: number | string) {
-  const r = await fetch(`${REST}/tg_employees?chat_id=eq.${chatId}&select=onboarding_step&limit=1`, { headers: restHeaders() });
+  const r = await fetch(`${REST}/tg_employees?chat_id=eq.${chatId}&select=onboarding_step,is_approved&limit=1`, { headers: restHeaders() });
   const j = await r.json();
   return Array.isArray(j) && j[0] ? j[0] : null;
 }
@@ -99,7 +98,7 @@ async function createManagerPage(chatId: number | string, p: any) {
 async function startOnboarding(chatId: number | string, name: string) {
   await patchEmp(chatId, { onboarding_step: 'full_name_uk' });
   await send(chatId, `👋 Привіт, <b>${esc(name)}</b>! Я бот-помічник CRM Solutions.
-Щоб почати — заповнимо твій профіль (піде в реквізити КП). Усі 6 питань обовʼязкові.
+Щоб почати — заповнимо твій профіль (піде в реквізити КП). Усі 5 питань обовʼязкові.
 
 ${Q.full_name_uk}`);
 }
@@ -144,6 +143,19 @@ Deno.serve(async (req) => {
       const text = (msg.text ?? '').trim();
       const emp = await getEmp(chat.id);
       const step = emp?.onboarding_step ?? null;
+
+      // --- ГЕЙТ ДОСТУПА: бот только для одобренных менеджеров; чужим — ничего ---
+      if (emp?.is_approved !== true) {
+        const code = await getConfig('manager_code');
+        if (code && text === code) {
+          await patchEmp(chat.id, { is_approved: true });
+          await startOnboarding(chat.id, name);
+          return Response.json({ ok: true });
+        }
+        await send(chat.id, `🔒 Цей бот — лише для команди CRM Solutions.
+Якщо ти з команди — введи код доступу.`);
+        return Response.json({ ok: true });
+      }
 
       if (text === '/profile') { await startOnboarding(chat.id, name); return Response.json({ ok: true }); }
       if (text === '/start') {

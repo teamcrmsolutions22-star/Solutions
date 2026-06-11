@@ -842,3 +842,32 @@ CRM для фітнес-клубу/спортклубу/студії/йоги/т
   (страница: https://app.notion.com/p/45d6a662aa624d46aea70538a5389d2a)
 - Поля: `Задача`(title), `Ответственный`, `Дедлайн`(date), `Приоритет`(select),
   `Статус`(select), `Проект`(multi-select), `Источник встречи`, `Цитата`.
+
+### 🤝 AI-продажник в Telegram (строится; для МЕНЕДЖЕРОВ по продажам)
+Видение: единый Telegram-бот = персональный ассистент менеджера. Бот узнаёт его по chat_id,
+менеджер даёт задачи (разбери созвон → резюме+задачи в Notion; собери КП; сравнит. таблицу;
+«может ли CRM X то-то»; забронируй встречу). Полный цикл по блокам — в Notion-странице
+`3799b4d8501b80849997ec75fe87d673` («АИ-агенты»).
+- **Доступ — только одобренные менеджеры.** Гейт в `telegram-webhook`: неавторизованным — ничего
+  («🔒 лише для команди»); вход по коду `tg_config.manager_code` → ставит `tg_employees.is_approved=true`.
+- **Онбординг (telegram-webhook, детерминир. анкета, без LLM):** `/start` → 5 ОБЯЗ. вопросов
+  (`full_name_uk`→`position_uk`→`phone`→`email`→`photo`; «роль» убрали как дубль «посады»). Фото →
+  Storage bucket `avatars`. На финише: создаёт карточку в Notion-базе «👥 Менеджери CRM Solutions»
+  (emoji-иконка `tg_config.manager_emoji`=🧑‍💼 + фото, `notion_url` в tg_employees) + шлёт персональную
+  ссылку подключения Google-календаря. `/profile` — перезаполнить. `onboarding_step`/`onboarded_at`.
+- **Реквизиты для КП** в `tg_employees`: `full_name_uk, position_uk, phone, email, photo_url, birthday,
+  role, google_email/refresh_token/calendar_id, notion_url, is_approved, onboarding_step`.
+- **Google Calendar (мульти-менеджер)** — edge fn `calendar` (`verify_jwt=false`, экшены под `x-fn-secret`
+  = webhook_secret; секреты `GOOGLE_CLIENT_ID/SECRET`): `oauth_url`/`connect_links`/`status`/`slots`/`book`/
+  `set_calendar`, параметр `manager`(chat_id). У каждого свой календарь (токены в tg_employees);
+  подключение по персональной ссылке (`state`=chat_id, callback кладёт refresh_token менеджеру).
+  `book` создаёт событие с инвайтом + Google Meet. Проверено живьём на Наташе (`project@crmsolutions.ua`,
+  Workspace, consent Internal). Детали — `/calendar/README.md`.
+- **Notion-пульт «🎛 Правила бота»** (`tg_config.rules_page_id`=`37c9b4d8501b81aa9a6bc45fd01fda00`) —
+  что раскрываем / что НЕ раскрываем (себестоимость, маржа, «кухня», данные др. клиентов, чужим — ничего).
+  Будущий server-agent читает её как жёсткие правила.
+- **Дальше — server-agent = «мозг» бота** (Agent SDK): отвечает/делает КП/сравнения в Telegram,
+  проверяет авторизацию, соблюдает «🎛 Правила», грузит знания+скиллы из репо. Нужен ANTHROPIC_API_KEY+деплой.
+  Поток: webhook (после онбординга) кладёт сообщение менеджера в `agent_jobs` → агент отвечает в TG.
+- tg_config-ключи: `manager_code, managers_db_id`(65686f9b88d4455eb164ddb3a3ab928a)`, manager_emoji,
+  rules_page_id, notion_db_id, report_chat_id, anon_key, webhook_secret, function_url, project_ref`.

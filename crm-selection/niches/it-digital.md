@@ -3,6 +3,7 @@
 > **Сегменти:** IT-аутсорс / dev-shop · Digital / маркетингове агентство · Креативна / дизайн-студія · SaaS / продуктова IT-компанія · Фрілансер / мікро-студія  
 > **Джерела:** 5 паралельних Deep Research агентів (червень 2026) — ринок UA IT-компаній, CRM+PM-звʼязки, email-sequences, ретейнер-білінг, українські системи + Ukrainian IT CRM stack survey (ain.ua, DOU.ua, TechBehemoths, nethunt.com, pipedrive.com, hubspot.com, scoro.com, flowlu.com)  
 > Маркери: ✅ підтверджено / ⚠️ перевірити / ❌ відсутнє / 🚫🇷🇺 заборонено
+> ✅ Перевірено: червень 2026
 
 ---
 

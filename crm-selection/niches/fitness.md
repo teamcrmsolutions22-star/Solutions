@@ -3,6 +3,7 @@
 > **Сегменти:** тренажерний зал / фітнес-клуб · мережа клубів · студія (йога/пілатес/кросфіт/EMS/танці) · басейн/спорткомплекс · персональний тренер/онлайн-фітнес
 > **Джерела:** 3 Deep Research звіти (Perplexity x2 + ChatGPT, червень 2026) на основі instasport.ua, qbtools.com.ua, gyms-crm.com, lucky-fit.com, ismie.com.ua, perfectgym.com, mywellness.com, beautyprosoftware.com/fitness, keycrm.app, easyweek.io, cleverbox-crm.com, Forbes.ua, AIN.ua, NGL.media, NV.ua, livebusiness.com.ua та ін.
 > Маркери: ✅ підтверджено / ⚠️ перевірити / ❌ відсутнє / 🚫🇷🇺 ЗАБОРОНЕНО / РФ-юрисдикція
+> ✅ Перевірено: червень 2026
 
 ---
 

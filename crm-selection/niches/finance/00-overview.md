@@ -3,6 +3,7 @@
 > **Сегменти:** МФО / мікрокредитування · банківська CRM · страхування (агентська мережа) · обмін валюти · платіжні агенти / BNPL · інвестиції / брокери · фінансовий аутсорсинг  
 > **Джерела:** 5 паралельних deep research агентів (червень 2026) + 4 uploaded research docs (2× Perplexity + ChatGPT Deep Research): creatio.com, microf1.ua, crm.ua, mahaon.ua, lbs.systems, insk.com.ua, ukasko.ua, insurs.online, ususoft.com.ua, bank.gov.ua, ubki.ua, diia.gov.ua, gigacloud.ua та ін.  
 > Маркери: ✅ підтверджено / ⚠️ перевірити / ❌ відсутнє / 🚨 критично / 🚫 ЗАБОРОНЕНО
+> ✅ Перевірено: червень 2026
 
 ---
 

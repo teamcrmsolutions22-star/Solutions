@@ -3,6 +3,7 @@
 > **Сегменти:** барбершоп/перукарня · салон повного циклу · нігтьова студія · СПА/масаж · косметологія/естетична медицина · соло-майстер  
 > **Джерела:** 5 паралельних deep research агентів (червень 2026) + 4 uploaded research docs (Perplexity + ChatGPT Deep Research, червень 2026) + 4 нових Perplexity-файли (червень 2026): cleverbox-crm.com, beautyprosoftware.com, easyweek.com.ua, bookon.binotel.ua, appointer.ua, roapp.com.ua, svoya.in.ua, miisoft.com.ua, checkbox.ua, forbes.ua, ain.ua, sitniks.ua, livebusiness.com.ua, gbooking.ru, salonmarketing.pro, wiki.checkbox.ua та ін.  
 > Маркери: ✅ підтверджено / ⚠️ перевірити / ❌ відсутнє / 🚨 критично / 🚫🇷🇺 ЗАБОРОНЕНО / РФ-юрисдикція
+> ✅ Перевірено: червень 2026
 
 ---
 

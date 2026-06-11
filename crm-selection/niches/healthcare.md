@@ -2,6 +2,7 @@
 
 > Джерела: ChatGPT Deep Research (червень 2026) + Gemini Deep Research + веб-дослідження (AIN.ua, Forbes.ua, DOU, IT Ukraine Association, LiveBusiness, офіційні сайти вендорів)  
 > Оновлено: червень 2026 | Призначення: шаблон для консультації клієнта, підбір системи під сегмент
+> ✅ Перевірено: червень 2026
 
 ---
 

@@ -6,6 +6,37 @@
 
 ---
 
+## ⚡ TL;DR — Швидкий довідник
+
+| Система | Для кого | Ціна/user/міс | UA мова | Ключова фіча |
+|---------|---------|---------|---------|---------|
+| **HubSpot Sales Hub** | IT-аутсорс, SaaS | $90 (Pro) | ❌ | Breeze AI, sequences, CRM↔PM через Zapier |
+| **Pipedrive** | IT-аутсорс, агентства | $14–39 | ❌ | Activity-based, ~1000 UA-компаній |
+| **NetHunt CRM** | Gmail-орієнтовані | $24–48 | ✅ | Gmail-native, #1 у UA IT/агентств |
+| **Flowlu** | Агентства, ретейнери | $29–59/team | ✅ | CRM+PM+billing нативно, ретейнери |
+| **Scoro** | PSA агентства | €19–69 | ❌ | PSA-платформа, T&M+Fixed, ретейнери |
+| **Productive.io** | Digital/дизайн-агентства | $9–25 | ❌ | Agency-first PSA, бюджети проектів |
+| **Close CRM** | Outbound IT-продажі | $49–99 | ❌ | Built-in calling, email sequences |
+| **Attio** | SaaS/PLG | $29–69 | ❌ | API-first, PLG-архітектура |
+| **Planfix** | Агентства, проектний бізнес | $2–5 | ✅ | CRM+PM нативно, Worksection-аналог |
+| **Uspacy** | UA IT-компанії | €6–17 | ✅ | UA-розробник, Jira/ClickUp інтеграції |
+| **Zoho One** | Комплексне рішення | $37 all-in | ❌ | 55+ застосунків, Projects+Desk+CRM |
+
+**Топ вибір по сегментах:**
+- **IT-аутсорс / dev-shop:** NetHunt (Gmail) або Pipedrive → HubSpot для $1M+ ARR
+- **Digital / маркетингове агентство:** Flowlu (CRM+PM+billing) або Scoro → NetHunt (Gmail-native)
+- **Креативна / дизайн-студія:** Productive.io або Flowlu → Planfix для складних проектів
+- **SaaS / продуктова IT:** Attio або HubSpot → Pipedrive (літа модель)
+- **Фрілансер / мікро-студія:** Flowlu Free (3 users) або NetHunt Basic ($24)
+
+**CRM↔PM:** Flowlu ✅ нативно · Planfix ✅ нативно · HubSpot ✅ Projects · Pipedrive+ClickUp через Zapier · Scoro+Jira нативно
+
+**🚫 НЕ використовувати:** Bitrix24 (🚫🇷🇺), Kommo/amoCRM (🚫🇷🇺 QSOFT)
+
+> Детальна таблиця 17 критеріїв, CRM↔PM, email-sequences, ретейнери, AI — нижче ↓
+
+---
+
 ## ⚡ Контекст ніші: чому IT/Digital — окремий випадок
 
 **Ключові відмінності від звичайного B2B:**

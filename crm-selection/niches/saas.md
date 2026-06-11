@@ -6,6 +6,34 @@
 
 ---
 
+## ⚡ TL;DR — Швидкий довідник
+
+| Система | Для кого | Ціна/user/міс | PLG | Ключова фіча |
+|---------|---------|---------|---------|---------|
+| **HubSpot Sales Hub** | B2B SaaS $1M–$10M ARR | $90 (Pro) | ⚠️ через інтегр. | Breeze AI, sequences, Chargebee-native |
+| **Salesforce Revenue Cloud** | Enterprise SaaS $10M+ | $150–$325 | ⚠️ Data Cloud | Agentforce, CPQ, buying committee |
+| **Attio** | PLG / AI-native | $29–$69 | ✅ найкращий | API-first, Segment/Mixpanel нативно |
+| **Pipedrive** | Lean sales team | $14–$39 | ❌ | Activity-based, Chargebee інтеграція |
+| **Close CRM** | Outbound-focused | $49–$99 | ❌ | Built-in calling, power dialer |
+| **Folk CRM** | Founder-led sales | $20–$40 | ❌ | LinkedIn extension, AI enrichment |
+| **NetHunt CRM** | Gmail-native UA | $24–$48 | ❌ | Google Workspace, email sequences |
+| **Salesforce + Gainsight** | Enterprise CS | $150+ CRM | ❌ | Health score, renewal automation |
+
+**Топ вибір по сегментах:**
+- **B2B SaaS ($1M–$10M ARR):** HubSpot Sales Hub Pro + Chargebee + ChartMogul + Vitally
+- **PLG / self-serve trial→paid:** Attio + Stripe + Segment + Mixpanel + Vitally
+- **Sales-led Enterprise ($10M+ ARR):** Salesforce Revenue Cloud + Gainsight
+- **Lean / founder-led (до $1M ARR):** Folk → Close → Pipedrive
+- **UA-команда глобальні продажі:** NetHunt (Gmail) або Pipedrive
+
+**Customer Success платформи:** Vitally (до $10M), Gainsight (enterprise), ChurnZero (mid-market), Planhat
+
+**🚫 НЕ використовувати:** Bitrix24 (🚫🇷🇺), Kommo/amoCRM (🚫🇷🇺)
+
+> Детальні матриці, CS-платформи, білінг, product analytics, RevOps — нижче ↓
+
+---
+
 ## ВСТУП: SaaS — це стек, а не один продукт
 
 ### Тренд 2026: Platform Consolidation

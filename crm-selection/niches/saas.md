@@ -3,6 +3,7 @@
 > **Джерела:** Deep Research (2026-06-10) — 82 підтверджених джерела + 10 веб-пошуків.
 > Офіційні сайти, G2, Capterra, SaaStr, Stacksync, Vitally, ChurnZero, Gainsight, HubSpot blog, Salesforce docs, Attio Help Center, NetHunt, folk.app, Pipedrive KB, Close.com.
 > **Дата дослідження:** червень 2026.
+> ✅ Перевірено: червень 2026
 
 ---
 

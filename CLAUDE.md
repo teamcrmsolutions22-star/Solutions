@@ -756,7 +756,9 @@ CRM для фітнесу, CRM для фітнес-клубу, CRM для спо
   verify_jwt=false + secret_token), `loom-transcript`, `tldv-transcript`, `vidyard-transcript`,
   `audio-transcribe` (аудио по URL → Whisper), `youtube-transcript` (субтитры YT через InnerTube
   ANDROID/WEB → json3; `no_captions` → путь audio_jobs), `fetch-url` (URL/редиректы + Google
-  Docs/Sheets/Slides export + HTML→текст → `web_fetches`).
+  Docs/Sheets/Slides export + HTML→текст → `web_fetches`), `calendar` (Google Calendar:
+  OAuth-подключение + свободные слоты freeBusy + создание события с инвайтом и Meet; для AI-продажника,
+  Блок 3; verify_jwt=false, экшены под `x-fn-secret`; секреты `GOOGLE_CLIENT_ID/SECRET`).
 - Источники транскриптов в `SKILL.md` (шаг 0): текст · Loom · tl;dv · Vidyard · YouTube ·
   веб-страница/Google-док · аудио-URL · скриншот/PDF (их Claude читает нативно через Read).
 - Кадры из видео: таблица `frame_jobs` + Storage bucket `frames`; ffmpeg-воркер

@@ -69,6 +69,33 @@ async function notionSetStatus(pageId: string, statusName: string) {
   const r = await fetch(`https://api.notion.com/v1/pages/${pageId}`, { method: 'PATCH', headers: { Authorization: `Bearer ${NOTION_TOKEN}`, 'Notion-Version': '2022-06-28', 'Content-Type': 'application/json' }, body: JSON.stringify({ properties: { 'Статус': { select: { name: statusName } } } }) });
   return { ok: r.ok, status: r.status };
 }
+async function getProfile(chatId: number | string) {
+  const r = await fetch(`${REST}/tg_employees?chat_id=eq.${chatId}&select=name,username,full_name_uk,position_uk,phone,email,role,photo_url,birthday,google_email&limit=1`, { headers: restHeaders() });
+  const j = await r.json();
+  return Array.isArray(j) && j[0] ? j[0] : null;
+}
+// личная карточка менеджера в Notion (база «Менеджери»), эмодзи-иконка + фото
+async function createManagerPage(chatId: number | string, p: any) {
+  const dbId = await getConfig('managers_db_id');
+  const emoji = (await getConfig('manager_emoji')) || '🧑‍💼';
+  if (!dbId || !NOTION_TOKEN) return null;
+  const rt = (v: string) => [{ text: { content: v || '' } }];
+  const props: any = {
+    'Менеджер': { title: [{ text: { content: p.full_name_uk || p.name || String(chatId) } }] },
+    'Роль': { rich_text: rt(p.role) },
+    'Посада': { rich_text: rt(p.position_uk) },
+    'Телефон': { phone_number: p.phone || null },
+    'Email': { email: p.email || null },
+    'Telegram': { rich_text: rt(p.username ? '@' + p.username : String(chatId)) },
+    'Фото': { url: p.photo_url || null },
+    'Календар': { email: p.google_email || null },
+  };
+  if (p.birthday) props['ДР'] = { date: { start: p.birthday } };
+  const children = (p.photo_url && String(p.photo_url).startsWith('http')) ? [{ object: 'block', type: 'image', image: { type: 'external', external: { url: p.photo_url } } }] : [];
+  const r = await fetch('https://api.notion.com/v1/pages', { method: 'POST', headers: { Authorization: `Bearer ${NOTION_TOKEN}`, 'Notion-Version': '2022-06-28', 'Content-Type': 'application/json' }, body: JSON.stringify({ parent: { database_id: dbId }, icon: { type: 'emoji', emoji }, properties: props, children }) });
+  const j = await r.json();
+  return r.ok ? (j.url || null) : null;
+}
 async function startOnboarding(chatId: number | string, name: string) {
   await patchEmp(chatId, { onboarding_step: 'full_name_uk' });
   await send(chatId, `👋 Привіт, <b>${esc(name)}</b>! Я бот-помічник CRM Solutions.
@@ -133,7 +160,15 @@ Deno.serve(async (req) => {
         else if (text.startsWith('http')) photoUrl = text;
         if (!photoUrl) { await send(chat.id, 'Будь ласка, надішли <b>фото картинкою</b> або посилання (http…). Це обовʼязково:'); return Response.json({ ok: true }); }
         await patchEmp(chat.id, { photo_url: photoUrl, onboarding_step: 'done', onboarded_at: new Date().toISOString() });
-        await send(chat.id, `✅ Профіль заповнений, дякую!
+        // зеркалим профиль в Notion (личная карточка менеджера)
+        let notionUrl: string | null = null;
+        try {
+          const prof = await getProfile(chat.id);
+          if (prof) { notionUrl = await createManagerPage(chat.id, prof); if (notionUrl) await patchEmp(chat.id, { notion_url: notionUrl }); }
+        } catch (_e) { /* не критично для онбординга */ }
+        const cardLine = notionUrl ? `
+🗂 Твоя картка: ${notionUrl}` : '';
+        await send(chat.id, `✅ Профіль заповнений, дякую!${cardLine}
 
 Останнє — підключи свій <b>Google-календар</b> (для бронювання консультацій):
 ${calConnectUrl(chat.id)}

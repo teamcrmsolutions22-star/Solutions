@@ -1,13 +1,19 @@
-# calendar — Google Calendar для AI-продажника (Блок 3)
+# calendar — Google Calendar для AI-продажника (Блок 3, мульти-менеджер)
 
 Edge Function `calendar` в проекте **call-analysis-bot** (`beoendcicsoorvipswmh`), `verify_jwt=false`
 (OAuth-callback должен быть публичным; экшены защищены заголовком `x-fn-secret` = `tg_config.webhook_secret`).
 
-## Что умеет
-- `oauth_url` → ссылка «подключить Google» (один клик, refresh_token сохраняется сам).
-- `status` → подключён ли, какой email/календарь.
-- `slots` → свободные слоты (freeBusy + рабочие часы Mon–Fri, по умолчанию 10–19 Europe/Kyiv, 30 мин).
-- `book` → создаёт событие с приглашением клиента (`sendUpdates=all`) + ссылка Google Meet.
+**Мульти-менеджер:** у каждого менеджера свой календарь. Токены лежат в `tg_employees`
+(`google_refresh_token`/`google_email`/`google_calendar_id`), менеджер определяется по Telegram `chat_id`.
+Каждый менеджер один раз подключает СВОЙ Google по персональной ссылке.
+
+## Что умеет (все экшены принимают `manager` = chat_id/имя/username)
+- `connect_links` → персональные ссылки подключения Google для всех активных менеджеров + статус.
+- `oauth_url {manager}` → ссылка подключения для одного менеджера.
+- `status {manager?}` → кто подключён (или сводка по всем).
+- `set_calendar {manager, calendar_id}` → выбрать календарь менеджера (по умолч. `primary`).
+- `slots {manager}` → свободные слоты ЭТОГО менеджера (freeBusy + Mon–Fri 10–19 Europe/Kyiv, 30 мин).
+- `book {manager, start, client_email}` → событие в календаре менеджера + инвайт клиенту + Google Meet.
 
 ## Разовая настройка Google (Workspace — надёжнее)
 1. console.cloud.google.com → проект (новый или существующий).

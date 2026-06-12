@@ -107,6 +107,18 @@ def resolve_media(video):
                 if u:
                     return u
         if "loom.com" in host:
+            m = re.search(r"/(?:share|embed)/([0-9a-f]{32})", video) or re.search(r"([0-9a-f]{32})", video)
+            if m:
+                try:
+                    req = urllib.request.Request(
+                        f"https://www.loom.com/api/campaigns/sessions/{m.group(1)}/transcoded-url",
+                        data=b"{}", method="POST", headers={**UA, "Content-Type": "application/json"})
+                    with urllib.request.urlopen(req, timeout=60) as r:
+                        j = json.loads(r.read() or b"{}")
+                    if j.get("url"):
+                        return j["url"]      # прямой mp4 от Loom
+                except Exception as e:
+                    print(f"loom api failed: {e}", flush=True)
             u = pick_media(http_get(video).decode("utf-8", "ignore"))
             if u:
                 return u
@@ -120,7 +132,7 @@ def fetch_to_file(url, d, audio=False):
     Если yt-dlp нет или он не справился — вернуть прямой/резолвнутый URL (ffmpeg откроет сам)."""
     if YTDLP and url.startswith("http"):
         out = os.path.join(d, "dl.%(ext)s")
-        fmt = "bestaudio/best" if audio else "best[height<=720][ext=mp4]/best[ext=mp4]/best"
+        fmt = "bestaudio/best" if audio else "best[height<=1080]/best"
         cmd = [YTDLP, "--no-playlist", "--no-warnings", "--no-progress", "-f", fmt, "-o", out, url]
         if COOKIES_FILE:
             cmd[1:1] = ["--cookies", COOKIES_FILE]
@@ -136,6 +148,18 @@ def ffmpeg(cmd):
     p = subprocess.run(["ffmpeg", "-y", *cmd], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     if p.returncode != 0:
         raise RuntimeError(p.stderr.decode("utf-8", "ignore")[-300:])
+
+
+def extract_frame(video, sec, fp):
+    """Кадр на секунде sec. Быстрый seek (-ss до -i); если 'no packets' (HLS/удалённый поток) —
+    точный seek (-ss после -i), он надёжнее, хоть и медленнее."""
+    try:
+        ffmpeg(["-ss", str(sec), "-i", video, "-frames:v", "1", "-q:v", "2", fp])
+        if os.path.exists(fp) and os.path.getsize(fp) > 0:
+            return
+    except Exception:
+        pass
+    ffmpeg(["-i", video, "-ss", str(sec), "-frames:v", "1", "-q:v", "2", fp])
 
 
 def upload(path, name, bucket, content_type):
@@ -188,7 +212,7 @@ def process_frames(job):
                 sec = parse_ts(x)
                 try:
                     fp = os.path.join(d, f"f{sec}.jpg")
-                    ffmpeg(["-ss", str(sec), "-i", video, "-frames:v", "1", "-q:v", "2", fp])
+                    extract_frame(video, sec, fp)
                     url = upload(fp, f"job{jid}_{sec:06d}.jpg", FRAME_BUCKET, "image/jpeg")
                     out.append({"sec": sec, "url": url, "text": ocr_frame(url)})
                 except Exception as e:

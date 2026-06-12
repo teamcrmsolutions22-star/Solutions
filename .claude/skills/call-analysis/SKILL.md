@@ -270,12 +270,16 @@ insert into public.frame_jobs (video_url, timestamps, meeting)
 values ('<URL видео>', '["1:05","3:40","7:12"]'::jsonb, '<название>');
 ```
 
-3. Забери URL'ы готовых кадров:
+3. Забери результат — у каждого кадра теперь есть **OCR/описание** (Groq Vision, бесплатно),
+   так что видишь, что на экране, даже не открывая картинку:
 
 ```sql
 select status, result from public.frame_jobs where video_url='<URL>' order by id desc limit 1;
--- result: [{"sec":65,"url":"https://…/frames/jobN_000065.jpg"}, …]
+-- result: [{"sec":65,"url":"https://…/frames/jobN_000065.jpg","text":"<описание + OCR>"}, …]
 ```
+
+> **Авто-режим (детект смены сцен):** если не уверен в таймкодах — вставь `timestamps='[]'::jsonb`,
+> и воркер сам нарежет кадры там, где **экран меняется** (слайды/экраны), и каждый опишет (OCR).
 
 4. Вставь кадры (по URL, image-блоки) + цитаты в карточку задачи или в документ Notion
    (`notion-update-page` / `notion-create-pages`).

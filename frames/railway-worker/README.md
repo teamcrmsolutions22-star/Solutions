@@ -1,7 +1,9 @@
 # frames-worker — Railway-поллер для кадров и аудио из видео
 
 Долгоживущий сервис. Опрашивает **две** очереди в Supabase:
-- `public.frame_jobs` — режет кадры из видео по таймкодам (ffmpeg) → Storage bucket `frames`;
+- `public.frame_jobs` — режет кадры из видео по таймкодам (ffmpeg) → Storage bucket `frames`,
+  + **OCR/описание каждого кадра** через edge fn `frame-ocr` (Groq Vision, бесплатно) → `result[].text`.
+  Авто-режим: пустые `timestamps` (`[]`) → воркер сам режет кадры на **сменах сцен** (scene-detect);
 - `public.audio_jobs` — тянет аудио-дорожку из видео (ffmpeg `-vn`) → Storage bucket `audio`
   → зовёт Edge Function `audio-transcribe` (Whisper) → транскрипт обратно в `audio_jobs`.
 

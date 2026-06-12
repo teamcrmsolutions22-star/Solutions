@@ -20,6 +20,7 @@ FRAME_BUCKET = os.environ.get("FRAME_BUCKET", "frames")
 AUDIO_BUCKET = os.environ.get("AUDIO_BUCKET", "audio")
 POLL = int(os.environ.get("POLL_SEC", "15"))
 AUDIO_FN = f"{SUPABASE_URL}/functions/v1/audio-transcribe"
+OCR_FN = f"{SUPABASE_URL}/functions/v1/frame-ocr"
 UA = {"User-Agent": "Mozilla/5.0 (frames-worker)"}
 YTDLP = shutil.which("yt-dlp")  # универсальный резолвер (YouTube/Vidyard/Loom/…); если нет — fallback на ffmpeg-direct
 
@@ -56,6 +57,20 @@ def get_anon():
     _, b = sb("GET", "/rest/v1/tg_config?key=eq.anon_key&select=value")
     rows = json.loads(b or b"[]")
     return rows[0]["value"] if rows else None
+
+
+def ocr_frame(image_url):
+    """Кадр (по публичному URL) -> описание + OCR через Groq Vision (edge fn frame-ocr). Бесплатно."""
+    try:
+        anon = get_anon()
+        data = json.dumps({"image_url": image_url}).encode()
+        req = urllib.request.Request(OCR_FN, data=data, method="POST",
+                                     headers={"Content-Type": "application/json", "apikey": anon, "Authorization": f"Bearer {anon}"})
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return (json.loads(r.read() or b"{}") or {}).get("text")
+    except Exception as e:
+        print(f"ocr failed: {e}", flush=True)
+        return None
 
 
 def parse_ts(x):
@@ -152,20 +167,40 @@ def claim(table):
 
 
 # ---------- frames ----------
+def scene_frames(video, d, threshold=0.4, maxn=12):
+    """Кадры на сменах сцен (слайд/экран меняется) — ffmpeg scene-detect. Сам дедупит (только изменения)."""
+    out_pattern = os.path.join(d, "scene_%04d.jpg")
+    subprocess.run(["ffmpeg", "-y", "-i", video, "-vf", f"select=gt(scene\\,{threshold})",
+                    "-vsync", "vfr", "-frames:v", str(maxn), "-q:v", "2", out_pattern],
+                   stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    return sorted(os.path.join(d, f) for f in os.listdir(d) if f.startswith("scene_"))
+
+
 def process_frames(job):
     jid = job["id"]
     out = []
     with tempfile.TemporaryDirectory() as d:
         video = fetch_to_file(job["video_url"], d, audio=False)
-        for x in job["timestamps"]:
-            sec = parse_ts(x)
+        ts = job.get("timestamps") or []
+        if ts:
+            # режим по таймкодам (их выбирает Claude из транскрипта)
+            for x in ts:
+                sec = parse_ts(x)
+                try:
+                    fp = os.path.join(d, f"f{sec}.jpg")
+                    ffmpeg(["-ss", str(sec), "-i", video, "-frames:v", "1", "-q:v", "2", fp])
+                    url = upload(fp, f"job{jid}_{sec:06d}.jpg", FRAME_BUCKET, "image/jpeg")
+                    out.append({"sec": sec, "url": url, "text": ocr_frame(url)})
+                except Exception as e:
+                    out.append({"sec": sec, "error": str(e)[:200]})
+        else:
+            # авто-режим: кадры на сменах сцен (timestamps пустые)
             try:
-                fp = os.path.join(d, f"f{sec}.jpg")
-                ffmpeg(["-ss", str(sec), "-i", video, "-frames:v", "1", "-q:v", "2", fp])
-                url = upload(fp, f"job{jid}_{sec:06d}.jpg", FRAME_BUCKET, "image/jpeg")
-                out.append({"sec": sec, "url": url})
+                for i, fp in enumerate(scene_frames(video, d)):
+                    url = upload(fp, f"job{jid}_scene{i:03d}.jpg", FRAME_BUCKET, "image/jpeg")
+                    out.append({"idx": i, "url": url, "text": ocr_frame(url)})
             except Exception as e:
-                out.append({"sec": sec, "error": str(e)[:200]})
+                out.append({"error": str(e)[:200]})
     ok = any("url" in r for r in out)
     sb("PATCH", f"/rest/v1/frame_jobs?id=eq.{jid}",
        body={"status": "done" if ok else "error", "result": out,

@@ -812,8 +812,11 @@ CRM для фітнес-клубу/спортклубу/студії/йоги/т
   веб-страница/Google-док · аудио-URL · скриншот/PDF (их Claude читает нативно через Read).
 - Кадры из видео: таблица `frame_jobs` + Storage bucket `frames`; ffmpeg-воркер
   `frames/railway-worker/` (хостит ПОЛЬЗОВАТЕЛЬ на Railway, опрашивает frame_jobs). Claude
-  кладёт job через MCP, читает result (URL кадров). Railway из сессии создать нельзя — деплоит
-  пользователь; кадры в Storage Claude напрямую не открывает (нет egress) — для Notion/человека.
+  кладёт job через MCP, читает result. Railway из сессии создать нельзя — деплоит пользователь.
+  **Каждый кадр получает OCR/описание** (edge fn `frame-ocr` → Groq Vision, бесплатно, ключ
+  `GROQ_API_KEY`) → текст в `result[].text` (Claude видит содержимое кадра, не открывая картинку,
+  обходя отсутствие egress к Storage). **Авто-режим:** `timestamps='[]'` → воркер сам режет кадры
+  на сменах сцен (ffmpeg scene-detect, дедуп) и описывает.
 - Видео без субтитров → текст: таблица `audio_jobs` + bucket `audio`; тот же Railway-воркер
   резолвит медиа через **yt-dlp** (YouTube/Vidyard/Loom/прямые .mp4), вытягивает аудио-дорожку
   (ffmpeg -vn, моно 16кГц) → Storage → вызывает `audio-transcribe` (Whisper) → транскрипт в
